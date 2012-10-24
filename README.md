@@ -1,30 +1,14 @@
-### 这是教师平台托管到github上的更新页面.
-下面是一些git的常用操作说明
+![xueersi.com](https://raw.github.com/xueersi/TeacherPlatform/master/img/logo.png)
 
-```
-$ cd ~/work/github/xueersi/TeachPlatform
-$ vim README.md                // 编辑README.md文件
-$ git add README.md            // 添加文件内容的索引
-$ git commit -m '发布说明'      // 记录修改到版本库 -m 添加发布说明
-```
-// 下面是第一次提交到远程分支，之后可以忽略
-```
-    $ git remote add origin git@github.com:xueersi/TeacherPlatform.git
-```
-```
-$ git pull origin              // 从另外的分支进行提取与合并
-$ git push origin              // 更新远程文件以及关联的对象
 
-```
-```
-// $ git checkout master     // 切换版本
-```
+#教师课程运营平台
 
-下面是更新日志.
 
-### 2012-10-24 14:14:44 ###
-> 更新README.md文件
+| Version |   Update   |     Author     |     Logs              
+|:-------:|:----------:|:-------------- |:-------------------------
+|  v0.1   | 2012-10-18 |  Liu Yanbin    | Create HTML/CSS       
+|  v0.2   | 2012-10-19 |  Liu Chengjun  | Create JavaScript     
+|  v0.3   | 2012-10-24 |  Wu Jie        | Framework      
 
-> 重新规划目录结构
 
-> 文件路径规划
+##目录结构
