@@ -1,5 +1,6 @@
+<!--
 ![xueersi.com](https://raw.github.com/xueersi/TeacherPlatform/master/img/logo.png)
-
+-->
 
 #教师课程运营平台
 
