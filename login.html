@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>课程运营平台</title>
-<link rel="stylesheet" type="text/css" href="css/xes.app_course.css"/>
-<script type="text/javascript" src="http://www.xueersi.com/static/js/widget/xes.widget.jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/platform.css"/>
+<script type="text/javascript" src="js/xes.jquery.js"></script>
 </head>
 
 <body>
@@ -15,6 +15,7 @@
 	<div id="main">
 		<div class="left_inforpic"></div>
 		<div class="rihgt_login_bg">
+			<form name="teacher_login" action="list.html" >
 			<div class="form_text_input">
 				<p class="err_tips_infor">请输入用户名</p>
 				<span class="user">
@@ -25,13 +26,12 @@
 				</span>
 				<span class="code_num">
 					<input value="" size="" type="text" class="code_input" />				
-
 					<a class="blackFont" onclick="changeVerificationImg('verificationImg'); return false;" href="javascript:void(0);">
 						<img width="60" height="20" id="verificationImg" src="http://admin.xueersi.com//verifications/show?EteKo04YRcVp"></a>
-
 				</span>
 			</div>
-			<div class="login"><button class="btn_login">登 录</button></div>
+			<div class="login"><button class="btn_login" type="submit">登 录</button></div>
+			</form>
 		</div>
 	</div>
 	<!-- 内容 -->
