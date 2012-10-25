@@ -11,7 +11,7 @@
 |  v0.1   | 2012-10-18 |  Liu Yanbin    | Create HTML/CSS       
 |  v0.2   | 2012-10-19 |  Liu Chengjun  | Create JavaScript     
 |  v0.3   | 2012-10-24 |  Wu Jie        | Framework      
-
+|  v0.4   | 2012-10-25 |  Wu Jie        | Add JS Template      
 
 ##二、目录结构
 
@@ -25,7 +25,7 @@
 	 |	|-----test.html	 		测试手册
 	 |	
 	 |---- css/
-	 |	|-----base.css			基础样式
+	 |	|-----base.css			基础样式（只有全局样式以及公用方法）
 	 |	|-----platform.css	 	平台所需样式（合并后的）
 	 |
 	 |---- img/
@@ -37,12 +37,12 @@
 	 |	|-----line.png			线条图（整合后）
 	 |	 	 	 	 	 	 
 	 |---- js/
-	 |	|-----api/				对外接口
-	 |	|-----app/				应用扩展
-	 |	|-----import/			引入的外部文件
-	 |	|-----tools/			工具组件
-	 |	|-----ui/				页面中的ui组件
-	 |	|-----widget/			模块化接口
+	 |	|----- api/				对外接口
+	 |	|----- app/				应用扩展
+	 |	|----- import/			引入的外部文件
+	 |	|----- tools/			工具组件
+	 |	|----- ui/				页面中的ui组件
+	 |	|----- widget/			模块化接口
 	 |	|-----xes.boot.js		启动文件
 	 |	|-----xes.browser.js	浏览器检测组件
 	 |	|-----xes.cookie.js		cookie操作组件
