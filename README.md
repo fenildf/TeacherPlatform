@@ -77,7 +77,7 @@
 
 ##四、更新日志
 
-**0.4.1**  `2012-10-25 1:10`		 
+**0.4.1**  `2012-10-25 1:10`	
 > 增加测试模块
 
 **0.4.0**  `2012-10-25 0:20`
@@ -92,8 +92,6 @@
 
 
 
-
-
 ##五、链接
 
 + [Alice][e1]样式库
@@ -102,8 +100,8 @@
 + [Github][e4]帮助
 + Power by: [xueersi.com][e5]
 
-[e1]:http://
-[e2]:http://
-[e3]:http://
+[e1]:http://aliceui.com
+[e2]:http://www.css88.com/jqapi-1.7/
+[e3]:http://juicer.name
 [e4]:http://xueersi.github.com/TeacherPlatform
 [e5]:http://www.xueersi.com
