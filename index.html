@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,17 +16,18 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Teacher Platform</h1>
-        <p></p>
-
-        <p class="view"><a href="https://github.com/xueersi/TeacherPlatform">View the Project on GitHub <small>xueersi/TeacherPlatform</small></a></p>
-
+        <h1 class="header">Teacher Platform</h1>
+        <p class="header"></p>
 
         <ul>
-          <li><a href="https://github.com/xueersi/TeacherPlatform/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/xueersi/TeacherPlatform/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/xueersi/TeacherPlatform">View On <strong>GitHub</strong></a></li>
+          <li class="download"><a class="buttons" href="https://github.com/xueersi/TeacherPlatform/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/xueersi/TeacherPlatform/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/xueersi/TeacherPlatform">View On GitHub</a></li>
         </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/xueersi">xueersi</a></p>
+
+
       </header>
       <section>
         
@@ -59,6 +61,12 @@
 <td align="left">Wu Jie</td>
 <td align="left">Framework</td>
 </tr>
+<tr>
+<td align="center">v0.4</td>
+<td align="center">2012-10-25</td>
+<td align="left">Wu Jie</td>
+<td align="left">Add JS Template</td>
+</tr>
 </table><h2>二、目录结构</h2>
 
 <pre><code>---
@@ -71,7 +79,7 @@
  |  |-----test.html         测试手册
  |  
  |---- css/
- |  |-----base.css          基础样式
+ |  |-----base.css          基础样式（只有全局样式以及公用方法）
  |  |-----platform.css      平台所需样式（合并后的）
  |
  |---- img/
@@ -83,12 +91,12 @@
  |  |-----line.png          线条图（整合后）
  |                       
  |---- js/
- |  |-----api/              对外接口
- |  |-----app/              应用扩展
- |  |-----import/           引入的外部文件
- |  |-----tools/            工具组件
- |  |-----ui/               页面中的ui组件
- |  |-----widget/           模块化接口
+ |  |----- api/             对外接口
+ |  |----- app/             应用扩展
+ |  |----- import/          引入的外部文件
+ |  |----- tools/           工具组件
+ |  |----- ui/              页面中的ui组件
+ |  |----- widget/          模块化接口
  |  |-----xes.boot.js       启动文件
  |  |-----xes.browser.js    浏览器检测组件
  |  |-----xes.cookie.js     cookie操作组件
@@ -116,7 +124,7 @@
 <li><a href="doc/test.html">测试手册</a></li>
 </ol><h2>四、更新日志</h2>
 
-<p><strong>0.4.1</strong>  <code>2012-10-25 1:10</code>         </p>
+<p><strong>0.4.1</strong>  <code>2012-10-25 1:10</code>    </p>
 
 <blockquote>
 <p>增加测试模块</p>
@@ -125,7 +133,7 @@
 <p><strong>0.4.0</strong>  <code>2012-10-25 0:20</code></p>
 
 <blockquote>
-<p>增加模板引擎文件 <a href="http://">Juicer</a></p>
+<p>增加模板引擎文件 <a href="http://juicer.name">Juicer</a></p>
 </blockquote>
 
 <p><strong>0.3.1</strong>  <code>2012-10-24 23:30</code></p>
@@ -145,11 +153,11 @@
 
 <ul>
 <li>
-<a href="http://">Alice</a>样式库</li>
+<a href="http://aliceui.com">Alice</a>样式库</li>
 <li>
-<a href="http://">jQuery</a>手册</li>
+<a href="http://www.css88.com/jqapi-1.7/">jQuery</a>手册</li>
 <li>
-<a href="http://">Juicer</a>模板引擎</li>
+<a href="http://juicer.name">Juicer</a>模板引擎</li>
 <li>
 <a href="http://xueersi.github.com/TeacherPlatform">Github</a>帮助</li>
 <li>Power by: <a href="http://www.xueersi.com">xueersi.com</a>
@@ -157,11 +165,10 @@
 </ul>
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/xueersi">xueersi</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
