@@ -77,6 +77,12 @@
 
 ##四、更新日志
 
+**0.4.3**  `2012-10-26 14:40`	
+> 增加Select组件（仅样式部分）
+
+**0.4.2**  `2012-10-26 11:20`	
+> 背景图整合，页面中的icon均采用背景图
+
 **0.4.1**  `2012-10-25 1:10`	
 > 增加测试模块
 
@@ -103,5 +109,5 @@
 [e1]:http://aliceui.com
 [e2]:http://www.css88.com/jqapi-1.7/
 [e3]:http://juicer.name
-[e4]:http://xueersi.github.com/TeacherPlatform
+[e4]:http://www.worldhello.net/
 [e5]:http://www.xueersi.com

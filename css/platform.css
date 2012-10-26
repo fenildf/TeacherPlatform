@@ -26,11 +26,12 @@ code,kbd,pre,samp{font-family:courier new,courier,monospace;}
 small{font-size:12px;}
 
 /*公用图片*/
-.logo,.ui_nav_all li,.ui_search_input_text,.ui_search_btn,a.btn_say,.btn_prev,.btn_ancel,ul.action li.grade,ul.action li.course {background: url(../img/course_bgpic.png) no-repeat;}
-.action_item ul.action li span,ul.item_pag li.number,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot {background: url(../img/course_icon.png) no-repeat;}
+.logo,.ui_nav_all li,.ui_search_input_text,.ui_search_btn,a.btn_say,.btn_prev,.btn_ancel,ul.action li.grade,ul.action li.course,.btn_login,.item_pag li {background: url(../img/course_bgpic.png) no-repeat;}
+.action_item ul.action li span,ul.item_pag li.number,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line {background: url(../img/course_icon.png) no-repeat;}
+span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 
 /*框架 start*/
-#header {width:1282px;margin:0 auto;font-family: 微软雅黑;position: relative;}
+#header {width:1282px;margin:0 auto;position: relative;}
 #middle {width:1280px;margin:0px auto;overflow: hidden;border:1px solid #cbcbcb;border-top:0;}
 #footer {width:1280px;margin:10px auto 0;overflow: hidden;height:50px;}
 /*框架 end*/
@@ -40,8 +41,10 @@ small{font-size:12px;}
 .head_top .logo,.user_list,.search_course {float: left;display: inline;}
 .head_top .logo {width: 165px;height: 70px;height: 70px; }
 
-.ui_user_list li {float: left;height:70px;line-height: 93px;overflow: hidden;font-size: 14px;font-weight: bold;}
-.ui_user_list li.line {background: url(../img/line.png) 15px 40px no-repeat;padding-left: 30px;font-weight: normal;}
+.ui_user_list {height:30px;line-height: 30px;overflow: hidden;position: absolute;z-index: 10;top:32px;left:165px;}
+.ui_user_list li {float: left;font-size: 14px;font-weight: bold;}
+.ui_user_list li.line {padding-left: 30px;font-weight: normal; background-position:17px -187px;}
+.ui_user_list li a {color: #666;}
 
 .ui_search_course {float: right;margin: 38px 20px 0 0;}
 .ui_search_input_text {float: left;display: inline;width:262px;height: 27px;background-position: -0 -100px;overflow: hidden;}
@@ -51,12 +54,11 @@ small{font-size:12px;}
 
 /* #header ul.ui_nav_all */
 .ui_nav_all {overflow: hidden;height: 38px;background: url(../img/course_icon.png) repeat-x;padding-left:10px;_width:100%;}
-.ui_nav_all li {float: left;display: inline;width: 120px;line-height: 34px; text-align: center;font-size: 14px; background-position: -0 -147px;position: relative;cursor: pointer;}
+.ui_nav_all li {float: left;display: inline;width: 120px;height: 34px; line-height:40px;overflow: hidden; text-align: center;font-size: 14px; background-position: -0 -147px;position: relative;cursor: pointer;color: #666;}
 .ui_nav_all li.end {background-position: -0 -255px;}
 .ui_nav_all li.current {background-position: -0 -201px;font-weight: bold;color: #fff;}
-.ui_nav_all li span {display: none;}
-.ui_nav_all li.current span {display:block;width: 10px;height: 10px;position: absolute;z-index: 10;right:13px;top: 13px;cursor: pointer;}
-
+.ui_nav_all li span.del_btn {display: none;width: 10px;height: 10px;position: absolute;z-index: 10;right:13px;top: 14px;cursor: pointer;background-position: 0 -59px;text-indent: -99999px;}
+.ui_nav_all li.current span.del_btn {display:block;}
 
 /*middle start*/
 
@@ -81,6 +83,9 @@ small{font-size:12px;}
 .itemcontent li {float:left;display:inline;width:240px;line-height:180%;padding:10px;}
 .itemcontent li.title {}
 .itemcontent li.edit a {color: #006699;padding:0 5px;}
+.itemcontent li span.state {float: left;display: inline;width: 17px;height: 17px;margin-left: 10px;}
+.itemcontent li span.one { background-position: 0px 0px;}
+.itemcontent li span.two {background-position: 0px -32px;}
 .grid_item .no_line {border: 0;}
 
 .action_item {height: 36px;margin-top:20px;position:relative;}
@@ -92,7 +97,10 @@ small{font-size:12px;}
 .action_item ul.action li.course span {padding:0 15px;background-position: 78px -127px;}
 
 .item_pag {float: right;overflow: hidden;}
-.item_pag li {float: left;height: 28px;line-height: 28px;margin-left: 10px;cursor: pointer;}
+.item_pag li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;cursor: pointer;}
+.item_pag li.up_pag { background-position: -282px -201px;}
+.item_pag li.down_pag {background-position: -282px -255px;}
+.item_pag li span {display:block;text-indent: -99999px;}
 .item_pag li.number {width:40px;margin-right:10px;background-position: 31px -121px;}
 
 
@@ -145,17 +153,15 @@ small{font-size:12px;}
 #footer p { text-align: center;line-height: 30px;}
 #footer p.xueersi{color: #999;}
 
-
-
-
 /*登录页 start*/
-#header_login {height:94px;background: url(../img/header_bg.png) repeat-x;}
-#header_login .login_logo {width:980px;margin:0 auto;overflow: hidden;}
+.login_logo,.left_inforpic,.rihgt_login_bg{background: url(../img/login_bg.png) no-repeat;}
+#header_login {height:94px;background: url(../img/course_icon.png) 0 -245px repeat-x;}
+#header_login .login_logo {width:980px;height:70px;margin:0 auto;overflow: hidden;text-indent: -9999999px;}
 #main {width:980px;margin:60px auto;overflow: hidden;}
-#main .left_inforpic {float: left;width:457px;height: 363px;background: url(../img/left_pic.png) 0 40px no-repeat;}
-#main .rihgt_login_bg {float: left;width:413px; height: 363px;background: url(../img/text_bg.png) no-repeat;position: relative;}
+#main .left_inforpic {float: left;width:457px;height: 363px;background-position: 0 -125px;}
+#main .rihgt_login_bg {float: left;width:413px; height: 363px;position: relative;background-position: 0 -528px;}
 #main .login {overflow: hidden;width: 100px;height:36px;position: absolute;z-index: 100;top: 233px;left:113px;}
-#main .btn_login {display: block;width: 96px;height: 36px;line-height: 36px;color:#fff;font-size: 14px;font-weight: bold;background: url(../img/btn_logon.jpg) no-repeat;border: 0;cursor: pointer;}
+#main .btn_login {display: block;width: 96px;height: 36px;line-height: 36px;color:#fff;font-size: 14px;font-weight:bold;border: 0;cursor: pointer; background-position: -214px -147px;}
 #main .form_text_input {overflow: hidden;}
 #main .form_text_input .user {position: absolute;z-index: 10;top:70px;left:115px;}
 #main .form_text_input .password {position: absolute;z-index: 10;top:120px;left:115px;}
