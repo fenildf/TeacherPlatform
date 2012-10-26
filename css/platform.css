@@ -204,7 +204,6 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 	background:#fff;
 	color:#999999;
 	position:relative;float: left;
-	/* border: 1px solid #cdcdcd;border-right: none; */
 }
 
 .select_jun2 input{
@@ -228,7 +227,6 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 	background:#fff;
 	color:#999999;
 	position: relative;float: left;
-	/* border: 1px solid #cdcdcd;border-right: none; */
 }
 
 .select_jun3 input{
@@ -247,11 +245,9 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 
 .select_jun4{
 	width:70px;
-	
 	background:#fff;
 	color:#999999;
 	position: absolute;right: 70px;top: 0px;
-	/* border: 1px solid #cdcdcd;border-right: none; */
 }
 
 .select_jun4 input{
