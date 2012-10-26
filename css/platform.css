@@ -3,7 +3,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,
 pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
 
 html{
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:宋体, Arial, Helvetica, sans-serif;
 	font-size:12px;
 	color:#333;
 	line-height:20px;
