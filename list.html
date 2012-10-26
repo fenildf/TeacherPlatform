@@ -1,16 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>课程运营平台</title>
-	<link rel="stylesheet" type="text/css" href="css/platform.css"/>
-	<!-- <script type="text/javascript" src="http://www.xueersi.com/static/js/widget/xes.widget.jquery.js"></script>
--->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>课程运营平台</title>
+<link rel="stylesheet" type="text/css" href="css/platform.css"/>
+<link rel="stylesheet" type="text/css" href="css/ui-select.css"/>
 <script type="text/javascript" src="js/xes.base.js"></script>
 </head>
 
 <script type="text/javascript"></script>
-<body>
+<body class="skin skin-green">
 <div id="header">
 	<div class="head_top">
 		<span class="logo"></span>
@@ -18,30 +17,30 @@
 			<li>
 				<a href="">xuqian@xueersi.com</a>
 			</li>
-
-			<li class="line">
-				<a href="">退出</a>
-			</li>
-		</ul>
-		<div class="ui_search_course">
-			<div class="ui_search_input_text">
-				<div class="select_jun">
-					<input name="" type="button" value="课程" id="kecheng" />
-					<ul class="xlcd">
-						<li>语文</li>
-						<li>数学</li>
-						<li>语文</li>
-						<li>数学</li>
-						<li>44444</li>
-						<li>55555</li>
-						<li>33333</li>
-					</ul>
+				<li class="line">
+					<a href="">退出</a>
+				</li>
+			</ul>
+			<div class="ui_search_course">
+				<div class="ui_search_input_text">
+					<div class="">
+						<button name="" type="button" value="课程" id="kecheng" class="ui-select-button icon_bot">课程</button>
+						<!-- <input name="" type="button" value="课程" id="kecheng" class="ui-select-button icon_bot" /> -->
+						<ul class="ui-select-list">
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+						</ul>
+					</div>
+					<input size="" value="课程ID/课程名称" type="text" class="input_text_ui"/>	
 				</div>
-				<input size="" value="课程ID/课程名称" type="text" class="input_text_ui"/>
-			</div>
 			<button class="ui_search_btn">搜索</button>
-		</div>
 
+		</div>
 	</div>
 	<ul class="ui_nav_all">
 		<li>首页</li>
@@ -90,233 +89,211 @@
 		</ul>
 		<h2 class="h2_menu_title">数据分析</h2>
 	</div>
-	<!-- sidebar 菜单左边栏 -->
-	<div class="mainbody">
-		<div class="action_item">
-			<!-- <ul class="action">
-			<li class="grade">
-				<span>年级</span>
-			</li>
-			<li class="course">
-				<span>课程状态</span>
-			</li>
-		</ul>
-		<ul class="item_pag">
-			<li class="number">1/24</li>
-			<li>
-				<img src="img/up_page.png" alt="上一页" title="上一页"/>
-			</li>
-			<li>
-				<img src="img/down_page.png" alt="下一页" title="下一页"/>
-			</li>
-		</ul>
-		<ul class="itemlayer grade_layer">
-			<li class="hovercurrent">一年级</li>
-			<li>一年级</li>
-			<li>一年级</li>
-			<li>一年级</li>
-			<li>一年级</li>
-		</ul>
-		<ul class="itemlayer course_layer">
-			<li class="hovercurrent">查看视频</li>
-			<li>查看课程</li>
+		<!-- sidebar 菜单左边栏 -->	
+		<div class="mainbody">
+			<div class="action_item">
+				<ul class="action">
+					<li class="grade" class="ui-select-button"><span>年级</span></li>
+					<li class="course" class="ui-select-button"><span>课程状态</span></li>
+				</ul>
+				<ul class="item_pag">
+					<li class="number">1/24</li>
+					<li class="up_pag">
+						<span>上一页</span>
+					</li>
+					<li class="down_pag">
+						<span>下一页</span>
+					</li>
+				</ul>
+				<ul class="itemlayer grade_layer ui-select-list ui-select-show">
+					<li><a href="">一年级</a></li>
+					<li class="ui-select-hover"><a href="">一年级</a></li>
+					<li><a href="">一年级</a></li>
+					<li><a href="">一年级</a></li>
+					<li><a href="">一年级</a></li>
+				</ul>
+				<ul class="itemlayer course_layer ui-select-list">
+					<li class="ui-select-hover"><a href="">查看视频</a></li>
+					<li><a href="">查看课程</a></li>
+				</ul>
+				<ul class="itemlayer page_layer ui-select-list ui-select-show ui-select-default ui-select-topborder">
+					<li><a href="">1/24</a></li>
+					<li class="ui-select-hover"><a href="">2/24</a></li>
+					<li><a href="">3/24</a></li>
+					<li><a href="">4/24</a></li>
+					<li><a href="">5/242</a></li>
+				</ul>
 
-		</ul>
-		<ul class="itemlayer page_layer">
-			<li class="hovercurrent">1/24</li>
-			<li>2/24</li>
-			<li>3/24</li>
-			<li>4/24</li>
-			<li>5/242</li>
-		</ul>
-		-->
-		<div class="select_jun2">
-			<input name="" type="button" value="年级" id="nianji" />
-			<ul class="xlcd2">
-				<li>语文</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-			</ul>
-		</div>
-		<div class="select_jun3">
-			<input name="" type="button" value="课程状态" id="zhuangtai" />
-			<ul class="xlcd3">
-				<li>语文</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-			</ul>
-		</div>
-		<div class="select_jun4">
-			<input name="" type="button" value="1/24" id="page_count" />
-			<ul class="xlcd4">
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li>6</li>
-				<li>7</li>
-				<li>8</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>语文</li>
-				<li>数学</li>
-				<li>44444</li>
-				<li>55555</li>
-				<li>33333</li>
-			</ul>
-		</div>
-		<ul class="item_pag">
+					<!-- <div class="select_jun2">
+						<input name="" type="button" value="年级" id="nianji" class="ui-select-button" />
+						<ul class="ui-select-list ui-select-large">
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+						</ul>
+					</div> -->
+					<!-- <div class="select_jun3">
+						<input name="" type="button" value="课程状态" id="zhuangtai" class="ui-select-button" />
+						<ul class="ui-select-list ui-select-large">
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+						</ul>
+					</div> -->
+					<!-- <div class="select_jun4">
+						<input name="" type="button" value="1/24" id="page_count" />
+						<ul class="xlcd4">
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+							<li>7</li>
+							<li>8</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>语文</li>
+							<li>数学</li>
+							<li>44444</li>
+							<li>55555</li>
+							<li>33333</li>
+						</ul>
+					</div>
+					<ul class="item_pag">
 
-			<li class="up_pag">
-				<span>上一页</span>
-			</li>
-			<li class="down_pag">
-				<span>下一页</span>
-			</li>
-		</ul>
+						<li><img src="img/up_page.png" alt="上一页" title="上一页"/></li>
+						<li><img src="img/down_page.png" alt="下一页" title="下一页"/></li>
+					</ul> -->
+			</div>
+			<div class="grid_item">
+				<ul class="itemtitle">
+					<li>课程名称</li>
+					<li>年级</li>
+					<li>课程状态</li>
+					<li>操作</li>
+				</ul>				
+				<ul class="itemcontent even">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+					</li>
+				</ul>
+				<ul class="itemcontent">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+					
+					</li>
+				</ul>
+				<ul class="itemcontent">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+						
+					</li>
+				</ul>
+				<ul class="itemcontent">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+						
+					</li>
+				</ul>
+				<ul class="itemcontent">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+						
+					</li>
+				</ul>
+				<ul class="itemcontent no_line">
+					<li class="title">
+						<input type="checkbox"/> 学数学小学数学小学数学</li>
+					<li>一年级</li>
+					<li>
+						<span class="state one"></span>
+						<span class="state two"></span>
+					</li>
+					<li class="edit">
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
+						
+					</li>
+				</ul>
+			</div>
+		<!--mainbody内容右边栏  -->	
 	</div>
-	<div class="grid_item">
-		<ul class="itemtitle">
-			<li>课程名称</li>
-			<li>年级</li>
-			<li>课程状态</li>
-			<li>操作</li>
-		</ul>
-		<ul class="itemcontent even">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
-		<ul class="itemcontent">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
-		<ul class="itemcontent">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
-		<ul class="itemcontent">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
-		<ul class="itemcontent">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学学数学小学数学小学数学学数学小学数学小学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
-		<ul class="itemcontent no_line">
-			<li class="title">
-				<input type="checkbox"/>
-				学数学小学数学小学数学
-			</li>
-			<li>一年级</li>
-			<li>
-				<span class="state one"></span>
-				<span class="state two"></span>
-			</li>
-			<li class="edit">
-				<a href="infor.html">编辑详情</a>
-				<a href="videos.html">查看</a>
-
-			</li>
-		</ul>
 	</div>
-</div>
-<!--mainbody内容右边栏  -->
-</div>
-<!-- 内容 -->
-<div id="footer">
-<p class="xueersi">本网站隶属于北京学而思教育科技有限公司</p>
-<p>
-	Copyright &copy; 2009-2012 www.xueersi.com All Rights Reserved     京ICP备09032638号     京公网安备:1101082103
-</p>
-</div>
+	<!-- 内容 -->
+	<div id="footer">
+		<p class="xueersi">本网站隶属于北京学而思教育科技有限公司</p>
+		<p>Copyright &copy; 2009-2012 www.xueersi.com All Rights Reserved     京ICP备09032638号     京公网安备:1101082103</p>
+
+	</div>
+
 </body>
 </html>
