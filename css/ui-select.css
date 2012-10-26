@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/*
+ * ui selector
+ * 下拉框UI组件
+ * update: 2012-10-25
+ * author: Wu Jie (Marco)
+ *
+ */
+.ui-select-box {}
+.ui-select-button {}
+ul.ui-select-list {display: none;position: static;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
+ul.ui-select-list li {line-height: 23px; padding: 0 10px}
+ul.ui-select-list li.ui-select-hover {color:#FFF;background-color: #4582D3}
+ul.ui-select-list li.ui-select-hover a {color:#FFF}
+
+/* large select: line-height:28px */
+ul.ui-select-large {}
+ul.ui-select-large li {line-height: 28px}
+
+/* add top border */
+ul.ui-select-border {border-top-width: 1px}
+
+/* themes green */
+.ui-green {}
+.ui-green li.ui-select-hover {background-color: #057E13}
+
+
+ul.ui-select-show {display: block; position: absolute;}
+
+
+
+
+/* erro */
+.icon_bot {background: url(../img/course_icon.png) no-repeat;}
+.ui_search_input_text .icon_bot {
+	border:0;
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	padding:0 10px 0 5px;
+	background-position:50px -83px;
+}

@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>课程运营平台</title>
 <link rel="stylesheet" type="text/css" href="css/platform.css"/>
+<link rel="stylesheet" type="text/css" href="css/ui-select.css"/>
 <!-- <script type="text/javascript" src="http://www.xueersi.com/static/js/widget/xes.widget.jquery.js"></script> -->
 <script type="text/javascript" src="js/xes.base.js"></script>
 </head>
@@ -27,9 +28,10 @@
 			</ul>
 			<div class="ui_search_course">
 				<div class="ui_search_input_text">
-					<div class="select_jun">
-						<input name="" type="button" value="课程" id="kecheng" />
-						<ul class="xlcd">
+					<div class="">
+						<button name="" type="button" value="课程" id="kecheng" class="ui-select-button icon_bot">课程</button>
+						<!-- <input name="" type="button" value="课程" id="kecheng" class="ui-select-button icon_bot" /> -->
+						<ul class="ui-select-list">
 							<li>语文</li>
 							<li>数学</li>
 							<li>语文</li>
@@ -99,38 +101,38 @@
 		<!-- sidebar 菜单左边栏 -->	
 		<div class="mainbody">
 			<div class="action_item">
-				<!-- <ul class="action">
-					<li class="grade"><span>年级</span></li>
-					<li class="course"><span>课程状态</span></li>
+				<ul class="action">
+					<li class="grade" class="ui-select-button"><span>年级</span></li>
+					<li class="course" class="ui-select-button"><span>课程状态</span></li>
 				</ul>
 				<ul class="item_pag">
 					<li class="number">1/24</li>
 					<li><img src="img/up_page.png" alt="上一页" title="上一页"/></li>
 					<li><img src="img/down_page.png" alt="下一页" title="下一页"/></li>
 				</ul>
-				<ul class="itemlayer grade_layer">
+				<ul class="itemlayer grade_layer ui-select-list">
 				<li class="hovercurrent">一年级</li>
 				<li>一年级</li>
 				<li>一年级</li>
 				<li>一年级</li>
 				<li>一年级</li>
 							</ul>
-							<ul class="itemlayer course_layer">
-				<li class="hovercurrent">查看视频</li>
+							<ul class="itemlayer course_layer ui-select-list">
+				<li class="ui-select-hover">查看视频</li>
 				<li>查看课程</li>
 				
 							</ul>
-							<ul class="itemlayer page_layer">
+							<ul class="itemlayer page_layer ui-select-list">
 				<li class="hovercurrent">1/24</li>
 				<li>2/24</li>
 				<li>3/24</li>
 				<li>4/24</li>
 				<li>5/242</li>
-							</ul> -->
+							</ul>
 
-			<div class="select_jun2">
-						<input name="" type="button" value="年级" id="nianji" />
-						<ul class="xlcd2">
+					<!-- <div class="select_jun2">
+						<input name="" type="button" value="年级" id="nianji" class="ui-select-button" />
+						<ul class="ui-select-list ui-select-large">
 							<li>语文</li>
 							<li>数学</li>
 							<li>语文</li>
@@ -139,10 +141,10 @@
 							<li>55555</li>
 							<li>33333</li>
 						</ul>
-					</div>
-					<div class="select_jun3">
-						<input name="" type="button" value="课程状态" id="zhuangtai" />
-						<ul class="xlcd3">
+					</div> -->
+					<!-- <div class="select_jun3">
+						<input name="" type="button" value="课程状态" id="zhuangtai" class="ui-select-button" />
+						<ul class="ui-select-list ui-select-large">
 							<li>语文</li>
 							<li>数学</li>
 							<li>语文</li>
@@ -151,8 +153,8 @@
 							<li>55555</li>
 							<li>33333</li>
 						</ul>
-					</div>
-					<div class="select_jun4">
+					</div> -->
+					<!-- <div class="select_jun4">
 						<input name="" type="button" value="1/24" id="page_count" />
 						<ul class="xlcd4">
 							<li>1</li>
@@ -196,7 +198,7 @@
 
 						<li><img src="img/up_page.png" alt="上一页" title="上一页"/></li>
 						<li><img src="img/down_page.png" alt="下一页" title="下一页"/></li>
-					</ul>
+					</ul> -->
 			</div>
 			<div class="grid_item">
 				<ul class="itemtitle">
@@ -214,8 +216,8 @@
 						<img src="img/icon_green.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 					
 					</li>
 				</ul>
@@ -228,8 +230,8 @@
 						<img src="img/icon_red.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 					
 					</li>
 				</ul>
@@ -242,8 +244,8 @@
 						<img src="img/icon_red.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 						
 					</li>
 				</ul>
@@ -256,8 +258,8 @@
 						<img src="img/icon_red.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 						
 					</li>
 				</ul>
@@ -270,8 +272,8 @@
 						<img src="img/icon_red.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 						
 					</li>
 				</ul>
@@ -284,13 +286,14 @@
 						<img src="img/icon_red.png" alt=""/>				
 					</li>
 					<li class="edit">
-						<a href="infor.html">编辑详情</a>
-						<a href="videos.html">查看</a>
+						<a href="edit.html">编辑详情</a>
+						<a href="view.html">查看</a>
 						
 					</li>
 				</ul>
 			</div>
 		<!--mainbody内容右边栏  -->	
+	</div>
 	</div>
 	<!-- 内容 -->
 	<div id="footer">
