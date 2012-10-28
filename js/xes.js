@@ -27,7 +27,8 @@ xes.path = {
 
 
 
-
+// 将组件注册到xes中
+xes.register = function(app, callback){};
 
 // 常用事件的封装
 xes.event = xes.event || {};
