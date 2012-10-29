@@ -49,7 +49,7 @@ h1,h2,h3,h4,h5,h6{color:#333;}
 
 /*公用图片*/
 .logo,.ui_nav_all li,.ui_search_input_text,.ui_search_btn,a.btn_say,.btn_prev,.btn_ancel,ul.action li.grade,ul.action li.course,.btn_login,.item_pag li {background: url(../img/course_bgpic.png) no-repeat;}
-.action_item ul.action li button,ul.item_pag li.number,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line {background: url(../img/course_icon.png) no-repeat;}
+.action_item ul.action li button,.item_pag li.number button,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line {background: url(../img/course_icon.png) no-repeat;}
 span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 
 /*框架 start*/
@@ -124,7 +124,9 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .item_pag li.up_pag { background-position: -282px -201px;}
 .item_pag li.down_pag {background-position: -282px -255px;}
 .item_pag li span {display:block;text-indent: -99999px;}
-.item_pag li.number {width:40px;margin-right:10px;background-position: 31px -121px;}
+.item_pag li.number {width:68px;margin-right:10px;background: none;/*background-position: 31px -121px;*/}
+.item_pag li.number ul li {margin: 0;background: none}
+.item_pag li.number button {width: 68px;height: 28px;overflow: hidden;background-position: 55px -121px;}
 
 
 /*视频列表*/
