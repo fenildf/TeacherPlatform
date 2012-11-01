@@ -1,0 +1,11 @@
+/*详情列表*/
+.ui_infor_title {width: 1050px;margin:20px auto ; height: 30px; line-height: 30px; border-bottom: 1px solid #1d9e2b; overflow: hidden;font-size: 14px;color: #666;}
+
+.infor_txt {width: 850px;margin:15px 0 0 70px; overflow: hidden;}
+.infor_txt dt {float: left;width:70px;}
+.infor_txt dd {float: right;width: 775px;}
+.infor_txt dd textarea {width:700px;height:67px;background: #f6f6f6;border: 1px solid #e8e7e7; padding:10px 30px;color: #999;}
+
+.ui_btn_look {overflow: hidden;width: 770px;margin:30px auto 0;}
+.ui_btn_look a.btn_ancel {text-decoration: none;color: #666;}
+.ui_btn_look a.btn_prev {color: #fff;}

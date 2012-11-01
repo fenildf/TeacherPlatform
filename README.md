@@ -43,6 +43,7 @@
 	 |	|----- tools/			工具组件
 	 |	|----- ui/				页面中的ui组件
 	 |	|----- widget/			模块化接口
+	 |	|-----xes.register.js		应用注册接口文件
 	 |	|-----xes.boot.js		启动文件
 	 |	|-----xes.browser.js	浏览器检测组件
 	 |	|-----xes.cookie.js		cookie操作组件

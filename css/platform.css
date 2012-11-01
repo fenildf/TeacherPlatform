@@ -1,18 +1,36 @@
- /*reset update:2012-10-25 */
-html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,
-pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
 
+@charset "UTF-8";
+
+/* 这里先用import方法引入，上线前需要利用合并工具 */
+/*@import url("base.css");*/
+
+/*reset update:2012-10-25 */
+/*html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,
+>>>>>>> 4cdbd63b3d46ce4d6eedfa2041250afd36541c5d
+pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
+*/
 html{
-	font-family:宋体, Arial, Helvetica, sans-serif;
-	font-size:12px;
+	/*font-family:"\5b8b\4f53", Arial, Helvetica, sans-serif;*/
+	/*font-size:12px;*/
 	color:#333;
-	line-height:20px;
+	/*line-height:20px;*/
+	font:500 normal 12px/20px "\5b8b\4f53", Arial, Helvetica, sans-serif;
 }
+/*
+ * _background-image: 用浏览器空白页面作为背景
+ * _background-attachment: prevent screen flash in IE6 确保滚动条滚动时，元素不闪动
+
 body {
-	_background-image: url(about:blank);     /*用浏览器空白页面作为背景*/
-	_background-attachment: fixed;position:relative;             /* prevent screen flash in IE6 确保滚动条滚动时，元素不闪动*/
+	_background-image: url(about:blank);    
+	_background-attachment: fixed;position:relative;             
 	}
-input, textarea{outline:none;/* preventing the chrome and safari nasty yellow border */	}
+*/
+
+/* preventing the chrome and safari nasty yellow border 	
+input, textarea{outline:none;}
+*/
+
+/*
 ul,li{list-style:none;}
 ul,ol{list-style:none;}
 a:focus{outline:none;}
@@ -24,10 +42,16 @@ table {border-collapse:collapse;border-spacing:0;}
 address,cite,dfn,em,var{font-style:normal;}
 code,kbd,pre,samp{font-family:courier new,courier,monospace;}
 small{font-size:12px;}
+*/
+
+/* Import base.css */
+a, a:visited, a:active{color:#333;text-decoration:none;}
+a:hover{color: #bc0000; text-decoration: underline;}
+h1,h2,h3,h4,h5,h6{color:#333;}
 
 /*公用图片*/
 .logo,.ui_nav_all li,.ui_search_input_text,.ui_search_btn,a.btn_say,.btn_prev,.btn_ancel,ul.action li.grade,ul.action li.course,.btn_login,.item_pag li {background: url(../img/course_bgpic.png) no-repeat;}
-.action_item ul.action li span,ul.item_pag li.number,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line {background: url(../img/course_icon.png) no-repeat;}
+.action_item ul.action li button,ul.item_pag li.number,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line {background: url(../img/course_icon.png) no-repeat;}
 span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 
 /*框架 start*/
@@ -73,60 +97,8 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .ui_fold_menu li.current { font-weight: bold;}
 
 /*右侧内容*/
-.mainbody {float: right;width: 1055px;display:inline;overflow: hidden;margin-right: 10px;}
+.mainbody {float: right;width: 1055px;height:600px;display:inline;overflow: hidden;margin-right: 10px;}
 
-.grid_item {overflow: hidden;margin:10px 0;border: 1px solid #ececec;}
-/* .grid_item ul.itemtitle */
-.itemtitle {overflow: hidden;background: #f5f5f5;height: 32px;}
-.itemtitle li {float:left;display:inline;width:243px;line-height:32px;font-size: 14px;  padding-left:20px;}
-.itemcontent {width:1040px;margin:auto;overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;}
-.itemcontent li {float:left;display:inline;width:240px;line-height:180%;padding:10px;}
-.itemcontent li.title {}
-.itemcontent li.edit a {color: #006699;padding:0 5px;}
-.itemcontent li span.state {float: left;display: inline;width: 17px;height: 17px;margin-left: 10px;}
-.itemcontent li span.one { background-position: 0px 0px;}
-.itemcontent li span.two {background-position: 0px -32px;}
-.grid_item .no_line {border: 0;}
-
-.action_item {height: 36px;margin-top:20px;position:relative;}
-.action_item ul.action {float: left;display: inline;}
-.action_item ul.action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;}
-.action_item ul.action li.grade {width:84px; text-align:center; background-position: 0 -578px;}
-.action_item ul.action li.grade span {padding:0 15px;background-position: 51px -127px;}
-.action_item ul.action li.course {width:112px; text-align:center;background-position: 0 -506px;}
-.action_item ul.action li.course span {padding:0 15px;background-position: 78px -127px;}
-
-.item_pag {float: right;overflow: hidden;}
-.item_pag li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;cursor: pointer;}
-.item_pag li.up_pag { background-position: -282px -201px;}
-.item_pag li.down_pag {background-position: -282px -255px;}
-.item_pag li span {display:block;text-indent: -99999px;}
-.item_pag li.number {width:40px;margin-right:10px;background-position: 31px -121px;}
-
-
-/*视频列表*/
-.videos_content {float: left;display: inline;width: 687px;margin: 35px 0 0 30px;}
-.videos_content h1 {font-size: 14px;height: 50px;line-height: 180%;}
-.videos_content h1 em {font-size: 12px;font-weight: normal;}
-
-.course_list_content {float: right; display: inline; width: 280px;height: 460px; margin:30px 10px 0 0; background: #f6f6f6;border: 1px solid #e8e7e7; overflow-y: scroll;}
-.ui_course_list {border-top: 1px solid #fff;border-bottom: 1px solid #e8e7e7;padding:10px 0 ;}
-.ui_course_list dt {width:210px;margin:0 auto;height:40px;line-height: 40px;overflow: hidden;}
-.ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
-.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;}
-.ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
-
-/*详情列表*/
-.ui_infor_title {width: 1050px;margin:20px auto ; height: 30px; line-height: 30px; border-bottom: 1px solid #1d9e2b; overflow: hidden;font-size: 14px;color: #666;}
-
-.infor_txt {width: 850px;margin:15px 0 0 70px; overflow: hidden;}
-.infor_txt dt {float: left;width:70px;}
-.infor_txt dd {float: right;width: 775px;}
-.infor_txt dd textarea {width:700px;height:67px;background: #f6f6f6;border: 1px solid #e8e7e7; padding:10px 30px;color: #999;}
-
-.ui_btn_look {overflow: hidden;width: 770px;margin:30px auto 0;}
-.ui_btn_look a.btn_ancel {text-decoration: none;color: #666;}
-.ui_btn_look a.btn_prev {color: #fff;}
 
 /*all公用样式*/
 .btn_ancel {float: left;display: inline;width: 65px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px; background-position: 0 -358px; color: #666;font-size: 14px; }
@@ -169,101 +141,33 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 #main .form_text_input input {width:215px;height:20px;border: 0;color: #666;}
 #main .form_text_input .blackFont {float:left;padding-left:10px;}
 #main .form_text_input input.code_input {width:119px;float: left;}
-#main .form_text_input .err_tips_infor {font-size: 14px;color: #cc0000;position: absolute;z-index: 10;top:36px;left:112px;}
+#main .form_text_input .err_tips_infor {font-size: 14px;color: #cc0000;position: absolute;z-index: 10;top:26px;left:112px;}
 /*登录页 start*/
 
 
-/* 模拟下拉列表 */
-.select_jun{
-	width:60px;
-	height: 25px;
-	border:1px solid #4D3E2A;
-	background:red;
-	color:#999999;
-	position: absolute;
-	border: 1px solid #cdcdcd;border-right: none;
-}
 
-.select_jun input{
-	height:25px;
-	border:0;
-	cursor:pointer;
-	width:60px;
-	line-height:18px;
-	color: #999999;
-	background:#fff url(../img/course_icon.png) 50px -84px no-repeat;
-}
-.select_jun li{
-	cursor:pointer;
-}
+/* 模拟下拉列表 */
+/*
+.select_jun{width:60px;height: 25px;border:1px solid #4D3E2A;background:red;color:#999999;position: absolute;border: 1px solid #cdcdcd;border-right: none;}
+
+.select_jun input{height:25px;border:0;cursor:pointer;width:60px;line-height:18px;color: #999999;background:#fff url(../img/course_icon.png) 50px -84px no-repeat;}
+.select_jun li{cursor:pointer;}
 .xlcd{width:60px; text-align:center;position: absolute;left: -1px;top: 25px;z-index: 3;border: 1px solid #cdcdcd; border-top: none; background: #fff;}
 
-.select_jun2{
-	width:84px;
-	
-	background:#fff;
-	color:#999999;
-	position:relative;float: left;
-	/* border: 1px solid #cdcdcd;border-right: none; */
-}
+.select_jun2{width:84px;background:#fff;color:#999999;position:relative;float: left;}
 
-.select_jun2 input{
-	height:36px;
-	border:0;
-	cursor:pointer;
-	width:84px;
-	line-height:36px;
-	color: #000;
-	background:url(../img/course_bgpic.png) 0 -578px no-repeat;
-}
-.select_jun2 li{
-	cursor:pointer;
-}
+.select_jun2 input{height:36px;border:0;cursor:pointer;width:84px;line-height:36px;color: #000;background:url(../img/course_bgpic.png) 0 -578px no-repeat;}
+.select_jun2 li{cursor:pointer;}
 .xlcd2{width:82px; text-align:center;position: absolute;left: 0px;top:35px;z-index: 3;border: 1px solid #cdcdcd; border-top: none; background: #fff;}
 
+.select_jun3{width:84px;background:#fff;color:#999999;position: relative;float: left;}
 
-.select_jun3{
-	width:84px;
-	
-	background:#fff;
-	color:#999999;
-	position: relative;float: left;
-	/* border: 1px solid #cdcdcd;border-right: none; */
-}
-
-.select_jun3 input{
-	height:36px;
-	border:0;
-	cursor:pointer;
-	width:113px;
-	line-height:36px;
-	color: #000;
-	background:#fff url(../img/course_bgpic.png) 0 -506px no-repeat;
-}
-.select_jun3 li{
-	cursor:pointer;
-}
+.select_jun3 input{height:36px;border:0;cursor:pointer;width:113px;line-height:36px;color: #000;background:#fff url(../img/course_bgpic.png) 0 -506px no-repeat;}
+.select_jun3 li{cursor:pointer;}
 .xlcd3{width:111px; text-align:center;position: absolute;left: -1px;top:35px;z-index: 3;border: 1px solid #cdcdcd; border-top: none; background: #fff;}
 
-.select_jun4{
-	width:70px;
-	
-	background:#fff;
-	color:#999999;
-	position: absolute;right: 70px;top: 0px;
-	/* border: 1px solid #cdcdcd;border-right: none; */
-}
+.select_jun4{width:70px;background:#fff;color:#999999;position: absolute;right: 70px;top: 0px;}
 
-.select_jun4 input{
-	height:27px;
-	border:0;
-	cursor:pointer;
-	width:68px;
-	line-height:27px;
-	color: #000;
-	background:#fff url(../img/course_icon.png) 60px -120px no-repeat;
-}
-.select_jun4 li{
-	cursor:pointer;
-}
-.xlcd4{width:68px; height: 300px; text-align:center;position: absolute;left: 3px;top:35px;z-index: 3;border: 1px solid #cdcdcd; background: #fff; overflow: auto;}
+.select_jun4 input{height:27px;border:0;cursor:pointer;width:68px;line-height:27px;color: #000;background:#fff url(../img/course_icon.png) 60px -120px no-repeat;}
+.select_jun4 li{cursor:pointer;}
+.xlcd4{width:68px; height: 300px; text-align:center;position: absolute;left: 3px;top:35px;z-index: 3;border: 1px solid #cdcdcd; background: #fff; overflow: auto;}*/

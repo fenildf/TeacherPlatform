@@ -9,9 +9,9 @@
  */
 .ui-select-box {}
 .ui-select-button {}
-ul.ui-select-list {display: none;position: static;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
-ul.ui-select-list li {line-height: 23px;}
-ul.ui-select-list li a {display: block;padding: 0 10px;}
+ul.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
+ul.ui-select-list li {height: 28px;line-height: 28px;width: 100%}
+ul.ui-select-list li a {display: block;padding: 0 15px;}
 ul.ui-select-list li.ui-select-hover a,ul.ui-select-list li a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
 
 
@@ -19,7 +19,7 @@ ul.ui-select-list li.ui-select-hover a,ul.ui-select-list li a:hover {color:#FFF;
 	默认行高是23px，这里是提供一种更大行高的方案：28px
  */
 ul.ui-select-large {}
-ul.ui-select-large li {line-height: 28px}
+ul.ui-select-large li {height: 28px;line-height: 28px}
 
 /* add top border 
 	默认状态下select组件是没有top-border的，这里是需要添加top-border所需的样式
@@ -42,7 +42,7 @@ ul.ui-select-topborder {border-top-width: 1px}
 .skin ul.ui-select-default li a:hover {background-color: #4582D3}
 
 
-ul.ui-select-show {display: block; position: absolute;}
+ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
 
 
