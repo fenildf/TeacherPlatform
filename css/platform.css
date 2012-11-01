@@ -97,68 +97,10 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .ui_fold_menu li.current { font-weight: bold;}
 
 /*右侧内容*/
-<<<<<<< HEAD
+
 .mainbody {float: right;width: 1055px;height:600px;display:inline;overflow: hidden;margin-right: 10px;}
 
-=======
-.mainbody {float: right;width: 1055px;display:inline;overflow: hidden;margin-right: 10px;}
 
-.grid_item {overflow: hidden;margin:10px 0;border: 1px solid #ececec;}
-/* .grid_item ul.itemtitle */
-.itemtitle {overflow: hidden;background: #f5f5f5;height: 32px;}
-.itemtitle li {float:left;display:inline;width:243px;line-height:32px;font-size: 14px;  padding-left:20px;}
-.itemcontent {width:1040px;margin:auto;overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;}
-.itemcontent li {float:left;display:inline;width:240px;line-height:180%;padding:10px;}
-.itemcontent li.title {}
-.itemcontent li.edit a {color: #006699;padding:0 5px;}
-.itemcontent li span.state {float: left;display: inline;width: 17px;height: 17px;margin-left: 10px;}
-.itemcontent li span.one { background-position: 0px 0px;}
-.itemcontent li span.two {background-position: 0px -32px;}
-.grid_item .no_line {border: 0;}
-
-.action_item {height: 36px;margin-top:20px;position:relative;}
-.action_item ul.action {float: left;display: inline;}
-.action_item ul.action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;}
-.action_item ul.action li button {height:34px;cursor: pointer;/*padding:0 15px;*/border:0px solid transparent;background-color: transparent}
-.action_item ul.action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
-.action_item ul.action li.grade button {width:100%;background-position: 65px -117px;}
-.action_item ul.action li.course {width:112px; text-align:center;background-position: 0 -506px;}
-.action_item ul.action li.course button {width:100%;background-position: 93px -117px;}
-
-.item_pag {float: right;overflow: hidden;}
-.item_pag li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;cursor: pointer;}
-.item_pag li.up_pag { background-position: -282px -201px;}
-.item_pag li.down_pag {background-position: -282px -255px;}
-.item_pag li span {display:block;text-indent: -99999px;}
-.item_pag li.number {width:68px;margin-right:10px;background: none;/*background-position: 31px -121px;*/}
-.item_pag li.number ul li {margin: 0;background: none}
-.item_pag li.number button {width: 68px;height: 28px;overflow: hidden;background-position: 55px -121px;}
-
-
-/*视频列表*/
-.videos_content {float: left;display: inline;width: 687px;margin: 35px 0 0 30px;}
-.videos_content h1 {font-size: 14px;height: 50px;line-height: 180%;}
-.videos_content h1 em {font-size: 12px;font-weight: normal;}
-
-.course_list_content {float: right; display: inline; width: 280px;height: 460px; margin:30px 10px 0 0; background: #f6f6f6;border: 1px solid #e8e7e7; overflow-y: scroll;}
-.ui_course_list {border-top: 1px solid #fff;border-bottom: 1px solid #e8e7e7;padding:10px 0 ;}
-.ui_course_list dt {width:210px;margin:0 auto;height:40px;line-height: 40px;overflow: hidden;}
-.ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
-.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;}
-.ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
-
-/*详情列表*/
-.ui_infor_title {width: 1050px;margin:20px auto ; height: 30px; line-height: 30px; border-bottom: 1px solid #1d9e2b; overflow: hidden;font-size: 14px;color: #666;}
-
-.infor_txt {width: 850px;margin:15px 0 0 70px; overflow: hidden;}
-.infor_txt dt {float: left;width:70px;}
-.infor_txt dd {float: right;width: 775px;}
-.infor_txt dd textarea {width:700px;height:67px;background: #f6f6f6;border: 1px solid #e8e7e7; padding:10px 30px;color: #999;}
-
-.ui_btn_look {overflow: hidden;width: 770px;margin:30px auto 0;}
-.ui_btn_look a.btn_ancel {text-decoration: none;color: #666;}
-.ui_btn_look a.btn_prev {color: #fff;}
->>>>>>> d00538783f87ec5490a420024793d0cdb58d4acd
 
 /*all公用样式*/
 .btn_ancel {float: left;display: inline;width: 65px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px; background-position: 0 -358px; color: #666;font-size: 14px; }
