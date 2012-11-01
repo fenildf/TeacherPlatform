@@ -8,7 +8,7 @@
  *
  */
 .ui-select-box {}
-.ui-select-button {}
+.ui-select-button {cursor: pointer;}
 ul.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
 ul.ui-select-list li {height: 28px;line-height: 28px;width: 100%}
 ul.ui-select-list li a {display: block;padding: 0 15px;}
@@ -58,3 +58,4 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 	padding:0 10px 0 5px;
 	background-position:50px -83px;
 }
+.number button {border: 0;background-color: transparent;}

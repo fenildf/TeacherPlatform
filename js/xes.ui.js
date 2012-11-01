@@ -48,3 +48,19 @@ xes.ui.add = function(name, fn, callback){
 		callback('ok');
 	}
 };
+
+
+/* Example:
+ * 
+ *  xes.widget('ui.tabs',{
+		a:'',
+		b:'',
+		c:function(){}
+ 	});
+ *
+ *
+ *
+**/
+// xes.widget = function(uiname, obj, obj){
+
+// };

@@ -54,7 +54,7 @@ var selector = selector || {};
 
 	};
 	// 设置下拉框的定位及宽度
-	s.setPosition = function(buttons){
+	s._setPosition = function(buttons){
 		$(this.config.button).each(function(){
 			var _w = $(this).outerWidth() -2,	
 				_h = $(this).height(),
@@ -69,15 +69,15 @@ var selector = selector || {};
 		});
 		return this;
 	};
-	
-	s.check = function(list){
+	//列表点击事件,可自定义也可默认
+	s.check = function(list,fn){
 		list.find('li').click(function(){
-			s.setValue($(this));
+			s._setValue($(this));
 		});
 	};
 	
 	//设置选中的值
-	s.setValue = function(item){
+	s._setValue = function(item){
 		var _btn = item.parent().prev(this.config.button),
 			_val = item.find('input:hidden').val(),
 			_txt = item.text();
@@ -87,7 +87,11 @@ var selector = selector || {};
 	
 	
 	s.btnClick = function(btn){
+		
 		btn.click(function(){
+			//隐藏其他已打开的列表框
+			s.close($(s.config.list));
+			
 			var _items = $(this).next(s.config.list);
 			// s.show(_items);
 			if(_items.hasClass(s.config.show)){
@@ -117,7 +121,7 @@ var selector = selector || {};
 	// -----------------------------------------------
 
 	s.init = function(){
-		this.setPosition().btnClick($(this.config.button));
+		this._setPosition().btnClick($(this.config.button));
 	};
 
 })();
@@ -135,3 +139,6 @@ var selector = selector || {};
 		});
 	}
 })(xes);
+
+
+
