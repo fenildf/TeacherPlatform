@@ -70,56 +70,52 @@
 
 			</div>
 		</div>
-		<ul class="ui_nav_all">
-			<li>首页</li>
-			<li>填立单项</li>
-			<li>
-				填立单项
-				<span class="del_btn">删除</span>
-			</li>
-			<li class="end current">
-				填立单项
-				<span class="del_btn">删除</span>
-			</li>
-
+		<ul class="ui-tabs-items">
+			<li class="tabs-first">首页</li>
 		</ul>
 	</div>
 	<!-- 头部 -->
 	<div id="middle">
 		<div class="sidebar">
 			<h2 class="h2_menu_title current_title">我的课程</h2>
-			<ul class="ui_fold_menu fold_current">
-				<li class="current">我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
+			<ul id="menu_0" class="ui_fold_menu fold_current">
+				<li id="menu_0_1" class="current" fixed="1"> <a href="javascript:void(0);">我的课程1</a></li>
+				<li id="menu_0_2" fixed='0'><a href="javascript:void(0);" url="list.html">我的课程2</a></li>
+				<li id="menu_0_3" fixed='1'><a href="javascript:void(0);" url="list.html">我的课程3</a></li>
+				<li id="menu_0_4" fixed='0'><a href="javascript:void(0);" url="list.html">我的课程4</a></li>
 			</ul>
 			<h2 class="h2_menu_title ">服务管理</h2>
-			<ul class="ui_fold_menu">
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
+			<ul id="menu_1" class="ui_fold_menu">
+				<li id="menu_1_1" fixed=true><a href="javascript:void(0);" url="list.html">服务管理1</a></li>
+				<li id="menu_1_2" fixed=false><a href="javascript:void(0);" url="list.html">服务管理2</a></li>
+				<li id="menu_1_3" fixed=true><a href="javascript:void(0);" url="list.html">服务管理3</a></li>
+				<li id="menu_1_4" fixed=false><a href="javascript:void(0);" url="list.html">服务管理4</a></li>
 			</ul>
 			<h2 class="h2_menu_title ">我的学员</h2>
-			<ul class="ui_fold_menu">
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
+			<ul id="menu_2" class="ui_fold_menu">
+				<li id="menu_2_1" fixed="true"><a href="javascript:void(0);" url="list.html">我的学员1</a></li>
+				<li id="menu_2_2" fixed="true"><a href="javascript:void(0);" url="list.html">我的学员2</a></li>
+				<li id="menu_2_3" fixed="false"><a href="javascript:void(0);" url="list.html">我的学员3</a></li>
+				<li id="menu_2_4" fixed="false"><a href="javascript:void(0);" url="list.html">我的学员4</a></li>
 			</ul>
 			<h2 class="h2_menu_title ">资料管理</h2>
-			<ul class="ui_fold_menu">
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
-				<li>我的课程</li>
+			<ul id="menu_3" class="ui_fold_menu">
+				<li id="menu_3_1" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理1</a></li>
+				<li id="menu_3_2" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理2</a></li>
+				<li id="menu_3_3" fixed="true"><a href="javascript:void(0);" url="list.html">资料管理3</a></li>
+				<li id="menu_3_4" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理4</a></li>
 			</ul>
 			<h2 class="h2_menu_title">数据分析</h2>
+			<ul id="menu_4" class="ui_fold_menu">
+				<li id="menu_4_1" fixed="false"><a href="javascript:void(0);" url="list.html">数据分析1</a></li>
+				<li id="menu_4_2" fixed="false"><a href="javascript:void(0);" url="list.html">数据分析2</a></li>
+				<li id="menu_4_3" fixed="false"><a href="javascript:void(0);" url="list.html">数据分析3</a></li>
+				<li id="menu_4_4" fixed="false"><a href="javascript:void(0);" url="list.html">数据分析4</a></li>
+			</ul>
 		</div>
 		<!-- sidebar 菜单左边栏 -->
 		<div class="mainbody">
-			<iframe src="list.html" class="iframe_content" scrolling="no" width="100%" height="100%"></iframe>
+			<iframe src="list.html" class="iframe_content" scrolling="no" width="100%" height="100%" name="content"></iframe>
 			<!-- <iframe src="view.html" class="iframe_content" scrolling="no" width="100%" height="100%"></iframe> -->
 			<!-- <iframe src="edit.html" class="iframe_content" scrolling="no" width="100%" height="100%"></iframe> -->
 			<!--mainbody内容右边栏  -->
@@ -134,5 +130,7 @@
 
 	</div>
 	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
+	<script type="text/javascript" src="js/ui/xes.ui.tabs.js"></script>
+	<script type="text/javascript" src="js/xes.platfrom.js"></script>
 </body>
 </html>
