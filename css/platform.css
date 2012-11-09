@@ -73,7 +73,7 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .ui_search_course {float: right;margin: 38px 20px 0 0;}
 .ui_search_input_text {float: left;display: inline;width:262px;height: 27px;background-position: -0 -100px;overflow: hidden;}
 .ui_search_input_text .icon_bot {float: left;display: inline;width:50px;line-height:25px;_line-height:29px; padding-left:10px;font-size:14px;cursor: pointer; background-position: 50px -84px;}
-.ui_search_input_text .input_text_ui {float: left;width:185px;line-height: 17px;margin-left:10px;margin-top:3px;padding-top:2px;color:#999;font-size: 12px;border:1px solid #fff;text-indent: 80px;}
+.ui_search_input_text .input_text_ui {float: left;width:185px;line-height: 17px;margin-left:10px;margin-top:3px;padding-top:2px;color:#999;font-size: 12px;border:1px solid #fff;text-indent: 10px;}
 .ui_search_btn {float: left;display: inline;width:43px;height: 27px; text-indent: -1000em;background-position: -267px -100px;border: 0;cursor: pointer;}
 
 /* #header ul.ui_nav_all */
