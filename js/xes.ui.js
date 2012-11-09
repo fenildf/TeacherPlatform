@@ -40,11 +40,11 @@ xes.ui = xes.ui || {};
 **/
 
 
-xes.ui.add = function(name, fn, callback){
+xes.ui.add = function(name, obj, callback){
 	if(xes.ui[name]){
 		callback('Error: This application already exists!');
 	}else{
-		xes.ui[name] = fn;
+		xes.ui[name] = obj;
 		callback('ok');
 	}
 };
