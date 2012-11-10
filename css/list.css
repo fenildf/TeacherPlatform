@@ -5,24 +5,18 @@
  * 剥离样式
  *
  */
-
-.grid_item {overflow: hidden;margin:10px 0;border: 1px solid #ececec;}
-/* .grid_item ul.itemtitle */
-.itemtitle {overflow: hidden;background: #f5f5f5;height: 32px;}
-.itemtitle li {float:left;display:inline;width:243px;line-height:32px;font-size: 14px;  padding-left:20px;}
-.itemcontent {width:1040px;margin:auto;overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;}
-.itemcontent li {float:left;display:inline;width:240px;line-height:180%;padding:10px;}
-.itemcontent li.title {}
-.itemcontent li.edit a {color: #006699;padding:0 5px;}
-.itemcontent li span.state {float: left;display: inline;width: 17px;height: 17px;margin-left: 10px;}
-.itemcontent li span.one { background-position: 0px 0px;}
-.itemcontent li span.two {background-position: 0px -32px;}
-.grid_item .no_line {border: 0;}
+.grid_item_content {overflow: hidden;margin:10px 0;border: 1px solid #ececec;}
+table.grid_item {width:100%;overflow: hidden;}
+table.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
+table.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
+table.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
+table.grid_item td span.one { background-position: 0px 0px;}
+table.grid_item td span.two {background-position: 0px -32px;}
 
 .action_item {height: 36px;margin-top:20px;position:relative;}
 .action_item ul.action {float: left;display: inline;}
 .action_item ul.action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;}
-.action_item ul.action li button {height:34px;cursor: pointer;/*padding:0 15px;*/border:0px solid transparent;background-color: transparent;}
+.action_item ul.action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
 .action_item ul.action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
 .action_item ul.action li.grade button {width:100%;background-position: 65px -117px;}
 .action_item ul.action li.course {width:112px; text-align:center;background-position: 0 -506px;}
@@ -39,3 +33,11 @@
 
 .ui_pages li.page_list li {margin:0 10px 0 0;background: none}
 .ui_pages li.page_list button {border: 0;padding:0 15px;margin-right:0px;background-color: transparent;background-position: right -124px;}
+
+
+.createtime {overflow: hidden;height: 50px;line-height: 50px;color: #666;font-weight: bold;font-size: 14px;padding-left: 3px;}
+.createtime em{color: #cc0000;font-weight: bold;}
+
+.createbtn {height: 20px;overflow: hidden;}
+.createbtn a {display: block;width:70px;height:20px;line-height:20px;background: url(../img/create_btn.png) no-repeat; text-align: center;color: #fff;}
+

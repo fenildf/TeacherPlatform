@@ -7,5 +7,5 @@
 .ui_course_list {border-top: 1px solid #fff;border-bottom: 1px solid #e8e7e7;padding:10px 0 ;}
 .ui_course_list dt {width:210px;margin:0 auto;height:40px;line-height: 40px;overflow: hidden;}
 .ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
-.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;}
+.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;color: #333;}
 .ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
