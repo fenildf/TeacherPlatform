@@ -5,13 +5,6 @@
  * 剥离样式
  *
  */
-.grid_item_content {overflow: hidden;margin:10px 0;border: 1px solid #ececec;}
-table.grid_item {width:100%;overflow: hidden;}
-table.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
-table.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
-table.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
-table.grid_item td span.one { background-position: 0px 0px;}
-table.grid_item td span.two {background-position: 0px -32px;}
 
 .action_item {height: 36px;margin-top:20px;position:relative;}
 .action_item ul.action {float: left;display: inline;}
@@ -24,7 +17,7 @@ table.grid_item td span.two {background-position: 0px -32px;}
 
 .action_item ul.action li ul.ui-select-list li {height: 28px;line-height: 28px;}
 
-.ui_pages {float: right;overflow: hidden;}
+.ui_pages {float: right;overflow: hidden;margin-right:10px;}
 .ui_pages li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;cursor: pointer;}
 .ui_pages li.up_page { background-position: -282px -201px;}
 .ui_pages li.down_page {background-position: -282px -255px;}

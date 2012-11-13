@@ -4,50 +4,20 @@
 /* 这里先用import方法引入，上线前需要利用合并工具 */
 /*@import url("base.css");*/
 
-/*reset update:2012-10-25 */
-/*html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,
->>>>>>> 4cdbd63b3d46ce4d6eedfa2041250afd36541c5d
-pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
-*/
+
 html{
-	/*font-family:"\5b8b\4f53", Arial, Helvetica, sans-serif;*/
-	/*font-size:12px;*/
 	color:#333;
-	/*line-height:20px;*/
-	/** 
-	 * 微软雅黑：\5FAE\8F6F\96C5\9ED1 
-	 * 宋体： \5B8B\4F53
-	 * 黑体： \9ED1\4F53
-	 */
 	font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;
 }
 /*
  * _background-image: 用浏览器空白页面作为背景
  * _background-attachment: prevent screen flash in IE6 确保滚动条滚动时，元素不闪动
-
+*/
 body {
 	_background-image: url(about:blank);    
 	_background-attachment: fixed;position:relative;             
 	}
-*/
 
-/* preventing the chrome and safari nasty yellow border 	
-input, textarea{outline:none;}
-*/
-
-/*
-ul,li{list-style:none;}
-ul,ol{list-style:none;}
-a:focus{outline:none;}
-a, a:visited, a:active{color:#333;text-decoration:none;}
-a:hover{color: #bc0000; text-decoration: underline;}
-h1,h2,h3,h4,h5,h6{color:#333;}
-img{border:none;}
-table {border-collapse:collapse;border-spacing:0;}
-address,cite,dfn,em,var{font-style:normal;}
-code,kbd,pre,samp{font-family:courier new,courier,monospace;}
-small{font-size:12px;}
-*/
 
 /* Import base.css */
 a, a:visited, a:active{color:#0066cc;text-decoration:none;}
@@ -59,14 +29,14 @@ a.green {color: #669933;}
 a.blue{color: #006699;}
 a.grey {color: #666;}
 /*公用图片*/
-.logo,.ui-tabs-items li,.ui_search_input_text,.ui_search_btn,a.btn_say,.btn_prev,.btn_ancel,ul.action li.grade,ul.action li.course,.btn_login,.ui_pages .up_page,.ui_pages .down_page {background: url(../img/course_bgpic.png) no-repeat;}
+.logo,.ui-tabs-items li,.ui_search_input_text,.ui_search_btn,a.btn_say,ul.action li.grade,ul.action li.course,.btn_login,.ui_pages .up_page,.ui_pages .down_page {background: url(../img/course_bgpic.png) no-repeat;}
 .action_item ul.action li button,.item_pag li.number button,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line,.ui_pages li.page_list button  {background: url(../img/course_icon.png) no-repeat;}
 span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 
 /*框架 start*/
 #header {width:1280px;margin:0 auto;position: relative;}
 #middle {width:1278px;margin:0px auto;overflow: hidden;border:1px solid #cbcbcb;border-top:0;background: #f6f6f6;}
-#footer {width:1278px;margin:10px auto 0;overflow: hidden;height:50px;}
+#footer {width:1278px;margin:10px auto 10px;overflow: hidden;}
 /*框架 end*/
 
 /*头部*/
@@ -85,21 +55,6 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .ui_search_input_text .input_text_ui {float: left;width:185px;line-height: 17px;margin-left:10px;margin-top:3px;padding-top:2px;color:#999;font-size: 12px;border:1px solid #fff;text-indent: 10px;}
 .ui_search_btn {float: left;display: inline;width:43px;height: 27px; text-indent: -1000em;background-position: -267px -100px;border: 0;cursor: pointer;}
 
-/* #header ul.ui_nav_all */
-/*.ui_nav_all {overflow: hidden;height: 38px;background: url(../img/course_icon.png) repeat-x;padding-left:10px;_width:100%;}
-.ui_nav_all li {float: left;display: inline;width: 119px;height: 34px; line-height:40px;overflow: hidden; text-align: center;font-size: 14px; background-position: -1px -255px;position: relative;cursor: pointer;color: #666;}
-.ui_nav_all li.first {background-position: -0 -147px;}*/
-/*.ui_nav_all li.end,
-.ui_nav_all li.ui-tabs-last {background-position: -0 -255px;}*/
-/*.ui_nav_all li.current {background-position: -0 -201px;font-weight: bold;color: #fff;}
-.ui_nav_all li.current a {color:#FFF}
-.ui_nav_all li span.del_btn {display: block;width: 10px;height: 10px;position: static;z-index: 10;right:13px;top: 14px;cursor: pointer;background-position: 0 -70px;text-indent: -99999px;}
-.ui_nav_all li.current span.del_btn {display:block;background-position: 0 -80px;}*/
-
-
-
-
-
 
 /*middle start*/
 
@@ -112,19 +67,26 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .fold_current {display: block;}
 .ui_fold_menu li {height:24px;line-height: 24px;padding-left:40px; background: #fff;cursor: pointer;color: #666;}
 .ui_fold_menu li.current { font-weight: bold;}
-.ui_fold_menu li a {color: #666;}
+.sidebar .ui_fold_menu li a {color: #666;}
 /*右侧内容*/
 
-.mainbody {float: left;width: 1065px;display:inline;overflow: hidden;height: 100%;background: #fff;border-left: 1px solid #ccc;padding-left: 12px;}
+.mainbody {float: left;width: 1065px;display:inline;height:100%;min-height:100%;background: #fff;border-left: 1px solid #ccc;padding-left: 12px;height: 1000px;}
+.ui_infor_title {width: 1050px;margin:20px 2px; ; height: 30px; line-height: 30px; border-bottom: 1px solid #1d9e2b; overflow: hidden;font-size: 14px;color: #333;font-weight: bold;}
 
 
 
 /*all公用样式*/
-.btn_ancel {float: left;display: inline;width: 65px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px; background-position: 0 -358px; color: #666;font-size: 14px; }
-.btn_prev {background-position: 0 -309px;color: #fff; }
+.s-btn{ width: 60px; height: 27px; background: url(../img/s-btn.png) no-repeat 0 0;border: 0;cursor: pointer;}
+
+.btn_ancel,.btn_prev {background: url(../img/btn.jpg) no-repeat;} 
+a:hover.btn_ancel {color: #666; text-decoration: none;}
+a:hover.btn_prev {color: #fff; text-decoration: none;}
+
+.btn_ancel {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+.btn_prev {background-position: 0 0; color: #fff;}
+
 .xeshg_90 {height: 90px;overflow: hidden;}
 .xeshg_285 {height: 285px;overflow: hidden;}
-
 
 .itemlayertop {overflow: hidden;width:54px;border:1px solid #dddde5;position: absolute; z-index: 1000;top: 64px;right: 269px; _right:299px;background: #fff;}
 .itemlayertop li {height: 23px;line-height: 23px; text-align: center;cursor: pointer;}
@@ -175,17 +137,18 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 .ui-tabs-items li span.del_btn {display: block;width:10px;height: 10px;float: left;overflow: hidden;cursor: pointer;margin:13px -10px 0 10px;text-indent: -5000px;background-position: 0 -70px;}
 .ui-tabs-items li.current span.del_btn {background-position: 0 -80px;}
 
-/*
-.ui_nav_all {overflow: hidden;height: 38px;background: url(../img/course_icon.png) repeat-x;padding-left:10px;_width:100%;}
-.ui_nav_all li {float: left;display: inline;width: 119px;height: 34px; line-height:40px;overflow: hidden; text-align: center;font-size: 14px; background-position: -1px -255px;position: relative;cursor: pointer;color: #666;}
-.ui_nav_all li.first {background-position: -0 -147px;}*/
-/*.ui_nav_all li.end,
-.ui_nav_all li.ui-tabs-last {background-position: -0 -255px;}*/
-/*.ui_nav_all li.current {background-position: -0 -201px;font-weight: bold;color: #fff;}
-.ui_nav_all li.current a {color:#FFF}
-.ui_nav_all li span.del_btn {display: block;width: 10px;height: 10px;position: static;z-index: 10;right:13px;top: 14px;cursor: pointer;background-position: 0 -70px;text-indent: -99999px;}
-.ui_nav_all li.current span.del_btn {display:block;background-position: 0 -80px;}*/
+
+/*公用提示*/
+.ui_tipsAll {width:1030px;padding:10px;overflow: hidden;border: 1px solid #e7e6e6;background: #f6f6f6;color: #999;margin-top: 10px;font-size: 14px;}		
+.ui_tipsAll a {padding-right:10px;}
+.ui_tipsAll em {color: #cc0000;font-weight: bold;}
+.ui_tipsAll .icon_tips {width:400px;margin:auto; background: url(../img/tips1.png) 0 6px no-repeat;padding: 10px 55px;}
+.ui_tipsAll .icon_tips_err {background: url(../img/tips2.png) 0 6px no-repeat;} 
+/*公用提示*/
+
+#footer p {line-height: 180%;text-align: center;}
+#footer p a {color: #333;}
 
 
-/* content组件部分 */
-.ui-main-items {}
+
+
