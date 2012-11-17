@@ -16,6 +16,44 @@ xes.platfrom = xes.platfrom || {};
 	var PF = xes.platfrom;
 
 	PF.menu = PF.menu || {};
+	/**
+	 * 根据data遍历生成左侧菜单树
+	 */
+	PF.menu.create = function(data){
+		var _data = data || PF.path;
+		var _wrap = $('.sidebar');
+
+		$.each(_data, function(m, n){
+			var _h2 = '<h2 id="sidemenu_'+ n.id +'" class="h2_menu_title">' + n.name + '</h2>\n',
+				_ul = '<ul id="menu_'+ n.id +'" class="ui_fold_menu">\n';
+			var _items = n.items;
+			// each child node
+			if(_items.length > 0){
+				for(var i = 0, len = _items.length; i < len; i++){
+					var _d = _items[i],
+					_url = _d.url ? 'url="' + _d.url + '"' : '',
+					_fixed = _d.fixed ? '1' : '0',
+					_title = _d.title ? _d.title : _d.name;
+
+					_ul += '<li id="menu_'+ n.id +'_'+ _d.id+'" fixed="' + _fixed + '"> <a title="' + _title + '" href="javascript:void(0);"' + _url + '>' + _d.name + '</a></li>\n';
+				}
+			}
+			_ul += '</ul>\n';
+
+			var _node = _wrap.find('#sidemenu_'+ n.id);
+			if(_node.length > 0){
+				_node.text(n.name);
+				_node.next('ul').remove();
+				_node.after(_ul);
+			}else{
+				_wrap.append(_h2 + _ul);
+			}
+		});
+		// _wrap.find('h2[id^="sidemenu_"]:first').addClass('current_title').siblings('h2').removeClass('current_title');
+		// _wrap.find('ul[id^="menu_"]:first').addClass('fold_current').siblings('ul').removeClass('fold_current');
+		// _wrap.find('ul[id^="menu_"]:first > li:first').addClass('current').siblings('li').removeClass('current');
+		return this;
+	};
 	/*
 	 * 左侧导航切换
 	 */
@@ -32,11 +70,98 @@ xes.platfrom = xes.platfrom || {};
 	 * 左侧导航点击事件：tabs、content
 	 */
 	PF.menu.click = function(fn){
-		$('.sidebar .ui_fold_menu li').click(function(){
+		$('.sidebar .ui_fold_menu li').die('click').live('click',function(){
 			// alert($(this).text());
 			fn(this);
 		});
 	};
+
+	/**
+	 * 左侧地址列表
+	 */
+	PF.path = [{
+		id: '1',
+		name: '我的课程',
+		title: '',
+		url: '',
+		items: [{
+			id: '1_1',
+			name: '课程列表',
+			title: '',
+			url: 'course_list.html',
+			items: [],
+			fixed: false
+		}]
+	}, {
+		id: '2',
+		name: '服务管理',
+		title: '',
+		url: '',
+		items: [{
+			id: '2_1',
+			name: '直播列表',
+			title: '',
+			url: 'live_list.html',
+			items: [],
+			fixed: false
+		}, {
+			id: '2_2',
+			name: '创建直播',
+			title: '',
+			url: 'live_edit.html',
+			items: [],
+			fixed: false
+		}, {
+			id: '2_3',
+			name: '筛选学员',
+			title: '',
+			url: 'student_leach.html',
+			items: [],
+			fixed: false
+		}]
+	}, {
+		id: '3',
+		name: '我的学员',
+		title: '',
+		url: '',
+		items: [{
+			id: '3_1',
+			name: '学员列表',
+			title: '',
+			url: 'student.html',
+			items: [],
+			fixed: false
+		}]
+	},
+	// {id:'4', name:'资料管理', title:'', url:'', items:[]},
+	{
+		id: '5',
+		name: '数据分析',
+		title: '',
+		url: '',
+		items: [{
+			id: '5_1',
+			name: '学习状态数据',
+			title: '',
+			url: 'data1_list.html',
+			items: [],
+			fixed: false
+		}, {
+			id: '5_2',
+			name: '学完率数据',
+			title: '',
+			url: 'data2.html',
+			items: [],
+			fixed: false
+		}, {
+			id: '5_3',
+			name: '学习效果数据',
+			title: '',
+			url: 'data3_list.html',
+			items: [],
+			fixed: false
+		}]
+	}];
 
 })();
 
@@ -54,24 +179,25 @@ xes.ui.add( 'tabs', tabs , function(tips){
 		index : 0,
 		main : $('.mainbody').children(),
 		mainWrap : $('.mainbody')
-	}).listener(xes.ui.tabs.o.item,'click',function(d){
-		alert($(d).text());
 	});
+	// xes.ui.tabs.listener(xes.ui.tabs.o.item,'click',function(d){
+	// 	alert($(d).text());
+	// });
 	//tabs的点击事件
-	xes.ui.tabs.o.wrap.find('li').die('click').live('click',function(){
+	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
 		// alert($(this).text());
-		xes.ui.tabs.click(this);
+		xes.ui.tabs.click($(this).parent()[0]);
 	});
 
 	//关闭按钮的点击事件
-	xes.ui.tabs.o.wrap.find('li span.del_btn').die('click').live('click',function(){
+	$('.ui-tabs-items').find('li span.del_btn').die('click').live('click',function(){
 		xes.ui.tabs.close($(this).parent().attr('id').replace('tab_',''));
 	});
 });
 
 
 
-xes.platfrom.menu.toggle().click(function(d){
+xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click(function(d){
 	var _dom = $(d);
 	// console.log(_dom.attr('fixed'));
 

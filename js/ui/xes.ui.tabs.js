@@ -111,13 +111,13 @@ var tabs = tabs || {};
 	t.getHtml = function(d){
 		var _tpl = {
 			id : d.id || new Date().getTime(),
-			target : d.url ? 'target="content"' : '',
+			target : d.url ? 'target="content_' + d.id + '"' : '',
 			url : d.url ? d.url : 'javascript:void(0);',
 			title : d.title,
 			close : d.fixed == 1 ? '' : '<span class="del_btn" title="删除标签">删除</span>',
 			fixed : d.fixed == 1 ? 'fixed' : ''
 		};
-		var _html = '<li id="tab_' + _tpl.id + '" class="end ' + _tpl.fixed + '" title="' + _tpl.title + '"><a ' + _tpl.target +' href="' + _tpl.url + '" title="' + _tpl.title + '">' + _tpl.title + '</a>' + _tpl.close + '</li>';
+		var _html = '<li id="tab_' + _tpl.id + '" class="end ' + _tpl.fixed + '" title="' + _tpl.title + '" url="' + _tpl.url + '"><a ' + _tpl.target +' href="javascript:void(0);" url="' + _tpl.url + '" title="' + _tpl.title + '">' + _tpl.title + '</a>' + _tpl.close + '</li>';
 		return _html;
 	};
 
@@ -128,81 +128,150 @@ var tabs = tabs || {};
 	 */
 	t.create = function(d){
 		var _D = d || { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
-		var _isExist = t.isExist(_D.id);
-		//如果存在则直接执行该标签的点击事件，否则创建该表单
-		if(_isExist){
-			_isExist.click();
-		}else{
-			t.o.wrap.find('li').removeClass('end');
-			// console.log(t.getHtml(_D));
+		var _item = t.getItem(_D.id);
+		//如果存在则直接执行该标签的点击事件，否则创建该菜单
+		if(!_item){
 			t.o.wrap.append(t.getHtml(_D));
-			t.setLast();
 		}
+
+		t.click(t.getItem(_D.id)[0]);
 		this.resize();
 	};
 
-	t.setLast = function(){
-		t.o.wrap.find('li').removeClass(t.cls.last);
-		t.o.wrap.find('li:last').addClass(t.cls.last);
+	// t.setLast = function(){
+	// 	t.o.wrap.find('li').removeClass(t.cls.last);
+	// 	t.o.wrap.find('li:last').addClass(t.cls.last);
+	// };
+
+	/**
+	 * 根据id返回节点内容
+	 */
+	t.getItem = function(id){
+		var _tab = t.o.wrap.find('li#tab_'+id);
+		return (_tab.length > 0 ? _tab : false);
 	};
 
+	/**
+	 * 根据元素获取索引值
+	 */
+	t.getIndex = function(d){
+		var _index = t.o.wrap.find('li').index(d);
+		return _index;
+	};
+	/**
+	 * 获取最后一个节点
+	 * 如果getID存在则返回最后一个节点的ID，否则返回DOM
+	 */
+	t.getLast = function(getID){
+		var _last = t.o.wrap.find('li:last');
+		return (getID ? _last.attr('id').replace('tab_','') : _last);
+	};
 	/*
 	 * 检查tab是否已经存在
 	 * 如果存在则返回此对象，否则返回false
 	 */
-	t.isExist = function(id){
-		var _tab = t.o.wrap.find('li#tab_'+ id);
+	// t.isExist = function(id){
+	// 	var _tab = t.o.wrap.find('li#tab_'+ id);
 
-		if(_tab.length > 0){
-			return _tab;
-		}else{
-			return false;
-		}
-	};
+	// 	if(_tab.length > 0){
+	// 		return _tab;
+	// 	}else{
+	// 		return false;
+	// 	}
+	// };
 
 	/*
 	 * 标签的点击事件
 	 */
 	t.click = function(d){
-		var _index = t.o.wrap.find('li').index(d);
-		var _old = t.o.wrap.find('li').index(t.o.wrap.find('li.' + t.cls.active));
-		t.index = _index;
-		t.old = _old;
-		t.setActive();
-		// console.log(_index + '\n' + _old);
+		var _index = this.getIndex(d);
+		var _id = $(d).attr('id');
+		if(_id){
+			_id = _id.replace('tab_','');
+		}
+		var _url = $(d).attr('url');
+		// var _old = t.o.wrap.find('li').index(t.o.wrap.find('li.' + t.cls.active));
+		// var _old = t.getIndex(t.o.wrap.find('li.' + t.cls.active));
+		// // t.index = _index;
+		// t.old = _old;
+		// console.log(_index);
+		t.setActive(_index);
+		t.setContent(_id, _url);
+		// this.contentShow(_id, _url);
 	};
 
 	/*
 	 * 关闭标签
 	 */
 	t.close = function(id){
-		t.o.wrap.find('li#tab_' + id).remove();
-		t.o.content.find('#content_'+ id).remove();
+		// console.log(id);
+		var _tab = t.getItem(id);
+		
+		if(_tab){
+			t.remove(id);
+			// console.log(_tab.hasClass(t.cls.active));
+			//如果关闭的标签为激活标签，则关闭后激活最后一个标签；否则不执行激活操作
+			if(_tab.hasClass(t.cls.active)){
+				t.click(t.getLast()[0]);
+				// t.setActive();
+			}
+		}
+		// t.o.wrap.find('li#tab_' + id).remove();
+		// t.o.content.find('#content_'+ id).remove();
+		// t.setActive();
+		// console.log(id+'\nold:'+t.old);
+		// t.o.active.click();
 		this.resize();
 	};
 
 	/*
 	 * 设置激活标签
+	 * 如果不传值则最后一个激活
 	 */
 	t.setActive = function(index){
-		var _index = index || t.index;
+		// var _index = index || t.index;
+		var _act = index ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
+		var _index = t.getIndex(_act[0]);
+		// t.setOld();
+		t.index = _index;
 		//把激活的标签存入到t.o对象中
-		t.o.active = t.o.wrap.find('li').eq(_index);
+		t.o.active = _act;
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
+		// t.o.active.find('a').click();
 	};
-
-	
+	/**
+	 * 设置之前激活的标签
+	 */
+	// t.setOld = function(index){
+	// 	// console.log('o: ' + t.old);
+	// 	t.old = index ? index : t.getIndex(t.o.wrap.find('li.' + t.cls.active)[0]);
+	// 	// console.log('-------------');
+	// 	// console.log('n: ' + t.old);
+	// };
 	/*
 	 * 设置当前要显示的content内容(还未在页面中存在的内容)
 	 */
 	t.setContent = function(id,url){
-		var _html = '<iframe id="content_' + id + '" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="url"></iframe>';
+		// console.log(id+'\n'+url);
+		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
 		var _is = t.o.contentWrap.find('#content_'+id);
-		if(_is){
-			t.contentShow(id);
+		// console.log(_is.length);
+		if(_is.length > 0){
+			// t.contentShow(id);
 		}else{
 			t.o.contentWrap.append(_html);
 		}
+		t.contentShow(id);
+		// t.o.contentWrap.find('#content_'+id).siblings('iframe').hide();
+	};
+
+	/**
+	 * 移出标签
+	 */
+	t.remove = function(id){
+		t.o.wrap.find('li#tab_' + id).remove();
+		// console.log(t.o.contentWrap.find('#content_'+ id).length);
+		t.o.contentWrap.find('#content_'+ id).remove();
 	};
 
 	/*
@@ -220,7 +289,7 @@ var tabs = tabs || {};
 			eID = e.attr('id').replace('tab_');
 		t.setActive(t.index);
 		// t.o.content.find('#content_' + sID).hide();
-		// 当前标签对应的content显示，其他content隐藏起来
+		// 当前标签对应的content显示，其他content隐藏起来		
 		t.contentShow(eID);
 	};
 
@@ -234,13 +303,13 @@ var tabs = tabs || {};
 			_box = _item.find('a');
 
 		var _width = 0;
-		console.clear();
+		// console.clear();
 		_box.removeAttr('style');
 		_item.each(function(i){
-			console.log(i + ' : ' + $(this).outerWidth());
+			// console.log(i + ' : ' + $(this).outerWidth());
 			_width += $(this).outerWidth();
 		});
-		console.log('width: ' + _width);
+		// console.log('width: ' + _width);
 
 		// var _itemFixed = this.o.wrap.find('li.fixed'),
 		// 	_item = this.o.wrap.find('li').not('.fixed');
@@ -313,7 +382,7 @@ var tabs = tabs || {};
 
 	//监听事件
 	t.listener = function(dom, event, fn){
-		dom[event](function(){
+		dom.die(event).live(event,function(){
 			fn(this);
 		});
 	};
