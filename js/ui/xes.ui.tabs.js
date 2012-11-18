@@ -95,13 +95,13 @@ var tabs = tabs || {};
 		return this;
 	};
 
-	/*
-	 * 获取标签列表
-	 */
-	t.getItems = function(){
-		var _items = '';
-		return _items;
-	};
+	// /*
+	//  * 获取标签列表
+	//  */
+	// t.getItems = function(){
+	// 	var _items = '';
+	// 	return _items;
+	// };
 
 	/*
 	 * 返回tabs的html结构
@@ -166,6 +166,7 @@ var tabs = tabs || {};
 		var _last = t.o.wrap.find('li:last');
 		return (getID ? _last.attr('id').replace('tab_','') : _last);
 	};
+	
 	/*
 	 * 检查tab是否已经存在
 	 * 如果存在则返回此对象，否则返回false
@@ -194,7 +195,6 @@ var tabs = tabs || {};
 		// var _old = t.getIndex(t.o.wrap.find('li.' + t.cls.active));
 		// // t.index = _index;
 		// t.old = _old;
-		// console.log(_index);
 		t.setActive(_index);
 		t.setContent(_id, _url);
 		// this.contentShow(_id, _url);
@@ -209,7 +209,6 @@ var tabs = tabs || {};
 		
 		if(_tab){
 			t.remove(id);
-			// console.log(_tab.hasClass(t.cls.active));
 			//如果关闭的标签为激活标签，则关闭后激活最后一个标签；否则不执行激活操作
 			if(_tab.hasClass(t.cls.active)){
 				t.click(t.getLast()[0]);
@@ -239,6 +238,7 @@ var tabs = tabs || {};
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
 		// t.o.active.find('a').click();
 	};
+
 	/**
 	 * 设置之前激活的标签
 	 */
@@ -248,17 +248,16 @@ var tabs = tabs || {};
 	// 	// console.log('-------------');
 	// 	// console.log('n: ' + t.old);
 	// };
+
 	/*
 	 * 设置当前要显示的content内容(还未在页面中存在的内容)
 	 */
 	t.setContent = function(id,url){
-		// console.log(id+'\n'+url);
+
 		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
 		var _is = t.o.contentWrap.find('#content_'+id);
-		// console.log(_is.length);
-		if(_is.length > 0){
-			// t.contentShow(id);
-		}else{
+
+		if(_is.length == 0){
 			t.o.contentWrap.append(_html);
 		}
 		t.contentShow(id);
@@ -270,7 +269,6 @@ var tabs = tabs || {};
 	 */
 	t.remove = function(id){
 		t.o.wrap.find('li#tab_' + id).remove();
-		// console.log(t.o.contentWrap.find('#content_'+ id).length);
 		t.o.contentWrap.find('#content_'+ id).remove();
 	};
 
@@ -288,7 +286,6 @@ var tabs = tabs || {};
 		var sID = s.attr('id').replace('tab_'),
 			eID = e.attr('id').replace('tab_');
 		t.setActive(t.index);
-		// t.o.content.find('#content_' + sID).hide();
 		// 当前标签对应的content显示，其他content隐藏起来		
 		t.contentShow(eID);
 	};
@@ -303,26 +300,11 @@ var tabs = tabs || {};
 			_box = _item.find('a');
 
 		var _width = 0;
-		// console.clear();
 		_box.removeAttr('style');
 		_item.each(function(i){
-			// console.log(i + ' : ' + $(this).outerWidth());
 			_width += $(this).outerWidth();
 		});
-		// console.log('width: ' + _width);
-
-		// var _itemFixed = this.o.wrap.find('li.fixed'),
-		// 	_item = this.o.wrap.find('li').not('.fixed');
-
-
-
-
-
-
-		// console.clear();
-		// console.info('len: '+_item.length);
-		// console.log('li width: '+_width);
-		// console.log('wrap width: ' + _wrap.width());
+		
 		if(_wrap.width() < _width){
 			var _w = _wrap.width() / _item.length - 50;
 			_box.width(_w);

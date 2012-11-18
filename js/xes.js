@@ -18,6 +18,9 @@ xes.domain = function(){
 	return (_host == '' || _host == '127.0.0.1' || _host == 'www.xes.com') ? 'www.xueersi.com' : _host;
 	// return ( (_host == '' || _host == 'bbs.xueersi.com' || _host == 'star.xueersi.com') ? 'www.xueersi.com' : _host );
 }();
+
+xes.timestamp = new Date().valueOf();
+
 // 文件路径
 xes.path = {
 	js : 'http://' + xes.domain + '/static/js/',

@@ -69,12 +69,43 @@ xes.platfrom = xes.platfrom || {};
 	/*
 	 * 左侧导航点击事件：tabs、content
 	 */
-	PF.menu.click = function(fn){
+	PF.menu.click = function(dom){
+
 		$('.sidebar .ui_fold_menu li').die('click').live('click',function(){
 			// alert($(this).text());
-			fn(this);
+			// fn(this);
+			var _dom = $(this);
+			var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+			//根据左侧菜单创建tabs标签
+			xes.ui.tabs.create(_d);	
+			PF.menu.setActive(this);
 		});
 	};
+
+	/**
+	 * 左侧导航设置当前状态
+	 * 传入子节点，同时根据子节点设置父节点的当前状态
+	 */
+	PF.menu.setActive = function(dom){
+		$('#sidebar li').removeClass('current');
+		$(dom).addClass('current');
+		$(dom).parent().prev().click();
+	};
+	// /**
+	//  * 根据id 、 url获取menu中的节点
+	//  */
+	// PF.menu.getItem = function(id, url){
+	// 	var _sidebar = $('#sidebar'),
+	// 		_item = _sidebar.find('ul.ui_fold_menu li');
+	// 	if(id){
+	// 		_item = _sidebar.find('li.#'+id);
+	// 		return _item;
+	// 	}
+	// 	if(url){
+	// 		_item = _sidebar.find('ul.ui_fold_menu li a[url="/' + url + '"]');
+	// 		return _item;
+	// 	}
+	// };
 
 	/**
 	 * 左侧地址列表
@@ -171,7 +202,8 @@ xes.platfrom = xes.platfrom || {};
 			_footHeight = 85,
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
-		var _height = (h < _mainMinHeight) ? _mainMinHeight : h;
+		var _height = (h < _mainMinHeight) ? _mainMinHeight -10 : h + 20;
+		// _height += 10;
 		// console.log('h: ' + h);
 		// console.log('win: '+_winHeight);
 		// console.log('main: '+ _mainMinHeight);
@@ -190,6 +222,23 @@ xes.platfrom = xes.platfrom || {};
 	// 		$('#content').height(_height);
 	// 	// }, 5000);
 	// 	// _wrap.height('auto');
+	// };
+
+	// /**
+	//  * 创建tab标签
+	//  */
+	// PF.createTabs = function(url){
+	// 	var _sidebar = $('#sidebar li.ui_fold_menu');
+	// 	var _menu = _sidebar.find('a[url="/'+url+'"]');
+	// 	if(_menu.length >0){
+	// 		_menu.parent().click();
+	// 	}else{
+	// 		var _dom = $(d);
+
+	// 		var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+	// 		//根据左侧菜单创建tabs标签
+	// 		xes.ui.tabs.create(_d);
+	// 	}
 	// };
 })();
 
@@ -223,18 +272,73 @@ xes.ui.add( 'tabs', tabs , function(tips){
 	});
 });
 
-
-
+/**
+ * sidebar
+ */
 xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click(function(d){
-	var _dom = $(d);
-	// console.log(_dom.attr('fixed'));
+	// var _dom = $(d);
 
-	var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
-	//根据左侧菜单创建tabs标签
-	xes.ui.tabs.create(_d);
+	// var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+	// //根据左侧菜单创建tabs标签
+	// xes.ui.tabs.create(_d);
 });
 
+/** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
+
+var setIframeHeight = xes.platfrom.setMainHeight;
+
+/**
+ * 公用创建标签的方法
+ * obj = {id,title,content,url,fixed}
+ * 如果在sidebar中已经存在的了，则直接调用
+ */
+var createTabs = function(obj){
+	// var _sidebar = $('#sidebar ul.ui_fold_menu li');
+	// var _dom = $(dom);
+	// var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': _dom.attr('title'), 'url': _dom.attr('url'), 'fixed': false};
+	var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="/' + obj.url + '"]');
+	if(_menu.length >0){
+		_menu.parent().click();
+		// _menu.parent().parent().prev().click();
+		// xes.platfrom.menu.setActive(_menu.parent());
+	}else{
+		//根据左侧菜单创建tabs标签
+		xes.ui.tabs.create(obj);
+	}	
+};
 
 
-xes.setIframeHeight = xes.platfrom.setMainHeight;
-
+/**
+ * 创建标签
+ * @Example:
+	<a id="menu_2_2_2" title="创建直播" href="javascript:void(0);" url="live_edit.html" onclick="openTabs(this);">创建直播</a>
+ * @Mark:
+ 	如果是a标签调用：openTabs(this);
+ 	如果是直接传值调用：openTabs(false, '标签的标题', 'url.html');
+   @param dom : 可以是dom对象，也可以是url路径；
+   @param text: 如果第一个参数是url，则第二个是标签的标题
+ */
+var openTabs = function(dom, text){
+	var _arg = arguments;
+	if(_arg.length > 0){
+		var _url,_text,_id,_content;
+		//如果传入的是dom对象，则获取对应的属性
+		if(typeof _arg[0] == 'object'){
+			var _dom = $(_arg[0]);
+			_url = _dom.attr('url') || _dom.attr('href');
+			_text = _dom.text();
+			_id = _dom.attr('id');
+			_content = _dom.attr('title');
+		}else{
+			_url = _arg[0];
+			_text = _arg[1] || '标签';
+			// _id = 'page_'+ xes.timestamp;
+		}
+		_content = _content || _text;
+		_id = _id || 'page_' + xes.timestamp;
+		_url = _url || '404.html';
+	}
+	// var _dom = $(dom);
+	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
+	createTabs(_d);
+};

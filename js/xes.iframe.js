@@ -15,29 +15,43 @@ xes.iframe = xes.iframe || {};
 (function(){
 	var f = xes.iframe;
 	
-	// f.setHeight = function(id, h){
-	// 	$('#'+id).height(h);
-	// };
-
 	f.getPageHeight = function(){
 		var _win = $(window).height(),
 			_body = $('html').height();
 		return _body;
 	};
 	f.setHeight = function(){
-		var _setHeight = window.parent.xes.setIframeHeight;
+		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
 			_setHeight(f.getPageHeight(), f.getUrl());
 		}
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			// _href = _local.href,
-			// _domain = _local.domain,
 			_pathname = _local.pathname;
 		return _pathname;
 	};
 })();
-// console.log(window.location.pathname);
 xes.iframe.setHeight();
 // window.parent.xes.setIframeHeight(xes.iframe.getPageHeight());
+
+/* =-=-=-=-=-=-=-=-=-=-=-=- 子页面调用父级方法 -=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+/**
+ * 创建标签
+ * 直接调用父级的openTabs方法，这里只是一个中转函数；
+ * 可以直接传入dom对象，dom必须存在url、id、title等属性，且必须有text()内容
+ 	也可以第一个参数传入url，第二个传入标签标题
+ */
+var openTab = function(dom, text){
+	window.parent.openTabs(arguments);
+};
+
+
+var initTabBtn = function(){
+	var _btn = $('.open_tabs');
+	_btn.click(function(){
+		openTab(this);
+		return false;
+	});
+}();
