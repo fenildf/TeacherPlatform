@@ -88,7 +88,7 @@ xes.platfrom = xes.platfrom || {};
 			id: '1_1',
 			name: '课程列表',
 			title: '',
-			url: 'course_list.html',
+			url: '/course_list.html',
 			items: [],
 			fixed: false
 		}]
@@ -101,21 +101,21 @@ xes.platfrom = xes.platfrom || {};
 			id: '2_1',
 			name: '直播列表',
 			title: '',
-			url: 'live_list.html',
+			url: '/live_list.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '2_2',
 			name: '创建直播',
 			title: '',
-			url: 'live_edit.html',
+			url: '/live_edit.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '2_3',
 			name: '筛选学员',
 			title: '',
-			url: 'student_leach.html',
+			url: '/student_leach.html',
 			items: [],
 			fixed: false
 		}]
@@ -128,7 +128,7 @@ xes.platfrom = xes.platfrom || {};
 			id: '3_1',
 			name: '学员列表',
 			title: '',
-			url: 'student.html',
+			url: '/student.html',
 			items: [],
 			fixed: false
 		}]
@@ -143,26 +143,54 @@ xes.platfrom = xes.platfrom || {};
 			id: '5_1',
 			name: '学习状态数据',
 			title: '',
-			url: 'data1_list.html',
+			url: '/data1_list.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '5_2',
 			name: '学完率数据',
 			title: '',
-			url: 'data2.html',
+			url: '/data2.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '5_3',
 			name: '学习效果数据',
 			title: '',
-			url: 'data3_list.html',
+			url: '/data3_list.html',
 			items: [],
 			fixed: false
 		}]
 	}];
 
+	/**
+	 * 设置iframe高度(内部页面加载时调用)
+	 */
+	PF.setMainHeight = function(h, url){
+		var _headHeight = 108,
+			_footHeight = 85,
+			_winHeight = $(window).height();
+		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
+		var _height = (h < _mainMinHeight) ? _mainMinHeight : h;
+		// console.log('h: ' + h);
+		// console.log('win: '+_winHeight);
+		// console.log('main: '+ _mainMinHeight);
+		// console.log(_height);
+		$('#content').height(_height);
+		if(url){
+			$('#content').find('iframe[src="' + url + '"]').height(_height);
+		}
+		// PF.setIframeHeight();
+	};
+	// PF.setIframeHeight = function(h){
+	// 	var _wrap = $('#content'),
+	// 		_iframe = _wrap.find('iframe:visible'),
+	// 		_height = h || _iframe.height();
+	// 	// setTimeout(function(){
+	// 		$('#content').height(_height);
+	// 	// }, 5000);
+	// 	// _wrap.height('auto');
+	// };
 })();
 
 
@@ -205,3 +233,8 @@ xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click(function(d){
 	//根据左侧菜单创建tabs标签
 	xes.ui.tabs.create(_d);
 });
+
+
+
+xes.setIframeHeight = xes.platfrom.setMainHeight;
+

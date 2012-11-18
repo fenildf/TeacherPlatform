@@ -343,10 +343,20 @@ var tabs = tabs || {};
 	 */
 	t.contentShow = function(id){
 		var _ID = id || t.o.active.attr('id').replace('tab_');
+		var _iframe = t.o.contentWrap.find('#content_' + _ID);
 		// 当前标签对应的content显示，其他content隐藏起来
-		t.o.contentWrap.find('#content_' + _ID).show().siblings('.' + t.cls.main).hide();
+		_iframe.show().siblings('.' + t.cls.main).hide();
+		//设置content高度（切换的时候有用）
+		$('#content').height(_iframe.height());
 	};
 
+	// t.contentSetHeight = function(id){
+	// 	var _box = t.o.contentWrap.find('#content_' + id);
+	// 	var _h = _box.contents().find('body').height();
+	// 	console.log(_box.contents().find('body'));
+	// 	_box.height(_h);
+	// 	t.o.contentWrap.height(_h);
+	// };
 
 	// t = {
 	// 	version: '1.0',
