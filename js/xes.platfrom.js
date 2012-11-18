@@ -85,8 +85,13 @@ xes.platfrom = xes.platfrom || {};
 	 */
 	PF.menu.setActive = function(dom){
 		$('#sidebar li').removeClass('current');
-		$(dom).addClass('current');
-		$(dom).parent().prev().click();
+		//如果左侧有则激活，否则折叠左侧
+		if(dom){
+			$(dom).addClass('current');
+			$(dom).parent().prev().click();
+		}else{
+
+		}
 	};
 	
 
@@ -102,7 +107,7 @@ xes.platfrom = xes.platfrom || {};
 			id: '1_1',
 			name: '课程列表',
 			title: '',
-			url: '/course_list.html',
+			url: 'course_list.html',
 			items: [],
 			fixed: false
 		}]
@@ -115,21 +120,21 @@ xes.platfrom = xes.platfrom || {};
 			id: '2_1',
 			name: '直播列表',
 			title: '',
-			url: '/live_list.html',
+			url: 'live_list.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '2_2',
 			name: '创建直播',
 			title: '',
-			url: '/live_edit.html',
+			url: 'live_edit.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '2_3',
 			name: '筛选学员',
 			title: '',
-			url: '/student_leach.html',
+			url: 'student_leach.html',
 			items: [],
 			fixed: false
 		}]
@@ -142,7 +147,7 @@ xes.platfrom = xes.platfrom || {};
 			id: '3_1',
 			name: '学员列表',
 			title: '',
-			url: '/student.html',
+			url: 'student.html',
 			items: [],
 			fixed: false
 		}]
@@ -157,21 +162,21 @@ xes.platfrom = xes.platfrom || {};
 			id: '5_1',
 			name: '学习状态数据',
 			title: '',
-			url: '/data1_list.html',
+			url: 'data1_list.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '5_2',
 			name: '学完率数据',
 			title: '',
-			url: '/data2.html',
+			url: 'data2.html',
 			items: [],
 			fixed: false
 		}, {
 			id: '5_3',
 			name: '学习效果数据',
 			title: '',
-			url: '/data3_list.html',
+			url: 'data3_list.html',
 			items: [],
 			fixed: false
 		}]
@@ -185,17 +190,12 @@ xes.platfrom = xes.platfrom || {};
 			_footHeight = 85,
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
-		var _height = (h < _mainMinHeight) ? _mainMinHeight -10 : h + 20;
+		var _height = (h < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
 		// _height += 10;
-		// console.log('h: ' + h);
-		// console.log('win: '+_winHeight);
-		// console.log('main: '+ _mainMinHeight);
-		// console.log(_height);
 		$('#content').height(_height);
 		if(url){
 			$('#content').find('iframe[src="' + url + '"]').height(_height);
 		}
-		// PF.setIframeHeight();
 	};
 
 
@@ -219,15 +219,26 @@ xes.ui.add( 'tabs', tabs , function(tips){
 	// xes.ui.tabs.listener(xes.ui.tabs.o.item,'click',function(d){
 	// 	alert($(d).text());
 	// });
+
 	//tabs的点击事件
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
 		// alert($(this).text());
 		xes.ui.tabs.click($(this).parent()[0]);
+		//根据点击的url获取左侧当前激活的dom
+		var _node = $('#sidebar li a[url="' + $(this).attr('url') + '"]');
+		_dom = _node ? _node.parent() : false;
+		xes.platfrom.menu.setActive(_dom);
 	});
 
 	//关闭按钮的点击事件
 	$('.ui-tabs-items').find('li span.del_btn').die('click').live('click',function(){
-		xes.ui.tabs.close($(this).parent().attr('id').replace('tab_',''));
+		xes.ui.tabs.close($(this).parent().attr('id').replace('tab_',''), function(d){
+			//回调函数，用于设置左侧当前激活状态
+			var _node = $('#sidebar li a[url="' + d.attr('url') + '"]');
+			_dom = _node ? _node.parent() : false;
+			xes.platfrom.menu.setActive(_dom);
+		});
+		
 	});
 });
 
@@ -246,8 +257,8 @@ var setIframeHeight = xes.platfrom.setMainHeight;
  * 如果在sidebar中已经存在的了，则直接调用
  */
 var createTabs = function(obj){
-	var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="/' + obj.url + '"]');
-	if(_menu.length >0){
+	var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
+	if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
 		_menu.parent().click();
 	}else{
 		//根据左侧菜单创建tabs标签
@@ -266,7 +277,7 @@ var createTabs = function(obj){
    @param dom : 可以是dom对象，也可以是url路径；
    @param text: 如果第一个参数是url，则第二个是标签的标题
  */
-var openTabs = function(dom, text){
+var openTabs = function(dom, text, id){
 	var _arg = arguments;
 	if(_arg.length > 0){
 		var _url,_text,_id,_content;
@@ -274,17 +285,19 @@ var openTabs = function(dom, text){
 		if(typeof _arg[0] == 'object'){
 			var _dom = $(_arg[0]);
 			_url = _dom.attr('url') || _dom.attr('href');
-			_text = _dom.text();
 			_id = _dom.attr('id');
 			_content = _dom.attr('title');
+			_text = _dom.attr('text') || _dom.text();
 		}else{
 			_url = _arg[0];
 			_text = _arg[1] || '标签';
+			_id = _arg[2];
 		}
 		_content = _content || _text;
 		_id = _id || 'page_' + xes.timestamp;
 		_url = _url || '404.html';
 	}
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
+
 	createTabs(_d);
 };

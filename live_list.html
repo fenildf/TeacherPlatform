@@ -87,7 +87,7 @@
 
 	<div class="createbtn">
 		<!-- <a href="#">创建直播</a> -->
-		<a id="menu_2_2_2" title="创建直播" href="javascript:void(0);" url="live_edit.html" onclick="openTab(this);">创建直播</a>
+		<a id="menu_2_2_2" class="open_tabs" title="创建直播" href="live_edit.html" >创建直播</a>
 	</div>
 	<div class="grid_item_content">
 		<table class="grid_item">
@@ -104,7 +104,7 @@
 			<tbody>
 				<tr>
 					<td>12345</td>
-					<td>学数学小学数学小学数学</td>
+					<td>学数学小学数学小学数学1</td>
 					<td>一年级</td>
 					<td>2012/02/03 19:00-21:00</td>
 					<td>
@@ -112,14 +112,14 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a  href="edit.html">开始直播</a>
-						<a href="view.html">查看</a>
-						<a  href="edit.html">取消</a>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_1" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学1" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(1)">取消</a>
 					</td>
 				</tr>
 				<tr>
 					<td>12345</td>
-					<td>学数学小学数学小学数学</td>
+					<td>学数学小学数学小学数学2</td>
 					<td>一年级</td>
 					<td>2012/02/03 19:00-21:00</td>
 					<td>
@@ -127,14 +127,14 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a  href="edit.html">开始直播</a>
-						<a href="view.html">查看</a>
-						<a  href="edit.html">取消</a>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_2" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学2" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(2)">取消</a>
 					</td>
 				</tr>
 				<tr>
 					<td>12345</td>
-					<td>学数学小学数学小学数学</td>
+					<td>学数学小学数学小学数学3</td>
 					<td>一年级</td>
 					<td>2012/02/03 19:00-21:00</td>
 					<td>
@@ -142,14 +142,14 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a  href="edit.html">开始直播</a>
-						<a href="view.html">查看</a>
-						<a  href="edit.html">取消</a>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_3" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学3" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(3)">取消</a>
 					</td>
 				</tr>
 				<tr>
 					<td>12345</td>
-					<td>学数学小学数学小学数学</td>
+					<td>学数学小学数学小学数学4</td>
 					<td>一年级</td>
 					<td>2012/02/03 19:00-21:00</td>
 					<td>
@@ -157,15 +157,21 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a  href="edit.html">开始直播</a>
-						<a href="view.html">查看</a>
-						<a  href="edit.html">取消</a>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_4" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学4" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(4)">取消</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+
 	<script type="text/javascript" src="js/xes.iframe.js"></script>
 	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
+	<script type="text/javascript">
+		function liveCancel(liveId){
+			alert('已取消');
+		}
+	</script>
 </body>
 </html>

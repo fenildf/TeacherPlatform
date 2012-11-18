@@ -15,7 +15,8 @@ html{
 */
 body {
 	_background-image: url(about:blank);    
-	_background-attachment: fixed;position:relative;             
+	_background-attachment: fixed;position:relative;
+	overflow-y: scroll;          
 	}
 
 
@@ -82,8 +83,8 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 a:hover.btn_ancel {color: #666; text-decoration: none;}
 a:hover.btn_prev {color: #fff; text-decoration: none;}
 
-.btn_ancel {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
-.btn_prev {background-position: 0 0; color: #fff;}
+.btn_ancel, .btn_ancel:active, .btn_ancel:visited {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+.btn_prev, .btn_prev:active, .btn_prev:visited {background-position: 0 0; color: #fff;}
 
 .xeshg_90 {height: 90px;overflow: hidden;}
 .xeshg_285 {height: 285px;overflow: hidden;}
@@ -145,7 +146,7 @@ a:hover.btn_prev {color: #fff; text-decoration: none;}
 .ui_tipsAll .icon_tips {width:400px;margin:auto; background: url(../img/tips1.png) 0 6px no-repeat;padding: 10px 55px;}
 .ui_tipsAll .icon_tips_err {background: url(../img/tips2.png) 0 6px no-repeat;} 
 /*公用提示*/
-
+#footer {margin-top:40px}
 #footer p {line-height: 180%;text-align: center;}
 #footer p a {color: #333;}
 

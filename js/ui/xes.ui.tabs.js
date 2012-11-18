@@ -85,10 +85,11 @@ var tabs = tabs || {};
 			target : d.url ? 'target="content_' + d.id + '"' : '',
 			url : d.url ? d.url : 'javascript:void(0);',
 			title : d.title,
+			content : d.content || d.title,
 			close : d.fixed == 1 ? '' : '<span class="del_btn" title="删除标签">删除</span>',
 			fixed : d.fixed == 1 ? 'fixed' : ''
 		};
-		var _html = '<li id="tab_' + _tpl.id + '" class="end ' + _tpl.fixed + '" title="' + _tpl.title + '" url="' + _tpl.url + '"><a ' + _tpl.target +' href="javascript:void(0);" url="' + _tpl.url + '" title="' + _tpl.title + '">' + _tpl.title + '</a>' + _tpl.close + '</li>';
+		var _html = '<li id="tab_' + _tpl.id + '" class="' + _tpl.fixed + '" title="' + _tpl.content + '" url="' + _tpl.url + '"><a ' + _tpl.target +' href="javascript:void(0);" url="' + _tpl.url + '" title="' + _tpl.content + '">' + _tpl.title + '</a>' + _tpl.close + '</li>';
 		return _html;
 	};
 
@@ -98,6 +99,7 @@ var tabs = tabs || {};
 	 * d = { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
 	 */
 	t.create = function(d){
+		console.log(d);
 		var _D = d || { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
 		var _item = t.getItem(_D.id);
 		//如果存在则直接执行该标签的点击事件，否则创建该菜单
@@ -152,7 +154,7 @@ var tabs = tabs || {};
 	/*
 	 * 关闭标签
 	 */
-	t.close = function(id){
+	t.close = function(id, fn){
 		// console.log(id);
 		var _tab = t.getItem(id);
 		
@@ -164,6 +166,10 @@ var tabs = tabs || {};
 			}
 		}
 		this.resize();
+		//如果有回调函数，则返回最后激活的标签
+		if(fn){
+			fn(t.o.wrap.find('li.'+t.cls.active));
+		}
 	};
 
 	/*
@@ -171,7 +177,7 @@ var tabs = tabs || {};
 	 * 如果不传值则最后一个激活
 	 */
 	t.setActive = function(index){
-		var _act = index ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
+		var _act = index >= 0 ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
 		var _index = t.getIndex(_act[0]);
 		// t.setOld();
 		t.index = _index;

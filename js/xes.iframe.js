@@ -28,7 +28,7 @@ xes.iframe = xes.iframe || {};
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			_pathname = _local.pathname;
+			_pathname = _local.pathname.replace('/','');
 		return _pathname;
 	};
 })();
@@ -44,13 +44,17 @@ xes.iframe.setHeight();
  */
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
+	// xes.iframe.setHeight();
 };
 
-
+/**
+ * 初始化所有带有open_tabs样式的链接为tab方式打开，不带则用默认方式打开
+ */
 var initTabBtn = function(){
 	var _btn = $('.open_tabs');
-	_btn.click(function(){
+	_btn.die('click').live('click',function(){
 		openTab(this);
+
 		return false;
 	});
 }();
