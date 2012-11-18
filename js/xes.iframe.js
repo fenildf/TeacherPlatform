@@ -33,7 +33,6 @@ xes.iframe = xes.iframe || {};
 	};
 })();
 xes.iframe.setHeight();
-// window.parent.xes.setIframeHeight(xes.iframe.getPageHeight());
 
 /* =-=-=-=-=-=-=-=-=-=-=-=- 子页面调用父级方法 -=-=-=-=-=-=-=-=-=-=-=-=-= */
 

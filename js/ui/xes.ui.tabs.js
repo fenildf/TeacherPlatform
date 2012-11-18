@@ -16,27 +16,6 @@ var tabs = tabs || {};
 (function(x, undefined){
 	var t = tabs;
 	t.id = 0;
-	/*
-	 * tab列表数据
-	 *  id 		: 标签id
-		title	: 标签文字
-		content	: 标签对应的内容
-		url 	: 标签目标url地址，存在的话，则用iframe调用
-		fixed	: 固定选项：true（不可以关闭），默认是false
-	 *
-	 **/
-	t.data = [
-		{ 'id': '01', 'title': '首页', 'content': '', 'url': false, 'fixed': true },
-		{ 'id': '02', 'title': 'menu1', 'content': '', 'url': false, 'fixed': true },
-		{ 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true },
-		{ 'id': '04', 'title': 'menu3', 'content': '', 'url': false, 'fixed': false },
-		{ 'id': '05', 'title': 'menu3', 'content': '', 'url': false, 'fixed': false },
-		{ 'id': '06', 'title': 'menu4', 'content': '', 'url': false, 'fixed': false },
-		{ 'id': '07', 'title': 'menu5', 'content': '', 'url': false, 'fixed': false },
-		{ 'id': '08', 'title': 'menu6', 'content': '', 'url': false, 'fixed': false },
-
-		{ 'id': '09', 'title': 'menu7', 'content': '', 'url': false, 'fixed': false }
-	];
 
 	//相关元素的cls，方便jQuery检索
 	t.cls = {
@@ -95,14 +74,6 @@ var tabs = tabs || {};
 		return this;
 	};
 
-	// /*
-	//  * 获取标签列表
-	//  */
-	// t.getItems = function(){
-	// 	var _items = '';
-	// 	return _items;
-	// };
-
 	/*
 	 * 返回tabs的html结构
 	 * d = { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
@@ -138,13 +109,10 @@ var tabs = tabs || {};
 		this.resize();
 	};
 
-	// t.setLast = function(){
-	// 	t.o.wrap.find('li').removeClass(t.cls.last);
-	// 	t.o.wrap.find('li:last').addClass(t.cls.last);
-	// };
-
 	/**
-	 * 根据id返回节点内容
+	 * 根据id返回节点内容 与之前的t.isExist方法相同
+	 * 检查tab是否已经存在
+	 * 如果存在则返回此对象，否则返回false
 	 */
 	t.getItem = function(id){
 		var _tab = t.o.wrap.find('li#tab_'+id);
@@ -166,20 +134,6 @@ var tabs = tabs || {};
 		var _last = t.o.wrap.find('li:last');
 		return (getID ? _last.attr('id').replace('tab_','') : _last);
 	};
-	
-	/*
-	 * 检查tab是否已经存在
-	 * 如果存在则返回此对象，否则返回false
-	 */
-	// t.isExist = function(id){
-	// 	var _tab = t.o.wrap.find('li#tab_'+ id);
-
-	// 	if(_tab.length > 0){
-	// 		return _tab;
-	// 	}else{
-	// 		return false;
-	// 	}
-	// };
 
 	/*
 	 * 标签的点击事件
@@ -191,13 +145,8 @@ var tabs = tabs || {};
 			_id = _id.replace('tab_','');
 		}
 		var _url = $(d).attr('url');
-		// var _old = t.o.wrap.find('li').index(t.o.wrap.find('li.' + t.cls.active));
-		// var _old = t.getIndex(t.o.wrap.find('li.' + t.cls.active));
-		// // t.index = _index;
-		// t.old = _old;
 		t.setActive(_index);
 		t.setContent(_id, _url);
-		// this.contentShow(_id, _url);
 	};
 
 	/*
@@ -212,14 +161,8 @@ var tabs = tabs || {};
 			//如果关闭的标签为激活标签，则关闭后激活最后一个标签；否则不执行激活操作
 			if(_tab.hasClass(t.cls.active)){
 				t.click(t.getLast()[0]);
-				// t.setActive();
 			}
 		}
-		// t.o.wrap.find('li#tab_' + id).remove();
-		// t.o.content.find('#content_'+ id).remove();
-		// t.setActive();
-		// console.log(id+'\nold:'+t.old);
-		// t.o.active.click();
 		this.resize();
 	};
 
@@ -228,7 +171,6 @@ var tabs = tabs || {};
 	 * 如果不传值则最后一个激活
 	 */
 	t.setActive = function(index){
-		// var _index = index || t.index;
 		var _act = index ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
 		var _index = t.getIndex(_act[0]);
 		// t.setOld();
@@ -236,7 +178,6 @@ var tabs = tabs || {};
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
-		// t.o.active.find('a').click();
 	};
 
 	/**
@@ -261,7 +202,6 @@ var tabs = tabs || {};
 			t.o.contentWrap.append(_html);
 		}
 		t.contentShow(id);
-		// t.o.contentWrap.find('#content_'+id).siblings('iframe').hide();
 	};
 
 	/**
@@ -332,13 +272,6 @@ var tabs = tabs || {};
 		$('#content').height(_iframe.height());
 	};
 
-	// t.contentSetHeight = function(id){
-	// 	var _box = t.o.contentWrap.find('#content_' + id);
-	// 	var _h = _box.contents().find('body').height();
-	// 	console.log(_box.contents().find('body'));
-	// 	_box.height(_h);
-	// 	t.o.contentWrap.height(_h);
-	// };
 
 	// t = {
 	// 	version: '1.0',
