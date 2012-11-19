@@ -14,13 +14,14 @@
 
 </head>
 
-<body>
+<body style="position: static">
 	<h1 class="ui_infor_title">
 		<span>编辑直播</span>
 	</h1>
+
 	<div class="contentLive">
 		<dl>
-			<dt>直播名称</dt>
+			<dt>直播名称2</dt>
 			<dd>
 				<input size="" value="" type="text" class="input_text w_500" />
 			</dd>
@@ -54,17 +55,16 @@
 		<dl>
 			<dt>直播排期</dt>
 			<dd>
-				<input size="" value="2012-12-22" type="text" class="input_text w_215"/>
+				<input id="liveDate" size="" value="2012-12-22" type="text" class="input_text w_215"/>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="liveTime">
 			<dt>&nbsp;</dt>
 			<dd>
 				<ul>
 					<li class="title">时间/星期三</li>
-					
 				</ul>
-				<ul class="content">
+				<ul id="liveTimeList" class="content">
 					<li class="current"><span class="time">8：00</span><span class="name">预订</span></li>
 					<li><span class="time">8：00</span><span class="name">王洁</span></li>
 					<li><span class="time">8：00</span><span class="name">王洁</span></li>
@@ -83,7 +83,7 @@
 			</dd>
 		</dl>
 	</div>
-<div class="teacherLayerAll">
+<div id="liveTimeChoose" class="teacherLayerAll">
 	<ul>
 		<li class="title">
 			<span class="laber">直播名称</span>
@@ -115,10 +115,18 @@
 		</li>
 	</ul>
 	<div style="width:196px;margin:10px auto;overflow:hidden;">
-		<a href="#" class="btn_ancel btn_prev">预览</a>
+		<a href="#" class="btn_ancel btn_prev">确定</a>
 		<a href="#" class="btn_ancel">取消</a>
 	</div>
 </div>
+
 <script type="text/javascript" src="js/xes.iframe.js"></script>
+<script type="text/javascript" src="js/xes.live.js"></script>
+<script type="text/javascript" src="js/ui/xes.ui.calendar.js"></script>
+<script type="text/javascript">
+	$(function () {
+    	$("#liveDate").calendar();
+    });
+</script>
 </body>
 </html>

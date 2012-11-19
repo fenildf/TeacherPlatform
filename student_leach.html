@@ -30,7 +30,7 @@
 						<option value="opel">二年级</option>
 						<option value="audi">三年级</option>
 					</select>
-					买课时间 从 <input value=""  class="input_text" type="text"/> 至 <input value=""  class="input_text" type="text"/>
+					买课时间 从 <input id="startDate" value=""  class="input_text" type="text"/> 至 <input id="endDate" value=""  class="input_text" type="text"/>
 					<input value=""  class="input_text" type="text"/>
 					<input class="s-btn" type="submit" value="检索" ></td>
 			</tr>
@@ -118,5 +118,13 @@
 	</div>
 	<!-- 学员列表-->
 	<script type="text/javascript" src="js/xes.iframe.js"></script>
+	<!-- 日历控件 -->
+	<script type="text/javascript" src="js/ui/xes.ui.calendar.js"></script>
+	<script type="text/javascript">
+		$(function () {
+	    	$("#startDate").calendar();
+	    	$("#endDate").calendar();
+	    });
+	</script>
 </body>
 </html>

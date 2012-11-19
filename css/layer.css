@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.teacherLayerAll {width: 345px;overflow: hidden;border: 1px solid #d7d7d7;opacity: 0.9;border-radius: 5px;
+.teacherLayerAll {display: none;width: 345px;overflow: hidden;border: 1px solid #d7d7d7;opacity: 0.9;border-radius: 5px;
 box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0.2),0 4px 4px rgba(153, 153, 153, 0.2),4px 0 4px rgba(153, 153, 153, 0.2);margin-left: 100px;}
 .teacherLayerAll ul {overflow: hidden;}
 .teacherLayerAll ul li {overflow: hidden;line-height: 30px;border-bottom: 1px solid #dadada;}
