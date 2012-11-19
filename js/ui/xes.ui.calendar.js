@@ -66,8 +66,7 @@ jQuery.fn.extend({
                     d == $(this).text() && !$(this).hasClass("prevD") && !$(this).hasClass("nextD") && $(this).addClass("select")
                 });
                 $("#" + c.controlId).hide();
-                c.callback();
-                $(n).blur();
+                c.callback()
             }).hover(function() {
                 $(this).addClass("hover")
             },
