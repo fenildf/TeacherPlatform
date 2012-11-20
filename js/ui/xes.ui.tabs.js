@@ -99,7 +99,6 @@ var tabs = tabs || {};
 	 * d = { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
 	 */
 	t.create = function(d){
-		console.log(d);
 		var _D = d || { 'id': '03', 'title': 'menu2', 'content': '', 'url': false, 'fixed': true };
 		var _item = t.getItem(_D.id);
 		//如果存在则直接执行该标签的点击事件，否则创建该菜单
@@ -250,9 +249,9 @@ var tabs = tabs || {};
 		_item.each(function(i){
 			_width += $(this).outerWidth();
 		});
-		
+
 		if(_wrap.width() < _width){
-			var _w = _wrap.width() / _item.length - 50;
+			var _w = _wrap.width() / _item.length - 51;
 			_box.width(_w);
 		}else{
 			_box.removeAttr('style');

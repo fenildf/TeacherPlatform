@@ -15,6 +15,21 @@ xes.platfrom = xes.platfrom || {};
 (function(){
 	var PF = xes.platfrom;
 
+	/**
+	 * input表单提示
+	 */
+	PF.tips = function(){
+		$("input.input_text_ui").focus(function() {
+	        if ($(this).val() == this.defaultValue) {
+	            $(this).val("");
+	        }
+	    }).blur(function() {
+	        if ($(this).val() == '') {
+	            $(this).val(this.defaultValue);
+	        }
+	    });
+	};
+
 	PF.menu = PF.menu || {};
 	/**
 	 * 根据data遍历生成左侧菜单树
@@ -246,6 +261,25 @@ xes.ui.add( 'tabs', tabs , function(tips){
  * sidebar
  */
 xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click();
+
+xes.platfrom.tips();
+
+$(function(){
+	
+	$('#headSearch_submit').click(function(){
+		var tp = $('#headSearch_type').val(),
+			vl = $('#headSearch_value');
+		var url = tp == '课程' ? 'course_list.html' : 'student.html',
+			tit = tp + '列表',
+			id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
+		openTabs(url, tit, id);
+	});
+	$('#headSearch_select').find('li a').click(function(){
+		$('#headSearch_type').val($(this).text());
+	});
+
+
+});
 
 /** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
 

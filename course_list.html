@@ -16,38 +16,26 @@
 			<li class="grade ui-select-box" >
 				<button name="" value="" class="ui-select-button">年级</button>
 				<ul class="ui-select-list">
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
 				</ul>
 			</li>
 			<li class="course ui-select-box">
 				<button name="" value="" class="ui-select-button">课程状态</button>
 				<ul class="ui-select-list">
-					<li>
-						<a href="###">查看视频</a>
-					</li>
-					<li>
-						<a href="###">查看课程</a>
-					</li>
+					<li><a href="###">已上架</a></li>
+					<li><a href="###">未上架</a></li>
+					<li><a href="###">未审核</a></li>
+
 				</ul>
 			</li>
 		</ul>
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
-				<button name="" class="ui-select-button">1/24</button>
+				<!-- <button name="" class="ui-select-button">1/24</button>
 				<ul class="ui-select-list ui-select-default ui-select-topborder">
 					<li>
 						<a href="###">1/24</a>
@@ -69,13 +57,20 @@
 						<a href="###">5/242</a>
 						<input type="hidden" value="5" />
 					</li>
-				</ul>
+				</ul> -->
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
 			</li>
-			<li class="up_page">
-				<span>上一页</span>
+			<li class="page_btn">
+				<span href="" class="page_prev">上一页</span>
 			</li>
-			<li class="down_page">
-				<span>下一页</span>
+			<li class="page_btn">
+				<span class="page_next">下一页</span>
 			</li>
 		</ul>
 
@@ -90,7 +85,7 @@
 					<th>操作</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="courseList">
 				<tr>
 					<td>
 						<input type="checkbox"/>
@@ -154,7 +149,51 @@
 			</tbody>
 		</table>
 	</div>
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
 	<script type="text/javascript" src="js/xes.iframe.js"></script>
 	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
+	<script type="text/javascript" src="js/xes.ajax.js"></script>
+
+	<!--<script type="text/javascript" src="js/import/import.course.js"></script>-->
+	<script type="text/javascript">
+		var courseCreate = function(data){
+			var box = $('#courseList');
+			var _html = '';
+			$.each(data,function(i,m){
+				_html += '<tr id="courseItem_' + m.courseId + '">\n'
+					  +'	<td><input type="checkbox"/>' + m.courseName + '</td>\n'
+					  +'	<td><p>' + m.gradeNames + '</p></td>\n'
+					  +'	<td>' + m.statusName + '</td>\n'
+					  +'	<td>\n'
+					  +'		<a id="course_edit_'+m.courseId+i+'" href="edit.html?couser_id='+m.courseId+i+'" class="open_tabs" title="' + m.courseName + '">编辑详情</a>\n'
+					  +'		<a id="course_view_'+m.courseId+i+'" href="view.html?couser_id='+m.courseId+i+'" class="open_tabs" title="' + m.courseName + '">查看</a>\n'
+					  +'	</td>\n'
+					  +'</tr>\n';
+			});
+			box.html(_html);
+			xes.iframe.setHeight();
+		};
+		function getlist(data){
+			
+			var url = 'http://teacher.wss2.0.com/TeacherCourses/teacherCourseList';
+			// var data = data;
+			xes.post(url, data, function(result){
+				courseCreate(result.data);
+			});
+
+		};
+		getlist();
+	</script>
 </body>
 </html>
