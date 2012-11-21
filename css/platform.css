@@ -38,6 +38,7 @@ span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
 #header {width:1280px;margin:0 auto;position: relative;}
 #middle {width:1278px;margin:0px auto;overflow: hidden;border:1px solid #cbcbcb;border-top:0;background: #f6f6f6;}
 #footer {width:1278px;margin:10px auto 10px;overflow: hidden;}
+iframe {border:0 none}
 /*框架 end*/
 
 /*头部*/
