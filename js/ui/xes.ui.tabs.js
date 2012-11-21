@@ -9,7 +9,46 @@
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
+/**
+ * Example: list
 
+ 			<li class="grade ui-select-box" >
+				<button name="" value="" class="ui-select-button">年级</button>
+				<ul class="ui-select-list">
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+					<li><a href="###">一年级</a></li>
+				</ul>
+			</li>
+	pages:
+	<li class="page_list ui-select-box">
+	<button name="" class="ui-select-button">1/24</button>
+				<ul class="ui-select-list ui-select-default ui-select-topborder">
+					<li>
+						<a href="###">1/24</a>
+						<input type="hidden" value="1" />
+					</li>
+					<li>
+						<a href="###">2/24</a>
+						<input type="hidden" value="2" />
+					</li>
+					<li>
+						<a href="###">3/24</a>
+						<input type="hidden" value="3" />
+					</li>
+					<li>
+						<a href="###">4/24</a>
+						<input type="hidden" value="4" />
+					</li>
+					<li>
+						<a href="###">5/242</a>
+						<input type="hidden" value="5" />
+					</li>
+				</ul>
+	</li>
+ */
 
 var tabs = tabs || {};
 

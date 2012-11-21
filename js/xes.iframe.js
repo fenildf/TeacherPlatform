@@ -23,7 +23,10 @@ xes.iframe = xes.iframe || {};
 	f.setHeight = function(){
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
-			_setHeight(f.getPageHeight(), f.getUrl());
+			setTimeout(function(){
+				// alert(f.getPageHeight());
+				_setHeight(f.getPageHeight(), f.getUrl());
+			},100);
 		}
 	};
 	f.getUrl = function(){
@@ -32,7 +35,10 @@ xes.iframe = xes.iframe || {};
 		return _pathname;
 	};
 })();
-xes.iframe.setHeight();
+
+xes.iframe.setHeight();	
+
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=- 子页面调用父级方法 -=-=-=-=-=-=-=-=-=-=-=-=-= */
 

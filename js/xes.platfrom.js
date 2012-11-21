@@ -205,9 +205,10 @@ xes.platfrom = xes.platfrom || {};
 			_footHeight = 85,
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
-		var _height = (h < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
+		var _height = (h+31 < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
 		// _height += 10;
 		$('#content').height(_height);
+		// alert(h + '\nmain:' + _mainMinHeight + '\nheight:' + _height);
 		if(url){
 			$('#content').find('iframe[src="' + url + '"]').height(_height);
 		}

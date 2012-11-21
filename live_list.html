@@ -11,41 +11,43 @@
 </head>
 
 <body class="skin skin-green">
+	<h1 class="ui_infor_title">
+		<span>直播列表</span>
+	</h1>
 	<div class="action_item">
 
 		<ul class="action">
-			<li class="grade ui-select-box" >
-				<button name="" value="" class="ui-select-button">年级</button>
-				<ul class="ui-select-list">
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-					<li>
-						<a href="###">一年级</a>
-					</li>
-				</ul>
-			</li>
-			<li class="course ui-select-box">
-				<button name="" value="" class="ui-select-button">课程状态</button>
-				<ul class="ui-select-list">
-					<li>
-						<a href="###">查看视频</a>
-					</li>
-					<li>
-						<a href="###">查看课程</a>
-					</li>
-				</ul>
-			</li>
+			<form action="" name="" id="listSerch">
+				<select name="" id="selectGrade" class="ui-select-box">
+					<option>--年级--</option>
+					<option value="1">一年级</option>
+					<option value="2">二年级</option>
+					<option value="3">三年级</option>
+					<option value="4">四年级</option>
+					<option value="5">五年级</option>
+					<option value="5">六年级</option>
+				</select>
+				<select name="" id="selectCourseType" class="ui-select-box">
+					<option>--直播状态--</option>
+					<option value="1">已上架</option>
+					<option value="2">未上架</option>
+					<option value="3">已审核</option>
+					<option value="4">未审核</option>
+				</select>
+				<input type="submit" value="筛选" class="s-btn">
+				<input type="hidden" class="search_key" title="存储头部搜索结果" />
+			</form>
 		</ul>
+
+		
+
+	</div>
+	<div class="createtime">
+		服务器时间： <em>2012/03/03 星期二 19：11：11</em>
+	</div>
+	<div class="action_item">
+		<a id="menu_2_2_2" class="open_tabs btn createbtn" title="创建直播" href="live_edit.html" >创建直播</a>
+		<!-- <a id="menu_2_2_2" class="btn btn_submit open_tabs" title="创建直播" href="live_edit.html">创建直播</a> -->
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
 				<select name="pages" id="" class="ui-select">
@@ -63,16 +65,8 @@
 				<a href=""  class="page_next">下一页</a>
 			</li>
 		</ul>
-
 	</div>
-	<div class="createtime">
-		服务器时间： <em>2012/03/03 星期二 19：11：11</em>
-	</div>
-
-	<div class="createbtn">
-		<!-- <a href="#">创建直播</a> -->
-		<a id="menu_2_2_2" class="open_tabs" title="创建直播" href="live_edit.html" >创建直播</a>
-	</div>
+	
 	<div class="grid_item_content">
 		<table class="grid_item">
 			<thead>
@@ -149,7 +143,18 @@
 			</tbody>
 		</table>
 	</div>
-
+	<div class="action_item">
+			
+			<ul class="item_pag ui_pages">
+				
+				<li class="page_btn">
+					<span class="page_prev">上一页</span>
+				</li>
+				<li class="page_btn">
+					<a href=""  class="page_next">下一页</a>
+				</li>
+			</ul>
+		</div>
 	<script type="text/javascript" src="js/xes.iframe.js"></script>
 	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
 	<script type="text/javascript">

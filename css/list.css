@@ -45,6 +45,7 @@
 .createtime {overflow: hidden;height: 50px;line-height: 50px;color: #666;font-weight: bold;font-size: 14px;padding-left: 3px;}
 .createtime em{color: #cc0000;font-weight: bold;}
 
-.createbtn {height: 20px;overflow: hidden;}
-.createbtn a {display: block;width:70px;height:20px;line-height:20px;background: url(../img/create_btn.png) no-repeat; text-align: center;color: #fff;}
+.createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(../img/create_btn.png) no-repeat; text-align: center;color: #fff;}
 
+.btn {font-weight: 500}
+.btn:visited, .btn:active {color:#FFF;font-weight: 500}

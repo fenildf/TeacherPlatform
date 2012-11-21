@@ -10,54 +10,35 @@
 </head>
 
 <body class="skin skin-green">
+	<h1 class="ui_infor_title">
+		<span>课程列表</span>
+	</h1>
 	<div class="action_item">
 
 		<ul class="action">
-			<li class="grade ui-select-box" >
-				<button name="" value="" class="ui-select-button">年级</button>
-				<ul class="ui-select-list">
-					<li><a href="###">一年级</a></li>
-					<li><a href="###">一年级</a></li>
-					<li><a href="###">一年级</a></li>
-					<li><a href="###">一年级</a></li>
-					<li><a href="###">一年级</a></li>
-				</ul>
-			</li>
-			<li class="course ui-select-box">
-				<button name="" value="" class="ui-select-button">课程状态</button>
-				<ul class="ui-select-list">
-					<li><a href="###">已上架</a></li>
-					<li><a href="###">未上架</a></li>
-					<li><a href="###">未审核</a></li>
-
-				</ul>
-			</li>
+			<form action="" name="" id="listSerch">
+				<select name="" id="selectGrade" class="ui-select-box">
+					<option>--年级--</option>
+					<option value="1">一年级</option>
+					<option value="2">二年级</option>
+					<option value="3">三年级</option>
+					<option value="4">四年级</option>
+					<option value="5">五年级</option>
+					<option value="5">六年级</option>
+				</select>
+				<select name="" id="selectCourseType" class="ui-select-box">
+					<option>--课程状态--</option>
+					<option value="1">已上架</option>
+					<option value="2">未上架</option>
+					<option value="3">已审核</option>
+					<option value="4">未审核</option>
+				</select>
+				<input type="submit" value="筛选" class="s-btn">
+				<input type="hidden" class="search_key" title="存储头部搜索结果" />
+			</form>
 		</ul>
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
-				<!-- <button name="" class="ui-select-button">1/24</button>
-				<ul class="ui-select-list ui-select-default ui-select-topborder">
-					<li>
-						<a href="###">1/24</a>
-						<input type="hidden" value="1" />
-					</li>
-					<li>
-						<a href="###">2/24</a>
-						<input type="hidden" value="2" />
-					</li>
-					<li>
-						<a href="###">3/24</a>
-						<input type="hidden" value="3" />
-					</li>
-					<li>
-						<a href="###">4/24</a>
-						<input type="hidden" value="4" />
-					</li>
-					<li>
-						<a href="###">5/242</a>
-						<input type="hidden" value="5" />
-					</li>
-				</ul> -->
 				<select name="pages" id="" class="ui-select">
 					<option value="1">1/5</option>
 					<option value="2">2/5</option>
