@@ -35,7 +35,10 @@ xes.iframe = xes.iframe || {};
 		return _pathname;
 	};
 })();
-xes.iframe.setHeight();	
+$(function(){
+	xes.iframe.setHeight();		
+})
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=- 子页面调用父级方法 -=-=-=-=-=-=-=-=-=-=-=-=-= */
 
