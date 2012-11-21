@@ -239,7 +239,7 @@ var tabs = tabs || {};
 	 */
 	t.setContent = function(id,url){
 
-		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
+		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" frameborder="no" allowtransparency="yes" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
 		var _is = t.o.contentWrap.find('#content_'+id);
 
 		if(_is.length == 0){
