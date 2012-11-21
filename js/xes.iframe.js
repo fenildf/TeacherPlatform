@@ -17,14 +17,13 @@ xes.iframe = xes.iframe || {};
 	
 	f.getPageHeight = function(){
 		var _win = $(window).height(),
-			_body = $('html').height();
+			_body = $('body').height();
 		return _body;
 	};
 	f.setHeight = function(){
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
 			setTimeout(function(){
-				// alert(f.getPageHeight());
 				_setHeight(f.getPageHeight(), f.getUrl());
 			},100);
 		}
