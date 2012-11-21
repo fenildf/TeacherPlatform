@@ -208,7 +208,6 @@ xes.platfrom = xes.platfrom || {};
 		var _height = (h+31 < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
 		// _height += 10;
 		$('#content').height(_height);
-		// alert(h + '\nmain:' + _mainMinHeight + '\nheight:' + _height);
 		if(url){
 			$('#content').find('iframe[src="' + url + '"]').height(_height);
 		}
