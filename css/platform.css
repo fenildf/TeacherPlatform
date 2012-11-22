@@ -14,9 +14,9 @@ html{
  * _background-attachment: prevent screen flash in IE6 确保滚动条滚动时，元素不闪动
 */
 body {
-	_background-image: url(about:blank);    
-	_background-attachment: fixed;position:relative;
-	_overflow-y: scroll;          
+	/*_background-image: url(about:blank);    */
+	/*_background-attachment: fixed;position:relative;*/
+	overflow-y: scroll;          
 }
 
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -870,4 +871,5 @@ var openTabs = function(dom, text, id){
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
 
 	createTabs(_d);
+
 };
