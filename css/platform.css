@@ -16,8 +16,8 @@ html{
 body {
 	_background-image: url(about:blank);    
 	_background-attachment: fixed;position:relative;
-	overflow-y: scroll;          
-	}
+	_overflow-y: scroll;          
+}
 
 
 /* Import base.css */
