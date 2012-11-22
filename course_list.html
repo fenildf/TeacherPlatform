@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="css/xes_list.css"/>
 	<script type="text/javascript" src="js/xes.base.js"></script>
 	<script type="text/javascript" src="js/xes.js"></script>
-	<script type="text/javascript" src="js/xes.ui.js"></script>
 </head>
 
 <body class="skin skin-green">
@@ -142,39 +141,7 @@
 		</ul>
 
 	</div>
-	<script type="text/javascript" src="js/xes.iframe.js"></script>
-	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
-	<script type="text/javascript" src="js/xes.ajax.js"></script>
-
-	<!--<script type="text/javascript" src="js/import/import.course.js"></script>-->
-	<script type="text/javascript">
-		var courseCreate = function(data){
-			var box = $('#courseList');
-			var _html = '';
-			$.each(data,function(i,m){
-				_html += '<tr id="courseItem_' + m.courseId + '">\n'
-					  +'	<td><input type="checkbox"/>' + m.courseName + '</td>\n'
-					  +'	<td><p>' + m.gradeNames + '</p></td>\n'
-					  +'	<td>' + m.statusName + '</td>\n'
-					  +'	<td>\n'
-					  +'		<a id="course_edit_'+m.courseId+i+'" href="edit.html?couser_id='+m.courseId+i+'" class="open_tabs" title="' + m.courseName + '">编辑详情</a>\n'
-					  +'		<a id="course_view_'+m.courseId+i+'" href="view.html?couser_id='+m.courseId+i+'" class="open_tabs" title="' + m.courseName + '">查看</a>\n'
-					  +'	</td>\n'
-					  +'</tr>\n';
-			});
-			box.html(_html);
-			xes.iframe.setHeight();
-		};
-		function getlist(data){
-			
-			var url = 'http://teacher.wss2.0.com/TeacherCourses/teacherCourseList';
-			// var data = data;
-			xes.post(url, data, function(result){
-				courseCreate(result.data);
-			});
-
-		};
-		getlist();
-	</script>
+	<script type="text/javascript" src="js/import/import.course.js"></script>
+	
 </body>
 </html>
