@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
