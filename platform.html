@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="css/xes.css"/>
 	<script type="text/javascript" src="js/xes.base.js"></script>
 	<script type="text/javascript" src="js/xes.js"></script>
-	<script type="text/javascript" src="js/xes.ui.js"></script>
 </head>
 <body class="skin skin-green">
 	<div id="header">
@@ -52,34 +51,27 @@
 	</div>
 	<!-- 头部 -->
 	<div id="middle">
-		<div id="sidebar" class="sidebar">
-	<!-- 		<h2 id="sidemenu_1" class="h2_menu_title current_title">我的课程</h2>
-			<ul id="menu_0" class="ui_fold_menu fold_current">
-				<li id="menu_0_1" class="current" fixed="1"> <a href="javascript:void(0);">课程列表</a></li>
-			</ul>
-			<h2 id="sidemenu_2" class="h2_menu_title ">服务管理</h2>
-			<ul id="menu_1" class="ui_fold_menu">
-				<li id="menu_1_1" fixed=true><a href="javascript:void(0);" url="list.html">直播列表</a></li>
-				<li id="menu_1_2" fixed=false><a href="javascript:void(0);" url="list.html">创建直播</a></li>
-				<li id="menu_1_3" fixed=true><a href="javascript:void(0);" url="list.html">筛选学员</a></li>
-			</ul>
-			<h2 id="sidemenu_3" class="h2_menu_title ">我的学员</h2>
-			<ul id="menu_2" class="ui_fold_menu">
-				<li id="menu_2_1" fixed="true"><a href="javascript:void(0);" url="list.html">学员列表</a></li>
-			</ul>
-			<h2 id="sidemenu_4" class="h2_menu_title ">资料管理</h2>
-			<ul id="menu_3" class="ui_fold_menu">
-				<li id="menu_3_1" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理1</a></li>
-				<li id="menu_3_2" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理2</a></li>
-				<li id="menu_3_3" fixed="true"><a href="javascript:void(0);" url="list.html">资料管理3</a></li>
-				<li id="menu_3_4" fixed="false"><a href="javascript:void(0);" url="list.html">资料管理4</a></li>
-			</ul>
-			<h2 id="sidemenu_5" class="h2_menu_title">数据分析</h2>
-			<ul id="menu_4" class="ui_fold_menu">
-				<li id="menu_4_1" fixed="false"><a href="javascript:void(0);" url="data1.html">学习状态数据</a></li>
-				<li id="menu_4_2" fixed="false"><a href="javascript:void(0);" url="data2.html">学完率数据</a></li>
-				<li id="menu_4_3" fixed="false"><a href="javascript:void(0);" url="data3.html">学习效果数据</a></li>
-			</ul> -->
+		<div class="sidebar" id="sidebar">
+		<h2 class="h2_menu_title current_title" id="sidemenu_1">我的课程</h2>
+		<ul class="ui_fold_menu fold_current" id="menu_1">
+		<li fixed="0" id="menu_1_1_1"> <a url="course_list.html" href="javascript:void(0);" title="课程列表">课程列表</a></li>
+		</ul>
+		<h2 class="h2_menu_title" id="sidemenu_2">服务管理</h2>
+		<ul class="ui_fold_menu" id="menu_2">
+		<li fixed="0" id="menu_2_2_1"> <a url="live_list.html" href="javascript:void(0);" title="直播列表">直播列表</a></li>
+		<li fixed="0" id="menu_2_2_2"> <a url="live_edit.html" href="javascript:void(0);" title="创建直播">创建直播</a></li>
+		<li fixed="0" id="menu_2_2_3"> <a url="student_leach.html" href="javascript:void(0);" title="筛选学员">筛选学员</a></li>
+		</ul>
+		<h2 class="h2_menu_title" id="sidemenu_3">我的学员</h2>
+		<ul class="ui_fold_menu" id="menu_3">
+		<li fixed="0" id="menu_3_3_1"> <a url="student.html" href="javascript:void(0);" title="学员列表">学员列表</a></li>
+		</ul>
+		<h2 class="h2_menu_title" id="sidemenu_5">数据分析</h2>
+		<ul class="ui_fold_menu" id="menu_5">
+		<li fixed="0" id="menu_5_5_1"> <a url="data1_list.html" href="javascript:void(0);" title="学习状态数据">学习状态数据</a></li>
+		<li fixed="0" id="menu_5_5_2"> <a url="data2.html" href="javascript:void(0);" title="学完率数据">学完率数据</a></li>
+		<li fixed="0" id="menu_5_5_3"> <a url="data3_list.html" href="javascript:void(0);" title="学习效果数据">学习效果数据</a></li>
+		</ul>
 		</div>
 		<!-- sidebar 菜单左边栏 -->
 		<div id="content" class="mainbody">
@@ -124,8 +116,10 @@
 		</p>
 
 	</div>
+	<!--
 	<script type="text/javascript" src="js/ui/xes.ui.select.js"></script>
 	<script type="text/javascript" src="js/ui/xes.ui.tabs.js"></script>
+-->
 	<script type="text/javascript" src="js/xes.platfrom.js"></script>
 </body>
 </html>
