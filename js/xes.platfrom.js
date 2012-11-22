@@ -124,7 +124,7 @@ xes.platfrom = xes.platfrom || {};
 			title: '',
 			url: 'course_list.html',
 			items: [],
-			fixed: false
+			fixed: true
 		}]
 	}, {
 		id: '2',
@@ -137,7 +137,7 @@ xes.platfrom = xes.platfrom || {};
 			title: '',
 			url: 'live_list.html',
 			items: [],
-			fixed: false
+			fixed: true
 		}, {
 			id: '2_2',
 			name: '创建直播',
@@ -164,7 +164,7 @@ xes.platfrom = xes.platfrom || {};
 			title: '',
 			url: 'student.html',
 			items: [],
-			fixed: false
+			fixed: true
 		}]
 	},
 	// {id:'4', name:'资料管理', title:'', url:'', items:[]},
