@@ -8,6 +8,15 @@ Marco：
 
 set_time_limit(0); 
 //循环截取函数定义开始
+/**
+ * 检查内存1中是否内容2
+ * @param $str1 : 被检查的内容
+ * @param $str2 : 要检查的内容
+ */
+function checkPos($str1, $str2){
+	$v = strpos($str1, $str2);
+	return $v > 0 ? true : false;
+}
 
 /**
  * 处理函数
@@ -65,7 +74,11 @@ function canshujiequ($contents, $identifier, $param) {
 					$str = substr($contents, $qianjs, $nowks - $qianjs);
 					$mark = $canshuarr[0] . $str . $canshuarr[1];
 					$f = file_get_contents($str);
-					$contents = strtr($contents, array($mark => $f));
+					//判断js文件中是否已经加载了此内容，如果没有则替换标识符为具体内容
+					$temp = checkPos($contents, $f);
+					if($temp == false){
+						$contents = strtr($contents, array($mark => $f));
+					}
 				}
 				$qianjs = $nowjs;
 			} else { //echo '没有匹配了<br/>';
@@ -127,14 +140,5 @@ function filePut($filename, $content, $compress = false){
 	}
 }
 // filePut($path.$newfilename,$newcontent,false);
-/**
- * 检查内存1中是否内容2
- * @param $str1 : 被检查的内容
- * @param $str2 : 要检查的内容
- */
-function checkPos($str1, $str2){
-	$v = strpos($str1, $str2);
-	return $v > 0 ? true : false;
-}
 
 ?>
