@@ -88,7 +88,7 @@ $identifier = '///import:[url]///'; //函数第1个参数,源码里德地址形�
 //根据url获取js文件内容
 $content = file_get_contents($url);
 //下面是一个测试的例子，获取网页源码，从中匹配电影的内容页地址
-$newcontent = canshujiequ($content, $identifier, '[url]'); //返回匹配的数组
+// $newcontent = canshujiequ($content, $identifier, '[url]'); //返回匹配的数组
 
 // 生成合并后的文件
 /**
@@ -126,8 +126,15 @@ function filePut($filename, $content, $compress = false){
 		echo "newfile created!";
 	}
 }
-filePut($path.$newfilename,$newcontent,false);
-
-
+// filePut($path.$newfilename,$newcontent,false);
+/**
+ * 检查内存1中是否内容2
+ * @param $str1 : 被检查的内容
+ * @param $str2 : 要检查的内容
+ */
+function checkPos($str1, $str2){
+	$v = strpos($str1, $str2);
+	return $v > 0 ? true : false;
+}
 
 ?>
