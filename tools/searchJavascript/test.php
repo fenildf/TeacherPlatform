@@ -138,10 +138,15 @@ while(list($key)=each($jieguo)){
 	$temp = strtr($v,$ar).'///';
 	//替换文件中注释内容为实际内容
 	$ar2=array($temp =>$f);
-	$p = strtr($f, $ar2);
-	echo $p . '<p>-------------------</p>';  
+	// echo $yuanma;
+	$yuanma = strtr($yuanma, $ar2);
+	// echo $yuanma . '<p>-------------------</p>';  
 
 }
+echo 'file is write ok!';
+
+file_put_contents('import.js', $yuanma);
+// file_put_contents('import.js', 'aaa');
  
 
 ?>
