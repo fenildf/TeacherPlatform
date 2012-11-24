@@ -26,13 +26,14 @@ function canshujiequ($contents, $identifier, $param) {
 	$chaxunwz = 0;
 	$canshuarr = array();
 	$canshuarr = explode($param, $identifier);
-	
+
 	$len1 = count($canshuarr);
 	$tpfarr = array();
 	$qianjs = 0;
 	$nowks = 0;
 	$nowjs = 0;
 	$end = 0;
+	
 	// $num = 0;
 	while(($end == 0) && ($chaxunwz < strlen($contents))) {
 		$feikong = 0;
@@ -42,10 +43,12 @@ function canshujiequ($contents, $identifier, $param) {
 			$tpfarr = explode('(*)', $canshuarr[$i]);
 
 			$len2 = count($tpfarr);
+
 			$feikongnum = 0;
 			for($j = 0; ($j < $len2) && ($end == 0); $j++) {
 				if($tpfarr[$j] == '') continue;
 				$feikongnum++;
+
 				if($chaxunwz >= strlen($contents)) {
 					$end = 1;
 					break;
@@ -59,13 +62,28 @@ function canshujiequ($contents, $identifier, $param) {
 					break;
 				}
 			}
-
+$url = 'page.live.edit.js';
+$contents = file_get_contents($url);
 			if($end == 0) {
 				if($feikong > 1) {
 					$str = substr($contents, $qianjs, $nowks - $qianjs);
-					$mark = $canshuarr[0] . $str . $canshuarr[1];
-					$f = file_get_contents($str);
-					$contents = strtr($contents, array($mark => $f));
+					// $mark = $canshuarr[0] . $str . $canshuarr[1];
+					$str = str_replace(' ','',$str);
+
+					
+
+					if($str === $url){
+						echo "true";
+					}else{
+						echo "false";
+					}
+					// echo ($str === $url);
+					// echo $str.'<br />'.$url;
+					// $content = file_get_contents($str);
+					// $f = file_get_contents($str);
+					// $contents = strtr($contents, array($mark => $f));
+
+					// echo $url == $str;
 				}
 				$qianjs = $nowjs;
 			} else { //echo '没有匹配了<br/>';
@@ -73,8 +91,8 @@ function canshujiequ($contents, $identifier, $param) {
 			}
 		}
 	}
-	
-	return $contents;
+	// echo $contents;
+	// return $contents;
 
 } //循环截取函数定义结束
 $path = './';
@@ -85,8 +103,10 @@ $newfilename = strtr($filename, array('page' => 'import'));
 // $content = file_get_contents($url);
 $type = 'min'; //压缩
 $identifier = '///import:[url]///'; //函数第1个参数,源码里德地址形式
+
 //根据url获取js文件内容
 $content = file_get_contents($url);
+
 //下面是一个测试的例子，获取网页源码，从中匹配电影的内容页地址
 $newcontent = canshujiequ($content, $identifier, '[url]'); //返回匹配的数组
 
@@ -126,8 +146,33 @@ function filePut($filename, $content, $compress = false){
 		echo "newfile created!";
 	}
 }
-filePut($path.$newfilename,$newcontent,false);
+// filePut($path.$newfilename,$newcontent,false);
+//是否需要压缩
+// if($type == 'min'){
+// 	//调用js压缩类
+// 	require '../javascriptPacker/class.JavaScriptPacker.php';
 
+// 	$script = $newcontent;
+
+// 	$t1 = microtime(true);
+
+// 	$packer = new JavaScriptPacker($script, 'Normal', true, false);
+// 	$packed = $packer->pack();
+
+// 	$t2 = microtime(true);
+// 	$time = sprintf('%.4f', ($t2 - $t1) );
+
+// 	// 根据现有名字设置新的文件名
+	
+
+// 	file_put_contents($newfilename.'.min.js', $packed);
+
+// 	echo "packer is ok!";
+
+// }else{
+// 	file_put_contents($newfilename.'.js', $newcontent);
+// 	echo "newfile created!";
+// }
 
 
 ?>

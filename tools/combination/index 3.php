@@ -127,7 +127,32 @@ function filePut($filename, $content, $compress = false){
 	}
 }
 filePut($path.$newfilename,$newcontent,false);
+//是否需要压缩
+// if($type == 'min'){
+// 	//调用js压缩类
+// 	require '../javascriptPacker/class.JavaScriptPacker.php';
 
+// 	$script = $newcontent;
+
+// 	$t1 = microtime(true);
+
+// 	$packer = new JavaScriptPacker($script, 'Normal', true, false);
+// 	$packed = $packer->pack();
+
+// 	$t2 = microtime(true);
+// 	$time = sprintf('%.4f', ($t2 - $t1) );
+
+// 	// 根据现有名字设置新的文件名
+	
+
+// 	file_put_contents($newfilename.'.min.js', $packed);
+
+// 	echo "packer is ok!";
+
+// }else{
+// 	file_put_contents($newfilename.'.js', $newcontent);
+// 	echo "newfile created!";
+// }
 
 
 ?>
