@@ -5,11 +5,19 @@ Marco：
 通过文件中import注释载入相应的JS文件，并进行压缩合并
 
 */
+$PATH = realpath(dirname(__FILE__).'/../../');
+//js根目录
+$PATH_JS = realpath($PATH.'/js/');
+//存放带有引用路径标识符的js目录
+$PATH_PAGES_JS = realpath($PATH_JS.'/pages/');
+//生成后存放的js目录
+$PATH_UPDATE_JS = realpath($PATH_JS.'/import/');
 
+// exit;
 set_time_limit(0); 
-//循环截取函数定义开始
+
 /**
- * 检查内存1中是否内容2
+ * 检查内存1中是否存在内容2
  * @param $str1 : 被检查的内容
  * @param $str2 : 要检查的内容
  */
@@ -17,6 +25,32 @@ function checkPos($str1, $str2){
 	$v = strpos($str1, $str2);
 	return $v > 0 ? true : false;
 }
+
+/**
+ *  列出目录下的文件
+ * @param : 要列出的文件目录
+ * @param : 回调函数
+ * @return : 每次遍历时返回的文件名
+ */
+function dirJsFiles($path,$fn){
+	if (is_dir($path)) { 
+        if ($dh = opendir($path)) { 
+            while (($file = readdir($dh)) !== false) { 
+                if ($file!="." && $file!="..") { 
+                	if($fn){
+                		$fn($file);
+                	}
+                    // echo "<a href=file/".$file.">".$file."</a><br>"; 
+                } 
+            } 
+        closedir($dh); 
+        } 
+	}
+}
+//列出要更新的js
+dirJsFiles($PATH_PAGES_JS,function($a){
+	echo $a.'<br/>';
+});
 
 /**
  * 处理函数
@@ -101,7 +135,7 @@ $identifier = '///import:[url]///'; //函数第1个参数,源码里德地址形�
 //根据url获取js文件内容
 $content = file_get_contents($url);
 //下面是一个测试的例子，获取网页源码，从中匹配电影的内容页地址
-// $newcontent = canshujiequ($content, $identifier, '[url]'); //返回匹配的数组
+$newcontent = canshujiequ($content, $identifier, '[url]'); //返回匹配的数组
 
 // 生成合并后的文件
 /**
@@ -140,5 +174,15 @@ function filePut($filename, $content, $compress = false){
 	}
 }
 // filePut($path.$newfilename,$newcontent,false);
+// $PHP_SELF=$_SERVER['PHP_SELF'];
+// $url='http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF,'/')+1);
+// echo $url;
+// define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
+// echo dirname(__FILE__);
+// exit;
+// $dir = dirname(__FILE__)."/";  //需要读取的文件目录 相对路径
 
+
+
+ 
 ?>
