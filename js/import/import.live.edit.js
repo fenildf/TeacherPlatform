@@ -335,7 +335,7 @@ xes.ajax = xes.ajax || {};
 			type: 'POST',
 			url : url,
 			data: data,
-			dataType: 'jsonp',
+			dataType: 'json',
 			jsonp : 'callback',
 			timeout: 70000,
 			complete:function(){},

@@ -7,12 +7,12 @@
  * author: Wu Jie (Marco)
  *
  */
-.ui-select-box {float: left;}
+.ui-select-box {}
 .ui-select-button {cursor: pointer;}
-.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
-.ui-select-list span {height: 28px;line-height: 28px;width: 100%}
-.ui-select-list span a {display: block;padding: 0 15px;color: #666;}
-.ui-select-list span.ui-select-hover a,.ui-select-list span a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
+ul.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
+ul.ui-select-list li {height: 28px;line-height: 28px;width: 100%}
+ul.ui-select-list li a {display: block;padding: 0 15px;color: #666;}
+ul.ui-select-list li.ui-select-hover a,ul.ui-select-list li a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
 
 #header  ul.ui-select-list li a {_color: #666;}
 #header  ul.ui-select-list li a:hover {_color: #fff;}
@@ -31,8 +31,8 @@ ul.ui-select-topborder {border-top-width: 1px}
 	皮肤样式，此组件样式需要添加到皮肤整体样式中
  */
 .skin-green {}
-.skin-green .ui-select-list .ui-select-hover a,
-.skin-green .ui-select-list li a:hover {background-color: #057E13}
+.skin-green ul.ui-select-list li.ui-select-hover a,
+.skin-green ul.ui-select-list li a:hover {background-color: #057E13}
 
 /* no themes : select default skin
 	在有skin的情况下，重置组件风格为默认样式
