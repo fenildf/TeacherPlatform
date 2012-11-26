@@ -12,6 +12,7 @@ $PATH_JS = realpath($PATH.'/js/');
 $PATH_PAGES_JS = realpath($PATH_JS.'/pages/');
 //生成后存放的js目录
 $PATH_UPDATE_JS = realpath($PATH_JS.'/import/');
+// echo dirname(__FILE__);
 
 // exit;
 set_time_limit(0); 
@@ -37,10 +38,10 @@ function dirJsFiles($path,$fn){
         if ($dh = opendir($path)) { 
             while (($file = readdir($dh)) !== false) { 
                 if ($file!="." && $file!="..") { 
-                	if($fn){
-                		$fn($file);
-                	}
-                    // echo "<a href=file/".$file.">".$file."</a><br>"; 
+                	// if($fn){
+                	// 	$fn($file);
+                	// }
+                    echo "<a href=file/".$file.">".$file."</a><br>"; 
                 } 
             } 
         closedir($dh); 
@@ -48,9 +49,9 @@ function dirJsFiles($path,$fn){
 	}
 }
 //列出要更新的js
-dirJsFiles($PATH_PAGES_JS,function($a){
-	echo $a.'<br/>';
-});
+// dirJsFiles($PATH_PAGES_JS,function($a){
+// 	echo $a.'<br/>';
+// });
 
 /**
  * 处理函数
