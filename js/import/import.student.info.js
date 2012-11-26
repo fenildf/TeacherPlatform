@@ -77,6 +77,8 @@ var initTabBtn = function(){
 		return false;
 	});
 }();
+
+/* =-=-=-=-=-=-=-=-=-=-=-= student_info.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $('#pages').change(function(){
 	var _page = this.value;
 	 $("#currpage").val(_page);

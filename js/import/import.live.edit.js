@@ -196,6 +196,11 @@ xes.liveTime = xes.liveTime || {};
 	l.startInput = $('#liveTimeStartInput');
 	l.endInput = $('#liveTimeEndInput');
 
+	//处理日期，将后端传过来的时间区间比配成现有格式
+	l.date = function(data){
+		var d = 60*60*24;
+
+	};
 
 	l.create = function(d){
 		var _d = d || l.getJson();
@@ -390,14 +395,14 @@ xes.post = xes.ajax.post;
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
 	$("#liveDate").calendar({callback:function(){
-		var date = $('#liveDate').val();
-		var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
-		xes.post(url, date, function(result){
+		// var date = $('#liveDate').val();
+		// var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
+		// xes.post(url, date, function(result){
 
-			console.log(result);
-		});
-		// var d = xes.liveTime.getJson();
-		// xes.liveTime.create(d);
+		// 	console.log(result);
+		// });
+		var d = xes.liveTime.getJson();
+		xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
 		// if($(this).hasClass('optional')){

@@ -79,6 +79,8 @@ var initTabBtn = function(){
 	});
 }();
 
+/* =-=-=-=-=-=-=-=-=-=-=-= student_study.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
 $('#pages').change(function(){
 	var _page = this.value;
 	 $("#currpage").val(_page);

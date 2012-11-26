@@ -12,6 +12,7 @@
 
 var xes = xes || {};
 
+
 xes.live = xes.live || {};
 
 /**
@@ -128,6 +129,11 @@ xes.liveTime = xes.liveTime || {};
 	l.startInput = $('#liveTimeStartInput');
 	l.endInput = $('#liveTimeEndInput');
 
+	//处理日期，将后端传过来的时间区间比配成现有格式
+	l.date = function(data){
+		var d = 60*60*24;
+
+	};
 
 	l.create = function(d){
 		var _d = d || l.getJson();

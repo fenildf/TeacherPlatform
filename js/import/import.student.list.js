@@ -77,9 +77,12 @@ var initTabBtn = function(){
 		return false;
 	});
 }();
-$(function(){
-	$('.ui_select').selectbox();
-});
+
+/* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+// $(function(){
+// 	// $('.ui_select').selectbox();
+// });
 $('#pages').change(function(){
 	var _page = this.value;
 	 $("#currpage").val(_page);

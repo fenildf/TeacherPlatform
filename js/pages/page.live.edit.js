@@ -17,9 +17,9 @@
 
 ///import:xes.live.js///
 
-
-
 ///import:ui/xes.ui.calendar.min.js///
+
+///import:xes.ajax.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
