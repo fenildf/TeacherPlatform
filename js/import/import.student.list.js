@@ -77,3 +77,7 @@ var initTabBtn = function(){
 		return false;
 	});
 }();
+
+$(function(){
+	$('.ui_select').selectbox();
+});

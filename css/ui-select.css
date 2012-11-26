@@ -7,12 +7,12 @@
  * author: Wu Jie (Marco)
  *
  */
-.ui-select-box {}
+.ui-select-box {float: left;}
 .ui-select-button {cursor: pointer;}
-ul.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
-ul.ui-select-list li {height: 28px;line-height: 28px;width: 100%}
-ul.ui-select-list li a {display: block;padding: 0 15px;color: #666;}
-ul.ui-select-list li.ui-select-hover a,ul.ui-select-list li a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
+.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
+.ui-select-list span {height: 28px;line-height: 28px;width: 100%}
+.ui-select-list span a {display: block;padding: 0 15px;color: #666;}
+.ui-select-list span.ui-select-hover a,.ui-select-list span a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
 
 #header  ul.ui-select-list li a {_color: #666;}
 #header  ul.ui-select-list li a:hover {_color: #fff;}
@@ -31,8 +31,8 @@ ul.ui-select-topborder {border-top-width: 1px}
 	皮肤样式，此组件样式需要添加到皮肤整体样式中
  */
 .skin-green {}
-.skin-green ul.ui-select-list li.ui-select-hover a,
-.skin-green ul.ui-select-list li a:hover {background-color: #057E13}
+.skin-green .ui-select-list .ui-select-hover a,
+.skin-green .ui-select-list li a:hover {background-color: #057E13}
 
 /* no themes : select default skin
 	在有skin的情况下，重置组件风格为默认样式
@@ -60,3 +60,26 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 	background-position:50px -83px;
 }
 
+/**
+ * upload:2012-11-26
+ */
+
+.selectParent{width:auto;}
+/*.jquery-selectbox {position: absolute;left: 1px;top: 1px;z-index: 0;float: left;border: 1px solid #eaeaea;}*/
+
+/* 自定义外层 */
+    .selectParent .jquery-selectbox{width: auto !important;position: relative;height: 27px;float: left;background: url(../img/course_bgpic.png) left -577px no-repeat;}
+    
+.jquery-selectbox.selecthover {z-index: 700;}
+.jquery-selectbox .jquery-selectbox-currentItem {display: block;overflow: hidden;position:absolute;top: 4px;left:20px}
+.jquery-selectbox .jquery-selectbox-list {border: 1px solid #999;display: none;position: absolute;top: 30px;background: #fff;overflow-x: hidden;overflow-y: auto;z-index: 1000;}
+
+/* 自定义下拉框 */
+    .selectParent .jquery-selectbox-list{width: 100px !important;height: 220px;}
+.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(../img/course_icon.png) 66px -83px no-repeat;z-index:1;}
+
+/* 自定义文本框 */
+    .selectParent .jquery-selectbox-moreButton{width: 100px;height: 27px;}
+.jquery-selectbox .jquery-selectbox-moreButton.morebuttonhover {}
+.jquery-selectbox .jquery-selectbox-item.listelementhover {background: red;}
+.jquery-selectbox .jquery-selectbox-item {display: block;}

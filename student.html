@@ -18,8 +18,14 @@
 	</div>
 
 	<div class="action_item">
-		<div class="action">
-			<select name="select">
+		<div class="action selectParent">
+			<select name="select" class="ui_select" id="uiSelect">
+				<option value ="volvo">年级</option>
+				<option value ="saab">一年级</option>
+				<option value="opel">二年级</option>
+				<option value="audi">三年级</option>
+			</select>
+			<select name="select" class="ui_select" id="uiSelect">
 				<option value ="volvo">年级</option>
 				<option value ="saab">一年级</option>
 				<option value="opel">二年级</option>
@@ -28,10 +34,10 @@
 			<input value=""  class="input_text" type="text"/>
 			<input class="s-btn" type="submit" value="筛选" >
 		</div>
-		
+
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
-				<select name="pages" id="" class="ui-select">
+				<select name="pages"  class="ui-select">
 					<option value="1">1/5</option>
 					<option value="2">2/5</option>
 					<option value="3">3/5</option>
@@ -94,7 +100,8 @@
 		</ul>
 
 	</div>
-	
+	<script type="text/javascript" src="js/ui/xes.ui.selectbox.js"></script>
 	<script type="text/javascript" src="js/import/import.student.list.js"></script>
+
 </body>
 </html>
