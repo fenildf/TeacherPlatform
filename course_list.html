@@ -9,6 +9,7 @@
 </head>
 
 <body class="skin skin-green">
+	<div class="ui_tips tips_error">错误提示<a href="javascript:void(0);" class="tips_close">关闭</a></div>
 	<h1 class="ui_infor_title">
 		<span>课程列表</span>
 	</h1>
@@ -34,11 +35,12 @@
 				</select>
 				<input type="submit" value="筛选" class="s-btn">
 				<input type="hidden" class="search_key" title="存储头部搜索结果" />
+				<input type="hidden" id="currpage" class="currpage" name="currpage" value="1" />
 			</form>
 		</ul>
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
-				<select name="pages" id="" class="ui-select">
+				<select name="pages" id="pages" class="ui-select">
 					<option value="1">1/5</option>
 					<option value="2">2/5</option>
 					<option value="3">3/5</option>
@@ -142,6 +144,8 @@
 
 	</div>
 	<script type="text/javascript" src="js/import/import.course.js"></script>
-	
+	<script type="text/javascript">
+		xes.tips.error('test');
+	</script>
 </body>
 </html>

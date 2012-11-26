@@ -12,9 +12,11 @@
  */
 
 
-///import:xes.iframe.js
+///import:xes.iframe.js///
 
-///import:ui/xes.ui.calendar.min.js
+///import:ui/xes.ui.tips.js///
+
+///import:ui/xes.ui.calendar.min.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 

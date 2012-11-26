@@ -11,13 +11,15 @@
  * @version: v1.0.0
  */
 
-///import:xes.iframe.js
+///import:xes.iframe.js///
 
-///import:xes.live.js
+///import:ui/xes.ui.tips.js///
+
+///import:xes.live.js///
 
 
 
-///import:ui/xes.ui.calendar.min.js
+///import:ui/xes.ui.calendar.min.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {

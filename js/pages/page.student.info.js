@@ -10,4 +10,6 @@
  * @version: v1.0.0
  */
 
-///import:xes.iframe.js
+///import:xes.iframe.js///
+
+///import:ui/xes.ui.tips.js///

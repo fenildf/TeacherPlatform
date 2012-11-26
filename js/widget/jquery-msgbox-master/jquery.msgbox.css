@@ -1,0 +1,98 @@
+.jquery-msgbox-overlay{
+   position: fixed;
+   top: 0;
+   left: 0;
+   opacity: 0.5;
+   display: none;
+   z-index: 999999998;
+   height: 100%;
+   width: 100%;
+   background-color: #000000;
+}
+
+.jquery-msgbox{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  z-index:999999999;
+  word-wrap:  break-word;
+  border-radius: 6px;
+  background:url(alert_background.png) repeat-x left bottom;
+  padding-bottom:55px;
+  font-style:normal;
+  background-color: #FFF;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+}
+
+.jquery-msgbox-buttons button[type="submit"],
+.jquery-msgbox-buttons input[type="submit"],
+.jquery-msgbox-buttons button[type="button"],
+.jquery-msgbox-buttons input[type="button"],
+.jquery-msgbox-buttons button[type="reset"],
+.jquery-msgbox-buttons input[type="reset"]
+{
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+-khtml-border-radius:3px;
+border-radius:3px;
+background-color:#e7eaeb;
+box-shadow: inset 0px 1px 0px #fff;
+text-shadow: 1px 1px 0px #fff;
+padding:5px 8px;
+height:32px;
+cursor:pointer;
+color:#5c5c5c;
+border:1px solid #b5b6b3;
+}
+
+.jquery-msgbox-wrapper
+{
+  padding:20px 20px 20px 100px;
+}
+
+.jquery-msgbox-buttons
+{
+  padding:15px;
+  text-align:right;
+  position:absolute;
+  bottom:0;
+  padding-bottom:10px;
+  right:0;
+}
+
+.jquery-msgbox-buttons button
+{
+  margin-left:10px;
+  min-width:85px;
+  padding:0 14px 2px;
+  height:24px;
+  cursor:pointer;
+}
+
+.jquery-msgbox-alert
+{
+  background: url(alert.png) no-repeat 20px 20px;
+}
+
+.jquery-msgbox-info
+{
+  background: url(info.png) no-repeat 20px 20px;
+}
+
+.jquery-msgbox-error
+{
+  background: url(error.png) no-repeat 20px 20px;
+}
+
+.jquery-msgbox-prompt
+{
+  background: url(question.png) no-repeat 20px 20px;
+}
+
+.jquery-msgbox-confirm
+{
+  background: url(confirm.png) no-repeat 20px 20px;
+}

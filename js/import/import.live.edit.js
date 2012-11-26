@@ -308,11 +308,96 @@ f+="<td><a val='9' "+(e==c.getFullYear()&&9==c.getMonth()?"class='select'":"")+"
 }}}});$("#"+J.controlId).find(".nextMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text()));p(f);if(Number(c.text())!=12){c.text(Number(c.text())+1)}else{e.text(Number(e.text())+1);c.text("1")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())+1);p(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())+10);p(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+10)}}}});$("#"+J.controlId).find(".currentMonthText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabM").length>0)){var c=a(Number($("#"+J.controlId).find(".currentYear").text()));i(c);h()}});$("#"+J.controlId).find(".currentYearText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabY").length>0)){var c=x(Number($("#"+J.controlId).find(".currentYear").text()));i(c);d()}});y.bind("click focus",function(){if($("#"+J.controlId+":hidden").length!=0){$(".calendar").hide();var e=$("#"+J.controlId),c=g(y[0]),f=c.x;c=Number(y.offset().top)+Number(y.outerHeight());e.css({top:c+"px",left:f+"px"});f=$("#"+J.controlId).width();c=$("#"+J.controlId).height();e.width(0);e.height(0);e.show().animate({width:f+"px",height:c+"px"},J.speed);e.bind("selectstart",function(){return false}).bind("mousedown",function(){return false})}});$(document).mouseup(function(c){if($(c.target).attr("id")!=y.attr("id")&&($(c.target).parentsUntil("#"+J.controlId).parent().length==0||$(c.target).parentsUntil("#"+J.controlId).parent()[0].id!=J.controlId)){$("#"+J.controlId).hide()}})}});
 
 
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * xes.ajax.js
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
+xes.ajax = xes.ajax || {};
+
+(function(){
+	var a = xes.ajax;
+	a._load = $('.laodding');
+	a._bg = $('.loadding_bg');
+	a._ajax = function(url,data,sucess,error){
+		$.ajax({
+			async: true,
+			type: 'POST',
+			url : url,
+			data: data,
+			dataType: 'jsonp',
+			jsonp : 'callback',
+			timeout: 70000,
+			complete:function(){},
+			success:function(d){
+				sucess(d);
+			},
+			error:function(){}
+		});
+	};
+	a.start = function(dom, fn){
+		$(dom).ajaxStart(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('show');
+			}
+		});
+	};
+	a.stop = function(dom, fn){
+		$(dom).ajaxStop(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('hide');
+			}
+		});
+	};
+	a._loadding = function(tp){
+		if(tp == 'show'){
+			a._load.show();
+			a._bg.show();
+		}else{
+			a._load.hide();
+			a._bg.hide();
+		}
+	};
+	a.sync = function(){};
+	a.get = function(){};
+	a.set = function(){};
+	a.post = function(url, data, sucess, error){
+		a._ajax(url, data, sucess, error);
+	};
+	a.getJSON = function(){};
+	a.callback = function(){};
+	a.status = function(){};
+
+})();
+
+
+xes.post = xes.ajax.post;
+
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
 	$("#liveDate").calendar({callback:function(){
-		var d = xes.liveTime.getJson();
-		xes.liveTime.create(d);
+		var date = $('#liveDate').val();
+		var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
+		xes.post(url, date, function(result){
+
+			console.log(result);
+		});
+		// var d = xes.liveTime.getJson();
+		// xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
 		// if($(this).hasClass('optional')){

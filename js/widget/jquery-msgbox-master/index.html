@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="jquery.msgbox.css">
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="jquery.msgbox.js"></script>
+        <script>
+            $(document).ready(function(){
+               $('#btn_msg').click(function(){
+                   $.msgbox('Preencha o campo.');
+               });
+            });
+        </script>
+
+    </head>
+    <body>
+        <button id="btn_msg">Mensagem</button>
+    </body>
+</html>

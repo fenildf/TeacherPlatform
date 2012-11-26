@@ -11,9 +11,11 @@
  * @version: v1.0.0
  */
 
-///import:xes.iframe.js
+///import:xes.iframe.js///
 
-///import:ui/xes.ui.calendar.min.js
+///import:ui/xes.ui.tips.js///
+
+///import:ui/xes.ui.calendar.min.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= student_leach.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
