@@ -47,7 +47,7 @@ var xform = xform || {};
 		* @param string cbs_id 复选框id
 		* @return
 		*/
-		t.checkAll2 = function (cbs_id) {
+		f.checkAll2 = function (cbs_id) {
 			var uncheckedBox = 0;
 			// 全选所有复选框
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
@@ -77,7 +77,7 @@ var xform = xform || {};
 		* @param string cbs_id 复选框id
 		* @return
 		*/
-		t.checkInverse = function (cbs_id) {
+		f.checkInverse = function (cbs_id) {
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
 				$(this).attr('checked', $(this).attr('checked') ? false : true);
 			});
@@ -98,7 +98,8 @@ var xform = xform || {};
 		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
 		* @return
 		*/
-		t.checkBoxes = function (cbs_id, cbs_values) {
+		f.checkBoxes = function (cbs_id, cbs_values) {
+			console.log('id:'+cbs_is+'\nvalue:'+cbs_values);
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
 				$(this).attr('checked', false);
 			});
@@ -121,7 +122,8 @@ var xform = xform || {};
 		* @param string r_value 要选择的单选框的值
 		* @return
 		*/
-		t.checkRadio = function (r_id, r_value) {
+		f.checkRadio = function (r_id, r_value) {
+			console.log('id:'+r_id+'\nvalue:'+r_value);
 			$('input[type="radio"][id="' + r_id + '"][value="' + r_value + '"]').attr('checked', true);
 		};
 
@@ -141,7 +143,7 @@ var xform = xform || {};
 		* @param string r_value 要选择的下拉框的值
 		* @return
 		*/
-		t.checkSelect = function (s_id, s_value) {
+		f.checkSelect = function (s_id, s_value) {
 			$('select[id="' + s_id + '"] option[value="' + s_value + '"]').attr('selected', true);
 		};
 
@@ -158,7 +160,7 @@ var xform = xform || {};
 		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
 		* @return
 		*/
-		t.getCheckedValue = function (cbs_id) {
+		f.getCheckedValue = function (cbs_id) {
 			var values = '';
 			$.each($('input[name="' + cbs_id + '"]:checked'), function() {
 				values = values + ',' + $(this).attr('value');
@@ -179,7 +181,7 @@ var xform = xform || {};
 		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
 		* @return
 		*/
-		t.getCheckedText = function (cbs_id) {
+		f.getCheckedText = function (cbs_id) {
 			var values = '';
 			$.each($('input[name="' + cbs_id + '"]:checked'), function() {
 				values = values + $(this).attr('title');
@@ -200,7 +202,7 @@ var xform = xform || {};
 		* @param string selected_value 要选择的下拉框的值
 		* @return string
 		*/
-		t.getSelectedText = function (s_id) {
+		f.getSelectedText = function (s_id) {
 			var value = ''
 			if($('select[id="' + s_id + '"] option:selected').attr('value') != ''){
 				value = $('select[id="' + s_id + '"] option:selected').text();
@@ -217,7 +219,7 @@ var xform = xform || {};
 		* @param string url 确认后要跳转的URL地址
 		* @return
 		*/
-		t.confirmDelete = function (msg, url) {
+		f.confirmDelete = function (msg, url) {
 			if(confirm(msg)) {
 				window.location.href = url;
 			}
@@ -230,7 +232,7 @@ var xform = xform || {};
 		* @param string id table ID
 		* @param string name 存在COOKIE中的KEY值例如cookie[name] = ',2,3,4,5,'
 		*/
-		t.tableCheckbox = function (tableid, name){
+		f.tableCheckbox = function (tableid, name){
 			if(name==''){name = 'checkvalue';}
 			//cookie中存放的值
 			var cookievalue = $.cookie(name);
