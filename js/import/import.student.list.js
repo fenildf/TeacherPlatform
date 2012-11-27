@@ -80,9 +80,9 @@ var initTabBtn = function(){
 
 /* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-// $(function(){
-// 	// $('.ui_select').selectbox();
-// });
+$(function(){
+	$('.ui_select').selectbox();
+});
 $('#pages').change(function(){
 	var _page = this.value;
 	 $("#currpage").val(_page);
