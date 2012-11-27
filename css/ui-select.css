@@ -73,19 +73,19 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
     
 .jquery-selectbox.selecthover {z-index: 700;}
-.jquery-selectbox .jquery-selectbox-currentItem {display: block;overflow: hidden;position:absolute;top: 4px;left:20px}
-.jquery-selectbox .jquery-selectbox-list {border: 1px solid #999;display: none;position: absolute;top: 30px;background: #fff;overflow-x: hidden;overflow-y: auto;z-index: 1000;}
+.jquery-selectbox .jquery-selectbox-currentItem {display: block;overflow: hidden;position:absolute;top: 4px;left:20px;z-index: -1;}
+.jquery-selectbox .jquery-selectbox-list {border: 1px solid #d1d1d1;display: none;position: absolute;left:-1px;top: 26px;background: #fff;overflow-x: hidden;overflow-y: auto;z-index: 1000;}
 
 /* 自定义下拉框 */
 
-.selectParent .jquery-selectbox-list{width: 93px !important;height: 220px;}
-.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(../img/course_icon.png) 77px -120px no-repeat;z-index:1;}
+.selectParent .jquery-selectbox-list{width: 100px !important;height: 220px;text-align: center;}
+.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(../img/course_icon.png) 82px -120px no-repeat;z-index:1;}
 
 
 /* 自定义文本框 */
     .selectParent .jquery-selectbox-moreButton{width: 100px;height: 27px;}
 .jquery-selectbox .jquery-selectbox-moreButton.morebuttonhover {}
-.jquery-selectbox .jquery-selectbox-item.listelementhover {background: red;}
+.jquery-selectbox .jquery-selectbox-item.listelementhover {background: #057E13;color: #fff;}
 .jquery-selectbox .jquery-selectbox-item {display: block;}
 
 .selectParent  .jquery-selectbox{width: 100px;}
