@@ -85,7 +85,7 @@ var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('inpu
 /* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function(){
-	$('.ui_select').selectbox();
+	// $('.ui_select').selectbox();
 });
 $('#pages').change(function(){
 	var _page = this.value;

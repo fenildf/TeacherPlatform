@@ -86,7 +86,7 @@ var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('inpu
 /* =-=-=-=-=-=-=-=-=-=-=-= tips_error.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 var _btn = $('#error_btn');
-console.log(history.go(-1));
+// console.log(history.go(-1));
 if(history.length > 1) {
 	_btn.text('返回');
 } else {
@@ -105,7 +105,7 @@ function goback(tp) {
 	if(tp == 'close') {
 		if(par) {
 			var _id = par.xes.ui.tabs.o.active.attr('id').replace('tab_', '');
-			console.log(_id);
+			// console.log(_id);
 			par.xes.ui.tabs.close(_id);
 		}
 	} else {

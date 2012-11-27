@@ -24,7 +24,7 @@
     	</div>
     	<div class="table_toolbar">
     		<span class="tips_arrow"> a</span>
-    		<button class="button white">全选 / 反选</button><button class="button blue">全部生成</button>
+    		<button id="checkAllButton" class="button white">是否压缩</button><button class="button blue">全部生成</button>
     	</div>
     	<table width="100%" class="table_list">
     		<colgroup>
@@ -43,13 +43,24 @@
 					<td>操作</td>
 				</tr>
 			</thead>
-			<tbody class="tbody">
+			<tbody id="filelist" class="tbody">
 				<tr class="bg">
 					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
 					<td>a</td>
 					<td>a</td>
 					<td>
 						<button class="button blue medium">生成</button>
+					</td>
+				</tr>
+				<tr class="child">
+					<td colspan="4">
+						<ul>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+						</ul>
 					</td>
 				</tr>
 				<tr>
@@ -64,30 +75,7 @@
 					<td>a</td>
 					<td><button class="button blue medium">生成</button></td>
 				</tr>
-				<tr class="hover">
-					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
-					<td>a</td>
-					<td>a</td>
-					<td><button class="button blue medium">生成</button></td>
-				</tr>
-				<tr class="bg">
-					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
-					<td>a</td>
-					<td>a</td>
-					<td><button class="button blue medium">生成</button></td>
-				</tr>
-				<tr>
-					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
-					<td>a</td>
-					<td>a</td>
-					<td><button class="button blue medium">生成</button></td>
-				</tr>
-				<tr class="bg">
-					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
-					<td>a</td>
-					<td>a</td>
-					<td><button class="button blue medium">生成</button></td>
-				</tr>
+
 			</tbody>
 		</table>
     </div>
