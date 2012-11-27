@@ -68,7 +68,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 /*.jquery-selectbox {position: absolute;left: 1px;top: 1px;z-index: 0;float: left;border: 1px solid #eaeaea;}*/
 
 /* 自定义外层 */
-    .selectParent .jquery-selectbox{width: auto !important;position: relative;height: 27px;float: left;background: url(../img/selectbox.png) repeat-x;border:1px solid;}
+    .selectParent .jquery-selectbox{width: auto !important;position: relative;height: 27px;float: left;background: url(../img/selectbox.png) repeat-x;border:1px solid #cfcfcf;}
     
 .jquery-selectbox.selecthover {z-index: 700;}
 .jquery-selectbox .jquery-selectbox-currentItem {display: block;overflow: hidden;position:absolute;top: 4px;left:20px}
