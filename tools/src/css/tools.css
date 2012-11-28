@@ -13,7 +13,7 @@ body {color:#737C93;font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1",Verdana, "\
 #container {top:45px;bottom:28px;background-color: #EEF1F8}
 	#sidebar{width: 170px;top: 45px;bottom: 28px;left: 0;border-right:1px solid #BECED9;background-color: #EEF1F8}
 	#main{margin:45px 0 28px 171px;overflow: hidden;overflow-x: hidden;}
-		.control {display: none;height:200px;margin:20px;border:1px solid #BECED9;background-color: #FFF}
+		.control {display: block;height:200px;margin:20px;border:1px solid #BECED9;background-color: #FFF}
 		.control .head {height: 45px;line-height: 45px;font-size: 18px;padding:0 20px;border-bottom: 1px solid #BECED9;border-top:1px solid #FFF;border-radius:5px 5px 0 0;background-color: #EFF1F6}
 
 		.table {}
@@ -30,17 +30,23 @@ body {color:#737C93;font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1",Verdana, "\
 		.tbody {background-color: #FFF}
 		.tbody th, .tbody td {height:40px;line-height: 40px;border-top: 1px solid #DCE7EF}
 		.tbody td {font-weight: 500}
+		.tbody td a {color:#0078A5}
+		.tbody td a:hover {color:#00ADEE}
 		.tbody tr.bg th, .tbody tr.bg td {background-color: #F7F9FC}
 		.tbody tr.hover th, .tbody tr.hover td,
 		.tbody tr:hover th, .tbody tr:hover td {background-color: #FFFFD4}
 		.tbody .checkbox {margin: 0px 0 0 0}
+		.tbody td.filename {color:#0078A5;cursor: pointer;}
 		.tbody tr.child {display: none;}
 		.tbody tr.child td {border:0 none;padding: 0;background:#F4EEFC url(../img/bg_toparrow.png) repeat-x center 0;}
 		/*.tbody tr.child td ul,.tbody tr.child td ul li {padding: 0;margin:0}*/
 		.tbody tr.child td li {float: none;clear:both;line-height: 30px;padding: 0 30px;border-bottom:1px solid #FFF;}
 		.tbody tr.child td li:hover {border-color:#F4EEFC;background-color: #F9F6FE;}
 		.tbody tr.child td li span.title {display: block;text-align: right;width: 350px;float: left;color:#A58AD5}
+		
 		.tbody tr.child td li em {display: block;float: left;color:#A58AD5}
+
+		.tbody tr.child.show {display: table-row;}
 #footer{bottom: 0;height: 28px;background: url(../img/bg_foot.png) repeat-x left 0}
 
 /*.button,.submit,.submit_small,.button_small {width:auto;height:30px;color:#737C93;font-weight: 700;cursor: pointer;padding:0 10px;border: 1px solid #BECED9;border-radius:3px ;box-shadow:0 0 2px rgba(0, 0, 0, 0.1);/*background: url(../img/bg_btn.png) repeat-x left 0;*/}*/

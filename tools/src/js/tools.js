@@ -27,15 +27,19 @@ $(function(){
 	getList();
 	//获取子类
 	$('#filelist tr td.filename').die('click').live('click',function(){
-		// if($(this).hasClass('child') == false){
 			var _t = $(this).parent();
-			getChild(_t);
-		// }
-		
+			getChild(_t);		
 	});
+	//单独生成
 	$('.tbody td button.button').die('click').live('click',function(){
 		createImportFiles(this);
 	});
+	//批量生成
+	$('#createAllFiles').click(function(){
+		createAllImportFiles();	
+	});
+
+	
 });
 
 /**
@@ -65,11 +69,14 @@ function getList(){
  */
 function createList(d){
 	var _html = '';
-	$.each(d,function(i,v){
+	$.each(d,function(i,filename){
+		var page = getPageName(filename),
+			pagename = page.title,
+			pageurl = page.url;
 		_html += '<tr>'
 				+'	<th><input type="checkbox" name="checkbox" class="checkbox"></th>\n'
-				+'	<td>a</td>\n'
-				+'	<td class="filename">' + v + '</td>\n'
+				+'	<td>' + pagename + ' (<a href="/' + pageurl + '" target="_blank">查看</a>) </td>\n'
+				+'	<td class="filename">' + filename + '</td>\n'
 				+'	<td>\n'
 				+'		<button class="button blue medium">生成</button>\n'
 				+'	</td>\n'
@@ -121,15 +128,13 @@ function getChildHtml(d){
 }
 
 function showChild(item){
-	$('#filelist tr.child').hide();
 	var _handle = $(item).next('tr.child');
-	// console.log(_handle.css('display'));
-	if(_handle.attr('style') =='display: none;'){
-		_handle.show();
+	if(_handle.is(':visible')){
+		_handle.hide();
 	}else{
-		_handle.removeAttr('style');
+		_handle.show();
 	}
-	// $(item).next('tr.child').toggle();
+	_handle.siblings('tr.child').hide();
 }
 
 function createImportFiles(d){
@@ -153,4 +158,33 @@ function createImportFiles(d){
 function btnCreated(btn){
 	btn.removeClass('blue');
 	btn.addClass('white');
+}
+
+function createAllImportFiles(){
+	var btn = $('#filelist button.button');
+	btn.each(function(){
+		createImportFiles(this);
+	});
+}
+
+function getPageName(filename){
+	var data = {
+		'page.course.edit.js':{title:'课程编辑',url:'edit.html'},
+		'page.course.js':{title:'课程列表',url:'course_list.html'},
+		'page.course.view.js':{title:'查看课程',url:'view.html'},
+		'page.data.js':{title:'数据统计',url:'data1_list.html'},
+		'page.data.view.js':{title:'查看数据',url:'data3_view1.html'},
+		'page.live.edit.js':{title:'编辑直播',url:'live_edit.html'},
+		'page.live.info.js':{title:'直播信息',url:'live_info.html'},
+		'page.live.list.js':{title:'直播列表',url:'live_list.html'},
+		'page.student.info.js':{title:'学员信息',url:'student_info.html'},
+		'page.student.leach.js':{title:'筛选学员',url:'student_leach.html'},
+		'page.student.list.js':{title:'学员列表',url:'student.html'},
+		'page.student.study.js':{title:'学员学习情况',url:'student_study.html'},
+		'page.tips.error.js':{title:'错误提示',url:'tips_error.html'},
+		'page.tips.succeed.js':{title:'成功提示',url:'tips_succeed.html'},
+		'page.welcome.js':{title:'欢迎页面',url:'welcome.html'},
+		'xes.platfrom.js':{title:'主页面',url:'platfrom.html'}
+	};
+	return data[filename];
 }

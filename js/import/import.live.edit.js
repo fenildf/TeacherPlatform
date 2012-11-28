@@ -89,7 +89,7 @@ xes.liveTime = xes.liveTime || {};
 
 (function(){
 	var l = xes.liveTime;
-	l.getJson = function(){
+	l.getJson = function(dd, fn){
 		var _data = [{
 			times: '0:00', status: 'optional', teacher: ''
 		}, {
@@ -187,9 +187,26 @@ xes.liveTime = xes.liveTime || {};
 		}, {
 			times: '23:30', status: 'selected', teacher: '许强'
 		}];
-		return _data;
-	};
 
+		//本地调试
+		// return _data;
+		
+		//程序调用
+		console.log(dd);
+	 	xes.post('/liveCourses/ajaxLiveListByDate/'+dd, {}, function(result){
+	 		if(fn){
+	 			fn(result);
+	 		}else{
+				if(result.sign == 1){
+					return result.msg;
+				}else{
+					alert(result.msg);
+				}	 			
+	 		}
+
+		});
+	};
+	l.box = $('#liveTime');
 	l.list = $('#liveTimeList');
 	l.win = $('#liveTimeWin');
 	l.btn = $('#liveTimeButton .btn');
@@ -205,21 +222,29 @@ xes.liveTime = xes.liveTime || {};
 	l.create = function(d){
 		var _d = d || l.getJson();
 		var html='';
+		// console.log(d);
 		$.each(_d, function(n,m){
-			var status = m.status == 'selected' ? '' : 'optional',
-				teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>';
-			html += '<li time="' + m.times + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="name">' + teacher + '</span></li>';	
+			var status = m.status == 'selected' ? 'unchoose' : 'optional',
+				teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>',
+				end = m.times;
+			var ends = end.split(':');
+			 //把08变为8
+			var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
+			var endtime = ends[1]=='30' ? parseInt(hour)+1 + ':00' : hour + ':30';
+			// console.log(endtime);
+			// console.log('---------------------');
+			html += '<li time="' + m.times + '" endtime="' + endtime + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="endtime">&nbsp;-- '+ endtime +'</span><span class="name">' + teacher + '</span></li>';	
 		});
+		$('#liveTime').show();
 		l.list.html(html);
 	};
-	l.open = function(t){
-		
+	l.open = function(t,e){
 		l.win.css({
-			top : $(window).height() / 2 - 90,
-			left: $(window).width() / 2 - 174
+			top : $(window).height() / 2,
+			left: $(window).width() / 2 - 214
 		}).show();
 
-		l.setSelect(t)
+		l.setSelect(t,e)
 		l.btnClick();
 	};
 	l.btnClick = function(){
@@ -233,12 +258,17 @@ xes.liveTime = xes.liveTime || {};
 			}
 		});
 	};
-	l.setSelect = function(s){
+	l.setSelect = function(s,e){
 		var start = '<option value="' + s + '">' + s + '</option>';
 		var end ='';
-		l.each(s,false,function(i, t){
-			var _t = t.attr('time');
-			end += '<option value="' + _t + '">' + _t + '</option>';	
+		var _a = l.list.find('li.optional[time="'+s+'"]');
+		var _e = _a.nextAll('li.unchoose').eq(0);
+		// console.log(_e);
+		_e = _e.length > 0 ? _e.attr('time') : false;
+		l.each(s,_e,function(i, t){
+			var _t = t.attr('time'),
+				_end = t.attr('endtime');
+			end += '<option value="' + _end + '">' + _end + '</option>';	
 		});
 
 		$('#liveTimeStart').html(start);
@@ -254,7 +284,10 @@ xes.liveTime = xes.liveTime || {};
 	l.each = function(s,e,fn){
 		var _list = l.list.find('li.optional');
 		var _a = _list.index(l.list.find('li.optional[time="'+s+'"]')[0]);
-		var _b = _list.index(l.list.find('li.optional[time="'+e+'"]')[0]);
+		var _tmp = l.list.find('li.optional[time="'+e+'"]').prevAll('.optional').eq(0);
+		// console.log(_tmp.text());
+		// var _b = _list.index(_tmp[0]);
+		var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
 		//如果没有结束时间则取列表长度，如果有结束
 		var _e = e ? _b + 1 : _list.length;
 		for(var i = _a, len = _e; i < len; i++){
@@ -285,6 +318,13 @@ xes.liveTime = xes.liveTime || {};
 		// });
 		l.close();
 	};
+	l.empty = function(){
+		$('#liveTimeStartInput,#liveTimeEndInput').val('');
+		l.list.find('li.selected').each(function(){
+			$(this).removeClass('selected').addClass('optional');
+			$(this).find('.name').html('<a href="javascript:void(0);">预约</a>');
+		});
+	};
 
 	l.submit = function(){
 		//ajax
@@ -295,6 +335,86 @@ xes.liveTime = xes.liveTime || {};
 	};
 	l.position = function(){};
 })();
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * xes.ajax.js
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
+xes.ajax = xes.ajax || {};
+
+(function(){
+	var a = xes.ajax;
+	a._load = $('.laodding');
+	a._bg = $('.loadding_bg');
+	a._ajax = function(url,data,sucess,error){
+		$.ajax({
+			async: true,
+			type: 'POST',
+			url : url,
+			data: data,
+			dataType: 'jsonp',
+			jsonp : 'callback',
+			timeout: 70000,
+			complete:function(){},
+			success:function(d){
+				sucess(d);
+			},
+			error:function(){}
+		});
+	};
+	a.start = function(dom, fn){
+		$(dom).ajaxStart(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('show');
+			}
+		});
+	};
+	a.stop = function(dom, fn){
+		$(dom).ajaxStop(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('hide');
+			}
+		});
+	};
+	a._loadding = function(tp){
+		if(tp == 'show'){
+			a._load.show();
+			a._bg.show();
+		}else{
+			a._load.hide();
+			a._bg.hide();
+		}
+	};
+	a.sync = function(){};
+	a.get = function(){};
+	a.set = function(){};
+	a.post = function(url, data, sucess, error){
+		a._ajax(url, data, sucess, error);
+	};
+	a.getJSON = function(){};
+	a.callback = function(){};
+	a.status = function(){};
+
+})();
+
+
+xes.post = xes.ajax.post;
 /* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.calendar.min.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
@@ -398,27 +518,46 @@ var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('inpu
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
+	$('#liveTime').show();
+	$('#liveDate').click(function(){
+		setTimeout(function(){
+			// alert(111);
+			xes.iframe.setHeight();
+		},500);
+	});
 	$("#liveDate").calendar({callback:function(){
-		// var date = $('#liveDate').val();
+		var date = $('#liveDate').val();
 		// var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
 		// xes.post(url, date, function(result){
 
-		// 	console.log(result);
-		// });
-		var d = xes.liveTime.getJson();
-		xes.liveTime.create(d);
+		//程序调用
+		
+		xes.liveTime.getJson(date,function(d){
+			// console.clear();
+			// console.log(d);
+			if(d.sign == 1){
+				xes.liveTime.create(d.msg);
+			}else{
+				alert(d.msg);
+			}
+		});
+
+		//本地调试
+		// var d = xes.liveTime.getJson(date);
+		// xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
-		// if($(this).hasClass('optional')){
 			if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
 				var _time = $(this).attr('time');
 				xes.liveTime.open(_time);
 			}else{
-				alert('您已经预约成功，请勿重复预约');
+				if(confirm('您刚才已经选择了预约时间？点击确定将清空之前的选择，是否继续')){
+					xes.liveTime.empty();
+					var _time = $(this).attr('time');
+					xes.liveTime.open(_time);
+				};
+				// alert('您已经预约成功，请勿重复预约');
 			}
-		// }else{
-		// 	alert('此时间已被预定，请选择其他时间');
-		// }
 	});
 });
 
