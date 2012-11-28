@@ -107,7 +107,24 @@ var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('inpu
 $(function () {
 	// $("#startDate").calendar();
 	$("#endDate").calendar();
-	// console.log(xes.form);
+	setTimeout(function(){
+		var a = $('#courseType').val();
+		// console.log(a);	
+		if(a==649){
+			$('#termId').show();
+		}else{
+			$('#termId').hide();
+		}
+	},100);
+	
+	$('#courseType').change(function(){
+		if($(this).val()==649){
+			$('#termId').show();
+		}else{
+			$('#termId').hide();
+			$('#termId').val(0);
+		}
+	});
 });
 
 

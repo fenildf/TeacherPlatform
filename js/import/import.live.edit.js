@@ -89,7 +89,7 @@ xes.liveTime = xes.liveTime || {};
 
 (function(){
 	var l = xes.liveTime;
-	l.getJson = function(dd, fn){
+	l.getJson = function(dd, fn, tp){
 		var _data = [{
 			times: '0:00', status: 'optional', teacher: ''
 		}, {
@@ -192,8 +192,9 @@ xes.liveTime = xes.liveTime || {};
 		// return _data;
 		
 		//程序调用
-		console.log(dd);
-	 	xes.post('/liveCourses/ajaxLiveListByDate/'+dd, {}, function(result){
+		
+		var url = tp ? '/liveCourses/ajaxLiveListByDate/'+dd+'/myself' : '/liveCourses/ajaxLiveListByDate/'+dd;
+	 	xes.post(url, {}, function(result){
 	 		if(fn){
 	 			fn(result);
 	 		}else{
@@ -224,19 +225,34 @@ xes.liveTime = xes.liveTime || {};
 		var html='';
 		// console.log(d);
 		$.each(_d, function(n,m){
-			var status = m.status == 'selected' ? 'unchoose' : 'optional',
-				teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>',
-				end = m.times;
+			// var status = m.status == 'selected' ? 'unchoose' : 'optional';
+			var teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>',
+				end = m.times,
+				status = m.status == 'myself' ? 'selected' : m.status == 'selected' ? 'unchoose' : 'optional';
+
 			var ends = end.split(':');
 			 //把08变为8
 			var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
 			var endtime = ends[1]=='30' ? parseInt(hour)+1 + ':00' : hour + ':30';
-			// console.log(endtime);
-			// console.log('---------------------');
+			
 			html += '<li time="' + m.times + '" endtime="' + endtime + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="endtime">&nbsp;-- '+ endtime +'</span><span class="name">' + teacher + '</span></li>';	
 		});
 		$('#liveTime').show();
 		l.list.html(html);
+	};
+	/**
+	 * 创建时间列表
+	 */
+	l.createTimeList = function(day,tp){
+		if(day){
+			xes.liveTime.getJson(day,function(d){
+				if(d.sign == 1){
+					xes.liveTime.create(d.msg);
+				}else{
+					alert(d.msg);
+				}
+			},tp);
+		}
 	};
 	l.open = function(t,e){
 		l.win.css({
@@ -249,10 +265,22 @@ xes.liveTime = xes.liveTime || {};
 	};
 	l.btnClick = function(){
 		l.btn.die('click').live('click',function(){
-
 			if($(this).hasClass('btn_submit')){
-				var _val = l.getValue();
-				l.setTimeValue(_val.start, _val.end);
+				if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
+					var _val = l.getValue();
+					l.setTimeValue(_val.start, _val.end);
+				}else{
+					if(confirm('是否替换之前的预约时间？')){
+						xes.liveTime.empty();
+						var _val = l.getValue();
+						l.setTimeValue(_val.start, _val.end);
+					};
+					// alert('您已经预约成功，请勿重复预约');
+				}
+
+			// if($(this).hasClass('btn_submit')){
+			// 	var _val = l.getValue();
+			// 	l.setTimeValue(_val.start, _val.end);
 			}else{
 				l.close();
 			}
@@ -518,13 +546,21 @@ var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('inpu
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
+	//直播状态：新建/编辑
+	var _date = $('#liveDate').val();
+	var TYPE = (_date!='') ? true : false;
 	$('#liveTime').show();
 	$('#liveDate').click(function(){
 		setTimeout(function(){
-			// alert(111);
 			xes.iframe.setHeight();
 		},500);
 	});
+
+	
+	if(_date!=''){
+		xes.liveTime.createTimeList(_date,TYPE);
+	}
+	
 	$("#liveDate").calendar({callback:function(){
 		var date = $('#liveDate').val();
 		// var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
@@ -532,32 +568,26 @@ $(function () {
 
 		//程序调用
 		
-		xes.liveTime.getJson(date,function(d){
-			// console.clear();
-			// console.log(d);
-			if(d.sign == 1){
-				xes.liveTime.create(d.msg);
-			}else{
-				alert(d.msg);
-			}
-		});
+		xes.liveTime.createTimeList(date,TYPE);
 
 		//本地调试
 		// var d = xes.liveTime.getJson(date);
 		// xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
-			if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
-				var _time = $(this).attr('time');
-				xes.liveTime.open(_time);
-			}else{
-				if(confirm('您刚才已经选择了预约时间？点击确定将清空之前的选择，是否继续')){
-					xes.liveTime.empty();
-					var _time = $(this).attr('time');
-					xes.liveTime.open(_time);
-				};
-				// alert('您已经预约成功，请勿重复预约');
-			}
+			// if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
+			// 	var _time = $(this).attr('time');
+			// 	xes.liveTime.open(_time);
+			// }else{
+			// 	if(confirm('您刚才已经选择了预约时间？点击确定将清空之前的选择，是否继续')){
+			// 		xes.liveTime.empty();
+			// 		var _time = $(this).attr('time');
+			// 		xes.liveTime.open(_time);
+			// 	};
+			// 	// alert('您已经预约成功，请勿重复预约');
+			// }
+			var _time = $(this).attr('time');
+			xes.liveTime.open(_time);
 	});
 });
 

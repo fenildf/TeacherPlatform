@@ -50,4 +50,13 @@
 .btn {font-weight: 500}
 .btn:visited, .btn:active {color:#FFF;font-weight: 500}
 
+.btn.btn_submit {font-weight: 700}
 .left_box {float: left;}
+
+.layer_900 {}
+.layer_900 .ui_infor_title,
+.layer_900 .grid_item_content{width: 900px}
+.layer_900 .btn {float: right;cursor: pointer;}
+.layer_900 button.btn {border:0 none;}
+.layer_900 #listSerch {padding-left:20px}
+.layer_900 .action_item {margin-top: 10px}

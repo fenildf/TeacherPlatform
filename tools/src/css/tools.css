@@ -29,6 +29,7 @@ body {color:#737C93;font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1",Verdana, "\
 		.thead th,.thead td {font-weight: 700;}
 		.tbody {background-color: #FFF}
 		.tbody th, .tbody td {height:40px;line-height: 40px;border-top: 1px solid #DCE7EF}
+		.tbody th {vertical-align: baseline;}
 		.tbody td {font-weight: 500}
 		.tbody td a {color:#0078A5}
 		.tbody td a:hover {color:#00ADEE}
@@ -57,5 +58,14 @@ body {color:#737C93;font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1",Verdana, "\
 .button_small {height:22px;background-image: url(../img/bg_btn_small.png);}*/
 .radius{border-radius:5px}
 .shadow{box-shadow:0 0 2px rgba(0, 0, 0, 0.1)}
-.checkbox {width: 14px;height:14px;/*margin:9px 2px 0 2px;*/border:1px solid #BFCFDA;border-radius:2px}
+/*.checkbox {width: 14px;height:14px;border:1px solid #BFCFDA;border-radius:2px}*/
 
+.input_text {width:400px;border-color: #D8DCE5;color: #606060;text-align: left; border: solid 1px #D8DCE5;background-color: #F9FAFB;}
+
+
+.control_form {display: block;padding: 20px}
+.control_form .input_text {
+	background-image: url(../img/icon_fold.png) ;
+	background-position: 5px center;
+	background-repeat: no-repeat;
+}

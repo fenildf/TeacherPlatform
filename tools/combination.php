@@ -19,7 +19,10 @@ $filename = strtr($file, array('.js' => ''));
 $newfilename = strtr($filename, array('page' => 'import'));
 
 $type = $_GET['isCombine']; //压缩
-
+$path = realpath($PATH.$_GET['path']).'\\'; //生成的路径
+if($path == '\\'){
+	return;
+}
 set_time_limit(0); 
 
 /**
@@ -116,7 +119,6 @@ function canshujiequ($contents, $identifier, $param, $url) {
  * @return : 输出状态（成功or失败）
  */
 function filePut($path, $filename, $content, $compress = false){
-
 	//是否需要压缩
 	if($compress == 'true'){
 		//调用js压缩类
@@ -150,6 +152,6 @@ function filePut($path, $filename, $content, $compress = false){
 //下面是一个测试的例子，获取网页源码，从中匹配电影的内容页地址
 $newcontent = canshujiequ($content, $identifier, '[url]', $PATH_JS); //返回匹配的数组
 
-filePut($PATH_UPDATE, $newfilename, $newcontent, $type);
+filePut($path, $newfilename, $newcontent, $type);
 
 ?>

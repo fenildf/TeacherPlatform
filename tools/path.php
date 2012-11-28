@@ -17,4 +17,5 @@ $PATH_UPDATE = realpath($PATH_JS.'/import/min/').'\\';
 
 $PATH_JS = $PATH_JS.'\\';
 
+$PATH_ISSUANCE=$PATH_UPDATE;
 ?>

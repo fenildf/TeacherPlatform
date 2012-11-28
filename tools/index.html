@@ -9,6 +9,8 @@
 <link href="/css/base.css" rel="stylesheet">
 <link href="src/css/tools.css" rel="stylesheet">
 <link href="src/css/button.css" rel="stylesheet">
+<link href="src/css/input.css" rel="stylesheet">
+<link href="src/css/form.css" rel="stylesheet">
 <script type="text/javascript" src="/js/xes.base.js"></script>
 <script type="text/javascript" src="/js/xes.js"></script>
 </head>
@@ -21,7 +23,11 @@
     	<div class="control radius shadow">
     		<h2 class="head">操作说明</h2>
     		<div class="control_body">
-    			<input type="file" id="chooseFilePath">
+    			<form action="" id="contorlForm" class="control_form">
+    				<input class="input input_text control_input" type="" id="issuancePath" value="/js/import/">
+    				<button class="button silver">更新路径</button>
+    			</form>
+    			
     		</div>
     	</div>
     	<div class="table_toolbar">

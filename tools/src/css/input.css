@@ -164,32 +164,32 @@ div {
 
 /* button 
 ---------------------------------------------- */
-.button {
+.input {
 	display: inline-block;
 	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
 	*display: inline;
 	vertical-align: baseline;
-	margin: 0 2px;
+	margin: 0 5px;
 	outline: none;
-	cursor: pointer;
-	text-align: center;
+	/*cursor: pointer;*/
+	text-align: left;
 	text-decoration: none;
 	font: 14px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.2);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .2em; 
+	-moz-border-radius: .2em;
+	border-radius: .2em;
+/*	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);*/
 }
-.button:hover {
+.input:hover {
 	text-decoration: none;
 }
-.button:active {
+.input:active {
 	position: relative;
-	top: 1px;
+	top: 0px;
 }
 
 .bigrounded {
@@ -208,7 +208,27 @@ div {
 
 /* color styles 
 ---------------------------------------------- */
-
+/* default */
+.default {
+	color: #606060;
+	border: solid 1px #BFCFDA;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FCFCFC), to(#F2F3F6));
+	background: -moz-linear-gradient(top,  #FCFCFC,  #F2F3F6);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCFCFC', endColorstr='#F2F3F6');
+}
+.default:hover {
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F1F3F6), to(#fff));
+	background: -moz-linear-gradient(top,  #F1F3F6,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#F1F3F6', endColorstr='#ffffff');
+}
+.default:active {
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top,  #ededed,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
 /* black */
 .black {
 	color: #d7d7d7;
@@ -275,27 +295,6 @@ div {
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
 }
 
-/* white */
-.silver {
-	color: #757E95;
-	border: solid 1px #C0D0DB;
-	background: #fff;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ECEFF4));
-	background: -moz-linear-gradient(top,  #fff,  #ECEFF4);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#ECEFF4');
-}
-.silver:hover {
-	background: #ededed;
-	background: -webkit-gradient(linear, left top, left bottom, from(#FBFCFD), to(#E8EBF0));
-	background: -moz-linear-gradient(top,  #FBFCFD,  #E8EBF0);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFCFD', endColorstr='#E8EBF0');
-}
-.silver:active {
-	color: #999;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
-	background: -moz-linear-gradient(top,  #ededed,  #fff);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
-}
 /* orange */
 .orange {
 	color: #fef4e9;

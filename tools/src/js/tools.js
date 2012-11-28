@@ -25,6 +25,7 @@ function checkAll(obj, cName) {
 $(function(){
 	checkall();
 	getList();
+	// var PATH = $('#issuancePath').val();
 	//获取子类
 	$('#filelist tr td.filename').die('click').live('click',function(){
 			var _t = $(this).parent();
@@ -32,11 +33,13 @@ $(function(){
 	});
 	//单独生成
 	$('.tbody td button.button').die('click').live('click',function(){
-		createImportFiles(this);
+		var PATH = $('#issuancePath').val();
+		createImportFiles(PATH,this);
 	});
 	//批量生成
 	$('#createAllFiles').click(function(){
-		createAllImportFiles();	
+		var PATH = $('#issuancePath').val();
+		createAllImportFiles(PATH);	
 	});
 
 	
@@ -137,13 +140,15 @@ function showChild(item){
 	_handle.siblings('tr.child').hide();
 }
 
-function createImportFiles(d){
+function createImportFiles(path,d){
 	var btn = $(d),
 		parent = btn.parent().parent(),
 		file = parent.find('.filename').text();
 		checked = parent.find('input:checkbox').attr('checked');
 		checked = checked == 'checked'? true: false;
-	$.getJSON('/tools/combination.php',{'filename':file,'isCombine':checked},function(data){
+	var path = path || $('#issuancePath').val();
+	console.log(path);
+	$.getJSON('/tools/combination.php',{'path':path,'filename':file,'isCombine':checked},function(data){
 		if(data == 'packed'){
 			btnCreated(btn);
 		}else if(data == 'created'){
@@ -160,10 +165,11 @@ function btnCreated(btn){
 	btn.addClass('white');
 }
 
-function createAllImportFiles(){
+function createAllImportFiles(path){
 	var btn = $('#filelist button.button');
+	var path = path || $('#issuancePath').val();
 	btn.each(function(){
-		createImportFiles(this);
+		createImportFiles(path, this);
 	});
 }
 
