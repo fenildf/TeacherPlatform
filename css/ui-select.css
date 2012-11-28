@@ -69,7 +69,9 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
 /* 自定义外层 */
 
+
 .selectParent .jquery-selectbox{width: auto !important;position: relative;height: 26px;float: left;background: url(../img/select_bg3.png) repeat-x;z-index: 0;margin-right: 10px;border: 1px solid #d1d1d1;}
+
 
     
 .jquery-selectbox.selecthover {z-index: 700;}
@@ -78,14 +80,18 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
 /* 自定义下拉框 */
 
+
 .selectParent .jquery-selectbox-list{width: 100px !important;height: 220px;text-align: center;}
 .jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(../img/course_icon.png) 82px -120px no-repeat;z-index:1;}
+
 
 
 /* 自定义文本框 */
     .selectParent .jquery-selectbox-moreButton{width: 100px;height: 27px;}
 .jquery-selectbox .jquery-selectbox-moreButton.morebuttonhover {}
+
 .jquery-selectbox .jquery-selectbox-item.listelementhover {background: #057E13;color: #fff;}
 .jquery-selectbox .jquery-selectbox-item {display: block;}
 
 .selectParent  .jquery-selectbox{width: 100px;}
+

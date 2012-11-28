@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="css/xes_list.css"/>
+	<script type="text/javascript" src="js/xes.base.js"></script>
+	<script type="text/javascript" src="js/xes.js"></script>
+</head>
+
+<body class="skin skin-green">
+
+	<div class="layerItemNew">
+		<h1 class="ui_infor_title">
+			<span>课程列表</span>
+		</h1>
+		<div class="action_item">
+
+			<ul class="action">
+				<form action="" name="" id="listSerch">
+					<select name="" id="selectGrade" class="ui-select-box">
+						<option>--年级--</option>
+						<option value="1">一年级</option>
+						<option value="2">二年级</option>
+						<option value="3">三年级</option>
+						<option value="4">四年级</option>
+						<option value="5">五年级</option>
+						<option value="5">六年级</option>
+					</select>
+					<select name="" id="selectCourseType" class="ui-select-box">
+						<option>--课程状态--</option>
+						<option value="1">已上架</option>
+						<option value="2">未上架</option>
+						<option value="3">已审核</option>
+						<option value="4">未审核</option>
+					</select>
+					<input type="submit" value="筛选" class="s-btn">
+					<input type="hidden" class="search_key" title="存储头部搜索结果" />
+					<input type="hidden" id="currpage" class="currpage" name="currpage" value="1" />
+				</form>
+			</ul>
+			<ul class="item_pag ui_pages">
+				<li class="page_list ui-select-box">
+					<select name="pages" id="pages" class="ui-select">
+						<option value="1">1/5</option>
+						<option value="2">2/5</option>
+						<option value="3">3/5</option>
+						<option value="4">4/5</option>
+						<option value="5">5/5</option>
+					</select>
+				</li>
+				<li class="page_btn">
+					<span href="" class="page_prev">上一页</span>
+				</li>
+				<li class="page_btn">
+					<span class="page_next">下一页</span>
+				</li>
+			</ul>
+
+		</div>
+		<div class="grid_item_content">
+			<table class="grid_item">
+				<thead>
+					<tr>
+						<th>课程名称</th>
+						<th>年级</th>
+						<th>课程状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="courseList">
+					<tr>
+						<td>
+							<input type="checkbox"/>
+							学数学小学数学小学数学
+						</td>
+						<td>一年级</td>
+						<td>
+							<span class="state one"></span>
+							<span class="state two"></span>
+						</td>
+						<td>
+							<a id="course_edit_1" href="edit.html" class="open_tabs">编辑详情</a>
+							<a id="course_view_1" href="view.html" class="open_tabs">查看</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+							学数学小学数学小学数学
+						</td>
+						<td>一年级</td>
+						<td>
+							<span class="state one"></span>
+							<span class="state two"></span>
+						</td>
+						<td>
+							<a id="course_edit_2" href="edit.html" class="open_tabs">编辑详情</a>
+							<a id="course_view_2" href="view.html" class="open_tabs">查看</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+							学数学小学数学小学数学
+						</td>
+						<td>一年级</td>
+						<td>
+							<span class="state one"></span>
+							<span class="state two"></span>
+						</td>
+						<td>
+							<a id="course_edit_3" href="edit.html" class="open_tabs">编辑详情</a>
+							<a id="course_view_3" href="view.html" class="open_tabs">查看</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+							学数学小学数学小学数学
+						</td>
+						<td>一年级</td>
+						<td>
+							<span class="state one"></span>
+							<span class="state two"></span>
+						</td>
+						<td>
+							<a id="course_edit_4" href="edit.html" class="open_tabs">编辑详情</a>
+							<a id="course_view_4" href="view.html" class="open_tabs">查看</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="action_item">
+
+			<ul class="item_pag ui_pages">
+				<li class="page_btn">
+					<span class="page_prev">上一页</span>
+				</li>
+				<li class="page_btn">
+					<a href=""  class="page_next">下一页</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<script type="text/javascript" src="js/import/import.course.js"></script>
+
+</body>
+</html>

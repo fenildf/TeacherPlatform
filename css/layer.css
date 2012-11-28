@@ -9,8 +9,8 @@ box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0
 .teacherLayerAll ul li.title span.laber {border:0;font-weight: bold;color: #fff; } 
 .teacherLayerAll ul li span.right {float: right;margin-right:10px;margin-top: 4px;}
 
-
-
+.layerItemNew {width:900px;margin:0 auto;overflow:hidden;}
+.layerItemNew .grid_item_content {width:900px;}
 
 
 
