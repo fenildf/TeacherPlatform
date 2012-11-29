@@ -1,3 +1,4 @@
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.iframe.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -21,6 +22,7 @@ xes.iframe = xes.iframe || {};
 		return _body;
 	};
 	f.setHeight = function(){
+		// console.log(1111);
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
 			setTimeout(function(){
@@ -30,12 +32,18 @@ xes.iframe = xes.iframe || {};
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			_pathname = _local.pathname.replace('/','');
+			// _pathname = _local.pathname.replace('/','');
+			_pathname = _local.pathname;
+			// console.log(_local.pathname);
 		return _pathname;
 	};
 })();
 $(function(){
-	xes.iframe.setHeight();		
+
+	setTimeout(function(){
+		xes.iframe.setHeight();
+	},100);
+	
 })
 
 

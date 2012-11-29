@@ -15,3 +15,24 @@
 ///import:xes.iframe.js///
 
 ///import:ui/xes.ui.tips.js///
+
+///import:xes.form.js///
+
+/* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+$('#pages').change(function(){
+    var _page = this.value;
+     $("#currpage").val(_page);
+     $("#listSerch").submit();
+});
+$(".ui_pages a").click(function(){
+    _url = $(this).attr('href');
+    _re = /curpage\:(\d+)$/;
+    _page = _url.match(_re);
+    // alert(_page);
+    // alert($("#listSerch").attr('action'));
+    if(_page!=null){
+        $("#currpage").val(_page[1]);
+        $(this).attr('href','###');
+        $("#listSerch").submit();
+    }
+});

@@ -35,6 +35,7 @@ xes.iframe = xes.iframe || {};
 		return _body;
 	};
 	f.setHeight = function(){
+		// console.log(1111);
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
 			setTimeout(function(){
@@ -44,12 +45,18 @@ xes.iframe = xes.iframe || {};
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			_pathname = _local.pathname.replace('/','');
+			// _pathname = _local.pathname.replace('/','');
+			_pathname = _local.pathname;
+			// console.log(_local.pathname);
 		return _pathname;
 	};
 })();
 $(function(){
-	xes.iframe.setHeight();		
+
+	setTimeout(function(){
+		xes.iframe.setHeight();
+	},100);
+	
 })
 
 
@@ -78,7 +85,103 @@ var initTabBtn = function(){
 	});
 }();
 
+
+/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.tips.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * tips
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var tips = tips || {};
+
+(function(){
+	var t = tips;
+
+	t.create = function(tp, content){
+		var _html = '<div class="ui_tips tips_' + tp + '"><span>' + content + '</span><a href="javascript:void(0);" class="tips_close">关闭</a></div>';
+		if($('.ui_tips').length == 0){
+			$('body').append(_html);
+		}else{
+			$('.ui_tips').attr('class','ui_tips tips_'+tp).find('span').text(content);
+		}
+		// this.show();
+		this.dom = $('.ui_tips');
+		this.dom.find('.tips_close').die('click').live('click',function(){
+			t.close();
+		});
+		return this;
+	};
+
+	t.show = function(dom){
+		var _tips = dom || this.dom;
+		_tips.fadeIn();
+		return this;
+	};
+	t.hide = function(dom){
+		var _tips = dom || this.dom;
+		_tips.fadeOut();
+		return this;
+	};
+	t.close = function(fn){
+		if(fn){
+			fn(t.dom);
+		}
+		t.hide();
+		return this;
+	};
+
+	t.error = function(content){
+		this.create('error',content).show();
+	};
+	t.succeed = function(content){
+		this.create('succeed',content).show();
+	};
+	t.help = function(content){
+		this.create('help',content).show();
+	};
+	t.info = function(content){
+		this.create('info',content).show();
+	};
+
+})();
+
+
+/* 注册到UI库 */
+(function(xes){
+	if(xes.ui){
+		xes.ui.add('tips',tips,function(msg){
+			// console.log(msg);
+			// if(msg === 'ok'){
+			// 	xes.ui.tips.init();
+			// }
+			xes.tips = xes.ui.tips;
+		});
+	}
+})(xes);
+
+
 /* =-=-=-=-=-=-=-=-=-=-=-= xes.live.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * 直播
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
 
 xes.live = xes.live || {};
 
@@ -364,102 +467,516 @@ xes.liveTime = xes.liveTime || {};
 	l.position = function(){};
 })();
 
-
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
  */
 
 /*
- * xes.ajax.js
+ * 
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
 
-var xes = xes || {};
-
-xes.ajax = xes.ajax || {};
-
-(function(){
-	var a = xes.ajax;
-	a._load = $('.laodding');
-	a._bg = $('.loadding_bg');
-	a._ajax = function(url,data,sucess,error){
-		$.ajax({
-			async: true,
-			type: 'POST',
-			url : url,
-			data: data,
-			dataType: 'jsonp',
-			jsonp : 'callback',
-			timeout: 70000,
-			complete:function(){},
-			success:function(d){
-				sucess(d);
-			},
-			error:function(){}
-		});
-	};
-	a.start = function(dom, fn){
-		$(dom).ajaxStart(function(handle){
-			if(fn){
-				fn(handle);
-			}else{
-				a._loadding('show');
-			}
-		});
-	};
-	a.stop = function(dom, fn){
-		$(dom).ajaxStop(function(handle){
-			if(fn){
-				fn(handle);
-			}else{
-				a._loadding('hide');
-			}
-		});
-	};
-	a._loadding = function(tp){
-		if(tp == 'show'){
-			a._load.show();
-			a._bg.show();
-		}else{
-			a._load.hide();
-			a._bg.hide();
-		}
-	};
-	a.sync = function(){};
-	a.get = function(){};
-	a.set = function(){};
-	a.post = function(url, data, sucess, error){
-		a._ajax(url, data, sucess, error);
-	};
-	a.getJSON = function(){};
-	a.callback = function(){};
-	a.status = function(){};
-
-})();
-
-
-xes.post = xes.ajax.post;
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.calendar.min.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
 
 /*
- * xes.ui.calendar.min.js
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
+
+ * Summary: lyz.calendar1.0
+
+ * Author: 
+
+ * Date: 2011
+
+ * Emial: c_sharp@live.cn
+
+ * Example:
+            $(function () {
+                $("#txtBeginDate").calendar({
+                    controlId: "divDate",                                       // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+                    speed: 200,                                                 // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+                    complement: true,                                           // 是否显示日期或年空白处的前后月的补充,默认：true
+                    readonly: true,                                             // 目标对象是否设为只读，默认：true
+                    upperLimit: new Date(),                                     // 日期上限，默认：NaN(不限制)
+                    lowerLimit: new Date("2011/01/01"),                         // 日期下限，默认：NaN(不限制)
+                    callback: function () {                                     // 点击选择日期后的回调函数
+                        alert("您选择的日期是：" + $("#txtBeginDate").val());
+                }
+            });
+
+            $("#txtEndDate").calendar();
  */
 
-jQuery.fn.extend({calendar:function(J){function o(){$("#"+J.controlId).find(".tabD a").mouseup(function(){var e=new Date($("#"+J.controlId).find(".currentYear").text()+"/"+$("#"+J.controlId).find(".currentMonth").text()+"/1");if($(this).hasClass("prevD")){e.setMonth(e.getMonth()-1);e.setDate($(this).text());var c=J.speed;J.speed=0;$("#"+J.controlId).find(".prevMonth").triggerHandler("mouseup");J.speed=c}else{if($(this).hasClass("nextD")){e.setMonth(e.getMonth()+1);e.setDate($(this).text());c=J.speed;J.speed=0;$("#"+J.controlId).find(".nextMonth").triggerHandler("mouseup");J.speed=c}}var f=$(this).text();e=e.getFullYear()+"-"+(Number(e.getMonth()+1)<10?"0"+Number(e.getMonth()+1):Number(e.getMonth()+1))+"-"+(Number(f)<10?"0"+f:f);y.val(e);$("#"+J.controlId+" div table a").removeClass("select");$("#"+J.controlId+" .tabD a:contains('"+f+"')").each(function(){f==$(this).text()&&!$(this).hasClass("prevD")&&!$(this).hasClass("nextD")&&$(this).addClass("select")});$("#"+J.controlId).hide();J.callback();$(y).blur()}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function h(){$("#"+J.controlId).find(".tabM a").mouseup(function(){var c=j(Number($("#"+J.controlId).find(".currentYear").text()),Number($(this).attr("val")));l(c);o();$("#"+J.controlId).find(".currentMonth").text(Number($(this).attr("val"))+1)}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function d(){$("#"+J.controlId).find(".tabY a").mouseup(function(){var c=j(Number($(this).text()),Number($("#"+J.controlId).find(".currentMonth").text())-1);l(c);o();$("#"+J.controlId).find(".currentYear").text(Number($(this).text()))}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function j(A,w){newDate=new Date(A,w,1);newDate.setDate(0);var u=1,r=newDate.getDate();newDate.setDate(1);newDate.setMonth(newDate.getMonth()+1);var f=newDate.getDay();if(f==0){f=7}r=r-f+1;newDate.setMonth(newDate.getMonth()+1);newDate.setDate(0);var e=newDate.getDate(),s="<table class='tabD'>";s+="<tr><th>\u65e5</th><th>\u4e00</th><th>\u4e8c</th><th>\u4e09</th><th>\u56db</th><th>\u4e94</th><th>\u516d</th></tr>";var q=b(),k="",c="",B="";J.complement||(B="style='display:none'");for(var z=0;z<6;z++){s+="<tr>";for(var v=0;v<7;v++){var n=z*7+v+1-f;c=k="";if(J.lowerLimit!=NaN&&J.lowerLimit>new Date(newDate.getFullYear(),newDate.getMonth(),n)||J.upperLimit!=NaN&&new Date(newDate.getFullYear(),newDate.getMonth(),n)>J.upperLimit){if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}s+="<td><span class='"+k+"'>"+n+"</span></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+r+"</span></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+u+"</span></td>";u++}}}}else{if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()==q.getMonth()&&n==q.getDate()){c="select"}s+="<td><a class='"+c+" "+k+"'>"+n+"</a></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()-1==q.getMonth()&&r==q.getDate()){c="select"}s+="<td><a class='prevD "+c+" "+k+"' "+B+">"+r+"</a></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()+1==q.getMonth()&&u==q.getDate()){c="select"}s+="<td><a class='nextD "+c+" "+k+"' "+B+">"+u+"</a></td>";u++}}}}s=s.replace("class=' '","")}s+="</tr>"}s+="</table>";return s}function a(e){var c=b(),f="<table class='tabM'>";f+="<tr>";f+="<td><a val='0' "+(e==c.getFullYear()&&0==c.getMonth()?"class='select'":"")+" "+(e==I&&0==H?"class='current'":"")+">\u4e00\u6708</a></td>";f+="<td><a val='1' "+(e==c.getFullYear()&&1==c.getMonth()?"class='select'":"")+" "+(e==I&&1==H?"class='current'":"")+">\u4e8c\u6708</a></td>";f+="<td><a val='2' "+(e==c.getFullYear()&&2==c.getMonth()?"class='select'":"")+" "+(e==I&&2==H?"class='current'":"")+">\u4e09\u6708</a></td>";f+="<td><a val='3' "+(e==c.getFullYear()&&3==c.getMonth()?"class='select'":"")+" "+(e==I&&3==H?"class='current'":"")+">\u56db\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='4' "+(e==c.getFullYear()&&4==c.getMonth()?"class='select'":"")+" "+(e==I&&4==H?"class='current'":"")+">\u4e94\u6708</a></td>";f+="<td><a val='5' "+(e==c.getFullYear()&&5==c.getMonth()?"class='select'":"")+" "+(e==I&&5==H?"class='current'":"")+">\u516d\u6708</a></td>";f+="<td><a val='6' "+(e==c.getFullYear()&&6==c.getMonth()?"class='select'":"")+" "+(e==I&&6==H?"class='current'":"")+">\u4e03\u6708</a></td>";f+="<td><a val='7' "+(e==c.getFullYear()&&7==c.getMonth()?"class='select'":"")+" "+(e==I&&7==H?"class='current'":"")+">\u516b\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='8' "+(e==c.getFullYear()&&8==c.getMonth()?"class='select'":"")+" "+(e==I&&8==H?"class='current'":"")+">\u4e5d\u6708</a></td>";
-f+="<td><a val='9' "+(e==c.getFullYear()&&9==c.getMonth()?"class='select'":"")+" "+(e==I&&9==H?"class='current'":"")+">\u5341\u6708</a></td>";f+="<td><a val='10' "+(e==c.getFullYear()&&10==c.getMonth()?"class='select'":"")+" "+(e==I&&10==H?"class='current'":"")+">\u5341\u4e00\u6708</a></td>";f+="<td><a val='11' "+(e==c.getFullYear()&&11==c.getMonth()?"class='select'":"")+" "+(e==I&&11==H?"class='current'":"")+">\u5341\u4e8c\u6708</a></td>";f+="</tr>";f+="</table>";return f}function x(f){f=Math.floor(f/10)*10;var e="<table class='tabY'>",s=b(),n="",c="",r="";J.complement||(r="style='display:none'");for(var q=0;q<3;q++){e+="<tr>";for(var k=0;k<4;k++){c=n="";if(q+1*k+1!=1&&(q+1)*(k+1)!=12){if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='"+n+" "+c+"' >"+f+"</a></td>";f++}else{if(q+1*k+1==1){if(f-1==s.getFullYear()){n="select"}if(f-1==I){c="current"}e+="<td><a class='prevY "+n+" "+c+"' "+r+">"+(f-1)+"</a></td>"}else{if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='nextY "+n+" "+c+"' "+r+">"+f+"</a></td>"}}}e+="</tr>"}e+="</table>";return e}function p(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":"-"+f.width()+"px"},J.speed,function(){f.empty()})}function m(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":"-"+f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":f.width()+"px"},J.speed,function(){f.empty()})}function l(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":"-"+f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function i(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":"-"+f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function b(){re=/(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;var c=y.val();c=c.replace(re,"$1/$3/$5@").split("@")[0];return new Date(c)}function g(e){var c=[];c.x=e.offsetLeft;for(c.y=e.offsetTop;e=e.offsetParent;){c.x+=e.offsetLeft;c.y+=e.offsetTop}return c}J=jQuery.extend({controlId:$(this).attr("id")+"Calendar",speed:200,complement:true,readonly:true,upperLimit:NaN,lowerLimit:NaN,callback:function(){}},J||{});var y=$(this);if(J.readonly){y.attr("readonly",true);y.bind("keydown",function(){if(event.keyCode==8){event.keyCode=0}})}today=new Date;var I=today.getFullYear(),H=today.getMonth(),t=today.getDate(),G="";G+="<div id='"+J.controlId+"'class='calendar'>";G+="  <div class='calMain'>";G+="    <div class='calTitle'>";G+="      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>"+I+"</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>"+(H+1)+"</a>\u6708</span></span><a class='nextMonth'></a>";G+="    </div>";G+="    <div class='calContent'>";G+="      <div class='reserve'>";G+="      </div>";G+="      <div class='enabled'>";G+=j(I,H);G+="      </div>";G+="    </div>";G+="  </div>";G+="</div>";$("body").append(G);o();$("#"+J.controlId).find(".prevMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text())-2);m(f);if(Number(c.text())!=1){c.text(Number(c.text())-1)}else{e.text(Number(e.text())-1);c.text("12")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())-1);m(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())-10);m(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-10)
-}}}});$("#"+J.controlId).find(".nextMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text()));p(f);if(Number(c.text())!=12){c.text(Number(c.text())+1)}else{e.text(Number(e.text())+1);c.text("1")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())+1);p(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())+10);p(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+10)}}}});$("#"+J.controlId).find(".currentMonthText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabM").length>0)){var c=a(Number($("#"+J.controlId).find(".currentYear").text()));i(c);h()}});$("#"+J.controlId).find(".currentYearText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabY").length>0)){var c=x(Number($("#"+J.controlId).find(".currentYear").text()));i(c);d()}});y.bind("click focus",function(){if($("#"+J.controlId+":hidden").length!=0){$(".calendar").hide();var e=$("#"+J.controlId),c=g(y[0]),f=c.x;c=Number(y.offset().top)+Number(y.outerHeight());e.css({top:c+"px",left:f+"px"});f=$("#"+J.controlId).width();c=$("#"+J.controlId).height();e.width(0);e.height(0);e.show().animate({width:f+"px",height:c+"px"},J.speed);e.bind("selectstart",function(){return false}).bind("mousedown",function(){return false})}});$(document).mouseup(function(c){if($(c.target).attr("id")!=y.attr("id")&&($(c.target).parentsUntil("#"+J.controlId).parent().length==0||$(c.target).parentsUntil("#"+J.controlId).parent()[0].id!=J.controlId)){$("#"+J.controlId).hide()}})}});
+jQuery.fn.extend({
+    calendar: function(c) {
+        function r() {
+            $("#" + c.controlId).find(".tabD a").mouseup(function() {
+                var a = new Date($("#" + c.controlId).find(".currentYear").text() + "/" + $("#" + c.controlId).find(".currentMonth").text() + "/1");
+                if ($(this).hasClass("prevD")) {
+                    a.setMonth(a.getMonth() - 1);
+                    a.setDate($(this).text());
+                    var b = c.speed;
+                    c.speed = 0;
+                    $("#" + c.controlId).find(".prevMonth").triggerHandler("mouseup");
+                    c.speed = b
+                } else if ($(this).hasClass("nextD")) {
+                    a.setMonth(a.getMonth() + 1);
+                    a.setDate($(this).text());
+                    b = c.speed;
+                    c.speed = 0;
+                    $("#" + c.controlId).find(".nextMonth").triggerHandler("mouseup");
+                    c.speed = b
+                }
+                var d = $(this).text();
+                a = a.getFullYear() + "-" + (Number(a.getMonth() + 1) < 10 ? "0" + Number(a.getMonth() + 1) : Number(a.getMonth() + 1)) + "-" + (Number(d) < 10 ? "0" + d: d);
+                n.val(a);
+                $("#" + c.controlId + " div table a").removeClass("select");
+                $("#" + c.controlId + " .tabD a:contains('" + d + "')").each(function() {
+                    d == $(this).text() && !$(this).hasClass("prevD") && !$(this).hasClass("nextD") && $(this).addClass("select")
+                });
+                $("#" + c.controlId).hide();
+                c.callback();
+                $(n).blur();
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function u() {
+            $("#" + c.controlId).find(".tabM a").mouseup(function() {
+                var a = s(Number($("#" + c.controlId).find(".currentYear").text()), Number($(this).attr("val")));
+                D(a);
+                r();
+                $("#" + c.controlId).find(".currentMonth").text(Number($(this).attr("val")) + 1)
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function v() {
+            $("#" + c.controlId).find(".tabY a").mouseup(function() {
+                var a = s(Number($(this).text()), Number($("#" + c.controlId).find(".currentMonth").text()) - 1);
+                D(a);
+                r();
+                $("#" + c.controlId).find(".currentYear").text(Number($(this).text()))
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function s(a, b) {
+            newDate = new Date(a, b, 1);
+            newDate.setDate(0);
+            var d = 1,
+            h = newDate.getDate();
+            newDate.setDate(1);
+            newDate.setMonth(newDate.getMonth() + 1);
+            var m = newDate.getDay();
+            if (m == 0) m = 7;
+            h = h - m + 1;
+            newDate.setMonth(newDate.getMonth() + 1);
+            newDate.setDate(0);
+            var o = newDate.getDate(),
+            g = "<table class='tabD'>";
+            g += "<tr><th>\u65e5</th><th>\u4e00</th><th>\u4e8c</th><th>\u4e09</th><th>\u56db</th><th>\u4e94</th><th>\u516d</th></tr>";
+            var i = w(),
+            l = "",
+            p = "",
+            t = "";
+            c.complement || (t = "style='display:none'");
+            for (var x = 0; x < 6; x++) {
+                g += "<tr>";
+                for (var y = 0; y < 7; y++) {
+                    var j = x * 7 + y + 1 - m;
+                    p = l = "";
+                    if (c.lowerLimit != NaN && c.lowerLimit > new Date(newDate.getFullYear(), newDate.getMonth(), j) || c.upperLimit != NaN && new Date(newDate.getFullYear(), newDate.getMonth(), j) > c.upperLimit) if (0 < j && j <= o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() == f && j == q) l = "current";
+                        g += "<td><span class='" + l + "'>" + j + "</span></td>"
+                    } else if (j <= 0) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() - 1 == f && h == q) l = "current";
+                        g += "<td><span class='" + l + "' " + t + ">" + h + "</span></td>";
+                        h++
+                    } else {
+                        if (j > o) {
+                            if (newDate.getFullYear() == e && newDate.getMonth() + 1 == f && d == q) l = "current";
+                            g += "<td><span class='" + l + "' " + t + ">" + d + "</span></td>";
+                            d++
+                        }
+                    } else if (0 < j && j <= o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() == f && j == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() == i.getMonth() && j == i.getDate()) p = "select";
+                        g += "<td><a class='" + p + " " + l + "'>" + j + "</a></td>"
+                    } else if (j <= 0) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() - 1 == f && h == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() - 1 == i.getMonth() && h == i.getDate()) p = "select";
+                        g += "<td><a class='prevD " + p + " " + l + "' " + t + ">" + h + "</a></td>";
+                        h++
+                    } else if (j > o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() + 1 == f && d == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() + 1 == i.getMonth() && d == i.getDate()) p = "select";
+                        g += "<td><a class='nextD " + p + " " + l + "' " + t + ">" + d + "</a></td>";
+                        d++
+                    }
+                    g = g.replace("class=' '", "")
+                }
+                g += "</tr>"
+            }
+            g += "</table>";
+            return g
+        }
+        function z(a) {
+            var b = w(),
+            d = "<table class='tabM'>";
+            d += "<tr>";
+            d += "<td><a val='0' " + (a == b.getFullYear() && 0 == b.getMonth() ? "class='select'": "") + " " + (a == e && 0 == f ? "class='current'": "") + ">\u4e00\u6708</a></td>";
+            d += "<td><a val='1' " + (a == b.getFullYear() && 1 == b.getMonth() ? "class='select'": "") + " " + (a == e && 1 == f ? "class='current'": "") + ">\u4e8c\u6708</a></td>";
+            d += "<td><a val='2' " + (a == b.getFullYear() && 2 == b.getMonth() ? "class='select'": "") + " " + (a == e && 2 == f ? "class='current'": "") + ">\u4e09\u6708</a></td>";
+            d += "<td><a val='3' " + (a == b.getFullYear() && 3 == b.getMonth() ? "class='select'": "") + " " + (a == e && 3 == f ? "class='current'": "") + ">\u56db\u6708</a></td>";
+            d += "</tr>";
+            d += "<tr>";
+            d += "<td><a val='4' " + (a == b.getFullYear() && 4 == b.getMonth() ? "class='select'": "") + " " + (a == e && 4 == f ? "class='current'": "") + ">\u4e94\u6708</a></td>";
+            d += "<td><a val='5' " + (a == b.getFullYear() && 5 == b.getMonth() ? "class='select'": "") + " " + (a == e && 5 == f ? "class='current'": "") + ">\u516d\u6708</a></td>";
+            d += "<td><a val='6' " + (a == b.getFullYear() && 6 == b.getMonth() ? "class='select'": "") + " " + (a == e && 6 == f ? "class='current'": "") + ">\u4e03\u6708</a></td>";
+            d += "<td><a val='7' " + (a == b.getFullYear() && 7 == b.getMonth() ? "class='select'": "") + " " + (a == e && 7 == f ? "class='current'": "") + ">\u516b\u6708</a></td>";
+            d += "</tr>";
+            d += "<tr>";
+            d += "<td><a val='8' " + (a == b.getFullYear() && 8 == b.getMonth() ? "class='select'": "") + " " + (a == e && 8 == f ? "class='current'": "") + ">\u4e5d\u6708</a></td>";
+            d += "<td><a val='9' " + (a == b.getFullYear() && 9 == b.getMonth() ? "class='select'": "") + " " + (a == e && 9 == f ? "class='current'": "") + ">\u5341\u6708</a></td>";
+            d += "<td><a val='10' " + (a == b.getFullYear() && 10 == b.getMonth() ? "class='select'": "") + " " + (a == e && 10 == f ? "class='current'": "") + ">\u5341\u4e00\u6708</a></td>";
+            d += "<td><a val='11' " + (a == b.getFullYear() && 11 == b.getMonth() ? "class='select'": "") + " " + (a == e && 11 == f ? "class='current'": "") + ">\u5341\u4e8c\u6708</a></td>";
+            d += "</tr>";
+            d += "</table>";
+            return d
+        }
+        function A(a) {
+            a = Math.floor(a / 10) * 10;
+            var b = "<table class='tabY'>",
+            d = w(),
+            h = "",
+            m = "",
+            o = "";
+            c.complement || (o = "style='display:none'");
+            for (var g = 0; g < 3; g++) {
+                b += "<tr>";
+                for (var i = 0; i < 4; i++) {
+                    m = h = "";
+                    if (g + 1 * i + 1 != 1 && (g + 1) * (i + 1) != 12) {
+                        if (a == d.getFullYear()) h = "select";
+                        if (a == e) m = "current";
+                        b += "<td><a class='" + h + " " + m + "' >" + a + "</a></td>";
+                        a++
+                    } else if (g + 1 * i + 1 == 1) {
+                        if (a - 1 == d.getFullYear()) h = "select";
+                        if (a - 1 == e) m = "current";
+                        b += "<td><a class='prevY " + h + " " + m + "' " + o + ">" + (a - 1) + "</a></td>"
+                    } else {
+                        if (a == d.getFullYear()) h = "select";
+                        if (a == e) m = "current";
+                        b += "<td><a class='nextY " + h + " " + m + "' " + o + ">" + a + "</a></td>"
+                    }
+                }
+                b += "</tr>"
+            }
+            b += "</table>";
+            return b
+        }
+        function B(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            b.css({
+                "margin-left": d.width() + "px",
+                "margin-top": "0px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-left": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-left": "-" + d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty()
+            })
+        }
+        function C(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            b.css({
+                "margin-left": "-" + d.width() + "px",
+                "margin-top": "0px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-left": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-left": d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty()
+            })
+        }
+        function D(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            $("#" + c.controlId).css({
+                "z-index": 1
+            });
 
+            b.css({
+                "z-index": -1
+            });
+            d.css({
+                "z-index": -1
+            });
+            b.css({
+                "margin-left": "0px",
+                "margin-top": d.height() + "px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-top": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-top": "-" + d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty();
+                $("#" + c.controlId).css({
+                    "z-index": 0
+                });
+                b.css({
+                    "z-index": 0
+                });
+                d.css({
+                    "z-index": 0
+                })
+            })
+        }
+        function E(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            $("#" + c.controlId).css({
+                "z-index": 1
+            });
+            b.css({
+                "z-index": -1
+            });
+            d.css({
+                "z-index": -1
+            });
+            b.css({
+                "margin-left": "0px",
+                "margin-top": "-" + d.height() + "px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-top": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-top": d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty();
+                $("#" + c.controlId).css({
+                    "z-index": 0
+                });
+                b.css({
+                    "z-index": 0
+                });
+                d.css({
+                    "z-index": 0
+                })
+            })
+        }
+        function w() {
+            re = /(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;
+            var a = n.val();
+            a = a.replace(re, "$1/$3/$5@").split("@")[0];
+            return new Date(a)
+        }
+        function F(a) {
+            var b = [];
+            b.x = a.offsetLeft;
+            for (b.y = a.offsetTop; a = a.offsetParent;) {
+                b.x += a.offsetLeft;
+                b.y += a.offsetTop
+            }
+            return b
+        }
+        c = jQuery.extend({
+            controlId: $(this).attr("id") + "Calendar",
+            speed: 200,
+            complement: true,
+            readonly: true,
+            upperLimit: NaN,
+            lowerLimit: NaN,
+            callback: function() {}
+        },
+        c || {});
+        var n = $(this);
+        if (c.readonly) {
+            n.attr("readonly", true);
+            n.bind("keydown",
+            function() {
+                if (event.keyCode == 8) event.keyCode = 0
+            })
+        }
+        today = new Date;
+        var e = today.getFullYear(),
+        f = today.getMonth(),
+        q = today.getDate(),
+        k = "";
+        k += "<div id='" + c.controlId + "'class='calendar'>";
+        k += "  <div class='calMain'>";
+        k += "    <div class='calTitle'>";
+        k += "      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>" + e + "</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>" + (f + 1) + "</a>\u6708</span></span><a class='nextMonth'></a>";
+        k += "    </div>";
+        k += "    <div class='calContent'>";
+        k += "      <div class='reserve'>";
+        k += "      </div>";
+        k += "      <div class='enabled'>";
+        k += s(e, f);
+        k += "      </div>";
+        k += "    </div>";
+        k += "  </div>";
+        k += "</div>";
+        $("body").append(k);
+        r();
+        $("#" + c.controlId).find(".prevMonth").mouseup(function() {
+            if ($("#" + c.controlId).find(".enabled > .tabD").length > 0) {
+                var a = $("#" + c.controlId).find(".currentYear"),
+                b = $("#" + c.controlId).find(".currentMonth"),
+                d = s(Number(a.text()), Number(b.text()) - 2);
+                C(d);
+                if (Number(b.text()) != 1) b.text(Number(b.text()) - 1);
+                else {
+                    a.text(Number(a.text()) - 1);
+                    b.text("12")
+                }
+                r()
+            } else if ($("#" + c.controlId).find(".enabled > .tabM").length > 0) {
+                d = z(Number($("#" + c.controlId).find(".currentYear").text()) - 1);
+                C(d);
+                u();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) - 1)
+            } else if ($("#" + c.controlId).find(".enabled > .tabY").length > 0) {
+                d = A(Number($("#" + c.controlId).find(".currentYear").text()) - 10);
+                C(d);
+                v();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) - 10)
+            }
+        });
+        $("#" + c.controlId).find(".nextMonth").mouseup(function() {
+            if ($("#" + c.controlId).find(".enabled > .tabD").length > 0) {
+                var a = $("#" + c.controlId).find(".currentYear"),
+                b = $("#" + c.controlId).find(".currentMonth"),
+                d = s(Number(a.text()), Number(b.text()));
+                B(d);
+                if (Number(b.text()) != 12) b.text(Number(b.text()) + 1);
+                else {
+                    a.text(Number(a.text()) + 1);
+                    b.text("1")
+                }
+                r()
+            } else if ($("#" + c.controlId).find(".enabled > .tabM").length > 0) {
+                d = z(Number($("#" + c.controlId).find(".currentYear").text()) + 1);
+                B(d);
+                u();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) + 1)
+            } else if ($("#" + c.controlId).find(".enabled > .tabY").length > 0) {
+                d = A(Number($("#" + c.controlId).find(".currentYear").text()) + 10);
+                B(d);
+                v();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) + 10)
+            }
+        });
+        $("#" + c.controlId).find(".currentMonthText").mouseup(function() {
+            if (! ($("#" + c.controlId).find(".enabled > .tabM").length > 0)) {
+                var a = z(Number($("#" + c.controlId).find(".currentYear").text()));
+                E(a);
+                u()
+            }
+        });
+        $("#" + c.controlId).find(".currentYearText").mouseup(function() {
+            if (! ($("#" + c.controlId).find(".enabled > .tabY").length > 0)) {
+                var a = A(Number($("#" + c.controlId).find(".currentYear").text()));
+                E(a);
+                v()
+            }
+        });
+        n.bind("click focus",
+        function() {
+            if ($("#" + c.controlId + ":hidden").length != 0) {
+                $(".calendar").hide();
+                var a = $("#" + c.controlId),
+                b = F(n[0]),
+
+                /* === jQuery 1.5.1用到的 === */
+                // d = b.x + Number(n.attr("clientLeft")) + 2;
+                // b = b.y + Number(n.attr("clientTop")) + Number(n.attr("clientHeight")) - 1;
+
+                /* === jQuery 1.7.2用到的 === */
+                d = b.x;
+                b = Number(n.offset().top) + Number(n.outerHeight());
+
+                a.css({
+                    top: b + "px",
+                    left: d + "px"
+                });
+                d = $("#" + c.controlId).width();
+                b = $("#" + c.controlId).height();
+                a.width(0);
+                a.height(0);
+                a.show().animate({
+                    width: d + "px",
+                    height: b + "px"
+                },
+                c.speed);
+                a.bind("selectstart",
+                function() {
+                    return false
+                }).bind("mousedown",
+                function() {
+                    return false
+                })
+            }
+        });
+        $(document).mouseup(function(a) {
+            if ($(a.target).attr("id") != n.attr("id") && ($(a.target).parentsUntil("#" + c.controlId).parent().length == 0 || $(a.target).parentsUntil("#" + c.controlId).parent()[0].id != c.controlId)) $("#" + c.controlId).hide()
+        })
+    }
+});
 
 /* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
@@ -540,8 +1057,311 @@ xes.ajax = xes.ajax || {};
 
 xes.post = xes.ajax.post;
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-var xform=xform||{};(function(){var a=xform;a.checkAll=function(c){var b=$('input[type="checkbox"][id="checkAll"]').attr("checked");$.each($('input[type="checkbox"][id="'+c+'"]'),function(){$(this).attr("checked",b)})};a.checkAll2=function(c){var b=0;$.each($('input[type="checkbox"][id="'+c+'"]'),function(){if($(this).attr("checked")==false){$(this).attr("checked",true);b=1}});if(b==0){$.each($('input[type="checkbox"][id="'+c+'"]'),function(){$(this).attr("checked",false)})}};a.checkInverse=function(b){$.each($('input[type="checkbox"][id="'+b+'"]'),function(){$(this).attr("checked",$(this).attr("checked")?false:true)})};a.checkBoxes=function(b,c){$.each($('input[type="checkbox"][id="'+b+'"]'),function(){$(this).attr("checked",false)});$.each(c.split(","),function(d,e){$('input[type="checkbox"][id="'+b+'"][value="'+e+'"]').attr("checked",true)})};a.checkRadio=function(b,c){$('input[type="radio"][id="'+b+'"][value="'+c+'"]').attr("checked",true)};a.checkSelect=function(b,c){$('select[id="'+b+'"] option[value="'+c+'"]').attr("selected",true)};a.getCheckedValue=function(c){var b="";$.each($('input[name="'+c+'"]:checked'),function(){b=b+","+$(this).attr("value")});return b.slice(1)};a.getCheckedText=function(c){var b="";$.each($('input[name="'+c+'"]:checked'),function(){b=b+$(this).attr("title")});return b};a.getSelectedText=function(b){var c="";if($('select[id="'+b+'"] option:selected').attr("value")!=""){c=$('select[id="'+b+'"] option:selected').text()}return c};a.confirmDelete=function(c,b){if(confirm(c)){window.location.href=b}};a.tableCheckbox=function(d,c){if(c==""){c="checkvalue"}var b=$.cookie(c);if(b==null){b=","}$.each($("table[id="+d+'] tr input[type="checkbox"]'),function(){var e=b.indexOf(","+$(this).val()+",");if(e>=0){$(this).attr("checked",true)}});$("table[id="+d+'] tr input[type="checkbox"]').click(function(){var f=$(this).val();if($(this).attr("checked")===true){var e=b.indexOf(","+f+",");if(e==-1){b=b+f+","}$.cookie(c,b,{path:"/",expires:0})}if($(this).attr("checked")===false){var e=b.indexOf(","+f+",");if(e>=0){b=b.replace(","+f+",",",")}$.cookie(c,b,{path:"/",expires:0})}})}})();xes.form=xform;function generateMixed(e){var c=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];var b="";for(var a=0;a<e;a++){var d=Math.ceil(Math.random()*35);b+=c[d]}return b};
+
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * form操作
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xform = xform || {};
+
+(function(){
+	var f = xform;
+
+		/**
+		* 复选框全选
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3">
+		*
+		*			<input type="checkbox" id="checkAll" name="checkAll" onclick="checkAllBoxes_1('checkbox[]');">全选
+		*
+		* @param string cbs_id 复选框id
+		* @return
+		*/
+		f.checkAll = function (cbs_id) {
+			var ifChecked = $('input[type="checkbox"][id="checkAll"]').attr('checked');
+			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
+				$(this).attr('checked', ifChecked);
+			});
+		};
+
+
+		/**
+		* 复选框全选
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3">
+		*
+		*			<a href="javascript:void(0);" onclick="checkAllBoxes_2('checkbox[]'); return false;">全选</a>
+		*
+		* @param string cbs_id 复选框id
+		* @return
+		*/
+		f.checkAll2 = function (cbs_id) {
+			var uncheckedBox = 0;
+			// 全选所有复选框
+			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
+				if($(this).attr('checked') == false) {
+					$(this).attr('checked', true);
+					uncheckedBox = 1;
+				}
+			});
+
+			// 如果所有复选框都已被选择,则全部取消选择
+			if(uncheckedBox == 0) {
+				$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
+					$(this).attr('checked', false);
+				});
+			}
+		};
+
+		/**
+		* 复选框反选
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="checkInverseBoxes('checkbox[]'); return false;">反选</a>
+		*
+		* @param string cbs_id 复选框id
+		* @return
+		*/
+		f.checkInverse = function (cbs_id) {
+			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
+				$(this).attr('checked', $(this).attr('checked') ? false : true);
+			});
+		};
+
+
+
+		/**
+		* 复选框选择(根据复选框的值 选中复选框)
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3">
+		*
+		*			<a href="javascript:void(0);" onclick="checkBoxes('checkbox[]', '2,3'); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.checkBoxes = function (cbs_id, cbs_values) {
+			// console.log('id:'+cbs_is+'\nvalue:'+cbs_values);
+			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
+				$(this).attr('checked', false);
+			});
+			$.each(cbs_values.split(','), function(i, n) {
+				$('input[type="checkbox"][id="' + cbs_id + '"][value="' + n + '"]').attr('checked', true);
+			});
+		};
+
+
+		/**
+		* 单选框选择(根据单选框的值 选中单选框)
+		* @example
+		*			<input type="radio" id="type" name="type" value="1">
+		*			<input type="radio" id="type" name="type" value="2">
+		*			<input type="radio" id="type" name="type" value="3">
+		*
+		*			<a href="javascript:void(0);" onclick="checkRadio('type', '2'); return false;">单选框选择</a>
+		*
+		* @param string r_id 单选框id
+		* @param string r_value 要选择的单选框的值
+		* @return
+		*/
+		f.checkRadio = function (r_id, r_value) {
+			// console.log('id:'+r_id+'\nvalue:'+r_value);
+			$('input[type="radio"][id="' + r_id + '"][value="' + r_value + '"]').attr('checked', true);
+		};
+
+
+		/**
+		* 下拉框选择(根据下拉框的值 选中下拉框)
+		* @example
+		*			<select id="city" name="city">
+		*			<option value='1'>北京</option>
+		*			<option value='2'>天津</option>
+		*			<option value='3'>上海</option>
+		*			</select>
+		*
+		*			<a href="javascript:void(0);" onclick="checkSelect('city', '2'); return false;">下拉框选择</a>
+		*
+		* @param string r_id 下拉框id
+		* @param string r_value 要选择的下拉框的值
+		* @return
+		*/
+		f.checkSelect = function (s_id, s_value) {
+			$('select[id="' + s_id + '"] option[value="' + s_value + '"]').attr('selected', true);
+		};
+
+		/**
+		* 获取复选框选中项的值,以逗号隔开
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="alert(getCheckedValue('checkbox[]')); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.getCheckedValue = function (cbs_id) {
+			var values = '';
+			$.each($('input[name="' + cbs_id + '"]:checked'), function() {
+				values = values + ',' + $(this).attr('value');
+			});
+			return values.slice(1);
+		};
+
+		/**
+		* 获取复选框选中项的TEXT值,以逗号隔开
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="alert(getCheckedValue('checkbox[]')); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.getCheckedText = function (cbs_id) {
+			var values = '';
+			$.each($('input[name="' + cbs_id + '"]:checked'), function() {
+				values = values + $(this).attr('title');
+			});
+			return values;
+		};
+
+		/**
+		* 获取下拉框选中项的值
+		* @example
+		*			<select id="city" name="city">
+		*			<option value='1'>北京</option>
+		*			<option value='2'>天津</option>
+		*			<option value='3'>上海</option>
+		*			</select>
+		*
+		* @param string s_id 下拉框id
+		* @param string selected_value 要选择的下拉框的值
+		* @return string
+		*/
+		f.getSelectedText = function (s_id) {
+			var value = ''
+			if($('select[id="' + s_id + '"] option:selected').attr('value') != ''){
+				value = $('select[id="' + s_id + '"] option:selected').text();
+			}
+			return value;
+		};
+
+		/**
+		* 删除操作确认
+		* @example
+		*			<a href="javascript:void(0);" onclick="confirmDelete('确认删除\"二年级\"么?', '/grades/delete/2/'); return false;">删除</a>
+		*
+		* @param string msg 提示文字
+		* @param string url 确认后要跳转的URL地址
+		* @return
+		*/
+		f.confirmDelete = function (msg, url) {
+			if(confirm(msg)) {
+				window.location.href = url;
+			}
+		};
+
+
+		/**
+		* 当点击复选框时，把复选框的值添加或删除到cookie,并在分页时把选中的checkbox值选中
+		*
+		* @param string id table ID
+		* @param string name 存在COOKIE中的KEY值例如cookie[name] = ',2,3,4,5,'
+		*/
+		f.tableCheckbox = function (tableid, name){
+			if(name==''){name = 'checkvalue';}
+			//cookie中存放的值
+			var cookievalue = $.cookie(name);
+			if(cookievalue==null){
+				cookievalue = ',';
+			}
+			$.each($('table[id='+tableid+'] tr input[type="checkbox"]'),function (){
+				var indexof = cookievalue.indexOf(','+$(this).val()+',')
+				if(indexof>=0){
+					$(this).attr('checked',true);
+				}
+			});
+
+			$('table[id='+tableid+'] tr input[type="checkbox"]').click(function(){
+				//点击checkbox的值
+				var checkedvalue = $(this).val();
+				//方便搜素特殊处理的值
+				//var searchvalue = ','+$.cookie(name);
+				//如果checkbox为选中状态
+				if($(this).attr('checked') === true){
+					//查找选中checkbox值在cookie中是否存在
+					var indexof = cookievalue.indexOf(','+checkedvalue+',')
+					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
+					if(indexof == -1){
+						//将指定的值添加到cookie中
+						cookievalue = cookievalue+checkedvalue+',';
+					}
+					$.cookie(name, cookievalue, { path: '/', expires: 0 });
+				}
+				//如果checkbox为未选中状态
+				if($(this).attr('checked') === false){
+					//查找选中checkbox值在cookie中是否存在
+					var indexof = cookievalue.indexOf(','+checkedvalue+',')
+					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
+					if(indexof >=0 ){
+						//删除cookie中指定的值
+						cookievalue = cookievalue.replace(','+checkedvalue+',' , ',');
+
+					}
+					$.cookie(name, cookievalue, { path: '/', expires: 0 });
+				}
+			});
+		}
+
+
+
+
+
+})();
+
+
+xes.form = xform;
+
+
+
+
+
+
+
+// 生成随机字符串
+function generateMixed(n) {
+	var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    var res = "";
+    for(var i = 0; i < n ; i ++) {
+        var id = Math.ceil(Math.random() * 35);
+        res += chars[id];
+    }
+    return res;
+};
 
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -563,8 +1383,6 @@ $(function () {
 	
 	$("#liveDate").calendar({callback:function(){
 		var date = $('#liveDate').val();
-		// var url = 'http://teacher.wss2.0.com/liveCourses/ajaxLiveListByDate';
-		// xes.post(url, date, function(result){
 
 		//程序调用
 		
@@ -575,17 +1393,7 @@ $(function () {
 		// xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
-			// if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
-			// 	var _time = $(this).attr('time');
-			// 	xes.liveTime.open(_time);
-			// }else{
-			// 	if(confirm('您刚才已经选择了预约时间？点击确定将清空之前的选择，是否继续')){
-			// 		xes.liveTime.empty();
-			// 		var _time = $(this).attr('time');
-			// 		xes.liveTime.open(_time);
-			// 	};
-			// 	// alert('您已经预约成功，请勿重复预约');
-			// }
+
 			var _time = $(this).attr('time');
 			xes.liveTime.open(_time);
 	});

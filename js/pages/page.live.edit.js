@@ -17,27 +17,44 @@
 
 ///import:xes.live.js///
 
-///import:ui/xes.ui.calendar.min.js///
+///import:ui/xes.ui.calendar.js///
 
 ///import:xes.ajax.js///
 
+///import:xes.form.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
+	//直播状态：新建/编辑
+	var _date = $('#liveDate').val();
+	var TYPE = (_date!='') ? true : false;
+	$('#liveTime').show();
+	$('#liveDate').click(function(){
+		setTimeout(function(){
+			xes.iframe.setHeight();
+		},500);
+	});
+
+	
+	if(_date!=''){
+		xes.liveTime.createTimeList(_date,TYPE);
+	}
+	
 	$("#liveDate").calendar({callback:function(){
-		var d = xes.liveTime.getJson();
-		xes.liveTime.create(d);
+		var date = $('#liveDate').val();
+
+		//程序调用
+		
+		xes.liveTime.createTimeList(date,TYPE);
+
+		//本地调试
+		// var d = xes.liveTime.getJson(date);
+		// xes.liveTime.create(d);
 	}});
 	$('#liveTimeList li.optional').die('click').live('click',function(){
-		// if($(this).hasClass('optional')){
-			if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
-				var _time = $(this).attr('time');
-				xes.liveTime.open(_time);
-			}else{
-				alert('您已经预约成功，请勿重复预约');
-			}
-		// }else{
-		// 	alert('此时间已被预定，请选择其他时间');
-		// }
+
+			var _time = $(this).attr('time');
+			xes.liveTime.open(_time);
 	});
 });
 

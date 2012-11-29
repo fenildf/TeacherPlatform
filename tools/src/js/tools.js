@@ -73,6 +73,8 @@ function getList(){
 function createList(d){
 	var _html = '';
 	$.each(d,function(i,filename){
+		console.log(getPageName(filename));
+		// return;
 		var page = getPageName(filename),
 			pagename = page.title,
 			pageurl = page.url;
@@ -167,6 +169,8 @@ function btnCreated(btn){
 
 function createAllImportFiles(path){
 	var btn = $('#filelist button.button');
+	// var _list = $('#filelist  input.checkbox:checked');
+	// console.log(_list);
 	var path = path || $('#issuancePath').val();
 	btn.each(function(){
 		createImportFiles(path, this);
@@ -175,22 +179,24 @@ function createAllImportFiles(path){
 
 function getPageName(filename){
 	var data = {
-		'page.course.edit.js':{title:'课程编辑',url:'edit.html'},
-		'page.course.js':{title:'课程列表',url:'course_list.html'},
-		'page.course.view.js':{title:'查看课程',url:'view.html'},
-		'page.data.js':{title:'数据统计',url:'data1_list.html'},
-		'page.data.view.js':{title:'查看数据',url:'data3_view1.html'},
-		'page.live.edit.js':{title:'编辑直播',url:'live_edit.html'},
-		'page.live.info.js':{title:'直播信息',url:'live_info.html'},
-		'page.live.list.js':{title:'直播列表',url:'live_list.html'},
-		'page.student.info.js':{title:'学员信息',url:'student_info.html'},
-		'page.student.leach.js':{title:'筛选学员',url:'student_leach.html'},
-		'page.student.list.js':{title:'学员列表',url:'student.html'},
-		'page.student.study.js':{title:'学员学习情况',url:'student_study.html'},
-		'page.tips.error.js':{title:'错误提示',url:'tips_error.html'},
-		'page.tips.succeed.js':{title:'成功提示',url:'tips_succeed.html'},
-		'page.welcome.js':{title:'欢迎页面',url:'welcome.html'},
-		'xes.platfrom.js':{title:'主页面',url:'platfrom.html'}
+		'page.course.edit.js'	:{title:'课程编辑',url:'edit.html'},
+		'page.course.js'		:{title:'课程列表',url:'course_list.html'},
+		'page.course.view.js'	:{title:'查看课程',url:'view.html'},
+		'page.data.js'			:{title:'数据统计',url:'data1_list.html'},
+		'page.data.view.js'		:{title:'查看数据',url:'data3_view1.html'},
+		'page.live.edit.js'		:{title:'编辑直播',url:'live_edit.html'},
+		'page.live.info.js'		:{title:'直播信息',url:'live_info.html'},
+		'page.live.list.js'		:{title:'直播列表',url:'live_list.html'},
+		'page.login.js'			:{title:'直播列表',url:'login.html'},
+		'page.platform.js'		:{title:'外框页面',url:'platform.html'},
+		'page.student.info.js'	:{title:'学员信息',url:'student_info.html'},
+		'page.student.leach.js'	:{title:'筛选学员',url:'student_leach.html'},
+		'page.student.list.js'	:{title:'学员列表',url:'student.html'},
+		'page.student.study.js'	:{title:'学习情况',url:'student_study.html'},
+		'page.tips.error.js'	:{title:'错误提示',url:'tips_error.html'},
+		'page.tips.succeed.js'	:{title:'成功提示',url:'tips_succeed.html'},
+		'page.welcome.js'		:{title:'欢迎页面',url:'welcome.html'}
+		
 	};
 	return data[filename];
 }

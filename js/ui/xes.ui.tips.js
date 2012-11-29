@@ -1,3 +1,4 @@
+/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.tips.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -16,11 +17,11 @@ var tips = tips || {};
 	var t = tips;
 
 	t.create = function(tp, content){
-		var _html = '<div class="ui_tips tips_' + tp + '">' + content + '<a href="javascript:void(0);" class="tips_close">关闭</a></div>';
+		var _html = '<div class="ui_tips tips_' + tp + '"><span>' + content + '</span><a href="javascript:void(0);" class="tips_close">关闭</a></div>';
 		if($('.ui_tips').length == 0){
 			$('body').append(_html);
 		}else{
-			$('.ui_tips').attr('class','ui_tips tips_'+tp);
+			$('.ui_tips').attr('class','ui_tips tips_'+tp).find('span').text(content);
 		}
 		// this.show();
 		this.dom = $('.ui_tips');

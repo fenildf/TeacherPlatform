@@ -99,7 +99,7 @@ var xform = xform || {};
 		* @return
 		*/
 		f.checkBoxes = function (cbs_id, cbs_values) {
-			console.log('id:'+cbs_is+'\nvalue:'+cbs_values);
+			// console.log('id:'+cbs_is+'\nvalue:'+cbs_values);
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
 				$(this).attr('checked', false);
 			});
@@ -123,7 +123,7 @@ var xform = xform || {};
 		* @return
 		*/
 		f.checkRadio = function (r_id, r_value) {
-			console.log('id:'+r_id+'\nvalue:'+r_value);
+			// console.log('id:'+r_id+'\nvalue:'+r_value);
 			$('input[type="radio"][id="' + r_id + '"][value="' + r_value + '"]').attr('checked', true);
 		};
 
@@ -284,7 +284,7 @@ var xform = xform || {};
 })();
 
 
-xes.form = xes.form || xform;
+xes.form = xform;
 
 
 

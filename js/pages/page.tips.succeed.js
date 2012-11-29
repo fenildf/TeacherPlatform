@@ -14,3 +14,5 @@
 ///import:xes.iframe.js///
 
 ///import:ui/xes.ui.tips.js///
+
+///import:xes.form.js///

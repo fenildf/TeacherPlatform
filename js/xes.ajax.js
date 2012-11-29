@@ -1,3 +1,4 @@
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -24,7 +25,7 @@ xes.ajax = xes.ajax || {};
 			type: 'POST',
 			url : url,
 			data: data,
-			dataType: 'jsonp',
+			dataType: 'json',
 			jsonp : 'callback',
 			timeout: 70000,
 			complete:function(){},

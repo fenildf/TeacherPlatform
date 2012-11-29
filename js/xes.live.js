@@ -1,3 +1,4 @@
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.live.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -22,7 +23,7 @@ xes.liveTime = xes.liveTime || {};
 
 (function(){
 	var l = xes.liveTime;
-	l.getJson = function(){
+	l.getJson = function(dd, fn, tp){
 		var _data = [{
 			times: '0:00', status: 'optional', teacher: ''
 		}, {
@@ -120,9 +121,27 @@ xes.liveTime = xes.liveTime || {};
 		}, {
 			times: '23:30', status: 'selected', teacher: '许强'
 		}];
-		return _data;
-	};
 
+		//本地调试
+		// return _data;
+		
+		//程序调用
+		
+		var url = tp ? '/liveCourses/ajaxLiveListByDate/'+dd+'/myself' : '/liveCourses/ajaxLiveListByDate/'+dd;
+	 	xes.post(url, {}, function(result){
+	 		if(fn){
+	 			fn(result);
+	 		}else{
+				if(result.sign == 1){
+					return result.msg;
+				}else{
+					alert(result.msg);
+				}	 			
+	 		}
+
+		});
+	};
+	l.box = $('#liveTime');
 	l.list = $('#liveTimeList');
 	l.win = $('#liveTimeWin');
 	l.btn = $('#liveTimeButton .btn');
@@ -138,40 +157,80 @@ xes.liveTime = xes.liveTime || {};
 	l.create = function(d){
 		var _d = d || l.getJson();
 		var html='';
+		// console.log(d);
 		$.each(_d, function(n,m){
-			var status = m.status == 'selected' ? '' : 'optional',
-				teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>';
-			html += '<li time="' + m.times + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="name">' + teacher + '</span></li>';	
+			// var status = m.status == 'selected' ? 'unchoose' : 'optional';
+			var teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>',
+				end = m.times,
+				status = m.status == 'myself' ? 'selected' : m.status == 'selected' ? 'unchoose' : 'optional';
+
+			var ends = end.split(':');
+			 //把08变为8
+			var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
+			var endtime = ends[1]=='30' ? parseInt(hour)+1 + ':00' : hour + ':30';
+			
+			html += '<li time="' + m.times + '" endtime="' + endtime + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="endtime">&nbsp;-- '+ endtime +'</span><span class="name">' + teacher + '</span></li>';	
 		});
+		$('#liveTime').show();
 		l.list.html(html);
 	};
-	l.open = function(t){
-		
+	/**
+	 * 创建时间列表
+	 */
+	l.createTimeList = function(day,tp){
+		if(day){
+			xes.liveTime.getJson(day,function(d){
+				if(d.sign == 1){
+					xes.liveTime.create(d.msg);
+				}else{
+					alert(d.msg);
+				}
+			},tp);
+		}
+	};
+	l.open = function(t,e){
 		l.win.css({
-			top : $(window).height() / 2 - 90,
-			left: $(window).width() / 2 - 174
+			top : $(window).height() / 2,
+			left: $(window).width() / 2 - 214
 		}).show();
 
-		l.setSelect(t)
+		l.setSelect(t,e)
 		l.btnClick();
 	};
 	l.btnClick = function(){
 		l.btn.die('click').live('click',function(){
-
 			if($(this).hasClass('btn_submit')){
-				var _val = l.getValue();
-				l.setTimeValue(_val.start, _val.end);
+				if($('#liveTimeStartInput').val() == '' && $('#liveTimeEndInput').val() == ''){
+					var _val = l.getValue();
+					l.setTimeValue(_val.start, _val.end);
+				}else{
+					if(confirm('是否替换之前的预约时间？')){
+						xes.liveTime.empty();
+						var _val = l.getValue();
+						l.setTimeValue(_val.start, _val.end);
+					};
+					// alert('您已经预约成功，请勿重复预约');
+				}
+
+			// if($(this).hasClass('btn_submit')){
+			// 	var _val = l.getValue();
+			// 	l.setTimeValue(_val.start, _val.end);
 			}else{
 				l.close();
 			}
 		});
 	};
-	l.setSelect = function(s){
+	l.setSelect = function(s,e){
 		var start = '<option value="' + s + '">' + s + '</option>';
 		var end ='';
-		l.each(s,false,function(i, t){
-			var _t = t.attr('time');
-			end += '<option value="' + _t + '">' + _t + '</option>';	
+		var _a = l.list.find('li.optional[time="'+s+'"]');
+		var _e = _a.nextAll('li.unchoose').eq(0);
+		// console.log(_e);
+		_e = _e.length > 0 ? _e.attr('time') : false;
+		l.each(s,_e,function(i, t){
+			var _t = t.attr('time'),
+				_end = t.attr('endtime');
+			end += '<option value="' + _end + '">' + _end + '</option>';	
 		});
 
 		$('#liveTimeStart').html(start);
@@ -187,7 +246,10 @@ xes.liveTime = xes.liveTime || {};
 	l.each = function(s,e,fn){
 		var _list = l.list.find('li.optional');
 		var _a = _list.index(l.list.find('li.optional[time="'+s+'"]')[0]);
-		var _b = _list.index(l.list.find('li.optional[time="'+e+'"]')[0]);
+		var _tmp = l.list.find('li.optional[time="'+e+'"]').prevAll('.optional').eq(0);
+		// console.log(_tmp.text());
+		// var _b = _list.index(_tmp[0]);
+		var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
 		//如果没有结束时间则取列表长度，如果有结束
 		var _e = e ? _b + 1 : _list.length;
 		for(var i = _a, len = _e; i < len; i++){
@@ -217,6 +279,13 @@ xes.liveTime = xes.liveTime || {};
 		// 	}
 		// });
 		l.close();
+	};
+	l.empty = function(){
+		$('#liveTimeStartInput,#liveTimeEndInput').val('');
+		l.list.find('li.selected').each(function(){
+			$(this).removeClass('selected').addClass('optional');
+			$(this).find('.name').html('<a href="javascript:void(0);">预约</a>');
+		});
 	};
 
 	l.submit = function(){

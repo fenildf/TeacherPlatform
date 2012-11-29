@@ -1,4 +1,4 @@
-/*
+   /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
  */
@@ -14,3 +14,5 @@
 ///import:xes.iframe.js///
 
 ///import:ui/xes.ui.tips.js///
+
+///import:xes.form.js///
