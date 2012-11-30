@@ -204,7 +204,6 @@ xes.platfrom = xes.platfrom || {};
 	 * 设置iframe高度(内部页面加载时调用)
 	 */
 	PF.setMainHeight = function(h, url){
-		// console.log(h);
 		var _headHeight = 108,
 			_footHeight = 85,
 			_winHeight = $(window).height();

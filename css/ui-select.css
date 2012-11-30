@@ -49,7 +49,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
 
 /* erro */
-.icon_bot {background: url(../img/course_icon.png) no-repeat;}
+.icon_bot {background: url(http://img03.xesimg.com/course_icon.png) no-repeat;}
 .ui_search_input_text .icon_bot {
 	border:0;
 	width: 60px;
@@ -70,7 +70,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 /* 自定义外层 */
 
 
-.selectParent .jquery-selectbox{width: auto !important;position: relative;height: 26px;float: left;background: url(../img/select_bg3.png) repeat-x;z-index: 0;margin-right: 10px;border: 1px solid #d1d1d1;}
+.selectParent .jquery-selectbox{width: auto !important;position: relative;height: 26px;float: left;background: url(http://img03.xesimg.com/select_bg3.png) repeat-x;z-index: 0;margin-right: 10px;border: 1px solid #d1d1d1;}
 
 
     
@@ -82,7 +82,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 
 
 .selectParent .jquery-selectbox-list{width: 100px !important;height: 220px;text-align: center;}
-.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(../img/course_icon.png) 82px -120px no-repeat;z-index:1;}
+.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(http://img03.xesimg.com/course_icon.png) 82px -120px no-repeat;z-index:1;}
 
 
 

@@ -27,7 +27,6 @@ $(function () {
 	$("#endDate").calendar();
 	setTimeout(function(){
 		var a = $('#courseType').val();
-		// console.log(a);	
 		if(a==649){
 			$('#termId').show();
 		}else{

@@ -93,9 +93,7 @@ jQuery.fn.selectbox = function(options){
 				}
 				v.attr('selected',true);
 				settings.fun(_this);
-				
-				//console.log(v.text());
-				//alert($(this).attr('value'));
+
 			}).bind('mouseenter',function(){
 				jQuery(this).addClass('listelementhover');
 			}).bind('mouseleave',function(){

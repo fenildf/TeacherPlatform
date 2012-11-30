@@ -34,7 +34,6 @@ xes.iframe = xes.iframe || {};
 		return _body;
 	};
 	f.setHeight = function(){
-		// console.log(1111);
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
 			setTimeout(function(){
@@ -46,7 +45,6 @@ xes.iframe = xes.iframe || {};
 		var _local = window.location,
 			// _pathname = _local.pathname.replace('/','');
 			_pathname = _local.pathname;
-			// console.log(_local.pathname);
 		return _pathname;
 	};
 })();
@@ -71,6 +69,24 @@ var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
 	// xes.iframe.setHeight();
 };
+
+/**
+ * 打开标签（表单提交），非链接点击时
+ */
+var goTab = function(url, title, id, closeSelf){
+	
+	if(closeSelf){
+		window.parent.getActiveTabs(function(self){
+			var closeID = self.attr('id');
+			closeID = closeID.replace('tab_','');
+			// window.parent.closeActiveTabs(_id);
+			window.parent.goTabs(url, title, id, closeID);
+		});
+
+		
+	}
+}
+
 
 /**
  * 初始化所有带有open_tabs样式的链接为tab方式打开，不带则用默认方式打开
@@ -301,7 +317,6 @@ var selector = selector || {};
 (function(xes){
 	if(xes.ui){
 		xes.ui.add('select',selector,function(msg){
-			// console.log(msg);
 			if(msg === 'ok'){
 				xes.ui.select.init();
 			}
@@ -414,7 +429,6 @@ var xform = xform || {};
 		* @return
 		*/
 		f.checkBoxes = function (cbs_id, cbs_values) {
-			// console.log('id:'+cbs_is+'\nvalue:'+cbs_values);
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
 				$(this).attr('checked', false);
 			});
@@ -438,7 +452,6 @@ var xform = xform || {};
 		* @return
 		*/
 		f.checkRadio = function (r_id, r_value) {
-			// console.log('id:'+r_id+'\nvalue:'+r_value);
 			$('input[type="radio"][id="' + r_id + '"][value="' + r_value + '"]').attr('checked', true);
 		};
 

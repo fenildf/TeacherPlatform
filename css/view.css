@@ -9,3 +9,5 @@
 .ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
 .ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;color: #333;}
 .ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
+
+#VideoPlay {width: 687px;height:408px;background: url(http://img03.xesimg.com/tem_videos_pic.png) no-repeat left 0;}

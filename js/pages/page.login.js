@@ -13,8 +13,18 @@
 ///import:widget/jquery.validate.pack.js///
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= login.html =-=-=-=-=-=-=-=-=-=-=-=-= */
-
+/* =-=-=-=-=-=-=-=-=-=-=-= login.html =-=-=-=-=-=-=-=-=-=-=-=-= */	
+// 跳出iframe
+if (self.location != top.location) {
+    top.location = self.location;
+}
+$(function(){
+	$('#username,#password,#verificationCode').keyup(function(e){
+		if(e.keyCode == 13){
+			checkLoginForm();
+		}
+	});
+});
 // 校验登录表单
 function checkLoginForm() {
 

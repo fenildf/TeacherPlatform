@@ -126,9 +126,13 @@ xes.liveTime = xes.liveTime || {};
 		// return _data;
 		
 		//程序调用
-		
-		var url = tp ? '/liveCourses/ajaxLiveListByDate/'+dd+'/myself' : '/liveCourses/ajaxLiveListByDate/'+dd;
-	 	xes.post(url, {}, function(result){
+		var _oldtime = $('#oldDate').val();
+		// var isSmae = _oldtime == dd ? true : false;
+		// console.log(isSmae);
+		// var url = tp ? isSmae ? dd+'/myself/'+_oldtime : dd+'/myself' : dd;
+		// console.log(url);
+		var url = tp ? dd+'/'+_oldtime+'/myself/' : dd;
+	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ url, {}, function(result){
 	 		if(fn){
 	 			fn(result);
 	 		}else{
@@ -157,7 +161,6 @@ xes.liveTime = xes.liveTime || {};
 	l.create = function(d){
 		var _d = d || l.getJson();
 		var html='';
-		// console.log(d);
 		$.each(_d, function(n,m){
 			// var status = m.status == 'selected' ? 'unchoose' : 'optional';
 			var teacher = m.teacher ? m.teacher : '<a href="javascript:void(0);">预约</a>',
@@ -225,7 +228,6 @@ xes.liveTime = xes.liveTime || {};
 		var end ='';
 		var _a = l.list.find('li.optional[time="'+s+'"]');
 		var _e = _a.nextAll('li.unchoose').eq(0);
-		// console.log(_e);
 		_e = _e.length > 0 ? _e.attr('time') : false;
 		l.each(s,_e,function(i, t){
 			var _t = t.attr('time'),
@@ -247,7 +249,6 @@ xes.liveTime = xes.liveTime || {};
 		var _list = l.list.find('li.optional');
 		var _a = _list.index(l.list.find('li.optional[time="'+s+'"]')[0]);
 		var _tmp = l.list.find('li.optional[time="'+e+'"]').prevAll('.optional').eq(0);
-		// console.log(_tmp.text());
 		// var _b = _list.index(_tmp[0]);
 		var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
 		//如果没有结束时间则取列表长度，如果有结束
@@ -261,7 +262,6 @@ xes.liveTime = xes.liveTime || {};
 		var _s = s || l.startTime,
 			_e = e || l.endTime;
 		l.each(_s, _e, function(i, t){
-			// console.log(i + ' | ' + t.attr('time'));
 			t.removeClass('optional').addClass('selected').find('.name').text('已预约');
 		});
 		l.startInput.val(s);

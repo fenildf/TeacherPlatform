@@ -194,7 +194,6 @@ var tabs = tabs || {};
 	 * 关闭标签
 	 */
 	t.close = function(id, fn){
-		// console.log(id);
 		var _tab = t.getItem(id);
 		
 		if(_tab){

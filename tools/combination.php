@@ -137,7 +137,8 @@ function filePut($path, $filename, $content, $compress = false){
 		// 根据现有名字设置新的文件名
 		
 
-		file_put_contents($path.$filename.'.min.js', $packed);
+		file_put_contents($path.$filename.'.js', $packed);
+		// file_put_contents($path.$filename.'.min.js', $packed);
 		
 		echo json_encode('packed');
 	}else{

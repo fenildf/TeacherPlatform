@@ -30,9 +30,9 @@ a.green {color: #669933;}
 a.blue{color: #006699;}
 a.grey {color: #666;}
 /*公用图片*/
-.logo,.ui-tabs-items li,.ui_search_input_text,.ui_search_btn,a.btn_say,ul.action li.grade,ul.action li.course,.btn_login,.ui_pages .up_page,.ui_pages .down_page {background: url(../img/course_bgpic.png) no-repeat;}
-.action_item ul.action li button,.item_pag li.number button,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line,.ui_pages li.page_list button  {background: url(../img/course_icon.png) no-repeat;}
-span.one,span.two {background: url(../img/state_icon.png) no-repeat;}
+.logo,.ui-tabs-items li,.ui_search_input_text,.ui_search_btn,a.btn_say,ul.action li.grade,ul.action li.course,.btn_login,.ui_pages .up_page,.ui_pages .down_page {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
+.action_item ul.action li button,.item_pag li.number button,.sidebar .h2_menu_title,.sidebar .current_title,span.icon_bot,.del_btn,.line,.ui_pages li.page_list button  {background: url(http://img03.xesimg.com/course_icon.png) no-repeat;}
+span.one,span.two {background: url(http://img03.xesimg.com/state_icon.png) no-repeat;}
 
 /*框架 start*/
 #header {width:1280px;margin:0 auto;position: relative;}
@@ -78,14 +78,14 @@ iframe {border:0 none}
 
 
 /*all公用样式*/
-.s-btn{ width: 60px; height: 27px; background: url(../img/s-btn.png) no-repeat 0 0;border: 0;cursor: pointer;}
+.s-btn{ width: 60px; height: 27px; background: url(http://img03.xesimg.com/s-btn.png) no-repeat 0 0;border: 0;cursor: pointer;}
 
 /* 
  * upload: 2012-11-20
  * author: Marco(wujie)
  */
 .btn, .btn_ancel,.btn_prev,
-.btn_submit,.btn_cancel {background: url(../img/btn.jpg) no-repeat;} 
+.btn_submit,.btn_cancel {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
 button.btn_submit,
 input.btn_submit {border: 0 none;cursor: pointer;}
 
@@ -127,8 +127,8 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 #footer p.xueersi{color: #999;}
 
 /*登录页 start*/
-.login_logo,.left_inforpic,.rihgt_login_bg{background: url(../img/login_bg.png) no-repeat;}
-#header_login {height:94px;background: url(../img/course_icon.png) 0 -245px repeat-x;}
+.login_logo,.left_inforpic,.rihgt_login_bg{background: url(http://img03.xesimg.com/login_bg.png) no-repeat;}
+#header_login {height:94px;background: url(http://img03.xesimg.com/course_icon.png) 0 -245px repeat-x;}
 #header_login .login_logo {width:980px;height:70px;margin:0 auto;overflow: hidden;text-indent: -9999999px;}
 #main {width:980px;margin:60px auto;overflow: hidden;}
 #main .left_inforpic {float: left;width:457px;height: 363px;background-position: 0 -125px;}
@@ -162,8 +162,8 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .ui_tipsAll {width:1030px;padding:10px;overflow: hidden;border: 1px solid #e7e6e6;background: #f6f6f6;color: #999;margin-top: 10px;font-size: 14px;}		
 .ui_tipsAll a {padding-right:10px;}
 .ui_tipsAll em {color: #cc0000;font-weight: bold;}
-.ui_tipsAll .icon_tips {width:400px;margin:auto; background: url(../img/tips1.png) 0 6px no-repeat;padding: 10px 55px;}
-.ui_tipsAll .icon_tips_err {background: url(../img/tips2.png) 0 6px no-repeat;} 
+.ui_tipsAll .icon_tips {width:400px;margin:auto; background: url(http://img03.xesimg.com/tips1.png) 0 6px no-repeat;padding: 10px 55px;}
+.ui_tipsAll .icon_tips_err {background: url(http://img03.xesimg.com/tips2.png) 0 6px no-repeat;} 
 /*公用提示*/
 #footer {margin-top:40px}
 #footer p {line-height: 180%;text-align: center;}

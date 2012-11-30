@@ -129,3 +129,44 @@ var openTabs = function(dom, text, id){
 	createTabs(_d);
 
 };
+/**
+ * 表单提交打开标签
+ */
+var goTabs = function(url, title, id, closeID){
+	var _arg = arguments;
+	var _url,_text,_id,_content;
+		_url = _arg[0];
+		_text = _arg[1] || '标签';
+		_id = _arg[2];
+		_content = _content || _text;
+		_id = _id || 'page_' + xes.timestamp;
+		_url = _url || '404.html';
+
+	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
+
+	
+
+	if(closeID){
+		closeActiveTabs(closeID);
+	}
+	createTabs(_d);
+};
+
+var closeActiveTabs = function(id){
+	var _tab = $('.ui-tabs-items').find('#tab_'+id);
+	var _con = $('#content_'+id);
+	_tab.find('span.del_btn').click();
+	_con.hide();
+};
+/**
+ * 获取当前激活标签
+ */
+var getActiveTabs = function(fn){
+	var tab = xes.ui.tabs.o.active;
+	if(fn){
+		fn(tab);
+	}else{
+		return tab;
+	}
+	
+};

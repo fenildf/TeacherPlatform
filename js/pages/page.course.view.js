@@ -17,3 +17,10 @@
 ///import:ui/xes.ui.tips.js///
 
 ///import:xes.form.js///
+
+/* =-=-=-=-=-=-=-=-=-=-=-= course_view.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+$(function(){
+	setTimeout(function(){
+		xes.iframe.setHeight();
+	},300);
+});

@@ -133,7 +133,6 @@ var selector = selector || {};
 (function(xes){
 	if(xes.ui){
 		xes.ui.add('select',selector,function(msg){
-			// console.log(msg);
 			if(msg === 'ok'){
 				xes.ui.select.init();
 			}

@@ -6,7 +6,7 @@
  *
  */
 /* icon */
-.page_prev, .page_next {background: url(../img/course_bgpic.png) no-repeat;}
+.page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
 .action_item {height: 36px;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
@@ -45,7 +45,7 @@
 .createtime {overflow: hidden;height: 50px;line-height: 50px;color: #666;font-weight: bold;font-size: 14px;padding-left: 3px;}
 .createtime em{color: #cc0000;font-weight: bold;}
 
-.createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(../img/create_btn.png) no-repeat; text-align: center;color: #fff;}
+.createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
 
 .btn {font-weight: 500}
 .btn:visited, .btn:active {color:#FFF;font-weight: 500}
