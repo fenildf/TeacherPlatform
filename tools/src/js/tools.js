@@ -41,7 +41,10 @@ $(function(){
 		var PATH = $('#issuancePath').val();
 		createAllImportFiles(PATH);	
 	});
-
+	//批量生成css
+	$('#createAllCSSFiles').click(function(){
+		createAllCSSFiles();
+	});
 	
 });
 
@@ -202,22 +205,31 @@ function getPageName(filename){
 }
 
 
-function createImportCSSFiles(path, filename){
-	var btn = $(d),
-		parent = btn.parent().parent(),
-		file = parent.find('.filename').text();
-		checked = parent.find('input:checkbox').attr('checked');
-		checked = checked == 'checked'? true: false;
-	var path = path || $('#issuanceCSSPath').val();
+function createCSSFiles(path, filename){
+	// var path = path || $('#issuanceCSSPath').val();
 	console.log(path);
-	$.getJSON('/tools/combination.php',{'path':path,'filename':filename,'isCombine':checked},function(data){
+	$.getJSON('/tools/combinationCSS.php',{'path':path,'filename':filename},function(data){
 		if(data == 'created'){
-				btn.removeClass('blue');
-				btn.addClass('white');
+			$('.createCSSStatus').text(filename+'已生成！');
 		}else{
 			alert('生成错误！');
 		}
 
+	});
+
+}
+
+function createAllCSSFiles(path){
+	var list = [
+		'page_data.css',
+		'page_edit.css',
+		'page_list.css',
+		'page_view.css',
+		'page_welcome.css'
+	];
+	var path = $('#issuanceCSSPath').val();
+	$.each(list, function(i,filename){
+		createCSSFiles(path, filename);
 	});
 
 }

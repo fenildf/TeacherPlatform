@@ -898,6 +898,7 @@ var goTabs = function(url, title, id, closeID){
 		closeActiveTabs(closeID);
 	}
 	createTabs(_d);
+	refreshTabs(_id);
 };
 
 var closeActiveTabs = function(id){
@@ -906,6 +907,7 @@ var closeActiveTabs = function(id){
 	_tab.find('span.del_btn').click();
 	_con.hide();
 };
+
 /**
  * 获取当前激活标签
  */
@@ -917,4 +919,13 @@ var getActiveTabs = function(fn){
 		return tab;
 	}
 	
+};
+
+/**
+ * 刷新标签
+ */
+var refreshTabs = function(id, fn){
+	var _con = $('#content_'+id);
+	var _src = _con.attr('src');
+	_con.attr('src',_src);
 };

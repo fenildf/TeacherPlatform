@@ -8,8 +8,8 @@
 require 'path.php';
 
 $file = $_GET['filename'];
-$url = $PATH_PAGES.$_GET['filename']; //获取源码，用上面的匹配函数获得需要的内容页网址
-
+$url = $PATH_CSS.$_GET['filename']; //获取源码，用上面的匹配函数获得需要的内容页网址
+// echo $url;exit;
 $identifier = '@import url("[url]");'; //函数第1个参数,源码里德地址形式
 //根据url获取js文件内容
 $content = file_get_contents($url);
@@ -18,7 +18,7 @@ $filename = strtr($file, array('.css' => ''));
 
 $newfilename = strtr($filename, array('page' => 'xes'));
 
-$type = $_GET['isCombine']; //压缩
+$type = false; //压缩
 $path = realpath($PATH.$_GET['path']).'\\'; //生成的路径
 if($path == '\\'){
 	return;
@@ -91,6 +91,7 @@ function canshujiequ($contents, $identifier, $param, $url) {
 					$str = substr($contents, $qianjs, $nowks - $qianjs);
 					
 					$mark = $canshuarr[0] . $str . $canshuarr[1];
+					// echo $url.$str;exit;
 					$f = file_get_contents($url.$str);
 
 					//判断js文件中是否已经加载了此内容，如果没有则替换标识符为具体内容
@@ -119,39 +120,17 @@ function canshujiequ($contents, $identifier, $param, $url) {
  * @return : 输出状态（成功or失败）
  */
 function filePut($path, $filename, $content, $compress = false){
-	//是否需要压缩
-	// if($compress == 'true'){
-	// 	//调用js压缩类
-	// 	require 'javascriptPacker/class.JavaScriptPacker.php';
 
-	// 	// $script = $content;
-
-	// 	$t1 = microtime(true);
-
-	// 	$packer = new JavaScriptPacker($content, 'Normal', true, false);
-	// 	$packed = $packer->pack();
-
-	// 	$t2 = microtime(true);
-	// 	$time = sprintf('%.4f', ($t2 - $t1) );
-
-	// 	// 根据现有名字设置新的文件名
-		
-
-	// 	file_put_contents($path.$filename.'.js', $packed);
-	// 	// file_put_contents($path.$filename.'.min.js', $packed);
-		
-	// 	echo json_encode('packed');
-	// }else{
 		file_put_contents($path.$filename.'.css', $content);
 		echo json_encode('created');
-	}
+
 }
 
 
 
 
 //下面是一个测试的例子，获取网页源码，从中匹配电影的内容页地址
-$newcontent = canshujiequ($content, $identifier, '[url]', $PATH_JS); //返回匹配的数组
+$newcontent = canshujiequ($content, $identifier, '[url]', $PATH_CSS); //返回匹配的数组
 
 filePut($path, $newfilename, $newcontent, $type);
 

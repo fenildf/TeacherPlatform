@@ -8,6 +8,8 @@
 
 
 $PATH = realpath(dirname(__FILE__).'/../');
+//css根目录
+$PATH_CSS = realpath($PATH.'/css/').'\\';
 //js根目录
 $PATH_JS = realpath($PATH.'/js/');
 //存放带有引用路径标识符的js目录

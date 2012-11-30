@@ -20,6 +20,10 @@
 
 ///import:xes.form.js///
 
+///import:xes.search.js///
+
+///import:xes.pages.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
@@ -42,21 +46,4 @@ $(function () {
 			$('#termId').val(0);
 		}
 	});
-});
-
-
-$('#pages').change(function(){
-	var _page = this.value;
-	 $("#currpage").val(_page);
-	 $("#listSerch").submit();
-});
-$(".ui_pages a").click(function(){
-    _url = $(this).attr('href');
-    _re = /curpage\:(\d+)$/;
-    _page = _url.match(_re);
-    if(_page!=null){
-        $("#currpage").val(_page[1]);
-        $(this).attr('href','###');
-        $("#listSerch").submit();
-    }
 });

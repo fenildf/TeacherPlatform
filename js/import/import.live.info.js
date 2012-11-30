@@ -74,7 +74,6 @@ var openTab = function(dom, text){
  * 打开标签（表单提交），非链接点击时
  */
 var goTab = function(url, title, id, closeSelf){
-	
 	if(closeSelf){
 		window.parent.getActiveTabs(function(self){
 			var closeID = self.attr('id');
@@ -86,7 +85,12 @@ var goTab = function(url, title, id, closeSelf){
 		
 	}
 }
-
+/**
+ * 刷新标签
+ */
+var refreshTab = function(id){
+	window.parent.refreshTabs(id);
+};
 
 /**
  * 初始化所有带有open_tabs样式的链接为tab方式打开，不带则用默认方式打开
@@ -182,6 +186,7 @@ var tips = tips || {};
 })(xes);
 
 
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.

@@ -75,7 +75,6 @@ var openTab = function(dom, text){
  * 打开标签（表单提交），非链接点击时
  */
 var goTab = function(url, title, id, closeSelf){
-	
 	if(closeSelf){
 		window.parent.getActiveTabs(function(self){
 			var closeID = self.attr('id');
@@ -87,7 +86,12 @@ var goTab = function(url, title, id, closeSelf){
 		
 	}
 }
-
+/**
+ * 刷新标签
+ */
+var refreshTab = function(id){
+	window.parent.refreshTabs(id);
+};
 
 /**
  * 初始化所有带有open_tabs样式的链接为tab方式打开，不带则用默认方式打开
@@ -183,6 +187,7 @@ var tips = tips || {};
 })(xes);
 
 
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
  * XESUI
  * Copyright 2012 xueersi.com All rights reserved.
@@ -487,15 +492,53 @@ function generateMixed(n) {
 };
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.search.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
 
+/*
+ * search表单相关操作
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+
+/**
+ * 在提交表单之前，充值分页数为1
+ */
 $(function(){
-	// $('.ui_select').selectbox();
+    var submit = $('#listSerch input:submit');
+    submit.mousedown(function(){
+        $('#pages').val(1);
+        $('#currpage').val(1);
+        $('#listSerch')[0].onSubmit = false;
+    });
+    submit.mouseup(function(){
+        $('#listSerch')[0].onSubmit = true;
+    });
 });
+
+/* =-=-=-=-=-=-=-=-=-=-=-= xes.search.js =-=-=-=-=-=-=-=-=-=-=-=-= */
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * pages分页相关操作
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+
 $('#pages').change(function(){
-	var _page = this.value;
-	 $("#currpage").val(_page);
-	 $("#listSerch").submit();
+    var _page = this.value;
+     $("#currpage").val(_page);
+     $("#listSerch").submit();
 });
 $(".ui_pages a").click(function(){
     _url = $(this).attr('href');
@@ -506,4 +549,12 @@ $(".ui_pages a").click(function(){
         $(this).attr('href','###');
         $("#listSerch").submit();
     }
+});
+
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+$(function(){
+	// $('.ui_select').selectbox();
 });
