@@ -200,3 +200,24 @@ function getPageName(filename){
 	};
 	return data[filename];
 }
+
+
+function createImportCSSFiles(path, filename){
+	var btn = $(d),
+		parent = btn.parent().parent(),
+		file = parent.find('.filename').text();
+		checked = parent.find('input:checkbox').attr('checked');
+		checked = checked == 'checked'? true: false;
+	var path = path || $('#issuanceCSSPath').val();
+	console.log(path);
+	$.getJSON('/tools/combination.php',{'path':path,'filename':filename,'isCombine':checked},function(data){
+		if(data == 'created'){
+				btn.removeClass('blue');
+				btn.addClass('white');
+		}else{
+			alert('生成错误！');
+		}
+
+	});
+
+}

@@ -16,7 +16,7 @@ $content = file_get_contents($url);
 
 $filename = strtr($file, array('.css' => ''));
 
-$newfilename = strtr($filename, array('page' => 'import'));
+$newfilename = strtr($filename, array('page' => 'xes'));
 
 $type = $_GET['isCombine']; //压缩
 $path = realpath($PATH.$_GET['path']).'\\'; //生成的路径
@@ -120,29 +120,29 @@ function canshujiequ($contents, $identifier, $param, $url) {
  */
 function filePut($path, $filename, $content, $compress = false){
 	//是否需要压缩
-	if($compress == 'true'){
-		//调用js压缩类
-		require 'javascriptPacker/class.JavaScriptPacker.php';
+	// if($compress == 'true'){
+	// 	//调用js压缩类
+	// 	require 'javascriptPacker/class.JavaScriptPacker.php';
 
-		// $script = $content;
+	// 	// $script = $content;
 
-		$t1 = microtime(true);
+	// 	$t1 = microtime(true);
 
-		$packer = new JavaScriptPacker($content, 'Normal', true, false);
-		$packed = $packer->pack();
+	// 	$packer = new JavaScriptPacker($content, 'Normal', true, false);
+	// 	$packed = $packer->pack();
 
-		$t2 = microtime(true);
-		$time = sprintf('%.4f', ($t2 - $t1) );
+	// 	$t2 = microtime(true);
+	// 	$time = sprintf('%.4f', ($t2 - $t1) );
 
-		// 根据现有名字设置新的文件名
+	// 	// 根据现有名字设置新的文件名
 		
 
-		file_put_contents($path.$filename.'.js', $packed);
-		// file_put_contents($path.$filename.'.min.js', $packed);
+	// 	file_put_contents($path.$filename.'.js', $packed);
+	// 	// file_put_contents($path.$filename.'.min.js', $packed);
 		
-		echo json_encode('packed');
-	}else{
-		file_put_contents($path.$filename.'.js', $content);
+	// 	echo json_encode('packed');
+	// }else{
+		file_put_contents($path.$filename.'.css', $content);
 		echo json_encode('created');
 	}
 }
