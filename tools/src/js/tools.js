@@ -76,7 +76,7 @@ function getList(){
 function createList(d){
 	var _html = '';
 	$.each(d,function(i,filename){
-		console.log(getPageName(filename));
+		// console.log(getPageName(filename));
 		// return;
 		var page = getPageName(filename),
 			pagename = page.title,
@@ -152,7 +152,7 @@ function createImportFiles(path,d){
 		checked = parent.find('input:checkbox').attr('checked');
 		checked = checked == 'checked'? true: false;
 	var path = path || $('#issuancePath').val();
-	console.log(path);
+	// console.log(path);
 	$.getJSON('/tools/combination.php',{'path':path,'filename':file,'isCombine':checked},function(data){
 		if(data == 'packed'){
 			btnCreated(btn);
@@ -178,6 +178,9 @@ function createAllImportFiles(path){
 	btn.each(function(){
 		createImportFiles(path, this);
 	});
+	setTimeout(function(){
+		btn.removeClass('white').addClass('blue');
+	}, 5000);
 }
 
 function getPageName(filename){
