@@ -12,6 +12,9 @@
 
 ///import:xes.platform.js///
 
+///import:widget/jquery.base64.js///
+
+///import:widget/jquery.cookie.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= platform.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
@@ -21,6 +24,9 @@
 // xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click();
 xes.platfrom.menu.toggle().click();
 xes.platfrom.tips();
+// var cookieUser = getUserName();
+// console.log(cookieUser);
+saveUserName();
 /*
  * 将tabs注册到xes对象中
  */
@@ -33,19 +39,36 @@ xes.ui.add( 'tabs', tabs , function(tips){
 		fixed : $('.ui-tabs-items li'),
 		index : 0,
 		main : $('.mainbody').children(),
-		mainWrap : $('.mainbody')
+		mainWrap : $('.mainbody'),
+		isCookie : true
+		//增加回调函数
+		// ,callback : function(act){
+			//act返回的是当前激活的标签对象
+			// var url = act.find('a').attr('url');
+			// console.log(url);
+			// xes.platfrom.setMainHeight(false, url);
+		// }
 	});
 });
 
+$(window).resize(function(){
+	var url = $('#content iframe:visible').attr('src');
+	// console.log(url);
+	setIframeHeight();
+});
 $(function(){
 	//tabs的点击事件
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
 		// alert($(this).text());
-		xes.ui.tabs.click($(this).parent()[0]);
+		var _id = $(this).parent().attr('id');
+		_id = _id.replace('tab_','');
+		xes.ui.tabs.click(_id);
+		var _url = $(this).attr('url');
 		//根据点击的url获取左侧当前激活的dom
-		var _node = $('#sidebar li a[url="' + $(this).attr('url') + '"]');
+		var _node = $('#sidebar li a[url="' + _url + '"]');
 		_dom = _node ? _node.parent() : false;
 		xes.platfrom.menu.setActive(_dom);
+		setIframeHeight();
 	});
 
 	//关闭按钮的点击事件
@@ -55,6 +78,7 @@ $(function(){
 			var _node = $('#sidebar li a[url="' + d.attr('url') + '"]');
 			_dom = _node ? _node.parent() : false;
 			xes.platfrom.menu.setActive(_dom);
+			setIframeHeight();
 		});
 		
 	});
@@ -70,10 +94,37 @@ $(function(){
 	$('#headSearch_select').find('li a').click(function(){
 		$('#headSearch_type').val($(this).text());
 	});
-
-
+	
+	//增加backspace按键返回操作
+	$('body').keyup(function(e){
+		goBack(e);
+	});
 });
-
+/**
+ * 把用户名存储到cookie中（base64加密后，并替换最后的等号为'_'）
+ */
+function saveUserName(){
+	var user = $('#username').val();
+	// $.base64.is_unicode = false;
+	var baseUser = $.base64.encode(user);
+	//替换等号为下划线
+	baseUser = baseUser.replace('=','_');
+	$.cookie('platfrom_u',baseUser);
+}
+/**
+ * 从cookie中读取用户名（base64解密）
+ */
+function getUserName(){
+	var u = $.cookie('platfrom_u');
+	if(!u){
+		saveUserName();
+	}
+	//把原来替换后的等号还原
+	u = u.replace('_','=');
+	u = $.base64.decode(u);
+	// console.log(u);
+	return u;
+}
 /** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
 
 var setIframeHeight = xes.platfrom.setMainHeight;
@@ -89,7 +140,7 @@ var createTabs = function(obj){
 		_menu.parent().click();
 	}else{
 		//根据左侧菜单创建tabs标签
-		xes.ui.tabs.create(obj);
+		xes.ui.tabs.create(obj).click(obj.id);
 	}	
 };
 
@@ -181,3 +232,19 @@ var refreshTabs = function(id, fn){
 	var _src = _con.attr('src');
 	_con.attr('src',_src);
 };
+
+/**
+ * 返回上一页
+ */
+var goBack = function(e){
+	//增加backspace按键返回操作
+	// $('body').keyup(function(e){
+	var code = e.keyCode;
+	if(code == 8){
+		xes.ui.tabs.backHistory(function(){
+			setIframeHeight();
+		});
+	}
+	// });	
+};
+	

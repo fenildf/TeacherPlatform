@@ -38,9 +38,10 @@ xes.iframe = xes.iframe || {};
 	f.setHeight = function(){
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
-			setTimeout(function(){
-				_setHeight(f.getPageHeight(), f.getUrl());
-			},100);
+			// setTimeout(function(){
+				// _setHeight(f.getPageHeight(), f.getUrl());
+			// },100);
+			_setHeight();
 		}
 	};
 	f.getUrl = function(){
@@ -52,9 +53,21 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	setTimeout(function(){
+	// setTimeout(function(){
 		xes.iframe.setHeight();
-	},100);
+	// },100);
+	// if(window.parent){
+	// 	//增加backspace按键返回操作
+	// 	$('body').keyup(function(e){
+	// 		// window.parent.goBack(e);
+	// 		// var code = e.keyCode;
+	// 		// if(code == 8){
+	// 		// 	xes.ui.tabs.backHistory(function(){
+	// 		// 		setIframeHeight();
+	// 		// 	});
+	// 		// }
+	// 	});
+	// }
 	
 })
 

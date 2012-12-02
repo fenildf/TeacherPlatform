@@ -68,6 +68,8 @@ var tabs = tabs || {};
 		mainWrap : 'ui-tabs-main-items'
 	};
 
+	t.isCookie = false;
+
 	t.o = {
 		item : '',
 		wrap : '',
@@ -76,7 +78,9 @@ var tabs = tabs || {};
 		active: '',
 		handle:'',
 		content: '',
-		contentWrap : ''
+		contentWrap : '',
+		//cookie前缀
+		cookieName:''
 	};
 
 	/*
@@ -108,9 +112,39 @@ var tabs = tabs || {};
 		};
 		//给固定标签设置样式
 		t.o.fixed = t.o.wrap.find('li.' + t.cls.fixed);
-
 		//设置当前激活状态
 		t.setActive(config.index || t.index);
+
+		/**
+		 * 如果isCookie存在则增加cookie相关的操作
+		 * 保存list、当前激活、历史记录
+		 */
+		if(config.isCookie){
+			t.isCookie = true;
+			t.o.cookieName = $.cookie('platfrom_u');
+			// t.saveList();
+			
+			// t.getCookieList();
+			if($.cookie(t.o.cookieName+'tabs')){
+				t.getCookieList();
+			}else{
+				t.saveList();
+			}
+			t.saveActive();
+			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面
+			// $('body').keyup(function(e){
+			// 	var code = e.keyCode;
+			// 	if(code == 8){
+			// 		t.backHistory();
+			// 	}
+			// });
+
+		}
+		//增加callback函数
+		// if(config.callback){
+		// 	config.callback(t.o.active);
+		// }
+		
 		return this;
 	};
 
@@ -146,8 +180,9 @@ var tabs = tabs || {};
 			t.o.wrap.append(t.getHtml(_D));
 		}
 
-		t.click(t.getItem(_D.id)[0]);
+		// t.click(t.getItem(_D.id)[0]);
 		this.resize();
+		return this;
 	};
 
 	/**
@@ -159,7 +194,15 @@ var tabs = tabs || {};
 		var _tab = t.o.wrap.find('li#tab_'+id);
 		return (_tab.length > 0 ? _tab : false);
 	};
-
+	/**
+	 * 根据左侧菜单获取tab相关数据
+	 *
+	 */
+	t.getTabData = function(id){
+		var _dom = $('#sidebar').find('li#'+id);
+		var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+		return _d;
+	};
 	/**
 	 * 根据元素获取索引值
 	 */
@@ -175,11 +218,25 @@ var tabs = tabs || {};
 		var _last = t.o.wrap.find('li:last');
 		return (getID ? _last.attr('id').replace('tab_','') : _last);
 	};
+	/**
+	 * 返回已打开的标签列表
+	 */
+	t.getList = function(){
+		// console.log(t.o.item);
+		var listDom = t.o.wrap.find('li');
+		var listID = [];
+		listDom.each(function(){
+			listID.push($(this).attr('id'));
+		});
+		// console.log(listID);
+		return listID;
+	};
 
 	/*
 	 * 标签的点击事件
 	 */
-	t.click = function(d){
+	t.click = function(id){
+		var d = t.o.wrap.find('li#tab_'+id);
 		var _index = this.getIndex(d);
 		var _id = $(d).attr('id');
 		if(_id){
@@ -200,10 +257,16 @@ var tabs = tabs || {};
 			t.remove(id);
 			//如果关闭的标签为激活标签，则关闭后激活最后一个标签；否则不执行激活操作
 			if(_tab.hasClass(t.cls.active)){
-				t.click(t.getLast()[0]);
+				var _id = t.getLast().attr('id');
+				_id = _id.replace('tab_','');
+				t.click(_id);
 			}
 		}
 		this.resize();
+		//如果有cookie则存储标签列表
+		if(t.isCookie){
+			t.saveList();
+		}
 		//如果有回调函数，则返回最后激活的标签
 		if(fn){
 			fn(t.o.wrap.find('li.'+t.cls.active));
@@ -213,16 +276,157 @@ var tabs = tabs || {};
 	/*
 	 * 设置激活标签
 	 * 如果不传值则最后一个激活
+	 * upload: 2012-12-2 判断参数是索引还是id
 	 */
 	t.setActive = function(index){
-		var _act = index >= 0 ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
+		// console.log(typeof index);
+		if(typeof index == 'number'){
+			var _act = index >= 0 ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
+			var _id = _act.attr('id');	
+		}else{
+			var _act = t.o.wrap.find('li#'+index);
+			var _id = index;
+		}
+
 		var _index = t.getIndex(_act[0]);
 		// t.setOld();
 		t.index = _index;
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
+		if(t.isCookie){
+			//每次激活标签的时候就设置历史记录
+			t.saveHistory(_id);
+			/**
+			 * 存储当前激活标签
+			 * 如果不在左侧列表中且不等于首页的标签，则不存储
+			 */
+			var data = t.getTabData(_id.replace('tab_',''));
+			
+			if(_id == 'tab_index' || data.id){
+				t.saveActive(_id);
+			}
+				
+			//存储当前标签列表
+			t.saveList();
+		}
 	};
+	/* ------------------ 下面是标签状态的相关操作 ------------------ */
+	/**
+	 * 报错list列表
+	 * 需要$.cookie支持
+	 * 存储在base64加密用户名字段内
+	 */
+	t.saveList = function(){
+		// console.log(111);
+		// var listName = t.o.cookieName+'tabs';
+		var id = this.getList();
+		// var user = $.cookie('platfrom_u');
+		var tabsName = t.o.cookieName+'tabs';
+		$.cookie(tabsName,id);
+		// $.cookie(user+'history',id);
+		// t.o.cookiePrefix = user;
+	};	
+	/**
+	 * 设置历史记录
+	 */
+	t.saveHistory = function(id){
+		var historyName = t.o.cookieName+'history';
+		/**
+		 * 先检查是否存在历史记录，如果没有则把当前列表存入历史记录
+		 */
+		var history = $.cookie(historyName);
+		if(history){
+			history = history.split(',');
+			//如果历史记录最后一个与当前激活的相同，则不追加
+			var last = history[history.length-1];
+			if(last != id){
+				history.push(id);
+			}
+			// $.cookie(historyName,history);
+		}else{
+			var _act = t.o.active.attr('id');
+			// console.log(_act);
+			history = _act !='tab_index' ? 'tab_index,'+_act : 'tab_index';
+			// $.cookie(historyName,_id);
+		}
+		// console.log(history);
+		$.cookie(historyName,history);
+	};
+	/**
+	 * 历史记录回退
+	 * fn : callback
+	 * return : lastID;
+	 */
+	t.backHistory = function(fn){
+		var historyName = t.o.cookieName+'history';
+		var history = $.cookie(historyName);
+		if(history){
+			history = history.split(',');
+			//删除并返回数组最后一位
+			// history = history.pop();
+			//删除数组最后一位
+			if(history.length > 1){
+				history.splice(history.length-1,1);
+				
+				// console.log(lastID);
+				
+				// t.setActive(last);
+				
+			}
+			$.cookie(historyName,history);
+				
+			var last = history[history.length-1];
+			var lastID = last.replace('tab_','');
+			// console.log(lastID);
+			t.click(lastID);
+			if(fn){
+				fn(lastID);
+			}
+		}
+	};
+	/**
+	 * 存储当前激活标签的id到cookie中
+	 */
+	t.saveActive = function(id){
+		var activeName = t.o.cookieName+'active';
+		var act = $.cookie(activeName);
+		if(act){
+			$.cookie(activeName,id);
+		}else{
+			var _id = t.o.active.attr('id');
+			$.cookie(activeName,_id);
+		}
+	};
+
+	/**
+	 * 获取cookie存储的标签状态
+	 */
+	t.getCookieList = function(){
+		var cookieName = t.o.cookieName;
+		var listID = $.cookie(cookieName+'tabs');
+		// console.log(listID);
+		var act = $.cookie(cookieName+'active');
+		if(listID){
+			$.each(listID.split(','),function(i,id){
+				var _id = id.replace('tab_','');
+				if(_id!='index'){
+					var _data = t.getTabData(_id);
+					//只获取左侧菜单存在的标签
+					if(_data.id){
+						t.create(_data);
+					}
+				}
+			});
+			var _actID = act.replace('tab_','');
+			var data = t.getTabData(_actID);
+			if(data.id){
+				t.click(act.replace('tab_',''));
+			}
+		}
+	};
+
+	/* ------------------ 上面是标签状态的相关操作 ------------------ */
 
 	/**
 	 * 设置之前激活的标签

@@ -90,12 +90,24 @@ xes.platfrom = xes.platfrom || {};
 			// alert($(this).text());
 			// fn(this);
 			var _dom = $(this);
-			var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+			var _url = _dom.find('a').attr('url');
+			var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _url, 'fixed': _dom.attr('fixed') };
 			//根据左侧菜单创建tabs标签
-			xes.ui.tabs.create(_d);	
+			xes.ui.tabs.create(_d).click(_dom.attr('id'));	
+			PF.setMainHeight(false, _url);
 			PF.menu.setActive(this);
 		});
 	};
+
+	/**
+	 * 获取要打开标签的数据
+	 * 已经挪到ui/xes.ui.tips.js里面
+	 */
+	// PF.menu.getTabData = function(id){
+	// 	var _dom = $('#sidebar').find('li#'+id);
+	// 	var _d = var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _dom.find('a').attr('url'), 'fixed': _dom.attr('fixed') };
+	// 	return _d;
+	// };
 
 	/**
 	 * 左侧导航设置当前状态
@@ -208,19 +220,39 @@ xes.platfrom = xes.platfrom || {};
 			_footHeight = 85,
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
-		var _height = (h+31 < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
+		// var _height = (h+31 < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
 		// _height += 10;
-		$('#content').height(_height);
-		if(url){
+		// $('#content').height(_height);
+		//如果存在url则设置制定url，否则查看当前激活的iframe进行设置
+		var _ifr = url ? $('#content').find('iframe[src="' + url + '"]') : $('#content iframe:visible');
 
-			var _ifr = $('#content').find('iframe[src="' + url + '"]'),
-				_h = _ifr.contents().outerHeight();
+		setTimeout(function(){
+			var _h = _ifr.contents().find('body').outerHeight();
+				var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
+				_ifr.height(_height);
+				$('#content').height(_height);
+		},200);
 
-				_ifr.height(_h);
-			// console.log(_ifr.contents().height());
-			// $('#content').find('iframe[src="' + url + '"]').height(_height);
-			// $('#content').find('iframe[src="' + url + '"]').attr('height',_height);
-		}
+
+		// if(url){
+		// 	setTimeout(function(){
+		// 		var _ifr = $('#content').find('iframe[src="' + url + '"]'),
+		// 			_h = _ifr.contents().outerHeight();
+		// 			console.log(url);
+		// 			var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
+		// 			_ifr.height(_h);
+		// 			$('#content').height(_h);
+		// 	},200);
+
+		// }else{
+
+		// }
+
+
+
+
+
+
 	};
 
 
