@@ -51,9 +51,9 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	// setTimeout(function(){
+	setTimeout(function(){
 		xes.iframe.setHeight();
-	// },100);
+	},100);
 	// if(window.parent){
 	// 	//增加backspace按键返回操作
 	// 	$('body').keyup(function(e){

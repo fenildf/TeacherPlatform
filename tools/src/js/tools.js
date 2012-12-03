@@ -201,7 +201,8 @@ function getPageName(filename){
 		'page.student.study.js'	:{title:'学习情况',url:'student_study.html'},
 		'page.tips.error.js'	:{title:'错误提示',url:'tips_error.html'},
 		'page.tips.succeed.js'	:{title:'成功提示',url:'tips_succeed.html'},
-		'page.welcome.js'		:{title:'欢迎页面',url:'welcome.html'}
+		'page.welcome.js'		:{title:'欢迎页面',url:'welcome.html'},
+		'page.404.js'			:{title:'错误页面',url:'404.html'}
 		
 	};
 	return data[filename];

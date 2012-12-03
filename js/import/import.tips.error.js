@@ -52,9 +52,9 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	// setTimeout(function(){
+	setTimeout(function(){
 		xes.iframe.setHeight();
-	// },100);
+	},100);
 	// if(window.parent){
 	// 	//增加backspace按键返回操作
 	// 	$('body').keyup(function(e){
@@ -506,32 +506,33 @@ function generateMixed(n) {
 
 
 /* =-=-=-=-=-=-=-=-=-=-=-= tips_error.html =-=-=-=-=-=-=-=-=-=-=-=-= */
-
+var refer = document.referrer;
+var host = 'http://' + window.location.host + '/';
 var _btn = $('#error_btn');
-// console.log(history.go(-1));
-if(history.length > 1) {
-	_btn.text('返回');
-} else {
+
+if(refer == host ){
 	_btn.text('关闭');
+}else{
+	_btn.text('返回');
 }
-_btn.click(function() {
-	if(history.length > 1) {
-		goback();
-	} else {
+
+_btn.click(function(d) {
+	if(refer == host){
 		goback('close');
+	}else{
+		goback('');
 	}
 });
 
 function goback(tp) {
-	var par = window.parent;
 	if(tp == 'close') {
+		var par = window.parent;
 		if(par) {
-			var _id = par.xes.ui.tabs.o.active.attr('id').replace('tab_', '');
-			// console.log(_id);
-			par.xes.ui.tabs.close(_id);
+			par.getActiveTabs(function(tab){
+				tab.find('span.del_btn').click();
+			});
 		}
 	} else {
-		history.go(-1);
+		window.history.back();
 	}
-
 }

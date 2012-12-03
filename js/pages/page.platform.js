@@ -16,8 +16,12 @@
 
 ///import:widget/jquery.cookie.js///
 
-/* =-=-=-=-=-=-=-=-=-=-=-= platform.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
+/* =-=-=-=-=-=-=-=-=-=-=-= platform.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+// 跳出iframe
+if (self.location != top.location) {
+    top.location = self.location;
+}
 /**
  * sidebar
  */
@@ -98,6 +102,14 @@ $(function(){
 	//增加backspace按键返回操作
 	$('body').keyup(function(e){
 		goBack(e);
+	});
+
+	//刷新页面时根据头部激活标签，设置左侧菜单当前状态
+	getActiveTabs(function(tab){
+		var tab_id = tab.attr('id');
+		tab_id = tab_id.replace('tab_','');
+		var _dom = $('#sidebar li#'+tab_id);
+		xes.platfrom.menu.setActive(_dom[0]);
 	});
 });
 /**

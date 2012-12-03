@@ -19,8 +19,10 @@
 ///import:xes.form.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= course_view.html =-=-=-=-=-=-=-=-=-=-=-=-= */
-$(function(){
-	setTimeout(function(){
-		xes.iframe.setHeight();
-	},300);
-});
+
+// $(function(){
+// 	setTimeout(function(){
+// 		xes.iframe.setHeight();
+// 	},100);
+
+// });

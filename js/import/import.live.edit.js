@@ -52,9 +52,9 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	// setTimeout(function(){
+	setTimeout(function(){
 		xes.iframe.setHeight();
-	// },100);
+	},100);
 	// if(window.parent){
 	// 	//增加backspace按键返回操作
 	// 	$('body').keyup(function(e){
@@ -329,11 +329,13 @@ xes.liveTime = xes.liveTime || {};
 		
 		//程序调用
 		var _oldtime = $('#oldDate').val();
+		var _courseID = $('#courseId').val();
 		// var isSmae = _oldtime == dd ? true : false;
 		// console.log(isSmae);
 		// var url = tp ? isSmae ? dd+'/myself/'+_oldtime : dd+'/myself' : dd;
 		// console.log(url);
-		var url = tp ? dd+'/'+_oldtime+'/myself/' : dd;
+		var url = tp ? dd+'/'+_courseID : dd;
+		// var url = tp ? dd+'/'+_oldtime+'/myself/' : dd;
 	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ url, {}, function(result){
 	 		if(fn){
 	 			fn(result);
@@ -344,7 +346,6 @@ xes.liveTime = xes.liveTime || {};
 					alert(result.msg);
 				}	 			
 	 		}
-
 		});
 	};
 	l.box = $('#liveTime');

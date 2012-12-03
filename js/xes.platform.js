@@ -226,15 +226,21 @@ xes.platfrom = xes.platfrom || {};
 			_footHeight = 85,
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
-		// var _height = (h+31 < _mainMinHeight) ? _mainMinHeight -41 : h + 20;
-		// _height += 10;
-		// $('#content').height(_height);
 		//如果存在url则设置制定url，否则查看当前激活的iframe进行设置
 		var _ifr = url ? $('#content').find('iframe[src="' + url + '"]') : $('#content iframe:visible');
-
 		setTimeout(function(){
-			var _h = _ifr.contents().find('body').outerHeight();
-				var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
+			var _body_height = _ifr.contents().find('body').outerHeight();
+			var _html_height = _ifr.contents().find('html').outerHeight();
+			var _h = Math.max(_body_height, _html_height);
+
+				// var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
+				var _height = (_h + 10 < _mainMinHeight) ? _mainMinHeight  : _h + 10;
+
+				// console.log('h:'+_h);
+				// console.log('w:'+_winHeight);
+				// console.log('head:'+_headHeight);
+				// console.log('m:'+_mainMinHeight);
+				// console.log('-------------------');
 				_ifr.height(_height);
 				$('#content').height(_height);
 		},200);

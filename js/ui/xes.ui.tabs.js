@@ -130,6 +130,7 @@ var tabs = tabs || {};
 					t.saveList();
 				}
 				t.saveActive();	
+				$.cookie(cookieName+'history','tab_index');
 			}
 			
 			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面
@@ -220,6 +221,20 @@ var tabs = tabs || {};
 		return (getID ? _last.attr('id').replace('tab_','') : _last);
 	};
 	/**
+	 * 获取当前激活标签
+	 * 如果参数tp==id则返回当前的id（包含tab_前缀），否则返回就当前的jQuery对象
+	 */
+	t.getActive = function(tp){
+		var act = t.o.active;
+		if(tp == 'id'){
+			var id = act.attr('id');
+			// id = id.replace('tab_','');
+			return id;
+		}else{
+			return act;
+		}
+	};
+	/**
 	 * 返回已打开的标签列表
 	 */
 	t.getList = function(){
@@ -256,11 +271,12 @@ var tabs = tabs || {};
 		
 		if(_tab){
 			t.remove(id);
-			//如果关闭的标签为激活标签，则关闭后激活最后一个标签；否则不执行激活操作
+			/**
+			 * 如果关闭的标签为激活标签，则关闭后执行历史记录回退功能；
+			 * 否则删除历史记录中相关的id
+			 */
 			if(_tab.hasClass(t.cls.active)){
-				var _id = t.getLast().attr('id');
-				_id = _id.replace('tab_','');
-				t.click(_id);
+				t.backHistory();
 			}
 		}
 		this.resize();
@@ -367,24 +383,38 @@ var tabs = tabs || {};
 			//删除并返回数组最后一位
 			// history = history.pop();
 			//删除数组最后一位
-			if(history.length > 1){
-				history.splice(history.length-1,1);
-				
-				// console.log(lastID);
-				
-				// t.setActive(last);
-				
-			}
-			$.cookie(historyName,history);
+			history = t.delCookieLast(history, historyName);
 				
 			var last = history[history.length-1];
 			var lastID = last.replace('tab_','');
-			// console.log(lastID);
-			t.click(lastID);
+			if(t.getItem(t.getActive('id'))){
+				t.click(lastID);
+			}else{
+				t.delCookieLast(history, historyName);
+				t.click(lastID);
+			}
+			
 			if(fn){
 				fn(lastID);
 			}
 		}
+	};
+	/**
+	 * 删除历史记录最后一位
+	 * @param cookiename 如果有cookie则设置
+	 * @param cookielist {array}
+	 * @return 返回删除后的数组
+	 * 
+	 */
+	t.delCookieLast = function(cookielist, cookiename){
+		//删除数组最后一位
+		if(cookielist.length > 1){
+			cookielist.splice(cookielist.length-1,1);				
+		}
+		if(cookiename){
+			$.cookie(cookiename,cookielist);	
+		}
+		return cookielist;
 	};
 	/**
 	 * 存储当前激活标签的id到cookie中
