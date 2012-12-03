@@ -121,16 +121,17 @@ var tabs = tabs || {};
 		 */
 		if(config.isCookie){
 			t.isCookie = true;
-			t.o.cookieName = $.cookie('platfrom_u');
-			// t.saveList();
-			
-			// t.getCookieList();
-			if($.cookie(t.o.cookieName+'tabs')){
-				t.getCookieList();
-			}else{
-				t.saveList();
+			var cookieName = $.cookie('platfrom_u');
+			if(cookieName){
+				t.o.cookieName = cookieName;
+				if($.cookie(t.o.cookieName+'tabs')){
+					t.getCookieList();
+				}else{
+					t.saveList();
+				}
+				t.saveActive();	
 			}
-			t.saveActive();
+			
 			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面
 			// $('body').keyup(function(e){
 			// 	var code = e.keyCode;

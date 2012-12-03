@@ -275,16 +275,17 @@ var tabs = tabs || {};
 		 */
 		if(config.isCookie){
 			t.isCookie = true;
-			t.o.cookieName = $.cookie('platfrom_u');
-			// t.saveList();
-			
-			// t.getCookieList();
-			if($.cookie(t.o.cookieName+'tabs')){
-				t.getCookieList();
-			}else{
-				t.saveList();
+			var cookieName = $.cookie('platfrom_u');
+			if(cookieName){
+				t.o.cookieName = cookieName;
+				if($.cookie(t.o.cookieName+'tabs')){
+					t.getCookieList();
+				}else{
+					t.saveList();
+				}
+				t.saveActive();	
 			}
-			t.saveActive();
+			
 			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面
 			// $('body').keyup(function(e){
 			// 	var code = e.keyCode;
@@ -832,9 +833,15 @@ xes.platfrom = xes.platfrom || {};
 			xes.ui.tabs.create(_d).click(_dom.attr('id'));	
 			PF.setMainHeight(false, _url);
 			PF.menu.setActive(this);
+			//点击左侧菜单刷新页面
+			PF.menu.refreshContent(_dom.attr('id'));
 		});
 	};
-
+	PF.menu.refreshContent = function(id, fn){
+		var _con = $('#content_'+id);
+		var _src = _con.attr('src');
+		_con.attr('src',_src);
+	};
 	/**
 	 * 获取要打开标签的数据
 	 * 已经挪到ui/xes.ui.tips.js里面
@@ -1287,11 +1294,15 @@ $(function(){
  */
 function saveUserName(){
 	var user = $('#username').val();
-	// $.base64.is_unicode = false;
-	var baseUser = $.base64.encode(user);
-	//替换等号为下划线
-	baseUser = baseUser.replace('=','_');
-	$.cookie('platfrom_u',baseUser);
+	
+	// console.log(user);
+	if(user){
+		$.base64.is_unicode = false;
+		var baseUser = $.base64.encode(user);
+		//替换等号为下划线
+		baseUser = baseUser.replace('=','_');
+		$.cookie('platfrom_u',baseUser);
+	}
 }
 /**
  * 从cookie中读取用户名（base64解密）

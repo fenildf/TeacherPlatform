@@ -96,9 +96,15 @@ xes.platfrom = xes.platfrom || {};
 			xes.ui.tabs.create(_d).click(_dom.attr('id'));	
 			PF.setMainHeight(false, _url);
 			PF.menu.setActive(this);
+			//点击左侧菜单刷新页面
+			PF.menu.refreshContent(_dom.attr('id'));
 		});
 	};
-
+	PF.menu.refreshContent = function(id, fn){
+		var _con = $('#content_'+id);
+		var _src = _con.attr('src');
+		_con.attr('src',_src);
+	};
 	/**
 	 * 获取要打开标签的数据
 	 * 已经挪到ui/xes.ui.tips.js里面

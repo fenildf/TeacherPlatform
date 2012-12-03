@@ -105,11 +105,15 @@ $(function(){
  */
 function saveUserName(){
 	var user = $('#username').val();
-	// $.base64.is_unicode = false;
-	var baseUser = $.base64.encode(user);
-	//替换等号为下划线
-	baseUser = baseUser.replace('=','_');
-	$.cookie('platfrom_u',baseUser);
+
+	// console.log(user);
+	if(user){
+		$.base64.is_unicode = false;
+		var baseUser = $.base64.encode(user);
+		//替换等号为下划线
+		baseUser = baseUser.replace('=','_');
+		$.cookie('platfrom_u',baseUser);
+	}
 }
 /**
  * 从cookie中读取用户名（base64解密）
@@ -227,11 +231,12 @@ var getActiveTabs = function(fn){
 /**
  * 刷新标签
  */
-var refreshTabs = function(id, fn){
-	var _con = $('#content_'+id);
-	var _src = _con.attr('src');
-	_con.attr('src',_src);
-};
+var refreshContent = xes.platfrom.menu.refreshContent;
+// var refreshTabs = function(id, fn){
+// 	var _con = $('#content_'+id);
+// 	var _src = _con.attr('src');
+// 	_con.attr('src',_src);
+// };
 
 /**
  * 返回上一页
