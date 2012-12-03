@@ -17,7 +17,7 @@
 
 ///import:xes.live.js///
 
-///import:ui/xes.ui.calendar.js///
+///import:ui/xes.ui.calendar.min.js///
 
 ///import:xes.ajax.js///
 

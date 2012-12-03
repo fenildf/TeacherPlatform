@@ -379,8 +379,11 @@ jQuery.fn.extend({
         if (c.readonly) {
             n.attr("readonly", true);
             n.bind("keydown",
-            function() {
-                if (event.keyCode == 8) event.keyCode = 0
+            function(e) {
+                // if (event.keyCode == 8) event.keyCode = 0
+                if(e.keyCode == 8){
+                    $(this).val('');
+                }
             })
         }
         today = new Date;
