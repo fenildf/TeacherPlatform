@@ -1473,7 +1473,6 @@ $(function () {
 			var par = window.parent;
 			if(par){
 				var teacher = par.getTeacherName();
-				console.log(teacher);
 				$('#teacherName').text(teacher);
 			}
 	});

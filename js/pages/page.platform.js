@@ -25,9 +25,9 @@ if (self.location != top.location) {
 /**
  * sidebar
  */
-// xes.platfrom.menu.create(xes.platfrom.menu.path).toggle().click();
-xes.platfrom.menu.toggle().click();
-xes.platfrom.tips();
+// xes.platform.menu.create(xes.platform.menu.path).toggle().click();
+xes.platform.menu.toggle().click();
+xes.platform.tips();
 // var cookieUser = getUserName();
 // console.log(cookieUser);
 saveUserName();
@@ -50,7 +50,7 @@ xes.ui.add( 'tabs', tabs , function(tips){
 			//act返回的是当前激活的标签对象
 			// var url = act.find('a').attr('url');
 			// console.log(url);
-			// xes.platfrom.setMainHeight(false, url);
+			// xes.platform.setMainHeight(false, url);
 		// }
 	});
 });
@@ -71,7 +71,7 @@ $(function(){
 		//根据点击的url获取左侧当前激活的dom
 		var _node = $('#sidebar li a[url="' + _url + '"]');
 		_dom = _node ? _node.parent() : false;
-		xes.platfrom.menu.setActive(_dom);
+		xes.platform.menu.setActive(_dom);
 		setIframeHeight();
 	});
 
@@ -81,7 +81,7 @@ $(function(){
 			//回调函数，用于设置左侧当前激活状态
 			var _node = $('#sidebar li a[url="' + d.attr('url') + '"]');
 			_dom = _node ? _node.parent() : false;
-			xes.platfrom.menu.setActive(_dom);
+			xes.platform.menu.setActive(_dom);
 			setIframeHeight();
 		});
 		
@@ -109,7 +109,7 @@ $(function(){
 		var tab_id = tab.attr('id');
 		tab_id = tab_id.replace('tab_','');
 		var _dom = $('#sidebar li#'+tab_id);
-		xes.platfrom.menu.setActive(_dom[0]);
+		xes.platform.menu.setActive(_dom[0]);
 	});
 });
 /**
@@ -126,15 +126,15 @@ function saveUserName(){
 		var baseUser = $.base64.encode(user);
 		//替换等号为下划线
 		baseUser = baseUser.replace('=','_');
-		$.cookie('platfrom_u',baseUser);
-		$.cookie('platfrom_n',username);
+		$.cookie('platform_u',baseUser);
+		$.cookie('platform_n',username);
 	}
 }
 /**
  * 从cookie中读取用户名（base64解密）
  */
 function getUserName(){
-	var u = $.cookie('platfrom_u');
+	var u = $.cookie('platform_u');
 	if(!u){
 		saveUserName();
 	}
@@ -146,7 +146,7 @@ function getUserName(){
 }
 /** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
 
-var setIframeHeight = xes.platfrom.setMainHeight;
+var setIframeHeight = xes.platform.setMainHeight;
 
 /**
  * 公用创建标签的方法
@@ -246,7 +246,7 @@ var getActiveTabs = function(fn){
 /**
  * 刷新标签
  */
-var refreshContent = xes.platfrom.menu.refreshContent;
+var refreshContent = xes.platform.menu.refreshContent;
 // var refreshTabs = function(id, fn){
 // 	var _con = $('#content_'+id);
 // 	var _src = _con.attr('src');
@@ -273,7 +273,7 @@ var goBack = function(e){
  */
 var getTeacherName = function(){
 	
-	var username = $.cookie('platfrom_n');
+	var username = $.cookie('platform_n');
 	if(username){
 		return username;
 	}else{

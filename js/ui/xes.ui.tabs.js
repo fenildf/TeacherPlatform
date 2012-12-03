@@ -121,7 +121,7 @@ var tabs = tabs || {};
 		 */
 		if(config.isCookie){
 			t.isCookie = true;
-			var cookieName = $.cookie('platfrom_u');
+			var cookieName = $.cookie('platform_u');
 			if(cookieName){
 				t.o.cookieName = cookieName;
 				if($.cookie(t.o.cookieName+'tabs')){
@@ -343,7 +343,7 @@ var tabs = tabs || {};
 		// console.log(111);
 		// var listName = t.o.cookieName+'tabs';
 		var id = this.getList();
-		// var user = $.cookie('platfrom_u');
+		// var user = $.cookie('platform_u');
 		var tabsName = t.o.cookieName+'tabs';
 		$.cookie(tabsName,id);
 		// $.cookie(user+'history',id);

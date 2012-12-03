@@ -13,10 +13,10 @@
  * @version: v1.0.0
  */
 
-xes.platfrom = xes.platfrom || {};
+xes.platform = xes.platform || {};
 
 (function(){
-	var PF = xes.platfrom;
+	var PF = xes.platform;
 
 	/**
 	 * input表单提示

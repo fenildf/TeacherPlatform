@@ -568,6 +568,6 @@ $(".ui_pages a").click(function(){
 
 /* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-$(function(){
+// $(function(){
 	// $('.ui_select').selectbox();
-});
+// });
