@@ -284,7 +284,12 @@ var tabs = tabs || {};
 					t.saveList();
 				}
 				t.saveActive();	
-				$.cookie(cookieName+'history','tab_index');
+				var actid = t.getActive('id');
+				var history = 'tab_index';
+				if(actid != 'tab_index'){
+					history += ','+actid;
+				}
+				$.cookie(cookieName+'history',history);
 			}
 			
 			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面
@@ -1342,6 +1347,8 @@ $(function(){
  */
 function saveUserName(){
 	var user = $('#username').val();
+	var username = $('#header .ui_user_list li:first').text();
+	username = $.trim(username);
 
 	// console.log(user);
 	if(user){
@@ -1350,6 +1357,7 @@ function saveUserName(){
 		//替换等号为下划线
 		baseUser = baseUser.replace('=','_');
 		$.cookie('platfrom_u',baseUser);
+		$.cookie('platfrom_n',username);
 	}
 }
 /**
@@ -1489,4 +1497,18 @@ var goBack = function(e){
 	}
 	// });	
 };
+
+/**
+ * 获取老师名称
+ */
+var getTeacherName = function(){
 	
+	var username = $.cookie('platfrom_n');
+	if(username){
+		return username;
+	}else{
+		username = $('#header .ui_user_list li:first').text();
+		username = $.trim(username);
+		return username;
+	}
+};

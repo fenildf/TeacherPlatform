@@ -130,7 +130,12 @@ var tabs = tabs || {};
 					t.saveList();
 				}
 				t.saveActive();	
-				$.cookie(cookieName+'history','tab_index');
+				var actid = t.getActive('id');
+				var history = 'tab_index';
+				if(actid != 'tab_index'){
+					history += ','+actid;
+				}
+				$.cookie(cookieName+'history',history);
 			}
 			
 			//增加backspace按键返回操作，由于需要设置iframe高度，所以还是要挪到page.platform.js里面

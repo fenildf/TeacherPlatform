@@ -400,7 +400,7 @@ xes.liveTime = xes.liveTime || {};
 			left: $(window).width() / 2 - 214
 		}).show();
 
-		l.setSelect(t,e)
+		l.setSelect(t,e);
 		l.btnClick();
 	};
 	l.btnClick = function(){
@@ -1397,6 +1397,36 @@ function generateMixed(n) {
 };
 
 
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * Date日期处理方法
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+xes.date = xes.date || {};
+
+(function(){
+	var d = xes.date;
+	/**
+	 * 根据日期获得星期数
+	 * alert(getWeekday('2012-12-3'))
+	 */
+	d.getWeek = function(sdate){
+		var _date = new Date(sdate.replace(/-/g, '/'));
+	    var _week = ['星期日', '星期一','星期二','星期三','星期四','星期五','星期六'];
+	    return _week[_date.getDay()];
+	};
+
+
+})();
+
+
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
 	//直播状态：新建/编辑
@@ -1416,19 +1446,36 @@ $(function () {
 	
 	$("#liveDate").calendar({callback:function(){
 		var date = $('#liveDate').val();
-
+		//创建直播时：选择时间的时候清空已选时间段的隐藏表单值
+		var courseid = $('#courseId');
+		if(courseid.length == 0){
+			$('#liveTimeStartInput, #liveTimeEndInput').val('');
+		}
 		//程序调用
 		
 		xes.liveTime.createTimeList(date,TYPE);
 
-		//本地调试
-		// var d = xes.liveTime.getJson(date);
-		// xes.liveTime.create(d);
+		//设置星期
+		var getweek = xes.date.getWeek(date);
+		$('#time_week').text('时间/'+ getweek);
 	}});
-	$('#liveTimeList li.optional').die('click').live('click',function(){
 
+	$('#liveTimeList li.optional').die('click').live('click',function(){
 			var _time = $(this).attr('time');
 			xes.liveTime.open(_time);
+
+			//设置日期
+			var _date = $('#liveDate').val();
+			var _week = xes.date.getWeek(_date);
+			$('#liveDateStart').text(_date+'('+_week+')');
+			$('#liveDateEnd').text(_date+'('+_week+')');
+			//设置老师名称
+			var par = window.parent;
+			if(par){
+				var teacher = par.getTeacherName();
+				console.log(teacher);
+				$('#teacherName').text(teacher);
+			}
 	});
 });
 

@@ -198,7 +198,7 @@ xes.liveTime = xes.liveTime || {};
 			left: $(window).width() / 2 - 214
 		}).show();
 
-		l.setSelect(t,e)
+		l.setSelect(t,e);
 		l.btnClick();
 	};
 	l.btnClick = function(){

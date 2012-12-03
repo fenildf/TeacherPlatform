@@ -117,6 +117,8 @@ $(function(){
  */
 function saveUserName(){
 	var user = $('#username').val();
+	var username = $('#header .ui_user_list li:first').text();
+	username = $.trim(username);
 
 	// console.log(user);
 	if(user){
@@ -125,6 +127,7 @@ function saveUserName(){
 		//替换等号为下划线
 		baseUser = baseUser.replace('=','_');
 		$.cookie('platfrom_u',baseUser);
+		$.cookie('platfrom_n',username);
 	}
 }
 /**
@@ -264,4 +267,18 @@ var goBack = function(e){
 	}
 	// });	
 };
+
+/**
+ * 获取老师名称
+ */
+var getTeacherName = function(){
 	
+	var username = $.cookie('platfrom_n');
+	if(username){
+		return username;
+	}else{
+		username = $('#header .ui_user_list li:first').text();
+		username = $.trim(username);
+		return username;
+	}
+};
