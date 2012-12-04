@@ -874,8 +874,12 @@ xes.platform = xes.platform || {};
 	};
 	PF.menu.refreshContent = function(id, fn){
 		var _con = $('#content_'+id);
-		var _src = _con.attr('src');
-		_con.attr('src',_src);
+		// console.log('con: '+id);
+		if(_con.length > 0){
+			var _src = _con.attr('src');
+			_con.attr('src',_src);
+		}
+		
 	};
 	/**
 	 * 获取要打开标签的数据
@@ -1476,7 +1480,7 @@ var getActiveTabs = function(fn){
 /**
  * 刷新标签
  */
-var refreshContent = xes.platform.menu.refreshContent;
+var refreshTabs = xes.platform.menu.refreshContent;
 // var refreshTabs = function(id, fn){
 // 	var _con = $('#content_'+id);
 // 	var _src = _con.attr('src');

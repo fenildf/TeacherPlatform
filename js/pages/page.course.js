@@ -27,3 +27,8 @@
 
 /* =-=-=-=-=-=-=-=-=-=-=-= course_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
+$(function(){
+	$('.grid_item tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
+	});
+});

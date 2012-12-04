@@ -103,6 +103,8 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
+	alert(id);
+	console.log('id:'+id);
 	window.parent.refreshTabs(id);
 };
 
@@ -507,15 +509,513 @@ xes.liveTime = xes.liveTime || {};
  */
 
 /*
- * xes.ui.calendar.min.js
+ * 
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
- 
-jQuery.fn.extend({calendar:function(J){function o(){$("#"+J.controlId).find(".tabD a").mouseup(function(){var e=new Date($("#"+J.controlId).find(".currentYear").text()+"/"+$("#"+J.controlId).find(".currentMonth").text()+"/1");if($(this).hasClass("prevD")){e.setMonth(e.getMonth()-1);e.setDate($(this).text());var c=J.speed;J.speed=0;$("#"+J.controlId).find(".prevMonth").triggerHandler("mouseup");J.speed=c}else{if($(this).hasClass("nextD")){e.setMonth(e.getMonth()+1);e.setDate($(this).text());c=J.speed;J.speed=0;$("#"+J.controlId).find(".nextMonth").triggerHandler("mouseup");J.speed=c}}var f=$(this).text();e=e.getFullYear()+"-"+(Number(e.getMonth()+1)<10?"0"+Number(e.getMonth()+1):Number(e.getMonth()+1))+"-"+(Number(f)<10?"0"+f:f);y.val(e);$("#"+J.controlId+" div table a").removeClass("select");$("#"+J.controlId+" .tabD a:contains('"+f+"')").each(function(){f==$(this).text()&&!$(this).hasClass("prevD")&&!$(this).hasClass("nextD")&&$(this).addClass("select")});$("#"+J.controlId).hide();J.callback();$(y).blur()}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function h(){$("#"+J.controlId).find(".tabM a").mouseup(function(){var c=j(Number($("#"+J.controlId).find(".currentYear").text()),Number($(this).attr("val")));l(c);o();$("#"+J.controlId).find(".currentMonth").text(Number($(this).attr("val"))+1)}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function d(){$("#"+J.controlId).find(".tabY a").mouseup(function(){var c=j(Number($(this).text()),Number($("#"+J.controlId).find(".currentMonth").text())-1);l(c);o();$("#"+J.controlId).find(".currentYear").text(Number($(this).text()))}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function j(A,w){newDate=new Date(A,w,1);newDate.setDate(0);var u=1,r=newDate.getDate();newDate.setDate(1);newDate.setMonth(newDate.getMonth()+1);var f=newDate.getDay();if(f==0){f=7}r=r-f+1;newDate.setMonth(newDate.getMonth()+1);newDate.setDate(0);var e=newDate.getDate(),s="<table class='tabD'>";s+="<tr><th>\u65e5</th><th>\u4e00</th><th>\u4e8c</th><th>\u4e09</th><th>\u56db</th><th>\u4e94</th><th>\u516d</th></tr>";var q=b(),k="",c="",B="";J.complement||(B="style='display:none'");for(var z=0;z<6;z++){s+="<tr>";for(var v=0;v<7;v++){var n=z*7+v+1-f;c=k="";if(J.lowerLimit!=NaN&&J.lowerLimit>new Date(newDate.getFullYear(),newDate.getMonth(),n)||J.upperLimit!=NaN&&new Date(newDate.getFullYear(),newDate.getMonth(),n)>J.upperLimit){if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}s+="<td><span class='"+k+"'>"+n+"</span></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+r+"</span></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+u+"</span></td>";u++}}}}else{if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()==q.getMonth()&&n==q.getDate()){c="select"}s+="<td><a class='"+c+" "+k+"'>"+n+"</a></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()-1==q.getMonth()&&r==q.getDate()){c="select"}s+="<td><a class='prevD "+c+" "+k+"' "+B+">"+r+"</a></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()+1==q.getMonth()&&u==q.getDate()){c="select"}s+="<td><a class='nextD "+c+" "+k+"' "+B+">"+u+"</a></td>";u++}}}}s=s.replace("class=' '","")}s+="</tr>"}s+="</table>";return s}function a(e){var c=b(),f="<table class='tabM'>";f+="<tr>";f+="<td><a val='0' "+(e==c.getFullYear()&&0==c.getMonth()?"class='select'":"")+" "+(e==I&&0==H?"class='current'":"")+">\u4e00\u6708</a></td>";f+="<td><a val='1' "+(e==c.getFullYear()&&1==c.getMonth()?"class='select'":"")+" "+(e==I&&1==H?"class='current'":"")+">\u4e8c\u6708</a></td>";f+="<td><a val='2' "+(e==c.getFullYear()&&2==c.getMonth()?"class='select'":"")+" "+(e==I&&2==H?"class='current'":"")+">\u4e09\u6708</a></td>";f+="<td><a val='3' "+(e==c.getFullYear()&&3==c.getMonth()?"class='select'":"")+" "+(e==I&&3==H?"class='current'":"")+">\u56db\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='4' "+(e==c.getFullYear()&&4==c.getMonth()?"class='select'":"")+" "+(e==I&&4==H?"class='current'":"")+">\u4e94\u6708</a></td>";f+="<td><a val='5' "+(e==c.getFullYear()&&5==c.getMonth()?"class='select'":"")+" "+(e==I&&5==H?"class='current'":"")+">\u516d\u6708</a></td>";f+="<td><a val='6' "+(e==c.getFullYear()&&6==c.getMonth()?"class='select'":"")+" "+(e==I&&6==H?"class='current'":"")+">\u4e03\u6708</a></td>";f+="<td><a val='7' "+(e==c.getFullYear()&&7==c.getMonth()?"class='select'":"")+" "+(e==I&&7==H?"class='current'":"")+">\u516b\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='8' "+(e==c.getFullYear()&&8==c.getMonth()?"class='select'":"")+" "+(e==I&&8==H?"class='current'":"")+">\u4e5d\u6708</a></td>";
-f+="<td><a val='9' "+(e==c.getFullYear()&&9==c.getMonth()?"class='select'":"")+" "+(e==I&&9==H?"class='current'":"")+">\u5341\u6708</a></td>";f+="<td><a val='10' "+(e==c.getFullYear()&&10==c.getMonth()?"class='select'":"")+" "+(e==I&&10==H?"class='current'":"")+">\u5341\u4e00\u6708</a></td>";f+="<td><a val='11' "+(e==c.getFullYear()&&11==c.getMonth()?"class='select'":"")+" "+(e==I&&11==H?"class='current'":"")+">\u5341\u4e8c\u6708</a></td>";f+="</tr>";f+="</table>";return f}function x(f){f=Math.floor(f/10)*10;var e="<table class='tabY'>",s=b(),n="",c="",r="";J.complement||(r="style='display:none'");for(var q=0;q<3;q++){e+="<tr>";for(var k=0;k<4;k++){c=n="";if(q+1*k+1!=1&&(q+1)*(k+1)!=12){if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='"+n+" "+c+"' >"+f+"</a></td>";f++}else{if(q+1*k+1==1){if(f-1==s.getFullYear()){n="select"}if(f-1==I){c="current"}e+="<td><a class='prevY "+n+" "+c+"' "+r+">"+(f-1)+"</a></td>"}else{if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='nextY "+n+" "+c+"' "+r+">"+f+"</a></td>"}}}e+="</tr>"}e+="</table>";return e}function p(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":"-"+f.width()+"px"},J.speed,function(){f.empty()})}function m(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":"-"+f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":f.width()+"px"},J.speed,function(){f.empty()})}function l(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":"-"+f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function i(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":"-"+f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function b(){re=/(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;var c=y.val();c=c.replace(re,"$1/$3/$5@").split("@")[0];return new Date(c)}function g(e){var c=[];c.x=e.offsetLeft;for(c.y=e.offsetTop;e=e.offsetParent;){c.x+=e.offsetLeft;c.y+=e.offsetTop}return c}J=jQuery.extend({controlId:$(this).attr("id")+"Calendar",speed:200,complement:true,readonly:true,upperLimit:NaN,lowerLimit:NaN,callback:function(){}},J||{});var y=$(this);if(J.readonly){y.attr("readonly",true);y.bind("keydown",function(c){if(c.keyCode==8){$(this).val("")}})}today=new Date;var I=today.getFullYear(),H=today.getMonth(),t=today.getDate(),G="";G+="<div id='"+J.controlId+"'class='calendar'>";G+="  <div class='calMain'>";G+="    <div class='calTitle'>";G+="      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>"+I+"</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>"+(H+1)+"</a>\u6708</span></span><a class='nextMonth'></a>";G+="    </div>";G+="    <div class='calContent'>";G+="      <div class='reserve'>";G+="      </div>";G+="      <div class='enabled'>";G+=j(I,H);G+="      </div>";G+="    </div>";G+="  </div>";G+="</div>";$("body").append(G);o();$("#"+J.controlId).find(".prevMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text())-2);m(f);if(Number(c.text())!=1){c.text(Number(c.text())-1)}else{e.text(Number(e.text())-1);c.text("12")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())-1);m(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())-10);m(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-10)
-}}}});$("#"+J.controlId).find(".nextMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text()));p(f);if(Number(c.text())!=12){c.text(Number(c.text())+1)}else{e.text(Number(e.text())+1);c.text("1")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())+1);p(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())+10);p(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+10)}}}});$("#"+J.controlId).find(".currentMonthText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabM").length>0)){var c=a(Number($("#"+J.controlId).find(".currentYear").text()));i(c);h()}});$("#"+J.controlId).find(".currentYearText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabY").length>0)){var c=x(Number($("#"+J.controlId).find(".currentYear").text()));i(c);d()}});y.bind("click focus",function(){if($("#"+J.controlId+":hidden").length!=0){$(".calendar").hide();var e=$("#"+J.controlId),c=g(y[0]),f=c.x;c=Number(y.offset().top)+Number(y.outerHeight());e.css({top:c+"px",left:f+"px"});f=$("#"+J.controlId).width();c=$("#"+J.controlId).height();e.width(0);e.height(0);e.show().animate({width:f+"px",height:c+"px"},J.speed);e.bind("selectstart",function(){return false}).bind("mousedown",function(){return false})}});$(document).mouseup(function(c){if($(c.target).attr("id")!=y.attr("id")&&($(c.target).parentsUntil("#"+J.controlId).parent().length==0||$(c.target).parentsUntil("#"+J.controlId).parent()[0].id!=J.controlId)){$("#"+J.controlId).hide()}})}});
+
+
+/*
+
+ * Summary: lyz.calendar1.0
+
+ * Author: 
+
+ * Date: 2011
+
+ * Emial: c_sharp@live.cn
+
+ * Example:
+            $(function () {
+                $("#txtBeginDate").calendar({
+                    controlId: "divDate",                                       // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+                    speed: 200,                                                 // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+                    complement: true,                                           // 是否显示日期或年空白处的前后月的补充,默认：true
+                    readonly: true,                                             // 目标对象是否设为只读，默认：true
+                    upperLimit: new Date(),                                     // 日期上限，默认：NaN(不限制)
+                    lowerLimit: new Date("2011/01/01"),                         // 日期下限，默认：NaN(不限制)
+                    callback: function () {                                     // 点击选择日期后的回调函数
+                        alert("您选择的日期是：" + $("#txtBeginDate").val());
+                }
+            });
+
+            $("#txtEndDate").calendar();
+ */
+
+jQuery.fn.extend({
+    calendar: function(c) {
+        function r() {
+            $("#" + c.controlId).find(".tabD a").mouseup(function() {
+                var a = new Date($("#" + c.controlId).find(".currentYear").text() + "/" + $("#" + c.controlId).find(".currentMonth").text() + "/1");
+                if ($(this).hasClass("prevD")) {
+                    a.setMonth(a.getMonth() - 1);
+                    a.setDate($(this).text());
+                    var b = c.speed;
+                    c.speed = 0;
+                    $("#" + c.controlId).find(".prevMonth").triggerHandler("mouseup");
+                    c.speed = b
+                } else if ($(this).hasClass("nextD")) {
+                    a.setMonth(a.getMonth() + 1);
+                    a.setDate($(this).text());
+                    b = c.speed;
+                    c.speed = 0;
+                    $("#" + c.controlId).find(".nextMonth").triggerHandler("mouseup");
+                    c.speed = b
+                }
+                var d = $(this).text();
+                a = a.getFullYear() + "-" + (Number(a.getMonth() + 1) < 10 ? "0" + Number(a.getMonth() + 1) : Number(a.getMonth() + 1)) + "-" + (Number(d) < 10 ? "0" + d: d);
+                n.val(a);
+                $("#" + c.controlId + " div table a").removeClass("select");
+                $("#" + c.controlId + " .tabD a:contains('" + d + "')").each(function() {
+                    d == $(this).text() && !$(this).hasClass("prevD") && !$(this).hasClass("nextD") && $(this).addClass("select")
+                });
+                $("#" + c.controlId).hide();
+                c.callback();
+                $(n).blur();
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function u() {
+            $("#" + c.controlId).find(".tabM a").mouseup(function() {
+                var a = s(Number($("#" + c.controlId).find(".currentYear").text()), Number($(this).attr("val")));
+                D(a);
+                r();
+                $("#" + c.controlId).find(".currentMonth").text(Number($(this).attr("val")) + 1)
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function v() {
+            $("#" + c.controlId).find(".tabY a").mouseup(function() {
+                var a = s(Number($(this).text()), Number($("#" + c.controlId).find(".currentMonth").text()) - 1);
+                D(a);
+                r();
+                $("#" + c.controlId).find(".currentYear").text(Number($(this).text()))
+            }).hover(function() {
+                $(this).addClass("hover")
+            },
+            function() {
+                $(this).removeClass("hover")
+            })
+        }
+        function s(a, b) {
+            newDate = new Date(a, b, 1);
+            newDate.setDate(0);
+            var d = 1,
+            h = newDate.getDate();
+            newDate.setDate(1);
+            newDate.setMonth(newDate.getMonth() + 1);
+            var m = newDate.getDay();
+            if (m == 0) m = 7;
+            h = h - m + 1;
+            newDate.setMonth(newDate.getMonth() + 1);
+            newDate.setDate(0);
+            var o = newDate.getDate(),
+            g = "<table class='tabD'>";
+            g += "<tr><th>\u65e5</th><th>\u4e00</th><th>\u4e8c</th><th>\u4e09</th><th>\u56db</th><th>\u4e94</th><th>\u516d</th></tr>";
+            var i = w(),
+            l = "",
+            p = "",
+            t = "";
+            c.complement || (t = "style='display:none'");
+            for (var x = 0; x < 6; x++) {
+                g += "<tr>";
+                for (var y = 0; y < 7; y++) {
+                    var j = x * 7 + y + 1 - m;
+                    p = l = "";
+                    if (c.lowerLimit != NaN && c.lowerLimit > new Date(newDate.getFullYear(), newDate.getMonth(), j) || c.upperLimit != NaN && new Date(newDate.getFullYear(), newDate.getMonth(), j) > c.upperLimit) if (0 < j && j <= o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() == f && j == q) l = "current";
+                        g += "<td><span class='" + l + "'>" + j + "</span></td>"
+                    } else if (j <= 0) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() - 1 == f && h == q) l = "current";
+                        g += "<td><span class='" + l + "' " + t + ">" + h + "</span></td>";
+                        h++
+                    } else {
+                        if (j > o) {
+                            if (newDate.getFullYear() == e && newDate.getMonth() + 1 == f && d == q) l = "current";
+                            g += "<td><span class='" + l + "' " + t + ">" + d + "</span></td>";
+                            d++
+                        }
+                    } else if (0 < j && j <= o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() == f && j == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() == i.getMonth() && j == i.getDate()) p = "select";
+                        g += "<td><a class='" + p + " " + l + "'>" + j + "</a></td>"
+                    } else if (j <= 0) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() - 1 == f && h == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() - 1 == i.getMonth() && h == i.getDate()) p = "select";
+                        g += "<td><a class='prevD " + p + " " + l + "' " + t + ">" + h + "</a></td>";
+                        h++
+                    } else if (j > o) {
+                        if (newDate.getFullYear() == e && newDate.getMonth() + 1 == f && d == q) l = "current";
+                        if (newDate.getFullYear() == i.getFullYear() && newDate.getMonth() + 1 == i.getMonth() && d == i.getDate()) p = "select";
+                        g += "<td><a class='nextD " + p + " " + l + "' " + t + ">" + d + "</a></td>";
+                        d++
+                    }
+                    g = g.replace("class=' '", "")
+                }
+                g += "</tr>"
+            }
+            g += "</table>";
+            return g
+        }
+        function z(a) {
+            var b = w(),
+            d = "<table class='tabM'>";
+            d += "<tr>";
+            d += "<td><a val='0' " + (a == b.getFullYear() && 0 == b.getMonth() ? "class='select'": "") + " " + (a == e && 0 == f ? "class='current'": "") + ">\u4e00\u6708</a></td>";
+            d += "<td><a val='1' " + (a == b.getFullYear() && 1 == b.getMonth() ? "class='select'": "") + " " + (a == e && 1 == f ? "class='current'": "") + ">\u4e8c\u6708</a></td>";
+            d += "<td><a val='2' " + (a == b.getFullYear() && 2 == b.getMonth() ? "class='select'": "") + " " + (a == e && 2 == f ? "class='current'": "") + ">\u4e09\u6708</a></td>";
+            d += "<td><a val='3' " + (a == b.getFullYear() && 3 == b.getMonth() ? "class='select'": "") + " " + (a == e && 3 == f ? "class='current'": "") + ">\u56db\u6708</a></td>";
+            d += "</tr>";
+            d += "<tr>";
+            d += "<td><a val='4' " + (a == b.getFullYear() && 4 == b.getMonth() ? "class='select'": "") + " " + (a == e && 4 == f ? "class='current'": "") + ">\u4e94\u6708</a></td>";
+            d += "<td><a val='5' " + (a == b.getFullYear() && 5 == b.getMonth() ? "class='select'": "") + " " + (a == e && 5 == f ? "class='current'": "") + ">\u516d\u6708</a></td>";
+            d += "<td><a val='6' " + (a == b.getFullYear() && 6 == b.getMonth() ? "class='select'": "") + " " + (a == e && 6 == f ? "class='current'": "") + ">\u4e03\u6708</a></td>";
+            d += "<td><a val='7' " + (a == b.getFullYear() && 7 == b.getMonth() ? "class='select'": "") + " " + (a == e && 7 == f ? "class='current'": "") + ">\u516b\u6708</a></td>";
+            d += "</tr>";
+            d += "<tr>";
+            d += "<td><a val='8' " + (a == b.getFullYear() && 8 == b.getMonth() ? "class='select'": "") + " " + (a == e && 8 == f ? "class='current'": "") + ">\u4e5d\u6708</a></td>";
+            d += "<td><a val='9' " + (a == b.getFullYear() && 9 == b.getMonth() ? "class='select'": "") + " " + (a == e && 9 == f ? "class='current'": "") + ">\u5341\u6708</a></td>";
+            d += "<td><a val='10' " + (a == b.getFullYear() && 10 == b.getMonth() ? "class='select'": "") + " " + (a == e && 10 == f ? "class='current'": "") + ">\u5341\u4e00\u6708</a></td>";
+            d += "<td><a val='11' " + (a == b.getFullYear() && 11 == b.getMonth() ? "class='select'": "") + " " + (a == e && 11 == f ? "class='current'": "") + ">\u5341\u4e8c\u6708</a></td>";
+            d += "</tr>";
+            d += "</table>";
+            return d
+        }
+        function A(a) {
+            a = Math.floor(a / 10) * 10;
+            var b = "<table class='tabY'>",
+            d = w(),
+            h = "",
+            m = "",
+            o = "";
+            c.complement || (o = "style='display:none'");
+            for (var g = 0; g < 3; g++) {
+                b += "<tr>";
+                for (var i = 0; i < 4; i++) {
+                    m = h = "";
+                    if (g + 1 * i + 1 != 1 && (g + 1) * (i + 1) != 12) {
+                        if (a == d.getFullYear()) h = "select";
+                        if (a == e) m = "current";
+                        b += "<td><a class='" + h + " " + m + "' >" + a + "</a></td>";
+                        a++
+                    } else if (g + 1 * i + 1 == 1) {
+                        if (a - 1 == d.getFullYear()) h = "select";
+                        if (a - 1 == e) m = "current";
+                        b += "<td><a class='prevY " + h + " " + m + "' " + o + ">" + (a - 1) + "</a></td>"
+                    } else {
+                        if (a == d.getFullYear()) h = "select";
+                        if (a == e) m = "current";
+                        b += "<td><a class='nextY " + h + " " + m + "' " + o + ">" + a + "</a></td>"
+                    }
+                }
+                b += "</tr>"
+            }
+            b += "</table>";
+            return b
+        }
+        function B(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            b.css({
+                "margin-left": d.width() + "px",
+                "margin-top": "0px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-left": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-left": "-" + d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty()
+            })
+        }
+        function C(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            b.css({
+                "margin-left": "-" + d.width() + "px",
+                "margin-top": "0px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-left": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-left": d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty()
+            })
+        }
+        function D(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            $("#" + c.controlId).css({
+                "z-index": 1
+            });
+
+            b.css({
+                "z-index": -1
+            });
+            d.css({
+                "z-index": -1
+            });
+            b.css({
+                "margin-left": "0px",
+                "margin-top": d.height() + "px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-top": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-top": "-" + d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty();
+                $("#" + c.controlId).css({
+                    "z-index": 0
+                });
+                b.css({
+                    "z-index": 0
+                });
+                d.css({
+                    "z-index": 0
+                })
+            })
+        }
+        function E(a) {
+            var b = $("#" + c.controlId).find(".reserve"),
+            d = $("#" + c.controlId).find(".enabled");
+            b.stop();
+            d.stop();
+            b.removeClass("reserve").addClass("enabled");
+            d.removeClass("enabled").addClass("reserve");
+            $("#" + c.controlId).css({
+                "z-index": 1
+            });
+            b.css({
+                "z-index": -1
+            });
+            d.css({
+                "z-index": -1
+            });
+            b.css({
+                "margin-left": "0px",
+                "margin-top": "-" + d.height() + "px"
+            });
+            b.empty().append(a);
+            b.animate({
+                "margin-top": "0px"
+            },
+            c.speed);
+            d.animate({
+                "margin-top": d.width() + "px"
+            },
+            c.speed,
+            function() {
+                d.empty();
+                $("#" + c.controlId).css({
+                    "z-index": 0
+                });
+                b.css({
+                    "z-index": 0
+                });
+                d.css({
+                    "z-index": 0
+                })
+            })
+        }
+        function w() {
+            re = /(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;
+            var a = n.val();
+            a = a.replace(re, "$1/$3/$5@").split("@")[0];
+            return new Date(a)
+        }
+        function F(a) {
+            var b = [];
+            b.x = a.offsetLeft;
+            for (b.y = a.offsetTop; a = a.offsetParent;) {
+                b.x += a.offsetLeft;
+                b.y += a.offsetTop
+            }
+            return b
+        }
+        c = jQuery.extend({
+            controlId: $(this).attr("id") + "Calendar",
+            speed: 200,
+            complement: true,
+            readonly: true,
+            upperLimit: NaN,
+            lowerLimit: NaN,
+            callback: function() {}
+        },
+        c || {});
+        var n = $(this);
+        if (c.readonly) {
+            n.attr("readonly", true);
+            n.bind("keydown",
+            function(e) {
+                // if (event.keyCode == 8) event.keyCode = 0
+                if(e.keyCode == 8){
+                    $(this).val('');
+                }
+            })
+        }
+        today = new Date;
+        var e = today.getFullYear(),
+        f = today.getMonth(),
+        q = today.getDate(),
+        k = "";
+        k += "<div id='" + c.controlId + "'class='calendar'>";
+        k += "  <div class='calMain'>";
+        k += "    <div class='calTitle'>";
+        k += "      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>" + e + "</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>" + (f + 1) + "</a>\u6708</span></span><a class='nextMonth'></a>";
+        k += "    </div>";
+        k += "    <div class='calContent'>";
+        k += "      <div class='reserve'>";
+        k += "      </div>";
+        k += "      <div class='enabled'>";
+        k += s(e, f);
+        k += "      </div>";
+        k += "    </div>";
+        k += "  </div>";
+        k += "</div>";
+        $("body").append(k);
+        r();
+        $("#" + c.controlId).find(".prevMonth").mouseup(function() {
+            if ($("#" + c.controlId).find(".enabled > .tabD").length > 0) {
+                var a = $("#" + c.controlId).find(".currentYear"),
+                b = $("#" + c.controlId).find(".currentMonth"),
+                d = s(Number(a.text()), Number(b.text()) - 2);
+                C(d);
+                if (Number(b.text()) != 1) b.text(Number(b.text()) - 1);
+                else {
+                    a.text(Number(a.text()) - 1);
+                    b.text("12")
+                }
+                r()
+            } else if ($("#" + c.controlId).find(".enabled > .tabM").length > 0) {
+                d = z(Number($("#" + c.controlId).find(".currentYear").text()) - 1);
+                C(d);
+                u();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) - 1)
+            } else if ($("#" + c.controlId).find(".enabled > .tabY").length > 0) {
+                d = A(Number($("#" + c.controlId).find(".currentYear").text()) - 10);
+                C(d);
+                v();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) - 10)
+            }
+        });
+        $("#" + c.controlId).find(".nextMonth").mouseup(function() {
+            if ($("#" + c.controlId).find(".enabled > .tabD").length > 0) {
+                var a = $("#" + c.controlId).find(".currentYear"),
+                b = $("#" + c.controlId).find(".currentMonth"),
+                d = s(Number(a.text()), Number(b.text()));
+                B(d);
+                if (Number(b.text()) != 12) b.text(Number(b.text()) + 1);
+                else {
+                    a.text(Number(a.text()) + 1);
+                    b.text("1")
+                }
+                r()
+            } else if ($("#" + c.controlId).find(".enabled > .tabM").length > 0) {
+                d = z(Number($("#" + c.controlId).find(".currentYear").text()) + 1);
+                B(d);
+                u();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) + 1)
+            } else if ($("#" + c.controlId).find(".enabled > .tabY").length > 0) {
+                d = A(Number($("#" + c.controlId).find(".currentYear").text()) + 10);
+                B(d);
+                v();
+                $("#" + c.controlId).find(".currentYear").text(Number($("#" + c.controlId).find(".currentYear").text()) + 10)
+            }
+        });
+        $("#" + c.controlId).find(".currentMonthText").mouseup(function() {
+            if (! ($("#" + c.controlId).find(".enabled > .tabM").length > 0)) {
+                var a = z(Number($("#" + c.controlId).find(".currentYear").text()));
+                E(a);
+                u()
+            }
+        });
+        $("#" + c.controlId).find(".currentYearText").mouseup(function() {
+            if (! ($("#" + c.controlId).find(".enabled > .tabY").length > 0)) {
+                var a = A(Number($("#" + c.controlId).find(".currentYear").text()));
+                E(a);
+                v()
+            }
+        });
+        n.bind("click focus",
+        function() {
+            if ($("#" + c.controlId + ":hidden").length != 0) {
+                $(".calendar").hide();
+                var a = $("#" + c.controlId),
+                b = F(n[0]),
+
+                /* === jQuery 1.5.1用到的 === */
+                // d = b.x + Number(n.attr("clientLeft")) + 2;
+                // b = b.y + Number(n.attr("clientTop")) + Number(n.attr("clientHeight")) - 1;
+
+                /* === jQuery 1.7.2用到的 === */
+                d = b.x;
+                b = Number(n.offset().top) + Number(n.outerHeight());
+
+                a.css({
+                    top: b + "px",
+                    left: d + "px"
+                });
+                d = $("#" + c.controlId).width();
+                b = $("#" + c.controlId).height();
+                a.width(0);
+                a.height(0);
+                a.show().animate({
+                    width: d + "px",
+                    height: b + "px"
+                },
+                c.speed);
+                a.bind("selectstart",
+                function() {
+                    return false
+                }).bind("mousedown",
+                function() {
+                    return false
+                })
+            }
+        });
+        $(document).mouseup(function(a) {
+            if ($(a.target).attr("id") != n.attr("id") && ($(a.target).parentsUntil("#" + c.controlId).parent().length == 0 || $(a.target).parentsUntil("#" + c.controlId).parent()[0].id != c.controlId)) $("#" + c.controlId).hide()
+        })
+    }
+});
 
 /* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
 /*
@@ -928,9 +1428,154 @@ xes.date = xes.date || {};
 	    return _week[_date.getDay()];
 	};
 
+	d.clock = function(day){
+	    var date = new Date();
+	    this.year = date.getFullYear();
+	    this.month = date.getMonth() + 1;
+	    this.date = date.getDate();
+	    this.day = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")[date.getDay()];
+	    this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+	    this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+	    this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+	};
 
 })();
 
+
+
+// var clock = new Clock();
+// function Clock() {
+//     var date = new Date();
+//     this.year = date.getFullYear();
+//     this.month = date.getMonth() + 1;
+//     this.date = date.getDate();
+//     this.day = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")[date.getDay()];
+//     this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+//     this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+//     this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+//     this.toString = function() {
+//         return "现在是:" + this.year + "年" + this.month + "月" + this.date + "日 " + this.hour + ":" + this.minute + ":" + this.second + " " + this.day;
+//     };
+//     this.toSimpleDate = function() {
+//         return this.year + "-" + this.month + "-" + this.date;
+//     };
+//     this.toDetailDate = function() {
+//         return this.year + "-" + this.month + "-" + this.date + " " + this.hour + ":" + this.minute + ":" + this.second;
+//     };
+//     this.display = function(ele) {
+//         var clock = new Clock();
+//         ele.html( clock.toString() ); 
+//         window.setTimeout(function() {
+//             clock.display(ele);
+//         }
+//         , 1000);
+//     };
+// }
+// clock.display($('#clock'));
+
+
+
+var oTime = $('.times');
+
+function _fresh(){
+    var starTime = new Date("2012/12/4,14:40:00");
+    var Times = {
+        y : starTime.getFullYear(),
+        ms : starTime.getMonth()+1,
+        d : starTime.getDay(),
+        h : starTime.getHours(),
+        mn: starTime.getMinutes(),
+        s : starTime.getSeconds()
+    }
+    var oDate = new Date();
+    
+    var leftsecond = parseInt( ( starTime.getTime() - oDate.getTime() )/1000 );
+    var oSec=Math.abs(parseInt((((leftsecond%86400000)%3600000)%60000)));
+    var oMin=parseInt(Math.abs(parseInt(oSec/60%60)));
+    var oHour=Math.abs(parseInt(oMin/60));
+    var oDays=Math.abs(parseInt(oHour/24));
+    var h = (Times.h + oHour)%24;
+    var m = (Times.mn + oMin)%60;
+    var s = (Times.s + oSec)%60;
+    //alert(oHour);
+    all = Times.y + '年' + Times.ms + '月' + Times.d   + '日' + h + '时' + m + '分' + s + '秒';
+    /*if(leftsecond >= 0){
+        oTime.text(oHour + '时' + leftsecond).css('background','yellow'); //'请等待>>>>>>>>'
+    }*/
+    if(leftsecond < 0 && leftsecond >- 360000000000000000000000000000){
+        oTime.text(all).css('background','green'); 
+    }
+    /*else if(leftsecond <= -4){
+        oTime.text(leftsecond).css('background','red');   //'OVER'
+    }*/
+}
+
+
+_fresh();
+var sh=setInterval(_fresh,100);
+
+
+/*
+ * XESUI
+ * Copyright 2012 xueersi.com All rights reserved.
+ */
+
+/*
+ * 表单验证
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var formVerify = formVerify || {};
+
+(function(){
+	var v = formVerify;
+	v.tips = $('.tips');
+	v.tipsError = '';
+	v.tipsSucceed = '';
+	v.checkEmpty = function(input){
+		var dom = $(input);
+		v.tips = dom.nextAll('.tips_'+dom.attr('id'));
+		if(dom.val() == ''){
+			v.setError(dom.attr('title') + '不能为空');
+		}else{
+			v.emptyError(input);
+		}
+	};
+
+	v.checkNumber = function(input){
+		var reg = '';
+		if(reg){
+			v.setTips('不是数字格式',input);
+		}else{
+			v.emptyTips(input);
+		}
+	};
+
+	v.setError = function(text,input){
+		if(input){
+			var dom = $(input);
+			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
+		}
+		v.tips.addClass('tips_error');
+		v.tips.text(text);
+	};
+
+	v.emptyError = function(input){
+		if(input){
+			var dom = $(input);
+			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
+		}
+		
+		v.tips.removeClass('tips_error');
+		v.tips.text('');
+	};
+
+})();
+
+
+xes.formVerify = formVerify;
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
@@ -944,6 +1589,7 @@ $(function () {
 		},500);
 	});
 
+	
 	
 	if(_date!=''){
 		xes.liveTime.createTimeList(_date,TYPE);
@@ -981,9 +1627,69 @@ $(function () {
 				$('#teacherName').text(teacher);
 			}
 	});
+
+	var btns = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	btns.blur(function(){
+		if($(this).attr('id') == 'courseName'){
+			checkLiveTitle();
+		}else{
+			xes.formVerify.checkEmpty(this);
+		}
+	});
 });
 
 
+function checkLiveForm(){
+	var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	inputs.each(function(){
+		if(this.id == 'courseName'){
+			checkLiveTitle();
+		}else{
+			xes.formVerify.checkEmpty(this);
+		}
+	});
 
+	if($('.tips_error').length > 0){
+		return false;
+	}else{
+		return true;
+	}
+}
 
+//检查直播名称
+function checkLiveTitle(){
+	var input = $('#courseName');
+	var val = input.val();
+	if(val == ''){
+		// return '不能为空';
+		xes.formVerify.setError('直播名称不能为空',input[0]);
+	}else{
+		if(val.length < 4 || val.length > 20){
+			// return '标题字数只能在4到20个字之间';
+			xes.formVerify.setError('标题字数只能在4到20个字之间',input[0]);
+		}else{
+			// return true;
+			xes.formVerify.emptyError(input[0]);
+		}
+	}
+}
 
+// function checkLiveGrade(){
+// 	var input = $('#gradeId');
+// 	var val = input.val();
+// 	if(val == ''){
+// 		input.nextAll('.tips').eq(0).addClass('tips_error').text('年级不能为空');
+// 	}else{
+// 		input.nextAll('.tips').eq(0).removeClass('tips_error').text('');
+// 	}
+// }
+
+// function checkLiveSubject(){
+// 	var input = $('#subjectId');
+// 	var val = input.val();
+// 	if(val == ''){
+// 		input.nextAll('.tips').eq(1).addClass('tips_error').text('年级不能为空');
+// 	}else{
+// 		input.nextAll('.tips').eq(1).removeClass('tips_error').text('');
+// 	}
+// }

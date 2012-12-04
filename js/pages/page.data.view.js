@@ -23,3 +23,8 @@
 ///import:xes.pages.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+$(function(){
+	$('.contentData tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
+	});
+});

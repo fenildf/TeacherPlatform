@@ -104,6 +104,7 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
+	console.log('id:'+id);
 	window.parent.refreshTabs(id);
 };
 
@@ -604,5 +605,8 @@ $(function () {
 			$('#termId').hide();
 			$('#termId').val(0);
 		}
+	});
+	$('.contentData tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
 });

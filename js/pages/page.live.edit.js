@@ -17,13 +17,15 @@
 
 ///import:xes.live.js///
 
-///import:ui/xes.ui.calendar.min.js///
+///import:ui/xes.ui.calendar.js///
 
 ///import:xes.ajax.js///
 
 ///import:xes.form.js///
 
 ///import:xes.date.js///
+
+///import:xes.form.verify.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
@@ -37,6 +39,7 @@ $(function () {
 		},500);
 	});
 
+	
 	
 	if(_date!=''){
 		xes.liveTime.createTimeList(_date,TYPE);
@@ -74,9 +77,49 @@ $(function () {
 				$('#teacherName').text(teacher);
 			}
 	});
+
+	var btns = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	btns.blur(function(){
+		if($(this).attr('id') == 'courseName'){
+			checkLiveTitle();
+		}else{
+			xes.formVerify.checkEmpty(this);
+		}
+	});
 });
 
 
+function checkLiveForm(){
+	var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	inputs.each(function(){
+		if(this.id == 'courseName'){
+			checkLiveTitle();
+		}else{
+			xes.formVerify.checkEmpty(this);
+		}
+	});
 
+	if($('.tips_error').length > 0){
+		return false;
+	}else{
+		return true;
+	}
+}
 
-
+//检查直播名称
+function checkLiveTitle(){
+	var input = $('#courseName');
+	var val = input.val();
+	if(val == ''){
+		// return '不能为空';
+		xes.formVerify.setError('直播名称不能为空',input[0]);
+	}else{
+		if(val.length < 4 || val.length > 20){
+			// return '标题字数只能在4到20个字之间';
+			xes.formVerify.setError('标题字数只能在4到20个字之间',input[0]);
+		}else{
+			// return true;
+			xes.formVerify.emptyError(input[0]);
+		}
+	}
+}

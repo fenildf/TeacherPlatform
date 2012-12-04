@@ -102,6 +102,7 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
+	console.log('id:'+id);
 	window.parent.refreshTabs(id);
 };
 
@@ -794,3 +795,8 @@ $(".ui_pages a").click(function(){
 
 /* =-=-=-=-=-=-=-=-=-=-=-= course_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
+$(function(){
+	$('.grid_item tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
+	});
+});

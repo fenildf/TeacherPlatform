@@ -22,8 +22,18 @@
 
 ///import:xes.pages.js///
 
+///import:xes.date.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= live_info.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-function liveCancel(liveId){
-	alert('已取消');
-}
+// function liveCancel(liveId){
+// 	alert('已取消');
+// }
+
+$(function(){
+	$('.grid_item tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
+	});
+
+	xes.date.clock.start($('#serverTime'));
+});

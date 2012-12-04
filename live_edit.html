@@ -11,94 +11,94 @@
 </head>
 
 <body style="position: static">
+	
 	<h1 class="ui_infor_title">
-		<span>编辑直播</span>
+		<span>创建直播</span>
 	</h1>
-
 	<div class="contentLive">
 		<dl>
-			<dt>直播名称2</dt>
+			<dt>直播名称</dt>
 			<dd>
-				<input size="" value="" type="text" class="input_text w_500" />
+				<input title="直播名称" size="" value="" class="input_text w_500" id="courseName" name="courseName" type="text">
+				<span class="tips"></span>
 			</dd>
 		</dl>
 		<dl>
 			<dt>所属年级</dt>
 			<dd>
-				<select >
-					<option value="">一年级</option>
-
-				</select>
+				<select title="所属年级" id="gradeId" name="gradeId">
+					<option value="">--年级--</option>
+																		<option value="2">一年级</option>
+													<option value="3">二年级 </option>
+													<option value="4">三年级</option>
+													<option value="5">四年级</option>
+													<option value="6">五年级</option>
+													<option value="7">六年级</option>
+													<option value="8">初一</option>
+													<option value="9">初二</option>
+													<option value="10">初三</option>
+													<option value="11">高一</option>
+													<option value="12">高二</option>
+													<option value="13">高三</option>
+													<option value="19">小升初</option>
+													<option value="20">中考</option>
+													<option value="21">高考</option>
+													<option value="22">留学</option>
+															</select>
 				所属学科
-				<select >
-					<option value="">一年级</option>
-
-				</select>
+				<select title="所属学科" id="subjectId" name="subjectId">
+					<option value="">--学科--</option>
+																		<option value="1">语文</option>
+													<option value="2">数学</option>
+													<option value="3">英语</option>
+													<option value="4">物理</option>
+													<option value="5">化学</option>
+													<option value="6">生物</option>
+													<option value="12">综合</option>
+													<option value="14">理综</option>
+													<option value="18">全科</option>
+													<option value="19">讲座</option>
+															</select>
+				<span class="tips"></span>
 			</dd>
 		</dl>
 		<dl>
 			<dt>直播类型</dt>
 			<dd>
-				邀请
-			</dd>
+				讲座			</dd>
 		</dl>
 		<dl>
 			<dt>效果与大纲</dt>
 			<dd>
-				<input size="" value="（本区域是文本编辑器）" type="text" class="input_text w_500" style="height:100px;"/>
+				<textarea title="效果与大纲" class="input_text w_500" style="height:100px;" id="description" name="description"></textarea>
+				<span class="tips"></span>
 			</dd>
 		</dl>
 		<dl>
 			<dt>直播排期</dt>
 			<dd>
-				<input id="liveDate" size="" value="2012-12-22" type="text" class="input_text w_215"/>
+				<input title="直播排期" readonly="readonly" size="" value="" class="input_text w_215" id="liveDate" name="liveDate" type="text">
+				<span class="tips"></span>
 			</dd>
 		</dl>
-		<dl id="liveTime">
+		<dl style="display: block;" id="liveTime">
 			<dt>&nbsp;</dt>
 			<dd>
 				<ul>
-					<li class="title">时间/星期三</li>
+					<li class="title" id="time_week">时间/星期三</li>
 				</ul>
 				<ul id="liveTimeList" class="content">
-					<!-- <li time="8:00" class="optional"><span class="time">8:00</span><span class="name">--</span></li>
-					<li time="8:30" class=""><span class="time">8:30</span><span class="name">王洁</span></li>
-					<li time="9:00" class="optional"><span class="time">9:00</span><span class="name">--</span></li>
-					<li time="9:30" class="optional"><span class="time">9:30</span><span class="name">--</span></li>
-					<li time="10:00" class=""><span class="time">10:00</span><span class="name">许强</span></li>
-					<li time="10:30" class="optional"><span class="time">10:30</span><span class="name">--</span></li>
-					<li time="11:00" class=""><span class="time">11:00</span><span class="name">王洁</span></li>
-					<li time="11:30" class="optional"><span class="time">11:30</span><span class="name">--</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:30" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="13:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="13:30" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="14:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="14:30" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="15:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="15:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="16:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="16:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="17:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="17:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="18:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li>
-					<li time="12:00" class=""><span class="time">12:00</span><span class="name">王洁</span></li> -->
 				</ul>
 			</dd>
 		</dl>
 		<dl>
 			<dt>&nbsp;</dt>
 			<dd>
-				<a href="#" class="btn_ancel btn_prev">保存</a>
-				<input type="hidden" id="liveTeacher" value="李鹏" />
-				<input type="hidden" id="liveTimeStartInput" />
-				<input type="hidden" id="liveTimeEndInput" />
+				<a href="###" class="btn_ancel btn_prev" onclick="submitAdd();">保存</a>
+				<input id="liveTimeStartInput" name="startTime" value="" type="hidden">
+				<input id="liveTimeEndInput" name="endTime" value="" type="hidden">
+				<input id="LiveType" name="LiveType" value="2" type="hidden">
+				<span class="tips"></span>
 			</dd>
 		</dl>
 	</div>
@@ -110,11 +110,11 @@
 		</li>
 		<li class="teacneme">
 			<span class="laber">教师名称</span>
-			<span>戴琳</span>
+			<span id="teacherName">戴琳</span>
 		</li>
 		<li class="teactime">
 			<span class="laber">开始时间</span>
-			<span>2012/11/09(周四)</span>
+			<span id="liveDateStart">2012/11/09(周四)</span>
 			<span class="right">
 				<select id="liveTimeStart" class="live_time_select">
 					<option value="">12:00</option>
@@ -123,7 +123,7 @@
 		</li>
 		<li class="teactime">
 			<span class="laber">结束时间</span>
-			<span>2012/11/09(周四)</span>
+			<span id="liveDateEnd">2012/11/09(周四)</span>
 			<span class="right">
 				<select id="liveTimeEnd" class="live_time_select">
 					<option value="">12:00</option>
@@ -132,12 +132,51 @@
 		</li>
 	</ul>
 	<div id="liveTimeButton" style="width:196px;margin:10px auto;overflow:hidden;">
-		<a href="#" class="btn btn_submit">确定</a>
-		<a href="#" class="btn btn_cancel">取消</a>
+		<a href="javascript:void(0);" class="btn btn_submit">确定</a>
+		<a href="javascript:void(0);" class="btn btn_cancel">取消</a>
 	</div>
 </div>
 
 <script type="text/javascript" src="http://js03.xesimg.com/import/import.live.edit.js"></script>
+<script type="text/javascript">
+	//提交编辑
+	function submitAdd(){
+		var a = checkLiveForm();
+		if(!a){
+			return ;
+		}
+		var _courseName = $('#courseName').val();
+		var _gradeId 	= $('#gradeId').val();
+		var _subjectId 	= $('#subjectId').val();
+		var _LiveType 	= $('#LiveType').val();
+		var _description= $('#description').val();
+		var _liveDate 	= $('#liveDate').val();
+		var _startTime  = $('#liveTimeStartInput').val();
+		var _endTime 	= $('#liveTimeEndInput').val();
+		var params = 'courseName='+_courseName+'&gradeId='+_gradeId+'&subjectId='+_subjectId+'&type='+_LiveType+'&description='+_description+'&liveDate='+_liveDate+'&startTime='+_startTime+'&endTime='+_endTime;
+		var url = "/liveCourses/ajaxAddCourseLive/";
+		$.ajax({
+			url :url,
+			type:'post',
+			dataType:'json',
+			data:params,
+			success: function (data) {
+				if(data.sign == 0){
+					alert(data.msg);
+				}else{
+					alert(data.msg);
+//					window.location.href = '/liveCourses/liveCourseList/';
+					goTab('/liveCourses/liveCourseList/', '直播列表', 'menu_2_2_1', true);
+				}
+			},
+			error: function() {
+				alert('数据读取错误..');
+			}
+		});	
+		
+	}
+</script>
 
+<div style="display: none;" id="liveDateCalendar" class="calendar">  <div class="calMain">    <div class="calTitle">      <a class="prevMonth"></a><span class="t_date"><span class="currentYearText"><a class="currentYear">2012</a>年</span><span class="currentMonthText"><a class="currentMonth">12</a>月</span></span><a class="nextMonth"></a>    </div>    <div class="calContent">      <div class="reserve">      </div>      <div class="enabled"><table class="tabD"><tbody><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr><tr><td><a class="prevD  ">25</a></td><td><a class="prevD  ">26</a></td><td><a class="prevD  ">27</a></td><td><a class="prevD  ">28</a></td><td><a class="prevD  ">29</a></td><td><a class="prevD  ">30</a></td><td><a>1</a></td></tr><tr><td><a>2</a></td><td><a>3</a></td><td><a class=" current">4</a></td><td><a>5</a></td><td><a>6</a></td><td><a>7</a></td><td><a>8</a></td></tr><tr><td><a>9</a></td><td><a>10</a></td><td><a>11</a></td><td><a>12</a></td><td><a>13</a></td><td><a>14</a></td><td><a>15</a></td></tr><tr><td><a>16</a></td><td><a>17</a></td><td><a>18</a></td><td><a>19</a></td><td><a>20</a></td><td><a>21</a></td><td><a>22</a></td></tr><tr><td><a>23</a></td><td><a>24</a></td><td><a>25</a></td><td><a>26</a></td><td><a>27</a></td><td><a>28</a></td><td><a>29</a></td></tr><tr><td><a>30</a></td><td><a>31</a></td><td><a class="nextD  ">1</a></td><td><a class="nextD  ">2</a></td><td><a class="nextD  ">3</a></td><td><a class="nextD  ">4</a></td><td><a class="nextD  ">5</a></td></tr></tbody></table>      </div>    </div>  </div></div>
 </body>
 </html>

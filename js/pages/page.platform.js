@@ -246,7 +246,7 @@ var getActiveTabs = function(fn){
 /**
  * 刷新标签
  */
-var refreshContent = xes.platform.menu.refreshContent;
+var refreshTabs = xes.platform.menu.refreshContent;
 // var refreshTabs = function(id, fn){
 // 	var _con = $('#content_'+id);
 // 	var _src = _con.attr('src');

@@ -16,3 +16,9 @@
 
 ///import:xes.form.js///
 
+$(function(){
+	setTimeout(function(){
+		console.log(KE.scriptPath);	
+	},200);
+	
+});

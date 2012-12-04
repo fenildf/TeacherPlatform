@@ -103,6 +103,7 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
+	console.log('id:'+id);
 	window.parent.refreshTabs(id);
 };
 
@@ -123,5 +124,5 @@ var initTabBtn = function(){
 /* =-=-=-=-=-=-=-=-=-=-=-= 404.html =-=-=-=-=-=-=-=-=-=-=-=-= */	
 // 跳出iframe
 if (self.location != top.location) {
-    top.location = self.location;
+    // top.location = self.location;
 }

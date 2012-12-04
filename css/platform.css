@@ -142,7 +142,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 #main .form_text_input input {width:215px;height:20px;border: 0;color: #666;}
 #main .form_text_input .blackFont {float:left;padding-left:10px;}
 #main .form_text_input input.code_input {width:119px;float: left;}
-#main .form_text_input .err_tips_infor {font-size: 14px;color: #cc0000;position: absolute;z-index: 10;top:26px;left:112px;}
+#main .form_text_input .err_tips_infor {font-size: 14px;color: #cc0000;position: absolute;z-index: 10;bottom:124px;left:112px;}
 /*登录页 start*/
 
 
@@ -174,3 +174,5 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 #content {height: 100%;padding-bottom:10px}
 
 
+.tips {font-size: 12px;}
+.tips_error {color:#c00}
