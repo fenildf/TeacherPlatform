@@ -84,7 +84,6 @@ $(function(){
 		
 	});
 	//头部搜索
-	$('#headSearch_submit')
 	$('#headSearch_submit').click(function(){
 		$(this).parents('form')[0].onSubmit = false;
 		var key = $('#headSearch_form').find('input.input_text_ui');
@@ -97,6 +96,19 @@ $(function(){
 		headSearch();
 	});
 	$('#headSearch_select').find('li a').click(function(){
+		var input = $('#headSearch_form').find('.input_text_ui');
+		var text = $(this).text();
+		if(text == '学员'){
+			input.val('学员名称');
+			xes.platform.tips('学员名称');
+		}else{
+			input.val('课程名称');
+			xes.platform.tips('课程名称');
+		}
+
+		// if(!$(this).parent().hasClass('ui-select-hover')){
+		// 	$('#headSearch_form').find('.input_text_ui').val('');
+		// }
 		$('#headSearch_type').val($(this).text());
 	});
 	
@@ -126,8 +138,8 @@ function saveUserName(){
 		var baseUser = $.base64.encode(user);
 		//替换等号为下划线
 		baseUser = baseUser.replace(/=/g,'_');
-		$.cookie('platform_u',baseUser);
-		$.cookie('platform_n',username);
+		$.cookie('platform_u',baseUser, {expires:7});
+		$.cookie('platform_n',username, {expires:7});
 	}
 }
 /**

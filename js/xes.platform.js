@@ -21,14 +21,19 @@ xes.platform = xes.platform || {};
 	/**
 	 * input表单提示
 	 */
-	PF.tips = function(){
-		$("input.input_text_ui").focus(function() {
-	        if ($(this).val() == this.defaultValue) {
+	PF.tips = function(val){
+		// console.log(val);
+		var a = val;
+		$("input.input_text_ui").unbind('focus').focus(function() {
+			var defaultValue = a || this.defaultValue;
+			var val = $(this).val();
+	        if (val == defaultValue) {
 	            $(this).val("");
 	        }
-	    }).blur(function() {
+	    }).unbind('blur').blur(function() {
+	    	var defaultValue = a || this.defaultValue;
 	        if ($(this).val() == '') {
-	            $(this).val(this.defaultValue);
+	            $(this).val(defaultValue);
 	        }
 	    });
 	};

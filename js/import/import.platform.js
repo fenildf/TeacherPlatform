@@ -275,6 +275,8 @@ var tabs = tabs || {};
 		 */
 		if(config.isCookie){
 			t.isCookie = true;
+			//7天后过期
+			t.cookieExpires = 7;
 			var cookieName = $.cookie('platform_u');
 			if(cookieName){
 				t.o.cookieName = cookieName;
@@ -491,10 +493,11 @@ var tabs = tabs || {};
 	 */
 	t.saveList = function(){
 		// var listName = t.o.cookieName+'tabs';
-		var id = this.getList();
+		var ids = this.getList();
 		// var user = $.cookie('platform_u');
 		var tabsName = t.o.cookieName+'tabs';
-		$.cookie(tabsName,id);
+		// console.log(t.cookieExpires);
+		$.cookie(tabsName,ids, {expires:t.cookieExpires});
 		// $.cookie(user+'history',id);
 		// t.o.cookiePrefix = user;
 	};	
@@ -564,7 +567,7 @@ var tabs = tabs || {};
 			cookielist.splice(cookielist.length-1,1);				
 		}
 		if(cookiename){
-			$.cookie(cookiename,cookielist);	
+			$.cookie(cookiename,cookielist, {expires:t.cookieExpires});	
 		}
 		return cookielist;
 	};
@@ -575,10 +578,10 @@ var tabs = tabs || {};
 		var activeName = t.o.cookieName+'active';
 		var act = $.cookie(activeName);
 		if(act){
-			$.cookie(activeName,id);
+			$.cookie(activeName,id, {expires:t.cookieExpires});
 		}else{
 			var _id = t.o.active.attr('id');
-			$.cookie(activeName,_id);
+			$.cookie(activeName,_id, {expires:t.cookieExpires});
 		}
 	};
 
@@ -783,14 +786,19 @@ xes.platform = xes.platform || {};
 	/**
 	 * input表单提示
 	 */
-	PF.tips = function(){
-		$("input.input_text_ui").focus(function() {
-	        if ($(this).val() == this.defaultValue) {
+	PF.tips = function(val){
+		// console.log(val);
+		var a = val;
+		$("input.input_text_ui").unbind('focus').focus(function() {
+			var defaultValue = a || this.defaultValue;
+			var val = $(this).val();
+	        if (val == defaultValue) {
 	            $(this).val("");
 	        }
-	    }).blur(function() {
+	    }).unbind('blur').blur(function() {
+	    	var defaultValue = a || this.defaultValue;
 	        if ($(this).val() == '') {
-	            $(this).val(this.defaultValue);
+	            $(this).val(defaultValue);
 	        }
 	    });
 	};
@@ -1234,6 +1242,15 @@ jQuery.base64 = {
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
+ * @example:
+    example $.cookie(’the_cookie’, ‘the_value’);
+    设置cookie的值
+    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
+    新建一个cookie 包括有效期 路径 域名等
+    example $.cookie(’the_cookie’, ‘the_value’);
+    新建cookie
+    example $.cookie(’the_cookie’, null);
+    删除一个cookie
  */
 
 jQuery.cookie = function(name, value, options) {  
@@ -1342,7 +1359,6 @@ $(function(){
 		
 	});
 	//头部搜索
-	$('#headSearch_submit')
 	$('#headSearch_submit').click(function(){
 		$(this).parents('form')[0].onSubmit = false;
 		var key = $('#headSearch_form').find('input.input_text_ui');
@@ -1355,6 +1371,19 @@ $(function(){
 		headSearch();
 	});
 	$('#headSearch_select').find('li a').click(function(){
+		var input = $('#headSearch_form').find('.input_text_ui');
+		var text = $(this).text();
+		if(text == '学员'){
+			input.val('学员名称');
+			xes.platform.tips('学员名称');
+		}else{
+			input.val('课程名称');
+			xes.platform.tips('课程名称');
+		}
+
+		// if(!$(this).parent().hasClass('ui-select-hover')){
+		// 	$('#headSearch_form').find('.input_text_ui').val('');
+		// }
 		$('#headSearch_type').val($(this).text());
 	});
 	
@@ -1384,8 +1413,8 @@ function saveUserName(){
 		var baseUser = $.base64.encode(user);
 		//替换等号为下划线
 		baseUser = baseUser.replace(/=/g,'_');
-		$.cookie('platform_u',baseUser);
-		$.cookie('platform_n',username);
+		$.cookie('platform_u',baseUser, {expires:7});
+		$.cookie('platform_n',username, {expires:7});
 	}
 }
 /**

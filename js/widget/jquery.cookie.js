@@ -8,6 +8,15 @@
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
+ * @example:
+    example $.cookie(’the_cookie’, ‘the_value’);
+    设置cookie的值
+    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
+    新建一个cookie 包括有效期 路径 域名等
+    example $.cookie(’the_cookie’, ‘the_value’);
+    新建cookie
+    example $.cookie(’the_cookie’, null);
+    删除一个cookie
  */
 
 jQuery.cookie = function(name, value, options) {  
