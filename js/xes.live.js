@@ -170,9 +170,24 @@ xes.liveTime = xes.liveTime || {};
 
 			var ends = end.split(':');
 			 //把08变为8
-			var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
-			var endtime = ends[1]=='30' ? parseInt(hour)+1 + ':00' : hour + ':30';
-			
+			// var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
+			var hour = ends[0];
+			var minu = ends[1];
+			// console.log(hour);
+			var hour_number = Number(hour);
+			var minu_number = '';
+			if(minu == '30'){
+				hour_number = hour_number + 1;
+				minu_number = ':00';
+			}else{
+				hour_number = Number(hour);
+				minu_number = ':30';
+			}
+			hour_number = hour_number < 10 ? '0'+hour_number : hour_number;
+
+			// var endtime = ends[1]=='30' ? Number(hour)+1 + ':00' : hour + ':30';
+			var endtime = hour_number + minu_number;
+// console.log(endtime);
 			html += '<li time="' + m.times + '" endtime="' + endtime + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="endtime">&nbsp;-- '+ endtime +'</span><span class="name">' + teacher + '</span></li>';	
 		});
 		$('#liveTime').show();

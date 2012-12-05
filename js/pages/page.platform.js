@@ -29,7 +29,6 @@ if (self.location != top.location) {
 xes.platform.menu.toggle().click();
 xes.platform.tips();
 // var cookieUser = getUserName();
-// console.log(cookieUser);
 saveUserName();
 /*
  * 将tabs注册到xes对象中
@@ -49,7 +48,6 @@ xes.ui.add( 'tabs', tabs , function(tips){
 		// ,callback : function(act){
 			//act返回的是当前激活的标签对象
 			// var url = act.find('a').attr('url');
-			// console.log(url);
 			// xes.platform.setMainHeight(false, url);
 		// }
 	});
@@ -57,7 +55,6 @@ xes.ui.add( 'tabs', tabs , function(tips){
 
 $(window).resize(function(){
 	var url = $('#content iframe:visible').attr('src');
-	// console.log(url);
 	setIframeHeight();
 });
 $(function(){
@@ -86,14 +83,18 @@ $(function(){
 		});
 		
 	});
-
+	//头部搜索
+	$('#headSearch_submit')
 	$('#headSearch_submit').click(function(){
-		var tp = $('#headSearch_type').val(),
-			vl = $('#headSearch_value');
-		var url = tp == '课程' ? 'course_list.html' : 'student.html',
-			tit = tp + '列表',
-			id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
-		openTabs(url, tit, id);
+		$(this).parents('form')[0].onSubmit = false;
+		var key = $('#headSearch_form').find('input.input_text_ui');
+		var val = key.val();
+		if(val != key[0].defaultValue){
+			$('#headSearch_value').val(val);
+		}else{
+			$('#headSearch_value').val('');
+		}
+		headSearch();
 	});
 	$('#headSearch_select').find('li a').click(function(){
 		$('#headSearch_type').val($(this).text());
@@ -120,12 +121,11 @@ function saveUserName(){
 	var username = $('#header .ui_user_list li:first').text();
 	username = $.trim(username);
 
-	// console.log(user);
 	if(user){
 		$.base64.is_unicode = false;
 		var baseUser = $.base64.encode(user);
 		//替换等号为下划线
-		baseUser = baseUser.replace('=','_');
+		baseUser = baseUser.replace(/=/g,'_');
 		$.cookie('platform_u',baseUser);
 		$.cookie('platform_n',username);
 	}
@@ -139,10 +139,25 @@ function getUserName(){
 		saveUserName();
 	}
 	//把原来替换后的等号还原
-	u = u.replace('_','=');
+	u = u.replace(/_/g,'=');
 	u = $.base64.decode(u);
-	// console.log(u);
 	return u;
+}
+
+function headSearch(id){
+	// $(this).parents('form')[0].onSubmit = false;
+	var tp = $('#headSearch_type').val(),
+		val = $('#headSearch_value').val();
+	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
+
+	var d = xes.platform.menu.getItem(id);
+	openTabs(d.url, d.name, id);
+	xes.platform.findChild(id, '.search_key', function(dom){
+		if(typeof dom != 'string'){
+			dom.val(val);
+			dom.parents('form#listSerch').submit();
+		}
+	});
 }
 /** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
 
@@ -153,14 +168,19 @@ var setIframeHeight = xes.platform.setMainHeight;
  * obj = {id,title,content,url,fixed}
  * 如果在sidebar中已经存在的了，则直接调用
  */
-var createTabs = function(obj){
-	var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
-	if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
-		_menu.parent().click();
-	}else{
-		//根据左侧菜单创建tabs标签
-		xes.ui.tabs.create(obj).click(obj.id);
-	}	
+var createTabs = function(obj, fn){
+	if(obj.url){
+		var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
+		if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
+			_menu.parent().click();
+		}else{
+			//根据左侧菜单创建tabs标签
+			xes.ui.tabs.create(obj).click(obj.id);
+		}
+		if(fn){
+			fn(obj.id);
+		}
+	}
 };
 
 
@@ -174,7 +194,7 @@ var createTabs = function(obj){
    @param dom : 可以是dom对象，也可以是url路径；
    @param text: 如果第一个参数是url，则第二个是标签的标题
  */
-var openTabs = function(dom, text, id){
+var openTabs = function(dom, text, id, fn){
 	var _arg = arguments;
 	if(_arg.length > 0){
 		var _url,_text,_id,_content;
@@ -196,7 +216,7 @@ var openTabs = function(dom, text, id){
 	}
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
 
-	createTabs(_d);
+	createTabs(_d, fn);
 
 };
 /**

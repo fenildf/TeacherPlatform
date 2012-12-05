@@ -243,13 +243,11 @@ var tabs = tabs || {};
 	 * 返回已打开的标签列表
 	 */
 	t.getList = function(){
-		// console.log(t.o.item);
 		var listDom = t.o.wrap.find('li');
 		var listID = [];
 		listDom.each(function(){
 			listID.push($(this).attr('id'));
 		});
-		// console.log(listID);
 		return listID;
 	};
 
@@ -301,7 +299,6 @@ var tabs = tabs || {};
 	 * upload: 2012-12-2 判断参数是索引还是id
 	 */
 	t.setActive = function(index){
-		// console.log(typeof index);
 		if(typeof index == 'number'){
 			var _act = index >= 0 ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
 			var _id = _act.attr('id');	
@@ -324,7 +321,6 @@ var tabs = tabs || {};
 			 * 如果不在左侧列表中且不等于首页的标签，则不存储
 			 */
 			var data = t.getTabData(_id.replace('tab_',''));
-			
 			if(_id == 'tab_index' || data.id){
 				t.saveActive(_id);
 			}
@@ -340,7 +336,6 @@ var tabs = tabs || {};
 	 * 存储在base64加密用户名字段内
 	 */
 	t.saveList = function(){
-		// console.log(111);
 		// var listName = t.o.cookieName+'tabs';
 		var id = this.getList();
 		// var user = $.cookie('platform_u');
@@ -368,11 +363,9 @@ var tabs = tabs || {};
 			// $.cookie(historyName,history);
 		}else{
 			var _act = t.o.active.attr('id');
-			// console.log(_act);
 			history = _act !='tab_index' ? 'tab_index,'+_act : 'tab_index';
 			// $.cookie(historyName,_id);
 		}
-		// console.log(history);
 		$.cookie(historyName,history);
 	};
 	/**
@@ -441,7 +434,6 @@ var tabs = tabs || {};
 	t.getCookieList = function(){
 		var cookieName = t.o.cookieName;
 		var listID = $.cookie(cookieName+'tabs');
-		// console.log(listID);
 		var act = $.cookie(cookieName+'active');
 		if(listID){
 			$.each(listID.split(','),function(i,id){
@@ -468,24 +460,22 @@ var tabs = tabs || {};
 	 * 设置之前激活的标签
 	 */
 	// t.setOld = function(index){
-	// 	// console.log('o: ' + t.old);
 	// 	t.old = index ? index : t.getIndex(t.o.wrap.find('li.' + t.cls.active)[0]);
-	// 	// console.log('-------------');
-	// 	// console.log('n: ' + t.old);
 	// };
 
 	/*
 	 * 设置当前要显示的content内容(还未在页面中存在的内容)
 	 */
 	t.setContent = function(id,url){
+		if(id){
+			var _html = '<iframe id="content_' + id + '" name="content_' + id + '" frameborder="no" allowtransparency="yes" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
+			var _is = t.o.contentWrap.find('#content_'+id);
 
-		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" frameborder="no" allowtransparency="yes" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
-		var _is = t.o.contentWrap.find('#content_'+id);
-
-		if(_is.length == 0){
-			t.o.contentWrap.append(_html);
+			if(_is.length == 0){
+				t.o.contentWrap.append(_html);
+			}
+			t.contentShow(id);
 		}
-		t.contentShow(id);
 	};
 
 	/**

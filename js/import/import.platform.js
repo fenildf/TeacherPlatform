@@ -397,13 +397,11 @@ var tabs = tabs || {};
 	 * 返回已打开的标签列表
 	 */
 	t.getList = function(){
-		// console.log(t.o.item);
 		var listDom = t.o.wrap.find('li');
 		var listID = [];
 		listDom.each(function(){
 			listID.push($(this).attr('id'));
 		});
-		// console.log(listID);
 		return listID;
 	};
 
@@ -455,7 +453,6 @@ var tabs = tabs || {};
 	 * upload: 2012-12-2 判断参数是索引还是id
 	 */
 	t.setActive = function(index){
-		// console.log(typeof index);
 		if(typeof index == 'number'){
 			var _act = index >= 0 ? t.o.wrap.find('li').eq(index) : t.o.wrap.find('li:last');
 			var _id = _act.attr('id');	
@@ -478,7 +475,6 @@ var tabs = tabs || {};
 			 * 如果不在左侧列表中且不等于首页的标签，则不存储
 			 */
 			var data = t.getTabData(_id.replace('tab_',''));
-			
 			if(_id == 'tab_index' || data.id){
 				t.saveActive(_id);
 			}
@@ -494,7 +490,6 @@ var tabs = tabs || {};
 	 * 存储在base64加密用户名字段内
 	 */
 	t.saveList = function(){
-		// console.log(111);
 		// var listName = t.o.cookieName+'tabs';
 		var id = this.getList();
 		// var user = $.cookie('platform_u');
@@ -522,11 +517,9 @@ var tabs = tabs || {};
 			// $.cookie(historyName,history);
 		}else{
 			var _act = t.o.active.attr('id');
-			// console.log(_act);
 			history = _act !='tab_index' ? 'tab_index,'+_act : 'tab_index';
 			// $.cookie(historyName,_id);
 		}
-		// console.log(history);
 		$.cookie(historyName,history);
 	};
 	/**
@@ -595,7 +588,6 @@ var tabs = tabs || {};
 	t.getCookieList = function(){
 		var cookieName = t.o.cookieName;
 		var listID = $.cookie(cookieName+'tabs');
-		// console.log(listID);
 		var act = $.cookie(cookieName+'active');
 		if(listID){
 			$.each(listID.split(','),function(i,id){
@@ -622,24 +614,22 @@ var tabs = tabs || {};
 	 * 设置之前激活的标签
 	 */
 	// t.setOld = function(index){
-	// 	// console.log('o: ' + t.old);
 	// 	t.old = index ? index : t.getIndex(t.o.wrap.find('li.' + t.cls.active)[0]);
-	// 	// console.log('-------------');
-	// 	// console.log('n: ' + t.old);
 	// };
 
 	/*
 	 * 设置当前要显示的content内容(还未在页面中存在的内容)
 	 */
 	t.setContent = function(id,url){
+		if(id){
+			var _html = '<iframe id="content_' + id + '" name="content_' + id + '" frameborder="no" allowtransparency="yes" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
+			var _is = t.o.contentWrap.find('#content_'+id);
 
-		var _html = '<iframe id="content_' + id + '" name="content_' + id + '" frameborder="no" allowtransparency="yes" width="100%" scrolling="no" height="100%" class="iframe_content ' + t.cls.main + '" src="' + url + '"></iframe>';
-		var _is = t.o.contentWrap.find('#content_'+id);
-
-		if(_is.length == 0){
-			t.o.contentWrap.append(_html);
+			if(_is.length == 0){
+				t.o.contentWrap.append(_html);
+			}
+			t.contentShow(id);
 		}
-		t.contentShow(id);
 	};
 
 	/**
@@ -874,7 +864,6 @@ xes.platform = xes.platform || {};
 	};
 	PF.menu.refreshContent = function(id, fn){
 		var _con = $('#content_'+id);
-		// console.log('con: '+id);
 		if(_con.length > 0){
 			var _src = _con.attr('src');
 			_con.attr('src',_src);
@@ -906,6 +895,23 @@ xes.platform = xes.platform || {};
 		}
 	};
 	
+	/**
+	 * 根据id获取内容
+	 * @param id {string} 
+	 * @param fn {function}
+	 * @return d {object} : d = {name:'',url:''};
+	 */
+	PF.menu.getItem = function(id,fn){
+		var dom = $('#sidebar li#'+id);
+		var d = {};
+		d.url = dom.find('a').attr('url');
+		d.name = dom.find('a').attr('title');
+		if(fn){
+			fn(d);
+		}else{
+			return d;	
+		}
+	};
 
 	/**
 	 * 左侧地址列表
@@ -1012,38 +1018,56 @@ xes.platform = xes.platform || {};
 				// var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
 				var _height = (_h + 10 < _mainMinHeight) ? _mainMinHeight  : _h + 10;
 
-				// console.log('h:'+_h);
-				// console.log('w:'+_winHeight);
-				// console.log('head:'+_headHeight);
-				// console.log('m:'+_mainMinHeight);
-				// console.log('-------------------');
 				_ifr.height(_height);
 				$('#content').height(_height);
 		},200);
 
-
-		// if(url){
-		// 	setTimeout(function(){
-		// 		var _ifr = $('#content').find('iframe[src="' + url + '"]'),
-		// 			_h = _ifr.contents().outerHeight();
-		// 			console.log(url);
-		// 			var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
-		// 			_ifr.height(_h);
-		// 			$('#content').height(_h);
-		// 	},200);
-
-		// }else{
-
-		// }
-
-
-
-
-
-
 	};
-
-
+	/**
+	 * 查找iframe里面的内容
+	 * @param ID {string} iframe id
+	 * @param expr {jQuery Object} 用于筛选元素的jQuery表达式
+	 * @callback {function} 成功后的回调函数；
+	 * @return {jQuery Object} 查到后返回该对象
+	 * @example:
+		 xes.platform.findChild(id, '.search_key', function(dom){
+			if(typeof dom != 'string'){
+				dom.val(val);
+				console.log(dom.val());	
+			}
+		});
+	 * 
+	 * 如果有回调函数fn则执行fn，并且fn的返回值为找到的元素，或者错误信息
+	 * 如果没有回调函数，则直接返回找到的元素或者错误信息；
+	 */
+	PF.findChild = function(ID, expr, fn){
+		var iframe = $('iframe#content_'+ID);
+		if(iframe.length > 0){
+			var i = 0;
+			var a = setInterval(function(){
+				var content = iframe.contents();
+				var dom = content.find(expr);
+				if(dom.length > 0){
+					clearInterval(a);
+					if(fn){
+						fn(dom);
+					}else{
+						return dom;
+					}
+				}else{
+					if(i >= 100){
+						clearInterval(a);
+						if(fn){
+							fn('查询超时');
+						}else{
+							return '查询超时';
+						}
+					}
+					i++;
+				}
+			},100);
+		}
+	};
 })();
 
 
@@ -1263,7 +1287,6 @@ if (self.location != top.location) {
 xes.platform.menu.toggle().click();
 xes.platform.tips();
 // var cookieUser = getUserName();
-// console.log(cookieUser);
 saveUserName();
 /*
  * 将tabs注册到xes对象中
@@ -1283,7 +1306,6 @@ xes.ui.add( 'tabs', tabs , function(tips){
 		// ,callback : function(act){
 			//act返回的是当前激活的标签对象
 			// var url = act.find('a').attr('url');
-			// console.log(url);
 			// xes.platform.setMainHeight(false, url);
 		// }
 	});
@@ -1291,7 +1313,6 @@ xes.ui.add( 'tabs', tabs , function(tips){
 
 $(window).resize(function(){
 	var url = $('#content iframe:visible').attr('src');
-	// console.log(url);
 	setIframeHeight();
 });
 $(function(){
@@ -1320,14 +1341,18 @@ $(function(){
 		});
 		
 	});
-
+	//头部搜索
+	$('#headSearch_submit')
 	$('#headSearch_submit').click(function(){
-		var tp = $('#headSearch_type').val(),
-			vl = $('#headSearch_value');
-		var url = tp == '课程' ? 'course_list.html' : 'student.html',
-			tit = tp + '列表',
-			id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
-		openTabs(url, tit, id);
+		$(this).parents('form')[0].onSubmit = false;
+		var key = $('#headSearch_form').find('input.input_text_ui');
+		var val = key.val();
+		if(val != key[0].defaultValue){
+			$('#headSearch_value').val(val);
+		}else{
+			$('#headSearch_value').val('');
+		}
+		headSearch();
 	});
 	$('#headSearch_select').find('li a').click(function(){
 		$('#headSearch_type').val($(this).text());
@@ -1354,12 +1379,11 @@ function saveUserName(){
 	var username = $('#header .ui_user_list li:first').text();
 	username = $.trim(username);
 
-	// console.log(user);
 	if(user){
 		$.base64.is_unicode = false;
 		var baseUser = $.base64.encode(user);
 		//替换等号为下划线
-		baseUser = baseUser.replace('=','_');
+		baseUser = baseUser.replace(/=/g,'_');
 		$.cookie('platform_u',baseUser);
 		$.cookie('platform_n',username);
 	}
@@ -1373,10 +1397,25 @@ function getUserName(){
 		saveUserName();
 	}
 	//把原来替换后的等号还原
-	u = u.replace('_','=');
+	u = u.replace(/_/g,'=');
 	u = $.base64.decode(u);
-	// console.log(u);
 	return u;
+}
+
+function headSearch(id){
+	// $(this).parents('form')[0].onSubmit = false;
+	var tp = $('#headSearch_type').val(),
+		val = $('#headSearch_value').val();
+	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
+
+	var d = xes.platform.menu.getItem(id);
+	openTabs(d.url, d.name, id);
+	xes.platform.findChild(id, '.search_key', function(dom){
+		if(typeof dom != 'string'){
+			dom.val(val);
+			dom.parents('form#listSerch').submit();
+		}
+	});
 }
 /** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
 
@@ -1387,14 +1426,19 @@ var setIframeHeight = xes.platform.setMainHeight;
  * obj = {id,title,content,url,fixed}
  * 如果在sidebar中已经存在的了，则直接调用
  */
-var createTabs = function(obj){
-	var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
-	if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
-		_menu.parent().click();
-	}else{
-		//根据左侧菜单创建tabs标签
-		xes.ui.tabs.create(obj).click(obj.id);
-	}	
+var createTabs = function(obj, fn){
+	if(obj.url){
+		var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
+		if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
+			_menu.parent().click();
+		}else{
+			//根据左侧菜单创建tabs标签
+			xes.ui.tabs.create(obj).click(obj.id);
+		}
+		if(fn){
+			fn(obj.id);
+		}
+	}
 };
 
 
@@ -1408,7 +1452,7 @@ var createTabs = function(obj){
    @param dom : 可以是dom对象，也可以是url路径；
    @param text: 如果第一个参数是url，则第二个是标签的标题
  */
-var openTabs = function(dom, text, id){
+var openTabs = function(dom, text, id, fn){
 	var _arg = arguments;
 	if(_arg.length > 0){
 		var _url,_text,_id,_content;
@@ -1430,7 +1474,7 @@ var openTabs = function(dom, text, id){
 	}
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
 
-	createTabs(_d);
+	createTabs(_d, fn);
 
 };
 /**

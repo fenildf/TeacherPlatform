@@ -102,7 +102,6 @@ xes.platform = xes.platform || {};
 	};
 	PF.menu.refreshContent = function(id, fn){
 		var _con = $('#content_'+id);
-		// console.log('con: '+id);
 		if(_con.length > 0){
 			var _src = _con.attr('src');
 			_con.attr('src',_src);
@@ -134,6 +133,23 @@ xes.platform = xes.platform || {};
 		}
 	};
 	
+	/**
+	 * 根据id获取内容
+	 * @param id {string} 
+	 * @param fn {function}
+	 * @return d {object} : d = {name:'',url:''};
+	 */
+	PF.menu.getItem = function(id,fn){
+		var dom = $('#sidebar li#'+id);
+		var d = {};
+		d.url = dom.find('a').attr('url');
+		d.name = dom.find('a').attr('title');
+		if(fn){
+			fn(d);
+		}else{
+			return d;	
+		}
+	};
 
 	/**
 	 * 左侧地址列表
@@ -240,37 +256,55 @@ xes.platform = xes.platform || {};
 				// var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
 				var _height = (_h + 10 < _mainMinHeight) ? _mainMinHeight  : _h + 10;
 
-				// console.log('h:'+_h);
-				// console.log('w:'+_winHeight);
-				// console.log('head:'+_headHeight);
-				// console.log('m:'+_mainMinHeight);
-				// console.log('-------------------');
 				_ifr.height(_height);
 				$('#content').height(_height);
 		},200);
 
-
-		// if(url){
-		// 	setTimeout(function(){
-		// 		var _ifr = $('#content').find('iframe[src="' + url + '"]'),
-		// 			_h = _ifr.contents().outerHeight();
-		// 			console.log(url);
-		// 			var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
-		// 			_ifr.height(_h);
-		// 			$('#content').height(_h);
-		// 	},200);
-
-		// }else{
-
-		// }
-
-
-
-
-
-
 	};
-
-
+	/**
+	 * 查找iframe里面的内容
+	 * @param ID {string} iframe id
+	 * @param expr {jQuery Object} 用于筛选元素的jQuery表达式
+	 * @callback {function} 成功后的回调函数；
+	 * @return {jQuery Object} 查到后返回该对象
+	 * @example:
+		 xes.platform.findChild(id, '.search_key', function(dom){
+			if(typeof dom != 'string'){
+				dom.val(val);
+				console.log(dom.val());	
+			}
+		});
+	 * 
+	 * 如果有回调函数fn则执行fn，并且fn的返回值为找到的元素，或者错误信息
+	 * 如果没有回调函数，则直接返回找到的元素或者错误信息；
+	 */
+	PF.findChild = function(ID, expr, fn){
+		var iframe = $('iframe#content_'+ID);
+		if(iframe.length > 0){
+			var i = 0;
+			var a = setInterval(function(){
+				var content = iframe.contents();
+				var dom = content.find(expr);
+				if(dom.length > 0){
+					clearInterval(a);
+					if(fn){
+						fn(dom);
+					}else{
+						return dom;
+					}
+				}else{
+					if(i >= 100){
+						clearInterval(a);
+						if(fn){
+							fn('查询超时');
+						}else{
+							return '查询超时';
+						}
+					}
+					i++;
+				}
+			},100);
+		}
+	};
 })();
 
