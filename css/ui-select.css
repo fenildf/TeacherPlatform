@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* ==================== ui-select.css ===================== */
 
 /*
  * ui selector
@@ -57,7 +57,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 	line-height: 25px;
 	font-size: 12px;
 	padding:0 10px 0 5px;
-	background-position:50px 11px;
+	background-position:50px -83px;
 }
 
 /**

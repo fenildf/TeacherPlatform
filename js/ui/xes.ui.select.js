@@ -1,8 +1,5 @@
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.select.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- ui/xes.ui.select.js --------------------- */
+
 ///import xes.base.js
 ///import xes.ui.js
 
@@ -16,17 +13,11 @@
  * @namespace : xes.ui.select
  */
 
-
-
-
-// function selector(msg){
-// 	console.log(msg);
-// }
-
 var selector = selector || {};
 (function(){
 	var s = selector;
 	s.config = {
+		id : '',
 		button : '.ui-select-button',
 		list : '.ui-select-list',
 		on : 'ui-select-hover',
@@ -40,6 +31,7 @@ var selector = selector || {};
 	 * 根据button的value设置下拉列表中当前选中状态
 	 */
 	s.show = function(box){
+		var box = box || $('#'+s.config.id);
 		box.addClass(this.config.show);
 		//以下为下拉列表中当前设置选中状态
 		var _btn = box.prev(this.config.button),
@@ -48,9 +40,12 @@ var selector = selector || {};
 			_list = box.find('li');
 		var _on = _list.find('input:hidden[value="' + _val + '"]').parent();
 		_on.addClass(this.config.on).siblings().removeClass(this.config.on);
+		//判断dom点击
+		s.domClick();
 	};
 
 	s.close = function(box){
+		var box = box || $('#'+s.config.id);
 		box.removeClass(this.config.show);
 
 	};
@@ -121,7 +116,39 @@ var selector = selector || {};
 	// };
 	// -----------------------------------------------
 
-	s.init = function(){
+	/**
+	 * 检查dom的点击事件，如果点击元素不是下拉框则关闭打开的下拉框
+	 */
+	s.domClick = function(){
+		$(document).mouseup(function(a) {
+			var list = $(a.target).parents(s.config.list);
+			var isButton = $(a.target).hasClass(s.config.button.replace('.',''));
+			if(list.length == 0 && !isButton){
+				s.close();
+			}else if(isButton){
+				var box = $(a.target).next();
+				s.show($(a.target));
+			}
+        });
+        //检查iframe点击事件
+		var iframe = $('iframe:visible');			
+		if(iframe.length > 0){
+			var isDomClick = window.frames[iframe.attr('name')].isDomClick;
+			if(isDomClick){
+				var a = isDomClick(function(b){
+						if(b){
+				    	s.close();
+				    	a = null;
+				    }
+				});
+			}
+		}
+	};
+	/**
+	 * 初始化
+	 */
+	s.init = function(id){
+		s.config.id = id;
 		this._setPosition().btnClick($(this.config.button));
 	};
 
@@ -134,7 +161,7 @@ var selector = selector || {};
 	if(xes.ui){
 		xes.ui.add('select',selector,function(msg){
 			if(msg === 'ok'){
-				xes.ui.select.init();
+				xes.ui.select.init('headSearch_select');
 			}
 		});
 	}

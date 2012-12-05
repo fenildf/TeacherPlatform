@@ -6,11 +6,8 @@
 
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.select.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- ui/xes.ui.select.js --------------------- */
+
 ///import xes.base.js
 ///import xes.ui.js
 
@@ -24,17 +21,11 @@
  * @namespace : xes.ui.select
  */
 
-
-
-
-// function selector(msg){
-// 	console.log(msg);
-// }
-
 var selector = selector || {};
 (function(){
 	var s = selector;
 	s.config = {
+		id : '',
 		button : '.ui-select-button',
 		list : '.ui-select-list',
 		on : 'ui-select-hover',
@@ -48,6 +39,7 @@ var selector = selector || {};
 	 * 根据button的value设置下拉列表中当前选中状态
 	 */
 	s.show = function(box){
+		var box = box || $('#'+s.config.id);
 		box.addClass(this.config.show);
 		//以下为下拉列表中当前设置选中状态
 		var _btn = box.prev(this.config.button),
@@ -56,9 +48,12 @@ var selector = selector || {};
 			_list = box.find('li');
 		var _on = _list.find('input:hidden[value="' + _val + '"]').parent();
 		_on.addClass(this.config.on).siblings().removeClass(this.config.on);
+		//判断dom点击
+		s.domClick();
 	};
 
 	s.close = function(box){
+		var box = box || $('#'+s.config.id);
 		box.removeClass(this.config.show);
 
 	};
@@ -129,7 +124,39 @@ var selector = selector || {};
 	// };
 	// -----------------------------------------------
 
-	s.init = function(){
+	/**
+	 * 检查dom的点击事件，如果点击元素不是下拉框则关闭打开的下拉框
+	 */
+	s.domClick = function(){
+		$(document).mouseup(function(a) {
+			var list = $(a.target).parents(s.config.list);
+			var isButton = $(a.target).hasClass(s.config.button.replace('.',''));
+			if(list.length == 0 && !isButton){
+				s.close();
+			}else if(isButton){
+				var box = $(a.target).next();
+				s.show($(a.target));
+			}
+        });
+        //检查iframe点击事件
+		var iframe = $('iframe:visible');			
+		if(iframe.length > 0){
+			var isDomClick = window.frames[iframe.attr('name')].isDomClick;
+			if(isDomClick){
+				var a = isDomClick(function(b){
+						if(b){
+				    	s.close();
+				    	a = null;
+				    }
+				});
+			}
+		}
+	};
+	/**
+	 * 初始化
+	 */
+	s.init = function(id){
+		s.config.id = id;
 		this._setPosition().btnClick($(this.config.button));
 	};
 
@@ -142,7 +169,7 @@ var selector = selector || {};
 	if(xes.ui){
 		xes.ui.add('select',selector,function(msg){
 			if(msg === 'ok'){
-				xes.ui.select.init();
+				xes.ui.select.init('headSearch_select');
 			}
 		});
 	}
@@ -152,12 +179,7 @@ var selector = selector || {};
 
 
 
-/*-=-=-=-=-=-=-=-=-=-=-=- xes.ui.tabs.js -=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.tabs.js --------------------- */
 /*
  * UI.tabs
  * @update : 2012-10-29
@@ -343,7 +365,6 @@ var tabs = tabs || {};
 			t.o.wrap.append(t.getHtml(_D));
 		}
 
-		// t.click(t.getItem(_D.id)[0]);
 		this.resize();
 		return this;
 	};
@@ -389,7 +410,6 @@ var tabs = tabs || {};
 		var act = t.o.active;
 		if(tp == 'id'){
 			var id = act.attr('id');
-			// id = id.replace('tab_','');
 			return id;
 		}else{
 			return act;
@@ -464,7 +484,6 @@ var tabs = tabs || {};
 		}
 
 		var _index = t.getIndex(_act[0]);
-		// t.setOld();
 		t.index = _index;
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
@@ -492,14 +511,9 @@ var tabs = tabs || {};
 	 * 存储在base64加密用户名字段内
 	 */
 	t.saveList = function(){
-		// var listName = t.o.cookieName+'tabs';
 		var ids = this.getList();
-		// var user = $.cookie('platform_u');
 		var tabsName = t.o.cookieName+'tabs';
-		// console.log(t.cookieExpires);
 		$.cookie(tabsName,ids, {expires:t.cookieExpires});
-		// $.cookie(user+'history',id);
-		// t.o.cookiePrefix = user;
 	};	
 	/**
 	 * 设置历史记录
@@ -517,11 +531,9 @@ var tabs = tabs || {};
 			if(last != id){
 				history.push(id);
 			}
-			// $.cookie(historyName,history);
 		}else{
 			var _act = t.o.active.attr('id');
 			history = _act !='tab_index' ? 'tab_index,'+_act : 'tab_index';
-			// $.cookie(historyName,_id);
 		}
 		$.cookie(historyName,history);
 	};
@@ -700,41 +712,9 @@ var tabs = tabs || {};
 		// 当前标签对应的content显示，其他content隐藏起来
 		_iframe.show().siblings('.' + t.cls.main).hide();
 		//设置content高度（切换的时候有用）
-		$('#content').height(_iframe.height());
+		// $('#content').height(_iframe.height());
 	};
 
-
-	// t = {
-	// 	version: '1.0',
-	// 	options: {
-	// 		active : null,
-	// 		event : 'click',
-	// 		load : null,
-	// 		before : null
-	// 	},
-		
-	// 	_setOption  : function( event ){},
-	// 	_create     : function(){},
-	// 	_url        : function( index, url ){},
-	// 	_length     : function(){},
-	// 	_tabId      : function( a ){},
-	// 	_getIndex   : function( index ){},
-	// 	_findActive : function( selector ){},
-	// 	_toggle     : function( event, eventData ){},
-
-	// 	enable  : function( index ){},
-	// 	disable : function( index ){},
-
-	// 	add     : function( url, label, index ){},
-	// 	remove  : function( index ){},
-		
-	// 	load    : function( index, event ){},
-		
-	// 	refresh : function(){},
-
-	// 	select  : function( index ){},
-
-	// };
 
 	//监听事件
 	t.listener = function(dom, event, fn){
@@ -763,12 +743,7 @@ var tabs = tabs || {};
 // 	});
 // });
 
-
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.platform.js --------------------- */
 
 
 /*
@@ -787,7 +762,6 @@ xes.platform = xes.platform || {};
 	 * input表单提示
 	 */
 	PF.tips = function(val){
-		// console.log(val);
 		var a = val;
 		$("input.input_text_ui").unbind('focus').focus(function() {
 			var defaultValue = a || this.defaultValue;
@@ -857,8 +831,6 @@ xes.platform = xes.platform || {};
 	PF.menu.click = function(dom){
 
 		$('.sidebar .ui_fold_menu li').die('click').live('click',function(){
-			// alert($(this).text());
-			// fn(this);
 			var _dom = $(this);
 			var _url = _dom.find('a').attr('url');
 			var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _url, 'fixed': _dom.attr('fixed') };
@@ -924,89 +896,7 @@ xes.platform = xes.platform || {};
 	/**
 	 * 左侧地址列表
 	 */
-	PF.path = [{
-		id: '1',
-		name: '我的课程',
-		title: '',
-		url: '',
-		items: [{
-			id: '1_1',
-			name: '课程列表',
-			title: '',
-			url: '/course_list.html',
-			items: [],
-			fixed: false
-		}]
-	}, {
-		id: '2',
-		name: '服务管理',
-		title: '',
-		url: '',
-		items: [{
-			id: '2_1',
-			name: '直播列表',
-			title: '',
-			url: '/live_list.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '2_2',
-			name: '创建直播',
-			title: '',
-			url: '/live_edit.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '2_3',
-			name: '筛选学员',
-			title: '',
-			url: '/student_leach.html',
-			items: [],
-			fixed: false
-		}]
-	}, {
-		id: '3',
-		name: '我的学员',
-		title: '',
-		url: '',
-		items: [{
-			id: '3_1',
-			name: '学员列表',
-			title: '',
-			url: '/student.html',
-			items: [],
-			fixed: false
-		}]
-	},
-	// {id:'4', name:'资料管理', title:'', url:'', items:[]},
-	{
-		id: '5',
-		name: '数据分析',
-		title: '',
-		url: '',
-		items: [{
-			id: '5_1',
-			name: '学习状态数据',
-			title: '',
-			url: '/data1_list.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '5_2',
-			name: '学完率数据',
-			title: '',
-			url: '/data2.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '5_3',
-			name: '学习效果数据',
-			title: '',
-			url: '/data3_list.html',
-			items: [],
-			fixed: false
-		}]
-	}];
+	PF.path=[{id:"1",name:"我的课程",title:"",url:"",items:[{id:"1_1",name:"课程列表",title:"",url:"/course_list.html",items:[],fixed:false}]},{id:"2",name:"服务管理",title:"",url:"",items:[{id:"2_1",name:"直播列表",title:"",url:"/live_list.html",items:[],fixed:false},{id:"2_2",name:"创建直播",title:"",url:"/live_edit.html",items:[],fixed:false},{id:"2_3",name:"筛选学员",title:"",url:"/student_leach.html",items:[],fixed:false}]},{id:"3",name:"我的学员",title:"",url:"",items:[{id:"3_1",name:"学员列表",title:"",url:"/student.html",items:[],fixed:false}]},{id:"5",name:"数据分析",title:"",url:"",items:[{id:"5_1",name:"学习状态数据",title:"",url:"/data1_list.html",items:[],fixed:false},{id:"5_2",name:"学完率数据",title:"",url:"/data2.html",items:[],fixed:false},{id:"5_3",name:"学习效果数据",title:"",url:"/data3_list.html",items:[],fixed:false}]}];
 
 	/**
 	 * 设置iframe高度(内部页面加载时调用)
@@ -1022,10 +912,7 @@ xes.platform = xes.platform || {};
 			var _body_height = _ifr.contents().find('body').outerHeight();
 			var _html_height = _ifr.contents().find('html').outerHeight();
 			var _h = Math.max(_body_height, _html_height);
-
-				// var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
-				var _height = (_h + 10 < _mainMinHeight) ? _mainMinHeight  : _h + 10;
-
+				var _height = (_h + 10 <= _mainMinHeight) ? _mainMinHeight - 10  : _h + 10;
 				_ifr.height(_height);
 				$('#content').height(_height);
 		},200);
@@ -1080,6 +967,7 @@ xes.platform = xes.platform || {};
 
 
 
+/* -------------------- widget/jquery.base64.js --------------------- */
 /*
 @desc
 	Base64 encoder and decoder write by JavaScript. This code was a plugin of 
@@ -1232,10 +1120,7 @@ jQuery.base64 = {
 };
 
 
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- widget/jquery.cookie.js --------------------- */
 
 /*
  * jQuery.cooke
@@ -1300,10 +1185,8 @@ if (self.location != top.location) {
 /**
  * sidebar
  */
-// xes.platform.menu.create(xes.platform.menu.path).toggle().click();
 xes.platform.menu.toggle().click();
 xes.platform.tips();
-// var cookieUser = getUserName();
 saveUserName();
 /*
  * 将tabs注册到xes对象中
@@ -1335,7 +1218,6 @@ $(window).resize(function(){
 $(function(){
 	//tabs的点击事件
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
-		// alert($(this).text());
 		var _id = $(this).parent().attr('id');
 		_id = _id.replace('tab_','');
 		xes.ui.tabs.click(_id);
@@ -1363,7 +1245,7 @@ $(function(){
 		$(this).parents('form')[0].onSubmit = false;
 		var key = $('#headSearch_form').find('input.input_text_ui');
 		var val = key.val();
-		if(val != key[0].defaultValue){
+		if(val != '学员名称' && val != '课程名称' ){
 			$('#headSearch_value').val(val);
 		}else{
 			$('#headSearch_value').val('');
@@ -1380,17 +1262,13 @@ $(function(){
 			input.val('课程名称');
 			xes.platform.tips('课程名称');
 		}
-
-		// if(!$(this).parent().hasClass('ui-select-hover')){
-		// 	$('#headSearch_form').find('.input_text_ui').val('');
-		// }
 		$('#headSearch_type').val($(this).text());
 	});
 	
 	//增加backspace按键返回操作
-	$('body').keyup(function(e){
-		goBack(e);
-	});
+	// $('body').keyup(function(e){
+	// 	goBack(e);
+	// });
 
 	//刷新页面时根据头部激活标签，设置左侧菜单当前状态
 	getActiveTabs(function(tab){
@@ -1398,6 +1276,10 @@ $(function(){
 		tab_id = tab_id.replace('tab_','');
 		var _dom = $('#sidebar li#'+tab_id);
 		xes.platform.menu.setActive(_dom[0]);
+	});
+
+	$('#headSearch_select li').hover(function(){
+		$(this).addClass('ui-select-hover').siblings('li').removeClass('ui-select-hover');
 	});
 });
 /**
@@ -1432,7 +1314,6 @@ function getUserName(){
 }
 
 function headSearch(id){
-	// $(this).parents('form')[0].onSubmit = false;
 	var tp = $('#headSearch_type').val(),
 		val = $('#headSearch_value').val();
 	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
@@ -1442,7 +1323,11 @@ function headSearch(id){
 	xes.platform.findChild(id, '.search_key', function(dom){
 		if(typeof dom != 'string'){
 			dom.val(val);
-			dom.parents('form#listSerch').submit();
+			var form = dom.parents('form#listSerch');
+			form.find('#currpage').val(1);
+			form.find('#selectGrade,#selectCourseType,#gradeId').val(0);
+			form.find('#courseId').val('');
+			form.submit();
 		}
 	});
 }
@@ -1506,6 +1391,7 @@ var openTabs = function(dom, text, id, fn){
 	createTabs(_d, fn);
 
 };
+
 /**
  * 表单提交打开标签
  */
@@ -1521,7 +1407,6 @@ var goTabs = function(url, title, id, closeID){
 
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
 
-	
 
 	if(closeID){
 		closeActiveTabs(closeID);
@@ -1554,25 +1439,21 @@ var getActiveTabs = function(fn){
  * 刷新标签
  */
 var refreshTabs = xes.platform.menu.refreshContent;
-// var refreshTabs = function(id, fn){
-// 	var _con = $('#content_'+id);
-// 	var _src = _con.attr('src');
-// 	_con.attr('src',_src);
-// };
 
 /**
  * 返回上一页
+ 	$('body').keyup(function(e){
+		goBack(e);
+	});
  */
 var goBack = function(e){
 	//增加backspace按键返回操作
-	// $('body').keyup(function(e){
 	var code = e.keyCode;
 	if(code == 8){
 		xes.ui.tabs.backHistory(function(){
 			setIframeHeight();
 		});
 	}
-	// });	
 };
 
 /**

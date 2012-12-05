@@ -225,6 +225,7 @@ function createCSSFiles(path, filename){
 
 function createAllCSSFiles(path){
 	var list = [
+		'page.css',
 		'page_data.css',
 		'page_edit.css',
 		'page_list.css',

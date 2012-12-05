@@ -1,7 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.form.verify.js --------------------- */
 
 /*
  * 表单验证

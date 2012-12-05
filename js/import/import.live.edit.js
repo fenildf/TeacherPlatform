@@ -11,11 +11,7 @@
  * @version: v1.0.0
  */
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.iframe.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.iframe.js --------------------- */
 
 /*
  * set iframe height
@@ -37,15 +33,11 @@ xes.iframe = xes.iframe || {};
 	f.setHeight = function(){
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
-			// setTimeout(function(){
-				// _setHeight(f.getPageHeight(), f.getUrl());
-			// },100);
 			_setHeight();
 		}
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			// _pathname = _local.pathname.replace('/','');
 			_pathname = _local.pathname;
 		return _pathname;
 	};
@@ -54,20 +46,7 @@ $(function(){
 
 	setTimeout(function(){
 		xes.iframe.setHeight();
-	},100);
-	// if(window.parent){
-	// 	//增加backspace按键返回操作
-	// 	$('body').keyup(function(e){
-	// 		// window.parent.goBack(e);
-	// 		// var code = e.keyCode;
-	// 		// if(code == 8){
-	// 		// 	xes.ui.tabs.backHistory(function(){
-	// 		// 		setIframeHeight();
-	// 		// 	});
-	// 		// }
-	// 	});
-	// }
-	
+	},100);	
 })
 
 
@@ -81,7 +60,6 @@ $(function(){
  */
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
-	// xes.iframe.setHeight();
 };
 
 /**
@@ -92,7 +70,6 @@ var goTab = function(url, title, id, closeSelf){
 		window.parent.getActiveTabs(function(self){
 			var closeID = self.attr('id');
 			closeID = closeID.replace('tab_','');
-			// window.parent.closeActiveTabs(_id);
 			window.parent.goTabs(url, title, id, closeID);
 		});
 
@@ -118,13 +95,18 @@ var initTabBtn = function(){
 	});
 }();
 
+//获得iframe的点击事件
+var isDomClick = function(fn){
+	$(document).unbind('click').click(function(event){
+		if(fn){
+			fn(event);
+		}else{
+			return event;
+		}
+	});
+};
 
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.tips.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
  * tips
  * @update : 2012-10-05
@@ -190,21 +172,13 @@ var tips = tips || {};
 (function(xes){
 	if(xes.ui){
 		xes.ui.add('tips',tips,function(msg){
-			// console.log(msg);
-			// if(msg === 'ok'){
-			// 	xes.ui.tips.init();
-			// }
 			xes.tips = xes.ui.tips;
 		});
 	}
 })(xes);
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.live.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.live.js --------------------- */
 
 /*
  * 直播
@@ -226,103 +200,7 @@ xes.liveTime = xes.liveTime || {};
 (function(){
 	var l = xes.liveTime;
 	l.getJson = function(dd, fn, tp){
-		var _data = [{
-			times: '0:00', status: 'optional', teacher: ''
-		}, {
-			times: '0:30', status: 'optional', teacher: ''
-		}, {
-			times: '1:00', status: 'optional', teacher: ''
-		}, {
-			times: '1:30', status: 'optional', teacher: ''
-		}, {
-			times: '2:00', status: 'optional', teacher: ''
-		}, {
-			times: '2:30', status: 'optional', teacher: ''
-		}, {
-			times: '3:00', status: 'optional', teacher: ''
-		}, {
-			times: '3:30', status: 'optional', teacher: ''
-		}, {
-			times: '4:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '4:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '5:00', status: 'optional', teacher: ''
-		}, {
-			times: '5:30', status: 'optional', teacher: ''
-		}, {
-			times: '6:00', status: 'optional', teacher: ''
-		}, {
-			times: '6:30', status: 'optional', teacher: ''
-		}, {
-			times: '7:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '7:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '8:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '8:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '9:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '9:30', status: 'optional', teacher: ''
-		}, {
-			times: '10:00', status: 'optional', teacher: ''
-		}, {
-			times: '10:30', status: 'optional', teacher: ''
-		}, {
-			times: '11:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '11:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '12:00', status: 'optional', teacher: ''
-		}, {
-			times: '12:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '13:00', status: 'optional', teacher: ''
-		}, {
-			times: '13:30', status: 'optional', teacher: ''
-		}, {
-			times: '14:00', status: 'optional', teacher: ''
-		}, {
-			times: '14:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '15:00', status: 'optional', teacher: ''
-		}, {
-			times: '15:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '16:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '16:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '17:00', status: 'optional', teacher: ''
-		}, {
-			times: '17:30', status: 'optional', teacher: ''
-		}, {
-			times: '18:00', status: 'optional', teacher: ''
-		}, {
-			times: '18:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '19:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '19:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '20:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '20:30', status: 'optional', teacher: ''
-		}, {
-			times: '21:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '21:30', status: 'selected', teacher: '许强'
-		}, {
-			times: '22:00', status: 'selected', teacher: '许强'
-		}, {
-			times: '22:30', status: 'optional', teacher: ''
-		}, {
-			times: '23:00', status: 'optional', teacher: ''
-		}, {
-			times: '23:30', status: 'selected', teacher: '许强'
-		}];
+		var _data=[{times:"0:00",status:"optional",teacher:""},{times:"0:30",status:"optional",teacher:""},{times:"1:00",status:"optional",teacher:""},{times:"1:30",status:"optional",teacher:""},{times:"2:00",status:"optional",teacher:""},{times:"2:30",status:"optional",teacher:""},{times:"3:00",status:"optional",teacher:""},{times:"3:30",status:"optional",teacher:""},{times:"4:00",status:"selected",teacher:"许强"},{times:"4:30",status:"selected",teacher:"许强"},{times:"5:00",status:"optional",teacher:""},{times:"5:30",status:"optional",teacher:""},{times:"6:00",status:"optional",teacher:""},{times:"6:30",status:"optional",teacher:""},{times:"7:00",status:"selected",teacher:"许强"},{times:"7:30",status:"selected",teacher:"许强"},{times:"8:00",status:"selected",teacher:"许强"},{times:"8:30",status:"selected",teacher:"许强"},{times:"9:00",status:"selected",teacher:"许强"},{times:"9:30",status:"optional",teacher:""},{times:"10:00",status:"optional",teacher:""},{times:"10:30",status:"optional",teacher:""},{times:"11:00",status:"selected",teacher:"许强"},{times:"11:30",status:"selected",teacher:"许强"},{times:"12:00",status:"optional",teacher:""},{times:"12:30",status:"selected",teacher:"许强"},{times:"13:00",status:"optional",teacher:""},{times:"13:30",status:"optional",teacher:""},{times:"14:00",status:"optional",teacher:""},{times:"14:30",status:"selected",teacher:"许强"},{times:"15:00",status:"optional",teacher:""},{times:"15:30",status:"selected",teacher:"许强"},{times:"16:00",status:"selected",teacher:"许强"},{times:"16:30",status:"selected",teacher:"许强"},{times:"17:00",status:"optional",teacher:""},{times:"17:30",status:"optional",teacher:""},{times:"18:00",status:"optional",teacher:""},{times:"18:30",status:"selected",teacher:"许强"},{times:"19:00",status:"selected",teacher:"许强"},{times:"19:30",status:"selected",teacher:"许强"},{times:"20:00",status:"selected",teacher:"许强"},{times:"20:30",status:"optional",teacher:""},{times:"21:00",status:"selected",teacher:"许强"},{times:"21:30",status:"selected",teacher:"许强"},{times:"22:00",status:"selected",teacher:"许强"},{times:"22:30",status:"optional",teacher:""},{times:"23:00",status:"optional",teacher:""},{times:"23:30",status:"selected",teacher:"许强"}];
 
 		//本地调试
 		// return _data;
@@ -330,12 +208,7 @@ xes.liveTime = xes.liveTime || {};
 		//程序调用
 		var _oldtime = $('#oldDate').val();
 		var _courseID = $('#courseId').val();
-		// var isSmae = _oldtime == dd ? true : false;
-		// console.log(isSmae);
-		// var url = tp ? isSmae ? dd+'/myself/'+_oldtime : dd+'/myself' : dd;
-		// console.log(url);
 		var url = tp ? dd+'/'+_courseID : dd;
-		// var url = tp ? dd+'/'+_oldtime+'/myself/' : dd;
 	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ url, {}, function(result){
 	 		if(fn){
 	 			fn(result);
@@ -375,7 +248,6 @@ xes.liveTime = xes.liveTime || {};
 			// var hour = ends[0].indexOf('0') == 0 ? ends[0].replace('0','') : ends[0];
 			var hour = ends[0];
 			var minu = ends[1];
-			// console.log(hour);
 			var hour_number = Number(hour);
 			var minu_number = '';
 			if(minu == '30'){
@@ -389,7 +261,6 @@ xes.liveTime = xes.liveTime || {};
 
 			// var endtime = ends[1]=='30' ? Number(hour)+1 + ':00' : hour + ':30';
 			var endtime = hour_number + minu_number;
-// console.log(endtime);
 			html += '<li time="' + m.times + '" endtime="' + endtime + '" class="' + status + '"><span class="time">' + m.times + '</span><span class="endtime">&nbsp;-- '+ endtime +'</span><span class="name">' + teacher + '</span></li>';	
 		});
 		$('#liveTime').show();
@@ -430,12 +301,8 @@ xes.liveTime = xes.liveTime || {};
 						var _val = l.getValue();
 						l.setTimeValue(_val.start, _val.end);
 					};
-					// alert('您已经预约成功，请勿重复预约');
 				}
 
-			// if($(this).hasClass('btn_submit')){
-			// 	var _val = l.getValue();
-			// 	l.setTimeValue(_val.start, _val.end);
 			}else{
 				l.close();
 			}
@@ -467,7 +334,6 @@ xes.liveTime = xes.liveTime || {};
 		var _list = l.list.find('li.optional');
 		var _a = _list.index(l.list.find('li.optional[time="'+s+'"]')[0]);
 		var _tmp = l.list.find('li.optional[time="'+e+'"]').prevAll('.optional').eq(0);
-		// var _b = _list.index(_tmp[0]);
 		var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
 		//如果没有结束时间则取列表长度，如果有结束
 		var _e = e ? _b + 1 : _list.length;
@@ -516,13 +382,9 @@ xes.liveTime = xes.liveTime || {};
 	l.position = function(){};
 })();
 
+/* -------------------- ui/xes.ui.calendar.js --------------------- */
 /*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
-/*
- * 
+ * 日历
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
@@ -1030,11 +892,7 @@ jQuery.fn.extend({
     }
 });
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.ajax.js --------------------- */
 
 /*
  * xes.ajax.js
@@ -1110,12 +968,7 @@ xes.ajax = xes.ajax || {};
 xes.post = xes.ajax.post;
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.form.js --------------------- */
 /*
  * form操作
  * @update : 2012-10-05
@@ -1415,11 +1268,7 @@ function generateMixed(n) {
 };
 
 
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.date.js --------------------- */
 /*
  * Date日期处理方法
  * @update : 2012-10-05
@@ -1592,10 +1441,7 @@ xes.date = xes.date || {};
 
 
 
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.form.verify.js --------------------- */
 
 /*
  * 表单验证

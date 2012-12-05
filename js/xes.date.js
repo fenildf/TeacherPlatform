@@ -1,8 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.date.js --------------------- */
 /*
  * Date日期处理方法
  * @update : 2012-10-05

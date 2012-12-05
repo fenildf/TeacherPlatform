@@ -1,9 +1,4 @@
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.form.js --------------------- */
 /*
  * form操作
  * @update : 2012-10-05

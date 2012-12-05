@@ -1,3 +1,4 @@
+/* -------------------- widget/jquery.history.js --------------------- */
 /*
  * jQuery history plugin
  * 

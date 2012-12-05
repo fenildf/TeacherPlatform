@@ -12,11 +12,7 @@
  */
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.iframe.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.iframe.js --------------------- */
 
 /*
  * set iframe height
@@ -38,15 +34,11 @@ xes.iframe = xes.iframe || {};
 	f.setHeight = function(){
 		var _setHeight = window.parent.setIframeHeight;
 		if(_setHeight){
-			// setTimeout(function(){
-				// _setHeight(f.getPageHeight(), f.getUrl());
-			// },100);
 			_setHeight();
 		}
 	};
 	f.getUrl = function(){
 		var _local = window.location,
-			// _pathname = _local.pathname.replace('/','');
 			_pathname = _local.pathname;
 		return _pathname;
 	};
@@ -55,20 +47,7 @@ $(function(){
 
 	setTimeout(function(){
 		xes.iframe.setHeight();
-	},100);
-	// if(window.parent){
-	// 	//增加backspace按键返回操作
-	// 	$('body').keyup(function(e){
-	// 		// window.parent.goBack(e);
-	// 		// var code = e.keyCode;
-	// 		// if(code == 8){
-	// 		// 	xes.ui.tabs.backHistory(function(){
-	// 		// 		setIframeHeight();
-	// 		// 	});
-	// 		// }
-	// 	});
-	// }
-	
+	},100);	
 })
 
 
@@ -82,7 +61,6 @@ $(function(){
  */
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
-	// xes.iframe.setHeight();
 };
 
 /**
@@ -93,7 +71,6 @@ var goTab = function(url, title, id, closeSelf){
 		window.parent.getActiveTabs(function(self){
 			var closeID = self.attr('id');
 			closeID = closeID.replace('tab_','');
-			// window.parent.closeActiveTabs(_id);
 			window.parent.goTabs(url, title, id, closeID);
 		});
 
@@ -119,13 +96,18 @@ var initTabBtn = function(){
 	});
 }();
 
+//获得iframe的点击事件
+var isDomClick = function(fn){
+	$(document).unbind('click').click(function(event){
+		if(fn){
+			fn(event);
+		}else{
+			return event;
+		}
+	});
+};
 
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.tips.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
  * tips
  * @update : 2012-10-05
@@ -191,22 +173,13 @@ var tips = tips || {};
 (function(xes){
 	if(xes.ui){
 		xes.ui.add('tips',tips,function(msg){
-			// console.log(msg);
-			// if(msg === 'ok'){
-			// 	xes.ui.tips.init();
-			// }
 			xes.tips = xes.ui.tips;
 		});
 	}
 })(xes);
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.form.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.form.js --------------------- */
 /*
  * form操作
  * @update : 2012-10-05

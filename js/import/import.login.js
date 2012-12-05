@@ -10,6 +10,7 @@
  * @version: v1.0.0
  */
 
+/* -------------------- widget/jquery.validate.pack.js --------------------- */
 /*
  * jQuery validation plug-in 1.7
  *

@@ -1,9 +1,4 @@
-
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.platform.js --------------------- */
 
 
 /*
@@ -22,7 +17,6 @@ xes.platform = xes.platform || {};
 	 * input表单提示
 	 */
 	PF.tips = function(val){
-		// console.log(val);
 		var a = val;
 		$("input.input_text_ui").unbind('focus').focus(function() {
 			var defaultValue = a || this.defaultValue;
@@ -92,8 +86,6 @@ xes.platform = xes.platform || {};
 	PF.menu.click = function(dom){
 
 		$('.sidebar .ui_fold_menu li').die('click').live('click',function(){
-			// alert($(this).text());
-			// fn(this);
 			var _dom = $(this);
 			var _url = _dom.find('a').attr('url');
 			var _d = { 'id': _dom.attr('id'), 'title': _dom.text(), 'content': '', 'url': _url, 'fixed': _dom.attr('fixed') };
@@ -159,89 +151,7 @@ xes.platform = xes.platform || {};
 	/**
 	 * 左侧地址列表
 	 */
-	PF.path = [{
-		id: '1',
-		name: '我的课程',
-		title: '',
-		url: '',
-		items: [{
-			id: '1_1',
-			name: '课程列表',
-			title: '',
-			url: '/course_list.html',
-			items: [],
-			fixed: false
-		}]
-	}, {
-		id: '2',
-		name: '服务管理',
-		title: '',
-		url: '',
-		items: [{
-			id: '2_1',
-			name: '直播列表',
-			title: '',
-			url: '/live_list.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '2_2',
-			name: '创建直播',
-			title: '',
-			url: '/live_edit.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '2_3',
-			name: '筛选学员',
-			title: '',
-			url: '/student_leach.html',
-			items: [],
-			fixed: false
-		}]
-	}, {
-		id: '3',
-		name: '我的学员',
-		title: '',
-		url: '',
-		items: [{
-			id: '3_1',
-			name: '学员列表',
-			title: '',
-			url: '/student.html',
-			items: [],
-			fixed: false
-		}]
-	},
-	// {id:'4', name:'资料管理', title:'', url:'', items:[]},
-	{
-		id: '5',
-		name: '数据分析',
-		title: '',
-		url: '',
-		items: [{
-			id: '5_1',
-			name: '学习状态数据',
-			title: '',
-			url: '/data1_list.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '5_2',
-			name: '学完率数据',
-			title: '',
-			url: '/data2.html',
-			items: [],
-			fixed: false
-		}, {
-			id: '5_3',
-			name: '学习效果数据',
-			title: '',
-			url: '/data3_list.html',
-			items: [],
-			fixed: false
-		}]
-	}];
+	PF.path=[{id:"1",name:"我的课程",title:"",url:"",items:[{id:"1_1",name:"课程列表",title:"",url:"/course_list.html",items:[],fixed:false}]},{id:"2",name:"服务管理",title:"",url:"",items:[{id:"2_1",name:"直播列表",title:"",url:"/live_list.html",items:[],fixed:false},{id:"2_2",name:"创建直播",title:"",url:"/live_edit.html",items:[],fixed:false},{id:"2_3",name:"筛选学员",title:"",url:"/student_leach.html",items:[],fixed:false}]},{id:"3",name:"我的学员",title:"",url:"",items:[{id:"3_1",name:"学员列表",title:"",url:"/student.html",items:[],fixed:false}]},{id:"5",name:"数据分析",title:"",url:"",items:[{id:"5_1",name:"学习状态数据",title:"",url:"/data1_list.html",items:[],fixed:false},{id:"5_2",name:"学完率数据",title:"",url:"/data2.html",items:[],fixed:false},{id:"5_3",name:"学习效果数据",title:"",url:"/data3_list.html",items:[],fixed:false}]}];
 
 	/**
 	 * 设置iframe高度(内部页面加载时调用)
@@ -257,10 +167,7 @@ xes.platform = xes.platform || {};
 			var _body_height = _ifr.contents().find('body').outerHeight();
 			var _html_height = _ifr.contents().find('html').outerHeight();
 			var _h = Math.max(_body_height, _html_height);
-
-				// var _height = (_h+31 < _mainMinHeight) ? _mainMinHeight -41 : _h + 20;
-				var _height = (_h + 10 < _mainMinHeight) ? _mainMinHeight  : _h + 10;
-
+				var _height = (_h + 10 <= _mainMinHeight) ? _mainMinHeight - 10  : _h + 10;
 				_ifr.height(_height);
 				$('#content').height(_height);
 		},200);

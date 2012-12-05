@@ -1,8 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.pages.js --------------------- */
 /*
  * pages
  * @update : 2012-10-05

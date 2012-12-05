@@ -1,7 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.date.format.js --------------------- */
 
 /*
  * 日期格式化

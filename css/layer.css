@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* ==================== layer.css ===================== */
 .teacherLayerAll {display: none;position: absolute;width: 345px;overflow: hidden;border: 1px solid #d7d7d7;opacity: 10;background-color: #FFF;border-radius: 5px;
 box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0.2),0 4px 4px rgba(153, 153, 153, 0.2),4px 0 4px rgba(153, 153, 153, 0.2);}
 .teacherLayerAll ul {overflow: hidden;}

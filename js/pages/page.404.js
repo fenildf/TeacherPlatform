@@ -17,5 +17,5 @@
 /* =-=-=-=-=-=-=-=-=-=-=-= 404.html =-=-=-=-=-=-=-=-=-=-=-=-= */	
 // 跳出iframe
 if (self.location != top.location) {
-    // top.location = self.location;
+    top.location = self.location;
 }

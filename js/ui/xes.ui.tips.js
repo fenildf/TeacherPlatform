@@ -1,9 +1,4 @@
-/* =-=-=-=-=-=-=-=-=-=-=-= ui/xes.ui.tips.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
  * tips
  * @update : 2012-10-05
@@ -69,10 +64,6 @@ var tips = tips || {};
 (function(xes){
 	if(xes.ui){
 		xes.ui.add('tips',tips,function(msg){
-			// console.log(msg);
-			// if(msg === 'ok'){
-			// 	xes.ui.tips.init();
-			// }
 			xes.tips = xes.ui.tips;
 		});
 	}

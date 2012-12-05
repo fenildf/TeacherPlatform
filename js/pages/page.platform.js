@@ -25,10 +25,8 @@ if (self.location != top.location) {
 /**
  * sidebar
  */
-// xes.platform.menu.create(xes.platform.menu.path).toggle().click();
 xes.platform.menu.toggle().click();
 xes.platform.tips();
-// var cookieUser = getUserName();
 saveUserName();
 /*
  * 将tabs注册到xes对象中
@@ -60,7 +58,6 @@ $(window).resize(function(){
 $(function(){
 	//tabs的点击事件
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
-		// alert($(this).text());
 		var _id = $(this).parent().attr('id');
 		_id = _id.replace('tab_','');
 		xes.ui.tabs.click(_id);
@@ -88,7 +85,7 @@ $(function(){
 		$(this).parents('form')[0].onSubmit = false;
 		var key = $('#headSearch_form').find('input.input_text_ui');
 		var val = key.val();
-		if(val != key[0].defaultValue){
+		if(val != '学员名称' && val != '课程名称' ){
 			$('#headSearch_value').val(val);
 		}else{
 			$('#headSearch_value').val('');
@@ -105,17 +102,13 @@ $(function(){
 			input.val('课程名称');
 			xes.platform.tips('课程名称');
 		}
-
-		// if(!$(this).parent().hasClass('ui-select-hover')){
-		// 	$('#headSearch_form').find('.input_text_ui').val('');
-		// }
 		$('#headSearch_type').val($(this).text());
 	});
 	
 	//增加backspace按键返回操作
-	$('body').keyup(function(e){
-		goBack(e);
-	});
+	// $('body').keyup(function(e){
+	// 	goBack(e);
+	// });
 
 	//刷新页面时根据头部激活标签，设置左侧菜单当前状态
 	getActiveTabs(function(tab){
@@ -123,6 +116,10 @@ $(function(){
 		tab_id = tab_id.replace('tab_','');
 		var _dom = $('#sidebar li#'+tab_id);
 		xes.platform.menu.setActive(_dom[0]);
+	});
+
+	$('#headSearch_select li').hover(function(){
+		$(this).addClass('ui-select-hover').siblings('li').removeClass('ui-select-hover');
 	});
 });
 /**
@@ -157,7 +154,6 @@ function getUserName(){
 }
 
 function headSearch(id){
-	// $(this).parents('form')[0].onSubmit = false;
 	var tp = $('#headSearch_type').val(),
 		val = $('#headSearch_value').val();
 	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
@@ -167,7 +163,11 @@ function headSearch(id){
 	xes.platform.findChild(id, '.search_key', function(dom){
 		if(typeof dom != 'string'){
 			dom.val(val);
-			dom.parents('form#listSerch').submit();
+			var form = dom.parents('form#listSerch');
+			form.find('#currpage').val(1);
+			form.find('#selectGrade,#selectCourseType,#gradeId').val(0);
+			form.find('#courseId').val('');
+			form.submit();
 		}
 	});
 }
@@ -231,6 +231,7 @@ var openTabs = function(dom, text, id, fn){
 	createTabs(_d, fn);
 
 };
+
 /**
  * 表单提交打开标签
  */
@@ -246,7 +247,6 @@ var goTabs = function(url, title, id, closeID){
 
 	var _d = { 'id': _id, 'title': _text, 'content': _content, 'url': _url, 'fixed': false};
 
-	
 
 	if(closeID){
 		closeActiveTabs(closeID);
@@ -279,25 +279,21 @@ var getActiveTabs = function(fn){
  * 刷新标签
  */
 var refreshTabs = xes.platform.menu.refreshContent;
-// var refreshTabs = function(id, fn){
-// 	var _con = $('#content_'+id);
-// 	var _src = _con.attr('src');
-// 	_con.attr('src',_src);
-// };
 
 /**
  * 返回上一页
+ 	$('body').keyup(function(e){
+		goBack(e);
+	});
  */
 var goBack = function(e){
 	//增加backspace按键返回操作
-	// $('body').keyup(function(e){
 	var code = e.keyCode;
 	if(code == 8){
 		xes.ui.tabs.backHistory(function(){
 			setIframeHeight();
 		});
 	}
-	// });	
 };
 
 /**

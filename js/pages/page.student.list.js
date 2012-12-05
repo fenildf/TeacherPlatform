@@ -23,10 +23,6 @@
 
 /* =-=-=-=-=-=-=-=-=-=-=-= student_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-// $(function(){
-	// $('.ui_select').selectbox();
-// });
-
 $(function(){
 	$('.contentData tbody tr').hover(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');

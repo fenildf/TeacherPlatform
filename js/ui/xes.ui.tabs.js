@@ -1,9 +1,4 @@
-/*-=-=-=-=-=-=-=-=-=-=-=- xes.ui.tabs.js -=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- ui/xes.ui.tabs.js --------------------- */
 /*
  * UI.tabs
  * @update : 2012-10-29
@@ -189,7 +184,6 @@ var tabs = tabs || {};
 			t.o.wrap.append(t.getHtml(_D));
 		}
 
-		// t.click(t.getItem(_D.id)[0]);
 		this.resize();
 		return this;
 	};
@@ -235,7 +229,6 @@ var tabs = tabs || {};
 		var act = t.o.active;
 		if(tp == 'id'){
 			var id = act.attr('id');
-			// id = id.replace('tab_','');
 			return id;
 		}else{
 			return act;
@@ -310,7 +303,6 @@ var tabs = tabs || {};
 		}
 
 		var _index = t.getIndex(_act[0]);
-		// t.setOld();
 		t.index = _index;
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
@@ -338,14 +330,9 @@ var tabs = tabs || {};
 	 * 存储在base64加密用户名字段内
 	 */
 	t.saveList = function(){
-		// var listName = t.o.cookieName+'tabs';
 		var ids = this.getList();
-		// var user = $.cookie('platform_u');
 		var tabsName = t.o.cookieName+'tabs';
-		// console.log(t.cookieExpires);
 		$.cookie(tabsName,ids, {expires:t.cookieExpires});
-		// $.cookie(user+'history',id);
-		// t.o.cookiePrefix = user;
 	};	
 	/**
 	 * 设置历史记录
@@ -363,11 +350,9 @@ var tabs = tabs || {};
 			if(last != id){
 				history.push(id);
 			}
-			// $.cookie(historyName,history);
 		}else{
 			var _act = t.o.active.attr('id');
 			history = _act !='tab_index' ? 'tab_index,'+_act : 'tab_index';
-			// $.cookie(historyName,_id);
 		}
 		$.cookie(historyName,history);
 	};
@@ -546,41 +531,9 @@ var tabs = tabs || {};
 		// 当前标签对应的content显示，其他content隐藏起来
 		_iframe.show().siblings('.' + t.cls.main).hide();
 		//设置content高度（切换的时候有用）
-		$('#content').height(_iframe.height());
+		// $('#content').height(_iframe.height());
 	};
 
-
-	// t = {
-	// 	version: '1.0',
-	// 	options: {
-	// 		active : null,
-	// 		event : 'click',
-	// 		load : null,
-	// 		before : null
-	// 	},
-		
-	// 	_setOption  : function( event ){},
-	// 	_create     : function(){},
-	// 	_url        : function( index, url ){},
-	// 	_length     : function(){},
-	// 	_tabId      : function( a ){},
-	// 	_getIndex   : function( index ){},
-	// 	_findActive : function( selector ){},
-	// 	_toggle     : function( event, eventData ){},
-
-	// 	enable  : function( index ){},
-	// 	disable : function( index ){},
-
-	// 	add     : function( url, label, index ){},
-	// 	remove  : function( index ){},
-		
-	// 	load    : function( index, event ){},
-		
-	// 	refresh : function(){},
-
-	// 	select  : function( index ){},
-
-	// };
 
 	//监听事件
 	t.listener = function(dom, event, fn){

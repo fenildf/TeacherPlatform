@@ -1,8 +1,4 @@
-/* =-=-=-=-=-=-=-=-=-=-=-= xes.ajax.js =-=-=-=-=-=-=-=-=-=-=-=-= */
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.ajax.js --------------------- */
 
 /*
  * xes.ajax.js

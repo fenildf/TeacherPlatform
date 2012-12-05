@@ -1,8 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
-
+/* -------------------- xes.register.js --------------------- */
 /*
  * App register to xesui
  * 应用注册模块，负责将应用注册到xes模块中

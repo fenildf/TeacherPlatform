@@ -1,3 +1,4 @@
+/* -------------------- widget/jquery.validate.pack.js --------------------- */
 /*
  * jQuery validation plug-in 1.7
  *

@@ -1,3 +1,4 @@
+/* -------------------- widget/jquery.base64.js --------------------- */
 /*
 @desc
 	Base64 encoder and decoder write by JavaScript. This code was a plugin of 

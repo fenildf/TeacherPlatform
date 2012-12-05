@@ -1,7 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- xes.tools.js --------------------- */
 
 /*
  * xes.tools

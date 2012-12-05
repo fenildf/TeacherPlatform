@@ -14,7 +14,7 @@
 
 ///import:ui/xes.ui.tips.js///
 
-///import:ui/xes.ui.select.js///
+/* //import:ui/xes.ui.select.js// */
 
 ///import:xes.form.js///
 
@@ -24,7 +24,7 @@
 
 ///import:xes.date.js///
 
-/* =-=-=-=-=-=-=-=-=-=-=-= live_info.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=-=-=-= live_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 // function liveCancel(liveId){
 // 	alert('已取消');

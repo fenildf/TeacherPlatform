@@ -1,7 +1,4 @@
-/*
- * XESUI
- * Copyright 2012 xueersi.com All rights reserved.
- */
+/* -------------------- widget/jquery.cookie.js --------------------- */
 
 /*
  * jQuery.cooke
