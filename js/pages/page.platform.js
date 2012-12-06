@@ -60,13 +60,14 @@ $(function(){
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
 		var _id = $(this).parent().attr('id');
 		_id = _id.replace('tab_','');
-		xes.ui.tabs.click(_id);
+		
 		var _url = $(this).attr('url');
 		//根据点击的url获取左侧当前激活的dom
 		var _node = $('#sidebar li a[url="' + _url + '"]');
 		_dom = _node ? _node.parent() : false;
 		xes.platform.menu.setActive(_dom);
-		setIframeHeight();
+		xes.ui.tabs.click(_id);
+		// setIframeHeight();
 	});
 
 	//关闭按钮的点击事件
@@ -76,7 +77,7 @@ $(function(){
 			var _node = $('#sidebar li a[url="' + d.attr('url') + '"]');
 			_dom = _node ? _node.parent() : false;
 			xes.platform.menu.setActive(_dom);
-			setIframeHeight();
+			// setIframeHeight();
 		});
 		
 	});
@@ -171,8 +172,17 @@ function headSearch(id){
 		}
 	});
 }
-/** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
+/**
+ * 判断iframe是否加载完成
+ * @param iframeEl : 为iframe元素
+ * @param callback : 为加载后的回调函数
+ */
+var iframeLoaded = xes.platform.iframeLoaded;
 
+/** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
+/**
+ * 设置iframe高度
+ */
 var setIframeHeight = xes.platform.setMainHeight;
 
 /**

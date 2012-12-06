@@ -154,7 +154,18 @@ xes.liveTime = xes.liveTime || {};
 		var _list = l.list.find('li.optional');
 		var _a = _list.index(l.list.find('li.optional[time="'+s+'"]')[0]);
 		var _tmp = l.list.find('li.optional[time="'+e+'"]').prevAll('.optional').eq(0);
-		var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
+
+		//根据结束时间，获取相关的节点
+		var _endNode = l.list.find('li[endtime="'+e+'"]');
+
+		//判断结束时间点是选中状态还是可选状态，如果是已经选中状态，则向上查询紧邻的上一个未选状态
+		if(_endNode.attr('class') != 'optional'){
+			_endNode = _endNode.prevAll('li.optional');
+		}
+		//获取可选结束时间的索引值
+		var _b = _list.index(_endNode[0]);
+		// var _b = _list.index(l.list.find('li.optional[endtime="'+e+'"]')[0]);
+		
 		//如果没有结束时间则取列表长度，如果有结束
 		var _e = e ? _b + 1 : _list.length;
 		for(var i = _a, len = _e; i < len; i++){
@@ -170,20 +181,11 @@ xes.liveTime = xes.liveTime || {};
 		});
 		l.startInput.val(s);
 		l.endInput.val(e);
-		// l.list.find('li.optional').each(function(i){
-		// 	var _time = $(this).attr('time');
-		// 	if(_time == s){
-		// 		for(var j = i, len = l.list.find('li.optional').length; j < len; j++){
-		// 			$(this).addClass('selected');
-		// 			if(_time == e){
-		// 				return;
-		// 			}
-		// 		}
-	
-		// 	}
-		// });
+		
 		l.close();
 	};
+
+	l.setSelectValue = function(){};
 	l.empty = function(){
 		$('#liveTimeStartInput,#liveTimeEndInput').val('');
 		l.list.find('li.selected').each(function(){

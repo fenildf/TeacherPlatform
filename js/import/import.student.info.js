@@ -43,9 +43,9 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	setTimeout(function(){
-		xes.iframe.setHeight();
-	},100);	
+	// setTimeout(function(){
+	xes.iframe.setHeight();
+	// },100);	
 })
 
 
@@ -103,6 +103,10 @@ var isDomClick = function(fn){
 			return event;
 		}
 	});
+};
+
+var unDomClick = function(){
+	$(document).unbind('click');
 };
 
 /* -------------------- ui/xes.ui.tips.js --------------------- */
@@ -418,14 +422,14 @@ var xform = xform || {};
 					$(this).attr('checked',true);
 				}
 			});
-
 			$('table[id='+tableid+'] tr input[type="checkbox"]').click(function(){
+				
 				//点击checkbox的值
 				var checkedvalue = $(this).val();
 				//方便搜素特殊处理的值
 				//var searchvalue = ','+$.cookie(name);
 				//如果checkbox为选中状态
-				if($(this).attr('checked') === true){
+				if($(this).attr('checked') === 'checked'){
 					//查找选中checkbox值在cookie中是否存在
 					var indexof = cookievalue.indexOf(','+checkedvalue+',')
 					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
@@ -433,10 +437,11 @@ var xform = xform || {};
 						//将指定的值添加到cookie中
 						cookievalue = cookievalue+checkedvalue+',';
 					}
-					$.cookie(name, cookievalue, { path: '/', expires: 0 });
+					$.cookie(name, cookievalue, { expires: 0 });
+					// $.cookie(name, cookievalue, { path: '/', expires: 0 });
 				}
 				//如果checkbox为未选中状态
-				if($(this).attr('checked') === false){
+				if($(this).attr('checked') != 'checked'){
 					//查找选中checkbox值在cookie中是否存在
 					var indexof = cookievalue.indexOf(','+checkedvalue+',')
 					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
@@ -445,7 +450,8 @@ var xform = xform || {};
 						cookievalue = cookievalue.replace(','+checkedvalue+',' , ',');
 
 					}
-					$.cookie(name, cookievalue, { path: '/', expires: 0 });
+					$.cookie(name, cookievalue, { expires: 0 });
+					// $.cookie(name, cookievalue, { path: '/', expires: 0 });
 				}
 			});
 		}

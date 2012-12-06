@@ -131,7 +131,21 @@ var selector = selector || {};
 			}
         });
         //检查iframe点击事件
-		var iframe = $('iframe:visible');			
+		var iframe = $('iframe:visible');	
+		// if(iframe.length > 0 && xes.platform.iframeLoaded){
+		// 	xes.platform.iframeLoaded(iframe[0],function(){
+		// 		var isDomClick = window.frames[iframe.attr('name')].isDomClick;
+		// 		if(isDomClick){
+		// 			var a = isDomClick(function(b){
+		// 				if(b){
+		// 			    	s.close();
+		// 			    	a = null;
+		// 			    	window.frames[iframe.attr('name')].unDomClick();
+		// 			    }
+		// 			});
+		// 		}
+		// 	});
+		// }		
 		if(iframe.length > 0){
 			var isDomClick = window.frames[iframe.attr('name')].isDomClick;
 			if(isDomClick){
@@ -139,10 +153,15 @@ var selector = selector || {};
 						if(b){
 				    	s.close();
 				    	a = null;
+				    	window.frames[iframe.attr('name')].unDomClick();
 				    }
 				});
 			}
 		}
+	};
+
+	s.unDomClick = function(){
+		$(document).unbind('mouseup');
 	};
 	/**
 	 * 初始化

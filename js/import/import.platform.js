@@ -139,7 +139,21 @@ var selector = selector || {};
 			}
         });
         //检查iframe点击事件
-		var iframe = $('iframe:visible');			
+		var iframe = $('iframe:visible');	
+		// if(iframe.length > 0 && xes.platform.iframeLoaded){
+		// 	xes.platform.iframeLoaded(iframe[0],function(){
+		// 		var isDomClick = window.frames[iframe.attr('name')].isDomClick;
+		// 		if(isDomClick){
+		// 			var a = isDomClick(function(b){
+		// 				if(b){
+		// 			    	s.close();
+		// 			    	a = null;
+		// 			    	window.frames[iframe.attr('name')].unDomClick();
+		// 			    }
+		// 			});
+		// 		}
+		// 	});
+		// }		
 		if(iframe.length > 0){
 			var isDomClick = window.frames[iframe.attr('name')].isDomClick;
 			if(isDomClick){
@@ -147,10 +161,15 @@ var selector = selector || {};
 						if(b){
 				    	s.close();
 				    	a = null;
+				    	window.frames[iframe.attr('name')].unDomClick();
 				    }
 				});
 			}
 		}
+	};
+
+	s.unDomClick = function(){
+		$(document).unbind('mouseup');
 	};
 	/**
 	 * 初始化
@@ -447,16 +466,30 @@ var tabs = tabs || {};
 	 */
 	t.close = function(id, fn){
 		var _tab = t.getItem(id);
-		
 		if(_tab){
-			t.remove(id);
 			/**
-			 * 如果关闭的标签为激活标签，则关闭后执行历史记录回退功能；
-			 * 否则删除历史记录中相关的id
+			 * 在历史记录里面删除已经关闭掉的标签
+			 * 否则当历史记录回退的时候就会报错
 			 */
+			t.delHistory('tab_'+id);
+
+			/**
+			 * 如果关闭的标签为激活标签，则激活历史记录最后一个id
+			 */
+			
 			if(_tab.hasClass(t.cls.active)){
-				t.backHistory();
+				// t.backHistory(id);
+				var historyName = t.o.cookieName+'history';
+				var history = $.cookie(historyName);
+				if(history){
+					history = history.split(',');						
+					var last = history[history.length-1];
+					var lastID = last.replace('tab_','');
+					t.click(lastID);
+				}
 			}
+
+			t.remove(id);
 		}
 		this.resize();
 		//如果有cookie则存储标签列表
@@ -485,9 +518,11 @@ var tabs = tabs || {};
 
 		var _index = t.getIndex(_act[0]);
 		t.index = _index;
+
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
+		
 		if(t.isCookie){
 			//每次激活标签的时候就设置历史记录
 			t.saveHistory(_id);
@@ -528,6 +563,7 @@ var tabs = tabs || {};
 			history = history.split(',');
 			//如果历史记录最后一个与当前激活的相同，则不追加
 			var last = history[history.length-1];
+			
 			if(last != id){
 				history.push(id);
 			}
@@ -550,6 +586,7 @@ var tabs = tabs || {};
 			//删除并返回数组最后一位
 			// history = history.pop();
 			//删除数组最后一位
+
 			history = t.delCookieLast(history, historyName);
 				
 			var last = history[history.length-1];
@@ -582,6 +619,18 @@ var tabs = tabs || {};
 			$.cookie(cookiename,cookielist, {expires:t.cookieExpires});	
 		}
 		return cookielist;
+	};
+	/**
+	 * 删除指定id的历史记录
+	 */
+	t.delHistory = function(id){
+		var expr = '/'+id + ',/ig';
+		var historyName = t.o.cookieName+'history';
+		var history = $.cookie(historyName)+',';
+		history = history.replace(eval(expr),'');
+		
+		history = history.replace(/,$/,'');
+		$.cookie(historyName,history);
 	};
 	/**
 	 * 存储当前激活标签的id到cookie中
@@ -712,7 +761,17 @@ var tabs = tabs || {};
 		// 当前标签对应的content显示，其他content隐藏起来
 		_iframe.show().siblings('.' + t.cls.main).hide();
 		//设置content高度（切换的时候有用）
+		if(setIframeHeight){
+			setIframeHeight();
+		}
 		// $('#content').height(_iframe.height());
+		// var _body_height = _iframe.contents().find('body').outerHeight();
+		// var _html_height = _iframe.contents().find('html').outerHeight();
+		// var _h = Math.max(_body_height, _html_height);
+
+		// var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
+		// _iframe.height(_height);
+		// $('#content').height(_height);
 	};
 
 
@@ -907,15 +966,37 @@ xes.platform = xes.platform || {};
 			_winHeight = $(window).height();
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
 		//如果存在url则设置制定url，否则查看当前激活的iframe进行设置
-		var _ifr = url ? $('#content').find('iframe[src="' + url + '"]') : $('#content iframe:visible');
-		setTimeout(function(){
-			var _body_height = _ifr.contents().find('body').outerHeight();
-			var _html_height = _ifr.contents().find('html').outerHeight();
-			var _h = Math.max(_body_height, _html_height);
-				var _height = (_h + 10 <= _mainMinHeight) ? _mainMinHeight - 10  : _h + 10;
-				_ifr.height(_height);
-				$('#content').height(_height);
-		},200);
+		// var _ifr = url ? $('#content').find('iframe[src="' + url + '"]') : $('#content iframe:visible');
+		var _ifr = $('#content iframe:visible');
+		// if(_ifr.length > 0){
+		// 	PF.iframeLoaded(_ifr[0],function(){
+		// 		console.log(111);
+		// 		var _body_height = _ifr.contents().find('body').outerHeight();
+		// 		var _html_height = _ifr.contents().find('html').outerHeight();
+		// 		var _h = Math.max(_body_height, _html_height);
+
+		// 		var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
+		// 		_ifr.height(_height);
+		// 		$('#content').height(_height);
+		// 	});
+		// }
+		if(_ifr.length > 0){
+			var _ifrID = _ifr.attr('id').replace('content_','');
+			PF.findChild(_ifrID,'body>div:last',function(dom){
+				if(typeof dom != 'string'){
+					var _body_height = _ifr.contents().find('body').outerHeight();
+					var _html_height = _ifr.contents().find('html').outerHeight();
+					var _h = Math.max(_body_height, _html_height);
+
+					var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
+					_ifr.height(_height);
+					$('#content').height(_height);
+				}
+			});
+		}
+		// setTimeout(function(){
+			
+		// },200);
 
 	};
 	/**
@@ -958,11 +1039,31 @@ xes.platform = xes.platform || {};
 							return '查询超时';
 						}
 					}
+
 					i++;
 				}
 			},100);
 		}
 	};
+	/**
+	 * 判断iframe是否已加载完成
+	 */
+	//iframeEl为iframe元素
+	PF.iframeLoaded = function(iframeEl, callback) {
+        if(iframeEl.attachEvent) {
+            iframeEl.attachEvent("onload", function() {
+                if(callback && typeof(callback) == "function") {
+                    callback(true);
+                }
+            });
+        } else {
+            iframeEl.onload = function() {
+                if(callback && typeof(callback) == "function") {
+                    callback(true);
+                }
+            }
+        }
+    };
 })();
 
 
@@ -1220,13 +1321,14 @@ $(function(){
 	$('.ui-tabs-items').find('li a').die('click').live('click',function(){
 		var _id = $(this).parent().attr('id');
 		_id = _id.replace('tab_','');
-		xes.ui.tabs.click(_id);
+		
 		var _url = $(this).attr('url');
 		//根据点击的url获取左侧当前激活的dom
 		var _node = $('#sidebar li a[url="' + _url + '"]');
 		_dom = _node ? _node.parent() : false;
 		xes.platform.menu.setActive(_dom);
-		setIframeHeight();
+		xes.ui.tabs.click(_id);
+		// setIframeHeight();
 	});
 
 	//关闭按钮的点击事件
@@ -1236,7 +1338,7 @@ $(function(){
 			var _node = $('#sidebar li a[url="' + d.attr('url') + '"]');
 			_dom = _node ? _node.parent() : false;
 			xes.platform.menu.setActive(_dom);
-			setIframeHeight();
+			// setIframeHeight();
 		});
 		
 	});
@@ -1331,8 +1433,17 @@ function headSearch(id){
 		}
 	});
 }
-/** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
+/**
+ * 判断iframe是否加载完成
+ * @param iframeEl : 为iframe元素
+ * @param callback : 为加载后的回调函数
+ */
+var iframeLoaded = xes.platform.iframeLoaded;
 
+/** ============================ 下面是提供给子页面调用的函数 window.parent ========================== **/
+/**
+ * 设置iframe高度
+ */
 var setIframeHeight = xes.platform.setMainHeight;
 
 /**

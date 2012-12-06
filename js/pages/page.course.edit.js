@@ -16,9 +16,11 @@
 
 ///import:xes.form.js///
 
-$(function(){
-	setTimeout(function(){
-		console.log(KE.scriptPath);	
-	},200);
+/* =-=-=-=-=-=-=-=-=-=-=-= course_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+// $(function(){
+// 	setTimeout(function(){
+// 		console.log(KE.scriptPath);	
+// 	},200);
 	
-});
+// });

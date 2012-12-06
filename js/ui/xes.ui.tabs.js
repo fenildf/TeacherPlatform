@@ -266,16 +266,30 @@ var tabs = tabs || {};
 	 */
 	t.close = function(id, fn){
 		var _tab = t.getItem(id);
-		
 		if(_tab){
-			t.remove(id);
 			/**
-			 * 如果关闭的标签为激活标签，则关闭后执行历史记录回退功能；
-			 * 否则删除历史记录中相关的id
+			 * 在历史记录里面删除已经关闭掉的标签
+			 * 否则当历史记录回退的时候就会报错
 			 */
+			t.delHistory('tab_'+id);
+
+			/**
+			 * 如果关闭的标签为激活标签，则激活历史记录最后一个id
+			 */
+			
 			if(_tab.hasClass(t.cls.active)){
-				t.backHistory();
+				// t.backHistory(id);
+				var historyName = t.o.cookieName+'history';
+				var history = $.cookie(historyName);
+				if(history){
+					history = history.split(',');						
+					var last = history[history.length-1];
+					var lastID = last.replace('tab_','');
+					t.click(lastID);
+				}
 			}
+
+			t.remove(id);
 		}
 		this.resize();
 		//如果有cookie则存储标签列表
@@ -304,9 +318,11 @@ var tabs = tabs || {};
 
 		var _index = t.getIndex(_act[0]);
 		t.index = _index;
+
 		//把激活的标签存入到t.o对象中
 		t.o.active = _act;
 		t.o.active.addClass(t.cls.active).siblings('li').removeClass(t.cls.active);
+		
 		if(t.isCookie){
 			//每次激活标签的时候就设置历史记录
 			t.saveHistory(_id);
@@ -347,6 +363,7 @@ var tabs = tabs || {};
 			history = history.split(',');
 			//如果历史记录最后一个与当前激活的相同，则不追加
 			var last = history[history.length-1];
+			
 			if(last != id){
 				history.push(id);
 			}
@@ -369,6 +386,7 @@ var tabs = tabs || {};
 			//删除并返回数组最后一位
 			// history = history.pop();
 			//删除数组最后一位
+
 			history = t.delCookieLast(history, historyName);
 				
 			var last = history[history.length-1];
@@ -401,6 +419,18 @@ var tabs = tabs || {};
 			$.cookie(cookiename,cookielist, {expires:t.cookieExpires});	
 		}
 		return cookielist;
+	};
+	/**
+	 * 删除指定id的历史记录
+	 */
+	t.delHistory = function(id){
+		var expr = '/'+id + ',/ig';
+		var historyName = t.o.cookieName+'history';
+		var history = $.cookie(historyName)+',';
+		history = history.replace(eval(expr),'');
+		
+		history = history.replace(/,$/,'');
+		$.cookie(historyName,history);
 	};
 	/**
 	 * 存储当前激活标签的id到cookie中
@@ -531,7 +561,17 @@ var tabs = tabs || {};
 		// 当前标签对应的content显示，其他content隐藏起来
 		_iframe.show().siblings('.' + t.cls.main).hide();
 		//设置content高度（切换的时候有用）
+		if(setIframeHeight){
+			setIframeHeight();
+		}
 		// $('#content').height(_iframe.height());
+		// var _body_height = _iframe.contents().find('body').outerHeight();
+		// var _html_height = _iframe.contents().find('html').outerHeight();
+		// var _h = Math.max(_body_height, _html_height);
+
+		// var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
+		// _iframe.height(_height);
+		// $('#content').height(_height);
 	};
 
 

@@ -12,10 +12,11 @@
 
 ///import:xes.iframe.js///
 
+///import:widget/jquery.cookie.js///
+
 ///import:ui/xes.ui.tips.js///
 
 /* //import:ui/xes.ui.select.js// */
-
 
 ///import:xes.ajax.js///
 

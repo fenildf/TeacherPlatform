@@ -44,9 +44,9 @@ xes.iframe = xes.iframe || {};
 })();
 $(function(){
 
-	setTimeout(function(){
-		xes.iframe.setHeight();
-	},100);	
+	// setTimeout(function(){
+	xes.iframe.setHeight();
+	// },100);	
 })
 
 
@@ -104,6 +104,10 @@ var isDomClick = function(fn){
 			return event;
 		}
 	});
+};
+
+var unDomClick = function(){
+	$(document).unbind('click');
 };
 
 
