@@ -31,6 +31,8 @@
 $(function () {
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();
+	var room = $('#liveChannel').val();
+	console.log('room:'+room);
 	var TYPE = (_date!='') ? true : false;
 	$('#liveTime').show();
 	$('#liveDate').click(function(){
@@ -39,14 +41,29 @@ $(function () {
 		},500);
 	});
 
-	
-	
 	if(_date!=''){
-		xes.liveTime.createTimeList(_date,TYPE);
+		xes.liveTime.createTimeList(_date,TYPE,room);
+		$('#room_'+room).addClass('current').siblings('a').removeClass('current');
+		var getweek = xes.date.getWeek(_date);
+		$('#time_week span').text('时间/'+ getweek);
 	}
+
+	$('#time_week a').click(function(){
+		var _date = $('#liveDate').val();
+		var _room = $(this).attr('id');
+		_room = _room.replace('room_','');
+		if(_date !=''){
+			xes.liveTime.createTimeList(_date,TYPE,_room);
+			$(this).addClass('current').siblings('a').removeClass('current');
+		}else{
+			alert('请先选择预约日期');
+		}
+	});
+	
 	
 	$("#liveDate").calendar({callback:function(){
 		var date = $('#liveDate').val();
+		var _room = $('#liveChannel').val();
 		//创建直播时：选择时间的时候清空已选时间段的隐藏表单值
 		var courseid = $('#courseId');
 		if(courseid.length == 0){
@@ -54,11 +71,12 @@ $(function () {
 		}
 		//程序调用
 		
-		xes.liveTime.createTimeList(date,TYPE);
+		xes.liveTime.createTimeList(date,TYPE,_room);
+		$('#room_'+room).addClass('current').siblings('a').removeClass('current');
 
 		//设置星期
 		var getweek = xes.date.getWeek(date);
-		$('#time_week').text('时间/'+ getweek);
+		$('#time_week span').text('时间/'+ getweek);
 	}});
 
 	$('#liveTimeList li.optional').die('click').live('click',function(){

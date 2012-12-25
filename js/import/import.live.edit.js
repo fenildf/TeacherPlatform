@@ -203,7 +203,7 @@ xes.liveTime = xes.liveTime || {};
 
 (function(){
 	var l = xes.liveTime;
-	l.getJson = function(dd, fn, tp){
+	l.getJson = function(dd, fn, tp, room){
 		var _data=[{times:"0:00",status:"optional",teacher:""},{times:"0:30",status:"optional",teacher:""},{times:"1:00",status:"optional",teacher:""},{times:"1:30",status:"optional",teacher:""},{times:"2:00",status:"optional",teacher:""},{times:"2:30",status:"optional",teacher:""},{times:"3:00",status:"optional",teacher:""},{times:"3:30",status:"optional",teacher:""},{times:"4:00",status:"selected",teacher:"许强"},{times:"4:30",status:"selected",teacher:"许强"},{times:"5:00",status:"optional",teacher:""},{times:"5:30",status:"optional",teacher:""},{times:"6:00",status:"optional",teacher:""},{times:"6:30",status:"optional",teacher:""},{times:"7:00",status:"selected",teacher:"许强"},{times:"7:30",status:"selected",teacher:"许强"},{times:"8:00",status:"selected",teacher:"许强"},{times:"8:30",status:"selected",teacher:"许强"},{times:"9:00",status:"selected",teacher:"许强"},{times:"9:30",status:"optional",teacher:""},{times:"10:00",status:"optional",teacher:""},{times:"10:30",status:"optional",teacher:""},{times:"11:00",status:"selected",teacher:"许强"},{times:"11:30",status:"selected",teacher:"许强"},{times:"12:00",status:"optional",teacher:""},{times:"12:30",status:"selected",teacher:"许强"},{times:"13:00",status:"optional",teacher:""},{times:"13:30",status:"optional",teacher:""},{times:"14:00",status:"optional",teacher:""},{times:"14:30",status:"selected",teacher:"许强"},{times:"15:00",status:"optional",teacher:""},{times:"15:30",status:"selected",teacher:"许强"},{times:"16:00",status:"selected",teacher:"许强"},{times:"16:30",status:"selected",teacher:"许强"},{times:"17:00",status:"optional",teacher:""},{times:"17:30",status:"optional",teacher:""},{times:"18:00",status:"optional",teacher:""},{times:"18:30",status:"selected",teacher:"许强"},{times:"19:00",status:"selected",teacher:"许强"},{times:"19:30",status:"selected",teacher:"许强"},{times:"20:00",status:"selected",teacher:"许强"},{times:"20:30",status:"optional",teacher:""},{times:"21:00",status:"selected",teacher:"许强"},{times:"21:30",status:"selected",teacher:"许强"},{times:"22:00",status:"selected",teacher:"许强"},{times:"22:30",status:"optional",teacher:""},{times:"23:00",status:"optional",teacher:""},{times:"23:30",status:"selected",teacher:"许强"}];
 
 		//本地调试
@@ -213,12 +213,18 @@ xes.liveTime = xes.liveTime || {};
 		var _oldtime = $('#oldDate').val();
 		var _courseID = $('#courseId').val();
 		var url = tp ? dd+'/'+_courseID : dd;
-	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ url, {}, function(result){
+		var _room = room || 1;
+	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ _room +'/'+ url, {}, function(result){
 	 		if(fn){
-	 			fn(result);
+	 			if(result.sign == 1){
+					fn(result);
+				}else{
+					alert(result.msg);
+				}
+	 			
 	 		}else{
 				if(result.sign == 1){
-					return result.msg;
+					return result.msg[_room];
 				}else{
 					alert(result.msg);
 				}	 			
@@ -235,11 +241,11 @@ xes.liveTime = xes.liveTime || {};
 	//处理日期，将后端传过来的时间区间比配成现有格式
 	l.date = function(data){
 		var d = 60*60*24;
-
 	};
 
 	l.create = function(d){
 		var _d = d || l.getJson();
+		// console.log(_d);
 		var html='';
 		$.each(_d, function(n,m){
 			// var status = m.status == 'selected' ? 'unchoose' : 'optional';
@@ -273,15 +279,17 @@ xes.liveTime = xes.liveTime || {};
 	/**
 	 * 创建时间列表
 	 */
-	l.createTimeList = function(day,tp){
+	l.createTimeList = function(day,tp,room){
+		var _room = room || 1;
 		if(day){
 			xes.liveTime.getJson(day,function(d){
 				if(d.sign == 1){
-					xes.liveTime.create(d.msg);
+					$('#liveChannel').val(_room);
+					xes.liveTime.create(d.msg[_room]);
 				}else{
 					alert(d.msg);
 				}
-			},tp);
+			},tp,_room);
 		}
 	};
 	l.open = function(t,e){
@@ -1512,6 +1520,8 @@ xes.formVerify = formVerify;
 $(function () {
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();
+	var room = $('#liveChannel').val();
+	console.log('room:'+room);
 	var TYPE = (_date!='') ? true : false;
 	$('#liveTime').show();
 	$('#liveDate').click(function(){
@@ -1520,14 +1530,29 @@ $(function () {
 		},500);
 	});
 
-	
-	
 	if(_date!=''){
-		xes.liveTime.createTimeList(_date,TYPE);
+		xes.liveTime.createTimeList(_date,TYPE,room);
+		$('#room_'+room).addClass('current').siblings('a').removeClass('current');
+		var getweek = xes.date.getWeek(_date);
+		$('#time_week span').text('时间/'+ getweek);
 	}
+
+	$('#time_week a').click(function(){
+		var _date = $('#liveDate').val();
+		var _room = $(this).attr('id');
+		_room = _room.replace('room_','');
+		if(_date !=''){
+			xes.liveTime.createTimeList(_date,TYPE,_room);
+			$(this).addClass('current').siblings('a').removeClass('current');
+		}else{
+			alert('请先选择预约日期');
+		}
+	});
+	
 	
 	$("#liveDate").calendar({callback:function(){
 		var date = $('#liveDate').val();
+		var _room = $('#liveChannel').val();
 		//创建直播时：选择时间的时候清空已选时间段的隐藏表单值
 		var courseid = $('#courseId');
 		if(courseid.length == 0){
@@ -1535,11 +1560,12 @@ $(function () {
 		}
 		//程序调用
 		
-		xes.liveTime.createTimeList(date,TYPE);
+		xes.liveTime.createTimeList(date,TYPE,_room);
+		$('#room_'+room).addClass('current').siblings('a').removeClass('current');
 
 		//设置星期
 		var getweek = xes.date.getWeek(date);
-		$('#time_week').text('时间/'+ getweek);
+		$('#time_week span').text('时间/'+ getweek);
 	}});
 
 	$('#liveTimeList li.optional').die('click').live('click',function(){
