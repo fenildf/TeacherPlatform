@@ -32,7 +32,7 @@ $(function () {
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();
 	var room = $('#liveChannel').val();
-	console.log('room:'+room);
+	// console.log('room:'+room);
 	var TYPE = (_date!='') ? true : false;
 	$('#liveTime').show();
 	$('#liveDate').click(function(){
@@ -47,7 +47,7 @@ $(function () {
 		var getweek = xes.date.getWeek(_date);
 		$('#time_week span').text('时间/'+ getweek);
 	}
-
+	//切换直播间
 	$('#time_week a').click(function(){
 		var _date = $('#liveDate').val();
 		var _room = $(this).attr('id');
@@ -57,6 +57,25 @@ $(function () {
 			$(this).addClass('current').siblings('a').removeClass('current');
 		}else{
 			alert('请先选择预约日期');
+		}
+		//如果只切换直播间不选时间，则存储上一次提交的时间和房间
+		var box = {
+			start : $('#liveTimeStartInput'),
+			end : $('#liveTimeEndInput'),
+			room : $('#liveChannel')
+		};
+		var old = {
+			timeStart : box.start.attr('old'),
+			timeEnd : box.end.attr('old'),
+			room : box.room.attr('old')
+		};
+		if(_room != old.room){
+			box.start.val('');
+			box.end.val('');
+		}else{
+			box.start.val(old.timeStart);
+			box.end.val(old.timeEnd);
+			box.room.val(old.channel);
 		}
 	});
 	
@@ -96,7 +115,8 @@ $(function () {
 			}
 	});
 
-	var btns = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	// var btns = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	var btns = $('#courseName,#gradeId,#subjectId,#description,#resourcePath');
 	btns.blur(function(){
 		if($(this).attr('id') == 'courseName'){
 			checkLiveTitle();
@@ -106,9 +126,10 @@ $(function () {
 	});
 });
 
-
+//提交时检测表单
 function checkLiveForm(){
-	var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	// var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
+	var inputs = $('#courseName,#gradeId,#subjectId,#description,#resourcePath');
 	inputs.each(function(){
 		if(this.id == 'courseName'){
 			checkLiveTitle();
@@ -116,7 +137,8 @@ function checkLiveForm(){
 			xes.formVerify.checkEmpty(this);
 		}
 	});
-
+	//检查直播时间
+	// checkLiveTime();
 	if($('.tips_error').length > 0){
 		return false;
 	}else{
@@ -132,12 +154,40 @@ function checkLiveTitle(){
 		// return '不能为空';
 		xes.formVerify.setError('直播名称不能为空',input[0]);
 	}else{
-		if(val.length < 4 || val.length > 20){
+		if(val.length < 4 || val.length > 40){
 			// return '标题字数只能在4到20个字之间';
-			xes.formVerify.setError('标题字数只能在4到20个字之间',input[0]);
+			xes.formVerify.setError('标题字数只能在4到40个字之间',input[0]);
 		}else{
 			// return true;
 			xes.formVerify.emptyError(input[0]);
 		}
+	}
+}
+
+//检查直播时间
+function checkLiveTime(){
+	var box = {
+			start : $('#liveTimeStartInput'),
+			end : $('#liveTimeEndInput'),
+			room : $('#liveChannel')
+		};
+		var old = {
+			timeStart : box.start.attr('old'),
+			timeEnd : box.end.attr('old'),
+			room : box.room.attr('old')
+		};
+	if((box.start.val() == '' || box.end.val() == '') && box.room.val() != old.room){
+		box.start.val(old.timeStart);
+		box.end.val(old.timeEnd);
+		// old.room = old.room ? old.room : '1';
+		var r = 1;
+		if(old.room){
+			r = old.room;
+		}else{
+			r = $('#time_week a.current').attr('id');
+			r = r.replace('room_','');
+
+		}
+		box.room.val(r);
 	}
 }
