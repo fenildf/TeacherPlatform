@@ -2,16 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>课程运营平台</title>
+	<title>项目列表--课程运营平台</title>
 	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_list.css"/>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 </head>
 
 <body class="skin skin-green">
-	<div class="ui_tips tips_error">错误提示<a href="javascript:void(0);" class="tips_close">关闭</a></div>
 	<h1 class="ui_infor_title">
-		<span>课程列表</span>
+		<span>项目列表</span>
 	</h1>
 	<div class="action_item">
 
@@ -28,7 +27,7 @@
 					<option value="5">六年级</option>
 				</select>
 				<select name="" id="selectCourseType" class="ui-select-box">
-					<option>--课程状态--</option>
+					<option>--项目状态--</option>
 					<option value="1">已上架</option>
 					<option value="2">未上架</option>
 					<option value="3">已审核</option>
@@ -40,7 +39,8 @@
 			</form>
 			</li>
 			<li>
-				<a id="project_list" href="project_list.html" class="open_tabs">查看项目列表</a>
+				<a id="project_create_4" href="project_create.html" class="open_tabs">创建项目</a>
+				<a id="project_record_all" href="project_record.html" class="open_tabs">创建项目</a>
 			</li>
 		</ul>
 		<ul class="item_pag ui_pages">
@@ -68,7 +68,7 @@
 				<tr>
 					<th>课程名称</th>
 					<th>年级</th>
-					<th>课程状态</th>
+					<th>状态</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -84,8 +84,8 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a id="course_edit_1" href="edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_1" href="view.html" class="open_tabs">查看</a>
+						<a id="course_edit_1" href="project_edit.html" class="open_tabs">编辑详情</a>
+						<a id="course_view_1" href="project_view.html" class="open_tabs">查看</a>
 					</td>
 				</tr>
 				<tr>
@@ -99,8 +99,8 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a id="course_edit_2" href="edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_2" href="view.html" class="open_tabs">查看</a>
+						<a id="course_edit_2" href="project_edit.html" class="open_tabs">编辑详情</a>
+						<a id="course_view_2" href="project_view.html" class="open_tabs">查看</a>
 					</td>
 				</tr>
 				<tr>
@@ -114,8 +114,8 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a id="course_edit_3" href="edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_3" href="view.html" class="open_tabs">查看</a>
+						<a id="course_edit_3" href="project_edit.html" class="open_tabs">编辑详情</a>
+						<a id="course_view_3" href="project_view.html" class="open_tabs">查看</a>
 					</td>
 				</tr>
 				<tr>
@@ -129,8 +129,8 @@
 						<span class="state two"></span>
 					</td>
 					<td>
-						<a id="course_edit_4" href="edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_4" href="view.html" class="open_tabs">查看</a>
+						<a id="course_edit_4" href="project_edit.html" class="open_tabs">编辑详情</a>
+						<a id="course_view_4" href="project_view.html" class="open_tabs">查看</a>
 					</td>
 				</tr>
 			</tbody>
@@ -150,7 +150,7 @@
 	</div>
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.course.js"></script>
 	<script type="text/javascript">
-		xes.tips.error('test');
+		// xes.tips.error('test');
 	</script>
 </body>
 </html>

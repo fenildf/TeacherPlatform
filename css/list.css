@@ -10,7 +10,7 @@
 
 .action_item {height: 36px;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
-.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;}
+.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
 .action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
 .action_item .action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
 .action_item .action li.grade button {width:100%;background-position: 65px -117px;}
