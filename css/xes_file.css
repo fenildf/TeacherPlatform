@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-/* 
- * xesui样式库索引文件
- * 主要负责对需要合并的样式进行索引
- * 上线前需要利用合并工具进行合并、压缩
- *
- **/
-
 /* ==================== base.css ===================== */
 
 /* 
@@ -334,104 +327,6 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 
 .w_500 {width: 500px;}
 .w_215 {width: 215px;}
-/* ==================== ui-select.css ===================== */
-
-/*
- * ui selector
- * 下拉框UI组件
- * update: 2012-10-25
- * author: Wu Jie (Marco)
- *
- */
-.ui-select-box {}
-.ui-select-button {cursor: pointer;}
-ul.ui-select-list {display: none;position: static;z-index: 0;width: auto;height: auto;overflow: hidden;overflow-y: auto;border: 1px #CCC solid; border-width: 0 1px 1px 1px;background-color: #FFF}
-ul.ui-select-list li {height: 28px;line-height: 28px;width: 100%}
-ul.ui-select-list li a {display: block;padding: 0 15px;color: #666;}
-ul.ui-select-list li.ui-select-hover a,ul.ui-select-list li a:hover {color:#FFF;text-decoration: none;background-color: #4582D3}
-
-#header  ul.ui-select-list li a {_color: #666;}
-#header  ul.ui-select-list li a:hover {_color: #fff;}
-/* large select: line-height:28px 
-	默认行高是23px，这里是提供一种更大行高的方案：28px
- */
-ul.ui-select-large {}
-ul.ui-select-large li {height: 28px;line-height: 28px}
-
-/* add top border 
-	默认状态下select组件是没有top-border的，这里是需要添加top-border所需的样式
- */
-ul.ui-select-topborder {border-top-width: 1px}
-
-/* themes green 
-	皮肤样式，此组件样式需要添加到皮肤整体样式中
- */
-.skin-green {}
-.skin-green ul.ui-select-list li.ui-select-hover a,
-.skin-green ul.ui-select-list li a:hover {background-color: #057E13}
-
-/* no themes : select default skin
-	在有skin的情况下，重置组件风格为默认样式
-	皮肤为 .skin .skin-green
-*/
-.ui-select-default  {}
-.skin ul.ui-select-default li.ui-select-hover a,
-.skin ul.ui-select-default li a:hover {background-color: #4582D3}
-
-
-ul.ui-select-show {display: block; position: absolute;z-index: 1001}
-
-
-
-
-/* erro */
-.icon_bot {background: url(http://img03.xesimg.com/course_icon.png) no-repeat;}
-.ui_search_input_text .icon_bot {
-	border:0;
-	width: 60px;
-	height: 25px;
-	line-height: 25px;
-	font-size: 12px;
-	padding:0 10px 0 5px;
-	background-position:50px -83px;
-}
-
-/**
- * upload:2012-11-26
- */
-
-.selectParent{width:auto;}
-/*.jquery-selectbox {position: absolute;left: 1px;top: 1px;z-index: 0;float: left;border: 1px solid #eaeaea;}*/
-
-/* 自定义外层 */
-
-
-.selectParent .jquery-selectbox{width: auto !important;position: relative;height: 26px;float: left;background: url(http://img03.xesimg.com/select_bg3.png) repeat-x;z-index: 0;margin-right: 10px;border: 1px solid #d1d1d1;}
-
-
-    
-.jquery-selectbox.selecthover {z-index: 700;}
-.jquery-selectbox .jquery-selectbox-currentItem {display: block;overflow: hidden;position:absolute;top: 4px;left:20px;z-index: -1;}
-.jquery-selectbox .jquery-selectbox-list {border: 1px solid #d1d1d1;display: none;position: absolute;left:-1px;top: 26px;background: #fff;overflow-x: hidden;overflow-y: auto;z-index: 1000;}
-
-/* 自定义下拉框 */
-
-
-.selectParent .jquery-selectbox-list{width: 100px !important;height: 220px;text-align: center;}
-.jquery-selectbox .jquery-selectbox-moreButton {float: right;background: url(http://img03.xesimg.com/course_icon.png) 82px -120px no-repeat;z-index:1;}
-
-
-
-/* 自定义文本框 */
-    .selectParent .jquery-selectbox-moreButton{width: 100px;height: 27px;}
-.jquery-selectbox .jquery-selectbox-moreButton.morebuttonhover {}
-
-.jquery-selectbox .jquery-selectbox-item.listelementhover {background: #057E13;color: #fff;}
-.jquery-selectbox .jquery-selectbox-item {display: block;}
-
-.selectParent  .jquery-selectbox{width: 100px;}
-
-
 /* ==================== list.css ===================== */
 
 /* 
@@ -547,85 +442,7 @@ table.grid_item tr.hover {background: #e0f2e3;}
 
 
 
-/* ==================== data.css ===================== */
-.input_text {height: 25px; padding-left: 5px; border:1px solid #d3d3d3;}
 
-ul.labelCon {overflow: hidden;width:1050px;margin:10px 3px ;color: #666;}
-ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
-ul.labelCon li label {float: left;width: 70px; text-align: right;}
-ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
-#termId {display: none;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==================== calendar.css ===================== */
-
-.calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
-
-.calendar .calMain { width: 189px; height: 180px; float: left; overflow: hidden; position: absolute; }
-.calendar .calMain .calTitle { width: 189px; float: left; height: 23px; background: #fff; overflow: hidden; }
-.calendar .calMain .calTitle .t_date { width: 149px; float: left; height: 23px; color: #51729d; font-weight: bold; line-height: 23px; text-align: center; }
-.calendar .calMain .calTitle .prevMonth { width: 15px; height: 15px; float: left; margin: 8px 0 0 5px; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 5px -87px; }
-.calendar .calMain .calTitle .nextMonth { width: 15px; height: 15px; float: right; margin: 8px 5px 0 0; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 6px -157px; }
-.calendar .calMain .calTitle .currentYear { }
-.calendar .calMain .calTitle .currentMonth { }
-.calendar .calMain .calTitle .currentYearText { float: left; margin: 0 0px 0 39px; cursor: pointer; }
-.calendar .calMain .calTitle .currentMonthText { float: left; cursor: pointer; width: 30px; text-align: right; }
-
-.calendar .calMain .calContent { width: 378px; height: 157px; float: left; }
-.calendar .calMain .calContent .enabled { position: absolute; width: 189px; height: 157px; float: left; }
-.calendar .calMain .calContent .reserve { position: absolute; width: 189px; height: 157px; float: left; }
-
-.calendar .calMain .calContent .tabD { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabD th { background: url(http://img03.xesimg.com/date_bg.png) repeat-x; line-height: 22px; font-weight: normal; padding-bottom: 4px; color: #fff; }
-.calendar .calMain .calContent .tabD td { color: #1f3959; text-align: center; line-height: 19px; width: 27px; font-family: "georgia"; }
-
-.calendar .calMain .calContent .tabD td span { color: #c0c0c0; }
-
-.calendar .calMain .calContent .tabD td a { width: 23px; line-height: 18px; float: left; margin: 1px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabD td .nextD { color: #bccadc; }
-.calendar .calMain .calContent .tabD td .prevD { color: #bccadc; }
-.calendar .calMain .calContent .tabD td .hover { width: 21px; line-height: 16px; border: 1px solid #7d99bd; float: left; margin: 1px 0 0 2px; }
-.calendar .calMain .calContent .tabD td .current { width: 21px; line-height: 16px; border: 1px solid #51729d; float: left; margin: 1px 0 0 2px; }
-.calendar .calMain .calContent .tabD td .select { width: 21px; line-height: 16px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 1px 0 0 2px; }
-
-.calendar .calMain .calContent .tabM { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabM td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
-.calendar .calMain .calContent .tabM td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabM td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabM td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabM td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
-
-.calendar .calMain .calContent .tabY { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabY td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
-.calendar .calMain .calContent .tabY td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabY td .nextY { color: #bccadc; }
-.calendar .calMain .calContent .tabY td .prevY { color: #bccadc; }
-.calendar .calMain .calContent .tabY td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabY td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabY td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
-
-.calendar .calMain a:hover { text-decoration: none; }
-
-
-/*
 .textZip {line-height:25px;background: url(http://img03.xesimg.com/zip.jpg) no-repeat;padding-left:35px;}
 
 .share_l {float:left;padding:10px;}
@@ -656,4 +473,76 @@ body {overflow: hidden;}
 
 
 
-*/
+
+/* ==================== layer.css ===================== */
+.teacherLayerAll {display: none;position: absolute;width: 345px;overflow: hidden;border: 1px solid #d7d7d7;opacity: 10;background-color: #FFF;border-radius: 5px;
+box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0.2),0 4px 4px rgba(153, 153, 153, 0.2),4px 0 4px rgba(153, 153, 153, 0.2);}
+.teacherLayerAll ul {overflow: hidden;}
+.teacherLayerAll ul li {overflow: hidden;line-height: 30px;border-bottom: 1px solid #dadada;}
+.teacherLayerAll ul li span {float: left;display: inline;padding-left: 20px;}
+.teacherLayerAll ul li span.laber {width: 70px;border-right: 1px solid #dadada;color: #666; }
+.teacherLayerAll ul li.title {height: 34px;line-height: 34px;background: #525252;color: #fff;}
+.teacherLayerAll ul li.title span.laber {border:0;font-weight: bold;color: #fff; } 
+.teacherLayerAll ul li span.right {float: right;margin-right:10px;margin-top: 4px;}
+
+.layerItemNew {width:900px;margin:0 auto;overflow:hidden;}
+.layerItemNew .grid_item_content {width:900px;}
+
+/* 2013-01-23  by:alexliu*/
+.share_layer {width:540px;overflow:hidden;border:1px solid #ccc;height: auto;box-shadow: 3px 3px 3px rgba(231, 231, 231, 0.4), -3px -3px 3px rgba(231, 231, 231, 0.4);}
+.share_layer h1 {background:#d6ead8;height:33px;line-height:33px;border:1px solid #fff;border-bottom:1px solid #f7fbf8;padding-left: 20px;font-size: 14px;font-weight: bold;}
+.share_layer h1 span {float: left;}
+.share_layer h1 span.close {float: right;width:35px;height:33px;text-indent: -99999em; background: url(http://img03.xesimg.com/close.jpg) 10px 10px no-repeat;cursor: pointer;}
+.contenttxt {overflow: hidden;width:auto;margin:10px auto;}
+.contenttxt p {overflow: hidden;}
+.contenttxt .textinfor {line-height: 30px;padding-left: 30px}
+.contenttxt .cla_input {width:500px;margin:20px 30px;}
+.contenttxt .cla_input .input_text {width:410px;height:23px;}
+.contenttxt .file_input {width:auto;margin:20px 30px;}
+
+
+.contenttxt .area_input {margin-left:30px;}
+.contenttxt .area_input textarea{width: 470px;height: 100px;margin-top: 10px;border: 1px solid #d3d3d3;}
+.contenttxt .sharebutton {width: 200px;margin:20px auto;text-align: center;}
+.contenttxt .sharebutton a {margin-right:20px;display: inline-block;}
+.contenttxt .sharebutton a.btnshare {width: 70px;height: 20px;line-height: 20px;text-align: center;background: url(http://img03.xesimg.com/create_btn.png) no-repeat;color: #fff;}
+/* 2013-01-23 by:alexliu End*/
+
+.w320 {width: 320px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== dialog.css ===================== */
+
+.xes_win {position: absolute;z-index: 1001;display: none;background-color: #FFF}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -240,7 +240,7 @@ iframe {border:0 none}
  * author: Marco(wujie)
  */
 .btn, .btn_ancel,.btn_prev,
-.btn_submit,.btn_cancel {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
+.btn_submit,.btn_cancel,.ui-pro .ui-pro-item .btn_submit {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
 button.btn_submit,
 input.btn_submit {border: 0 none;cursor: pointer;}
 
@@ -253,10 +253,10 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .btn {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_ancel, .btn_ancel:active, .btn_ancel:visited,
-.btn_cancel, .btn_cancel:active, .btn_cancel:visited {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+.btn_cancel, .btn_cancel:active, .btn_cancel:visited,.ui-pro .ui-pro-item .btn_submit {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_prev, .btn_prev:active, .btn_prev:visited,
-.btn_submit, .btn_submit:active, .btn_submit:visited {font-weight: 700;background-position: 0 0; color: #fff;}
+.btn_submit, .btn_submit:active, .btn_submit:visited,.ui-pro .ui-pro-item .btn_submit{font-weight: 700;background-position: 0 0; color: #fff;}
 
 
 
@@ -344,9 +344,9 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 /* icon */
 .page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
-.action_item {height: 36px;margin-top:20px;position:relative;}
+.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
-.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;}
+.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
 .action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
 .action_item .action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
 .action_item .action li.grade button {width:100%;background-position: 65px -117px;}
@@ -354,9 +354,14 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .action_item .action li.course button {width:100%;background-position: 93px -117px;}
 
 .action_item .action li ul.ui-select-list li {height: 28px;line-height: 28px;}
+.action_item .action_side {float: right;}
+.list_button{clear: both;overflow: hidden;height: 30px;line-height: 30px}
+.list_button li{width: auto;margin-right: 10px;float: left;}
 
-.ui_pages {float: right;overflow: hidden;margin-right:10px;}
+
+.ui_pages {float: right;overflow: hidden;margin-right:0px;}
 .ui_pages li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;}
+
 /*.ui_pages li.up_page { background-position: -282px -201px;}
 .ui_pages li.down_page {background-position: -282px -255px;}
 .ui_pages li span,
@@ -365,6 +370,8 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 
 .ui_pages li.page_list li {margin:0 10px 0 0;background: none}
 .ui_pages li.page_list button {border: 0;padding:0 15px;margin-right:0px;background-color: transparent;background-position: right -124px;}
+
+.ui_pages li.page_list_tips {margin:0 10px 0 0;width: auto}
 
 /**
  * update: 2012-11-20

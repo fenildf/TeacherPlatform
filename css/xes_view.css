@@ -240,7 +240,7 @@ iframe {border:0 none}
  * author: Marco(wujie)
  */
 .btn, .btn_ancel,.btn_prev,
-.btn_submit,.btn_cancel {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
+.btn_submit,.btn_cancel,.ui-pro .ui-pro-item .btn_submit {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
 button.btn_submit,
 input.btn_submit {border: 0 none;cursor: pointer;}
 
@@ -253,10 +253,10 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .btn {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_ancel, .btn_ancel:active, .btn_ancel:visited,
-.btn_cancel, .btn_cancel:active, .btn_cancel:visited {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+.btn_cancel, .btn_cancel:active, .btn_cancel:visited,.ui-pro .ui-pro-item .btn_submit {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_prev, .btn_prev:active, .btn_prev:visited,
-.btn_submit, .btn_submit:active, .btn_submit:visited {font-weight: 700;background-position: 0 0; color: #fff;}
+.btn_submit, .btn_submit:active, .btn_submit:visited,.ui-pro .ui-pro-item .btn_submit{font-weight: 700;background-position: 0 0; color: #fff;}
 
 
 

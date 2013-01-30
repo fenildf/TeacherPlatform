@@ -240,7 +240,7 @@ iframe {border:0 none}
  * author: Marco(wujie)
  */
 .btn, .btn_ancel,.btn_prev,
-.btn_submit,.btn_cancel {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
+.btn_submit,.btn_cancel,.ui-pro .ui-pro-item .btn_submit {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
 button.btn_submit,
 input.btn_submit {border: 0 none;cursor: pointer;}
 
@@ -253,10 +253,10 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .btn {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_ancel, .btn_ancel:active, .btn_ancel:visited,
-.btn_cancel, .btn_cancel:active, .btn_cancel:visited {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+.btn_cancel, .btn_cancel:active, .btn_cancel:visited,.ui-pro .ui-pro-item .btn_submit {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
 
 .btn_prev, .btn_prev:active, .btn_prev:visited,
-.btn_submit, .btn_submit:active, .btn_submit:visited {font-weight: 700;background-position: 0 0; color: #fff;}
+.btn_submit, .btn_submit:active, .btn_submit:visited,.ui-pro .ui-pro-item .btn_submit{font-weight: 700;background-position: 0 0; color: #fff;}
 
 
 
@@ -510,19 +510,27 @@ box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0
 .layerItemNew {width:900px;margin:0 auto;overflow:hidden;}
 .layerItemNew .grid_item_content {width:900px;}
 
+/* 2013-01-23  by:alexliu*/
+.share_layer {width:540px;overflow:hidden;border:1px solid #ccc;height: auto;box-shadow: 3px 3px 3px rgba(231, 231, 231, 0.4), -3px -3px 3px rgba(231, 231, 231, 0.4);}
+.share_layer h1 {background:#d6ead8;height:33px;line-height:33px;border:1px solid #fff;border-bottom:1px solid #f7fbf8;padding-left: 20px;font-size: 14px;font-weight: bold;}
+.share_layer h1 span {float: left;}
+.share_layer h1 span.close {float: right;width:35px;height:33px;text-indent: -99999em; background: url(http://img03.xesimg.com/close.jpg) 10px 10px no-repeat;cursor: pointer;}
+.contenttxt {overflow: hidden;width:auto;margin:10px auto;}
+.contenttxt p {overflow: hidden;}
+.contenttxt .textinfor {line-height: 30px;padding-left: 30px}
+.contenttxt .cla_input {width:500px;margin:20px 30px;}
+.contenttxt .cla_input .input_text {width:410px;height:23px;}
+.contenttxt .file_input {width:auto;margin:20px 30px;}
 
 
+.contenttxt .area_input {margin-left:30px;}
+.contenttxt .area_input textarea{width: 470px;height: 100px;margin-top: 10px;border: 1px solid #d3d3d3;}
+.contenttxt .sharebutton {width: 200px;margin:20px auto;text-align: center;}
+.contenttxt .sharebutton a {margin-right:20px;display: inline-block;}
+.contenttxt .sharebutton a.btnshare {width: 70px;height: 20px;line-height: 20px;text-align: center;background: url(http://img03.xesimg.com/create_btn.png) no-repeat;color: #fff;}
+/* 2013-01-23 by:alexliu End*/
 
-
-
-
-
-
-
-
-
-
-
+.w320 {width: 320px}
 
 
 

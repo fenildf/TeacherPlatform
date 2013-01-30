@@ -8,7 +8,7 @@
 /* icon */
 .page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
-.action_item {height: 36px;margin-top:20px;position:relative;}
+.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
 .action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
 .action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
@@ -18,9 +18,14 @@
 .action_item .action li.course button {width:100%;background-position: 93px -117px;}
 
 .action_item .action li ul.ui-select-list li {height: 28px;line-height: 28px;}
+.action_item .action_side {float: right;}
+.list_button{clear: both;overflow: hidden;height: 30px;line-height: 30px}
+.list_button li{width: auto;margin-right: 10px;float: left;}
 
-.ui_pages {float: right;overflow: hidden;margin-right:10px;}
+
+.ui_pages {float: right;overflow: hidden;margin-right:0px;}
 .ui_pages li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;}
+
 /*.ui_pages li.up_page { background-position: -282px -201px;}
 .ui_pages li.down_page {background-position: -282px -255px;}
 .ui_pages li span,
@@ -29,6 +34,8 @@
 
 .ui_pages li.page_list li {margin:0 10px 0 0;background: none}
 .ui_pages li.page_list button {border: 0;padding:0 15px;margin-right:0px;background-color: transparent;background-position: right -124px;}
+
+.ui_pages li.page_list_tips {margin:0 10px 0 0;width: auto}
 
 /**
  * update: 2012-11-20

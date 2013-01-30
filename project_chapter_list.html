@@ -2,16 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>项目列表--课程运营平台</title>
+	<title>浏览讲---课程运营平台</title>
 	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_list.css"/>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
 </head>
 
-<body class="skin skin-green">
-	<h1 class="ui_infor_title">
-		<span>项目列表</span>
-	</h1>
+<body>
 	<div class="action_item">
 
 		<ul class="action">
@@ -27,7 +25,7 @@
 					<option value="5">六年级</option>
 				</select>
 				<select name="" id="selectCourseType" class="ui-select-box">
-					<option>--项目状态--</option>
+					<option>--课程状态--</option>
 					<option value="1">已上架</option>
 					<option value="2">未上架</option>
 					<option value="3">已审核</option>
@@ -38,6 +36,7 @@
 				<input type="hidden" id="currpage" class="currpage" name="currpage" value="1" />
 			</form>
 			</li>
+			
 		</ul>
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
@@ -56,83 +55,57 @@
 				<span class="page_next">下一页</span>
 			</li>
 		</ul>
-		
+
 	</div>
-	<ul class="list_button">
-		<li><a id="project_create" href="project_create.html" class="open_tabs">创建项目</a></li>
-		<li><a id="project_record_all" href="project_record.html" class="open_tabs">提交审核</a></li>
-	</ul>
 	<div class="grid_item_content">
 		<table class="grid_item">
-			<colgroup>
-				<col width="" />
-				<col width="100px" />
-				<col width="80px" />
-				<col width="60px" />
-				<col width="120px" />
-
-			</colgroup>
 			<thead>
 				<tr>
-					<th>名称</th>
+					<th>ID</th>
+					<th>讲名称</th>
+					<th>科目</th>
 					<th>年级</th>
-					<th>类别</th>
+					<th>创建人</th>
 					<th>状态</th>
-					<th>操作</th>
+					<th>选择</th>
 				</tr>
 			</thead>
 			<tbody id="courseList">
 				<tr>
-					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td></td>
-					<td>未上架</td>
-					<td>
-						<a id="course_edit_1" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_1" href="project_view.html" class="open_tabs">查看</a>
-					</td>
+					<td>1234</td>
+					<td>讲名称讲名称讲名称讲讲名称讲名称讲名称讲名称讲名称名称讲名称</td>
+					<td>数学</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 				</tr>
 				<tr>
-					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td></td>
-					<td>未上架</td>
-					<td>
-						<a id="course_edit_2" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_2" href="project_view.html" class="open_tabs">查看</a>
-					</td>
+					<td>1235</td>
+					<td>讲名称讲名称讲名称讲名称讲名称</td>
+					<td>语文</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 				</tr>
 				<tr>
-					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td></td>
-					<td>未上架</td>
-					<td>
-						<a id="course_edit_3" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_3" href="project_view.html" class="open_tabs">查看</a>
-					</td>
+					<td>1236</td>
+					<td>讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称</td>
+					<td>数学</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 				</tr>
 				<tr>
-					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td></td>
-					<td>未上架</td>
-					<td>
-						<a id="course_edit_4" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_4" href="project_view.html" class="open_tabs">查看</a>
-					</td>
+					<td>1237</td>
+					<td>讲名称讲名称讲名称讲名称讲名称</td>
+					<td>物理</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 				</tr>
 			</tbody>
 		</table>
@@ -147,8 +120,10 @@
 				<a href=""  class="page_next">下一页</a>
 			</li>
 		</ul>
+		<!-- <button class="btn btn_submit">提交</button> -->
 	</div>
-	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.list.js"></script>
-
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.chapter.list.js"></script>
+	
 </body>
+
 </html>

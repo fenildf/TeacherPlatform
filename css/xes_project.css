@@ -334,6 +334,152 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 
 .w_500 {width: 500px;}
 .w_215 {width: 215px;}
+/* ==================== list.css ===================== */
+
+/* 
+ * ifrom 框架
+ * 剥离样式
+ *
+ */
+/* icon */
+.page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
+
+.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
+.action_item .action {float: left;display: inline;}
+.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
+.action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
+.action_item .action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
+.action_item .action li.grade button {width:100%;background-position: 65px -117px;}
+.action_item .action li.course {width:112px; text-align:center;background-position: 0 -506px;}
+.action_item .action li.course button {width:100%;background-position: 93px -117px;}
+
+.action_item .action li ul.ui-select-list li {height: 28px;line-height: 28px;}
+.action_item .action_side {float: right;}
+.list_button{clear: both;overflow: hidden;height: 30px;line-height: 30px}
+.list_button li{width: auto;margin-right: 10px;float: left;}
+
+
+.ui_pages {float: right;overflow: hidden;margin-right:0px;}
+.ui_pages li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;}
+
+/*.ui_pages li.up_page { background-position: -282px -201px;}
+.ui_pages li.down_page {background-position: -282px -255px;}
+.ui_pages li span,
+.ui_pages li a {display:block;text-indent: -99999px;}*/
+.ui_pages li.page_list {width:auto;margin-right:0px;}
+
+.ui_pages li.page_list li {margin:0 10px 0 0;background: none}
+.ui_pages li.page_list button {border: 0;padding:0 15px;margin-right:0px;background-color: transparent;background-position: right -124px;}
+
+.ui_pages li.page_list_tips {margin:0 10px 0 0;width: auto}
+
+/**
+ * update: 2012-11-20
+ * author: Marco(wujie)
+ */
+.ui_pages li.page_btn a, .ui_pages li.page_btn span {display:block;text-indent: -99999px;}
+.ui_pages li.page_btn a.page_prev {background-position: -282px -309px;}
+.ui_pages li.page_btn a.page_next {background-position: -282px -358px;}
+.ui_pages li.page_btn span.page_prev {background-position: -282px -201px;}
+.ui_pages li.page_btn span.page_next {background-position: -282px -255px;}
+
+
+
+.createtime {overflow: hidden;height: 50px;line-height: 50px;color: #666;font-weight: bold;font-size: 14px;padding-left: 3px;}
+.createtime em{color: #cc0000;font-weight: bold;}
+
+.createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
+
+.btn {font-weight: 500}
+.btn:visited, .btn:active {color:#FFF;font-weight: 500}
+
+.btn.btn_submit {font-weight: 700}
+.left_box {float: left;}
+
+.layer_900 {}
+.layer_900 .ui_infor_title,
+.layer_900 .grid_item_content{width: 900px}
+.layer_900 .btn {float: right;cursor: pointer;}
+.layer_900 button.btn {border:0 none;}
+.layer_900 #listSerch {padding-left:20px}
+.layer_900 .action_item {margin-top: 10px}
+/* ==================== edit.css ===================== */
+/*详情列表*/
+
+.infor_txt {width: 850px;margin:15px 0 0 70px; overflow: hidden;}
+.infor_txt dt {float: left;width:70px;}
+.infor_txt dd {float: right;width: 775px;}
+.infor_txt dd textarea {width:740px;height:67px;background: #f9f9f9;border: 1px inset #aaa; padding:10px;}
+
+.ui_btn_look {overflow: hidden;width: 770px;margin:30px auto 0;}
+
+/*.w_500 {width: 500px;}
+.w_215 {width: 215px;}*/
+
+.contentLive {overflow: hidden;width: 1050px;margin:0 auto;}
+.contentLive dl {overflow: hidden;margin:10px 0;color: #333;font-size: 14px; _width:100%; line-height: 27px;}
+.contentLive dl dt {float:left;width: 80px;  text-align: right;padding-right: 15px;color: #666;}
+.contentLive dl dd {float: left;}
+.contentLive dl dd .input_text{height: 25px; border:1px solid #d3d3d3;}
+.contentLive dl dd ul {border: 1px solid #e9e9e9;font-size: 12px;}
+.contentLive dl dd ul.content {width:775px;height: 360px;overflow-x: hidden;overflow-y: scroll;border-top: 0;}
+.contentLive dl dd ul li.title {width:755px;overflow: hidden; height: 40px;line-height: 40px;color:#666; background: #F7F7F7;padding-left: 20px;border-bottom: 0;cursor:auto ;}
+.contentLive dl dd ul li.title p {width: 470px;float: right;text-align: right;padding-right: 10px}
+.contentLive dl dd ul li.title p a {padding: 0 0 0 10px}
+.contentLive dl dd ul li.title p a.current {color:#C00;text-decoration: underline;}
+.contentLive dl dd ul li {height:35px;line-height:35px;border-bottom: 1px solid #e9e9e9;cursor: pointer;}
+.contentLive dl dd ul li span {float: left; text-align: center;display: block;}
+.contentLive dl dd ul li span.time {display: block;width: 150px;text-align: right;float: left;}
+.contentLive dl dd ul li span.name {display: block;width: 400px;text-align: right;padding-right:100px;float: right;}
+.contentLive dl dd ul li.current {background: #e2f3e5;}
+/* 默认不可选状态 */
+.contentLive dl dd ul li {color:#CCC;cursor: text;background-color:#FCFCFC}
+/*已选择*/
+.contentLive dl dd ul li.selected {color:#666;background-color: #EAFAED;}
+/*可选择*/
+.contentLive dl dd ul li.optional {color:#666;cursor: pointer;background-color: #FFF;}
+
+/* 时间选择下拉框 */
+.live_time_select {width: 80px}
+#liveTime{display: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== view.css ===================== */
+.videos_content {float: left;display: inline;width: 687px;margin: 35px 0 0 30px;}
+.videos_content h1 {font-size: 14px;height: 50px;line-height: 180%;}
+.videos_content h1 em {font-size: 12px;font-weight: normal;}
+
+.course_list_content {float: right; display: inline; width: 280px;height: 460px; margin:30px 10px 0 0; background: #f6f6f6;border: 1px solid #e8e7e7; overflow-y: scroll;}
+.ui_course_list {border-top: 1px solid #fff;border-bottom: 1px solid #e8e7e7;padding:10px 0 ;}
+.ui_course_list dt {width:210px;margin:0 auto;height:40px;line-height: 40px;overflow: hidden;}
+.ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
+.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;color: #333;}
+.ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
+
+#VideoPlay {width: 726px;height:408px;background: url(http://img03.xesimg.com/tem_videos_pic.png) no-repeat left 0;}
 /* ==================== ui-select.css ===================== */
 
 /*
@@ -432,228 +578,19 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 .selectParent  .jquery-selectbox{width: 100px;}
 
 
-/* ==================== list.css ===================== */
 
-/* 
- * ifrom 框架
- * 剥离样式
- *
- */
-/* icon */
-.page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
-.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
-.action_item .action {float: left;display: inline;}
-.action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
-.action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
-.action_item .action li.grade {width:84px;border:0; text-align:center; background-position: 0 -578px;}
-.action_item .action li.grade button {width:100%;background-position: 65px -117px;}
-.action_item .action li.course {width:112px; text-align:center;background-position: 0 -506px;}
-.action_item .action li.course button {width:100%;background-position: 93px -117px;}
-
-.action_item .action li ul.ui-select-list li {height: 28px;line-height: 28px;}
-.action_item .action_side {float: right;}
-.list_button{clear: both;overflow: hidden;height: 30px;line-height: 30px}
-.list_button li{width: auto;margin-right: 10px;float: left;}
-
-
-.ui_pages {float: right;overflow: hidden;margin-right:0px;}
-.ui_pages li {float: left;width:28px;height: 28px;line-height: 28px;margin-left: 10px;}
-
-/*.ui_pages li.up_page { background-position: -282px -201px;}
-.ui_pages li.down_page {background-position: -282px -255px;}
-.ui_pages li span,
-.ui_pages li a {display:block;text-indent: -99999px;}*/
-.ui_pages li.page_list {width:auto;margin-right:0px;}
-
-.ui_pages li.page_list li {margin:0 10px 0 0;background: none}
-.ui_pages li.page_list button {border: 0;padding:0 15px;margin-right:0px;background-color: transparent;background-position: right -124px;}
-
-.ui_pages li.page_list_tips {margin:0 10px 0 0;width: auto}
-
-/**
- * update: 2012-11-20
- * author: Marco(wujie)
- */
-.ui_pages li.page_btn a, .ui_pages li.page_btn span {display:block;text-indent: -99999px;}
-.ui_pages li.page_btn a.page_prev {background-position: -282px -309px;}
-.ui_pages li.page_btn a.page_next {background-position: -282px -358px;}
-.ui_pages li.page_btn span.page_prev {background-position: -282px -201px;}
-.ui_pages li.page_btn span.page_next {background-position: -282px -255px;}
-
-
-
-.createtime {overflow: hidden;height: 50px;line-height: 50px;color: #666;font-weight: bold;font-size: 14px;padding-left: 3px;}
-.createtime em{color: #cc0000;font-weight: bold;}
-
-.createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
-
-.btn {font-weight: 500}
-.btn:visited, .btn:active {color:#FFF;font-weight: 500}
-
-.btn.btn_submit {font-weight: 700}
-.left_box {float: left;}
-
-.layer_900 {}
-.layer_900 .ui_infor_title,
-.layer_900 .grid_item_content{width: 900px}
-.layer_900 .btn {float: right;cursor: pointer;}
-.layer_900 button.btn {border:0 none;}
-.layer_900 #listSerch {padding-left:20px}
-.layer_900 .action_item {margin-top: 10px}
-/* ==================== table.css ===================== */
-.grid_item_content {overflow: hidden;width:1050px;margin:10px 0px ;border: 1px solid #ececec;}
-table.grid_item {width:100%;overflow: hidden;}
-table.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
-table.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
-table.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
-table.grid_item td span.one { background-position: 0px 0px;}
-table.grid_item td span.two {background-position: 0px -32px;}
-table.grid_item tr.hover {background: #e0f2e3;}
-
-.contentData {overflow: hidden;width:1050px;margin:10px 3px ;border: 1px solid #ececec;}
-.contentData table {width:100%;overflow: hidden; }
-.contentData table th {background: #f5f5f5;height:30px;padding: 2px;border-right: 1px solid #ececec;text-align: center;font-size: 12px;}
-.contentData table td {color: #666;padding: 5px 0;border-right: 1px solid #ececec;border-bottom: 1px solid #ececec;text-align: center;}
-.contentData table tbody td.title {text-align: left;padding-left: 20px}
-.contentData table th.title {height: 43px; background: #fff;border-bottom: 1px solid #ececec;}
-.contentData table tr.even,.contentData table tr.hover {background: #e0f2e3;}
-
-.contentData table td.blue {width: 200px}
-
-.contentData1 tr th{ height:32px; text-align:left; padding-left:20px;border: 0;}
-.contentData1 tr td{ height:34px; text-align:left; padding-left:20px; border-right:none;color:#999999; }
-.contentData1 tr td span{ padding-left:0px; color:#333;}
-.contentData1 tr th.edit {text-align:right;padding-right:15px;font-size:12px;}
-.contentData1 tr td.title {width: 80px;color: #999;}
-.contentData1 tr td.text {color: #333;}
-.contentData2 {margin-top:30px;}
-.contentData2 table td {border: 0;height:20px;}
-
-.w_70 {width: 70px;}
-.all_title {float:left;font-size:14px;line-height:45px;padding-left:10px;color:#666;}
-.s_gradegrade { margin-left:10px; overflow: hidden;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==================== data.css ===================== */
-.input_text {height: 25px; padding-left: 5px; border:1px solid #d3d3d3;}
-
-ul.labelCon {overflow: hidden;width:1050px;margin:10px 3px ;color: #666;}
-ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
-ul.labelCon li label {float: left;width: 70px; text-align: right;}
-ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
-#termId {display: none;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==================== calendar.css ===================== */
-
-.calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
-
-.calendar .calMain { width: 189px; height: 180px; float: left; overflow: hidden; position: absolute; }
-.calendar .calMain .calTitle { width: 189px; float: left; height: 23px; background: #fff; overflow: hidden; }
-.calendar .calMain .calTitle .t_date { width: 149px; float: left; height: 23px; color: #51729d; font-weight: bold; line-height: 23px; text-align: center; }
-.calendar .calMain .calTitle .prevMonth { width: 15px; height: 15px; float: left; margin: 8px 0 0 5px; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 5px -87px; }
-.calendar .calMain .calTitle .nextMonth { width: 15px; height: 15px; float: right; margin: 8px 5px 0 0; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 6px -157px; }
-.calendar .calMain .calTitle .currentYear { }
-.calendar .calMain .calTitle .currentMonth { }
-.calendar .calMain .calTitle .currentYearText { float: left; margin: 0 0px 0 39px; cursor: pointer; }
-.calendar .calMain .calTitle .currentMonthText { float: left; cursor: pointer; width: 30px; text-align: right; }
-
-.calendar .calMain .calContent { width: 378px; height: 157px; float: left; }
-.calendar .calMain .calContent .enabled { position: absolute; width: 189px; height: 157px; float: left; }
-.calendar .calMain .calContent .reserve { position: absolute; width: 189px; height: 157px; float: left; }
-
-.calendar .calMain .calContent .tabD { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabD th { background: url(http://img03.xesimg.com/date_bg.png) repeat-x; line-height: 22px; font-weight: normal; padding-bottom: 4px; color: #fff; }
-.calendar .calMain .calContent .tabD td { color: #1f3959; text-align: center; line-height: 19px; width: 27px; font-family: "georgia"; }
-
-.calendar .calMain .calContent .tabD td span { color: #c0c0c0; }
-
-.calendar .calMain .calContent .tabD td a { width: 23px; line-height: 18px; float: left; margin: 1px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabD td .nextD { color: #bccadc; }
-.calendar .calMain .calContent .tabD td .prevD { color: #bccadc; }
-.calendar .calMain .calContent .tabD td .hover { width: 21px; line-height: 16px; border: 1px solid #7d99bd; float: left; margin: 1px 0 0 2px; }
-.calendar .calMain .calContent .tabD td .current { width: 21px; line-height: 16px; border: 1px solid #51729d; float: left; margin: 1px 0 0 2px; }
-.calendar .calMain .calContent .tabD td .select { width: 21px; line-height: 16px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 1px 0 0 2px; }
-
-.calendar .calMain .calContent .tabM { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabM td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
-.calendar .calMain .calContent .tabM td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabM td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabM td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabM td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
-
-.calendar .calMain .calContent .tabY { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
-.calendar .calMain .calContent .tabY td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
-.calendar .calMain .calContent .tabY td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
-.calendar .calMain .calContent .tabY td .nextY { color: #bccadc; }
-.calendar .calMain .calContent .tabY td .prevY { color: #bccadc; }
-.calendar .calMain .calContent .tabY td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabY td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
-.calendar .calMain .calContent .tabY td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
-
-.calendar .calMain a:hover { text-decoration: none; }
-
-
-/*
-.textZip {line-height:25px;background: url(http://img03.xesimg.com/zip.jpg) no-repeat;padding-left:35px;}
-
-.share_l {float:left;padding:10px;}
-.share_l em {color:#cc0000;font-weight: bold;}
-
-.share_updown {line-height: 25px;overflow: hidden;padding-top: 20px;}
-.share_updown span {float: left;margin:0 10px;}
-.share_item {margin:0;_width:100%;}
-
- .tableShow {display: none;}
- .contentData1 .speak_table tbody  tr td {padding-left: 31px;}
-body {overflow: hidden;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
+.notice{ width: 310px; font-size: 14px; line-height: 22px; margin:60px 0 0 70px; }
+.notice a{ margin-top:15px; font-size: 12px; color: #bc0000;}
+.pro_nav{ height: 33px; line-height: 33px; color: #3d403d;overflow: hidden; margin-bottom: 30px;  font-size: 14px;font-family:"Microsoft YaHei";background:url(../img/nav.jpg) no-repeat 0 0;}
+.pro_nav li.nav_active{ color: #fff; }
+.pro_nav li{ text-align:center; padding:0 50px; display: inline-block; *display: inline;*zoom:1;}
+.nav1{background:url(../img/nav.jpg) no-repeat 0 -73px;}
+.nav2{background:url(../img/nav.jpg) no-repeat 0 -37px;}	
+.nav3{background:url(../img/nav.jpg) no-repeat 0 -107px;}
+
+/**项目details**/
+.ui-pro .ui-pro-item{padding: 7px 0;}
+.ui-pro .ui-pro-item label{ display: inline-block; width: 60px;text-align: right; line-height:24px; margin-right: 15px; }
+.ui-pro .ui-pro-item .ui-pro-text{ width:154x; height:14px; padding:5px; line-height: 1; zoom:1;}
+.ui-pro .ui-pro-item .btn_submit{ margin-left:80px; background-position: 0 0;}

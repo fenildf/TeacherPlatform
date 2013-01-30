@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>文件列表---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_file.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	
+	<h1 class="ui_infor_title">
+		<span>文件共享</span>
+	</h1>
+
+	<div class="s_grade">
+		<table >
+			<tr>
+				<td align="left">
+					<input value=""  class="input_text" type="text"/>
+					<input class="s-btn" type="submit" value="筛选" ></td>
+			</tr>
+		</table>
+	</div>
+	<div class="share_updown">
+		<span>
+			<a id="btn_fileUpload" href="###">上传</a>
+		</span>
+		<span>
+			<a id="btn_fileDown" href="###">下载</a>
+		</span>
+		<span>
+			<a id="menu_6_2" href="file_share_list.html" class="open_tabs">我的分享</a>
+		</span>
+	</div>
+	<div class="action_item share_item">
+		<span class="share_l">
+			全部分享记录
+		</span>
+		<ul class="item_pag ui_pages">
+			<li class="page_list_tips">共<em>100</em>条记录  4M/500M</li>
+			<li class="page_list ui-select-box">
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+	</div>
+	<div class="contentData contentData1">
+		<table class="grid_item">
+			<colgroup>
+				<col width="50px" />
+				<col width="" />
+				<col width="80px" />
+				<col width="150px" />
+				<col width="60px" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="file_all" id="file_all" /></th>
+					<th>文件名</th>
+					<th>大小</th>
+					<th>创建日期</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="fileList">
+				<tr>
+					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" /></td>
+					<td>
+						<p class="textZip">国人文档</p>
+					</td>
+					<td>107</td>
+					<td>2102-02-02 25：00AM</td>
+					<td>
+						<a id="student_111" onclick="fileShare(111,'http://www.xueersi.com/')" class="" title="查看" href="###" text="徐倩1">分享</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_2" /></td>
+					<td>
+						<p class="textZip">国人文档</p>
+					</td>
+					<td>107</td>
+					<td>2102-02-02 25：00AM</td>
+					<td>
+						<a id="student_112" onclick="fileShare(112,'http://asdafasf')" class="" title="查看" href="###" text="徐倩1">分享</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_3" /></td>
+					<td>
+						<p class="textZip">国人文档</p>
+					</td>
+					<td>107</td>
+					<td>2102-02-02 25：00AM</td>
+					<td>
+						<a id="student_113" onclick="fileShare(113,'http://adsfsaff.zip')" class="" title="1078987654@xueersi.com" href="###" text="徐倩1">分享</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_4" /></td>
+					<td>
+						<p class="textZip">国人文档</p>
+					</td>
+					<td>107</td>
+					<td>2102-02-02 25：00AM</td>
+					<td>
+						<a id="student_114" onclick="fileShare(114,'http://www.xueersi.com/files/asdfsafas.zip')" class="" title="1078987654@xueersi.com" href="###" text="徐倩1">分享</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- 学员列表-->
+	<!-- 弹出框 分享 -->
+	<div id="win_fileShare" class="share_layer xes_win">
+		<h1>
+			<span>分享文件</span>
+			<span class="close">关闭</span>
+		</h1>
+		<form action="" class="contenttxt">
+
+			<p class="textinfor">资源下载链接：<span class="filepath">http://teacher.com/updown/12345.zip</span></p>
+			<p class="cla_input">
+				班级ID：
+				<input value=""  class="input_text" type="text"/>
+			</p>
+			<p class="area_input">
+				内容：
+				<br/>
+				<textarea></textarea>
+			</p>
+			<input type="hidden" name="fileid" value="" class="fileid" />
+			<p class="sharebutton">
+				<a href="#" class="btnshare">分享</a>
+				<a href="#" class="btncannel">取消</a>
+			</p>
+		</form>
+	</div>
+	<!-- 弹出框 分享 End-->
+	<!-- 弹出框 上传 -->
+	<div id="win_fileUpload" class="share_layer xes_win w320">
+		<h1>
+			<span>分享文件</span>
+			<span class="close">关闭</span>
+		</h1>
+		<div class="contenttxt">
+			<p class="file_input">
+				文件：<input value=""  class="input_text" type="file"/>
+			</p>
+			
+			<p class="sharebutton">
+				<a href="#" class="btnshare">上传</a>
+		
+			</p>
+		</div>
+	</div>
+	<!-- 弹出框 分享 End-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.file.list.js"></script>
+
+</body>
+</html>
