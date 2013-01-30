@@ -13,6 +13,7 @@
 @import url("edit.css");
 @import url("view.css");
 @import url("ui-select.css");
+@import url("table.css");
 @import url("data.css");
 
 .notice{ width: 310px; font-size: 14px; line-height: 22px; margin:60px 0 0 70px; }

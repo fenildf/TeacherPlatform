@@ -3,10 +3,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>编写大纲---课程运营平台</title>
-	<link rel="stylesheet" type="text/css" href="css/xes_data.css"/>
-	<link rel="stylesheet" type="text/css" href="css/page_project.css"/>
-	<script type="text/javascript" src="js/xes.base.js"></script>
-	<script type="text/javascript" src="js/xes.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="css/xes_data.css"/> -->
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_project.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 
 </head>
 
@@ -24,8 +24,8 @@
 
 		<ul class="action">
 			<li>
-				<a id="project_create" href="project_create.html" class="open_tabs">添加讲</a>
-				<a id="project_record_all" href="project_record.html" class="open_tabs">浏览讲</a>
+				<a id="project_create" onclick="addChapter('project_chapter_create.html');" href="###">添加讲</a>
+				<a id="project_record_all" onclick="viewChapter('project_chapter_list.html');" href="###">浏览讲</a>
 			</li>
 			
 		</ul>
@@ -36,83 +36,81 @@
 	</div>
 	<div class="grid_item_content">
 		<table class="grid_item">
+			<colgroup>
+				<col width="40px" />
+				<col width="" />
+				<col width="80px" />
+				<col width="120px" />
+				<col width="60px" />
+				<col width="60px" />
+				<col width="80px" />
+			</colgroup>
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>课程名称</th>
-					<th>年级</th>
+					<th>教师</th>
+					<th>上线时间</th>
+					<th>类型</th>
 					<th>状态</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody id="courseList">
 				<tr>
+					<td>1111</td>
+					<td>学数学小学数学小学数学</td>
+					<td>戴宁</td>
+					<td>2012-1-22</td>
+					<td>录播</td>
+					<td>待录制</td>
 					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td>
-						<span class="state one"></span>
-						<span class="state two"></span>
-					</td>
-					<td>
-						<a id="course_edit_1" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_1" href="project_view.html" class="open_tabs">查看</a>
+						<a id="project_edit_1" onclick="addChapter('project_chapter_create.html?1');" href="###">编辑</a>
+						<a id="project_del_1" href="project_view.html" class="open_tabs">删除</a>
 					</td>
 				</tr>
 				<tr>
+					<td>1112</td>
+					<td>学数学小学数学小学数学</td>
+					<td>戴宁</td>
+					<td>2012-1-22</td>
+					<td>录播</td>
+					<td>待录制</td>
 					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td>
-						<span class="state one"></span>
-						<span class="state two"></span>
-					</td>
-					<td>
-						<a id="course_edit_2" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_2" href="project_view.html" class="open_tabs">查看</a>
+						<a id="project_edit_2" onclick="addChapter('project_chapter_create.html?2');" href="###">编辑</a>
+						<a id="project_del_2" href="project_view.html" class="open_tabs">删除</a>
 					</td>
 				</tr>
 				<tr>
+					<td>1113</td>
+					<td>学数学小学数学小学数学</td>
+					<td>戴宁</td>
+					<td>2012-1-22</td>
+					<td>录播</td>
+					<td>待录制</td>
 					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td>
-						<span class="state one"></span>
-						<span class="state two"></span>
-					</td>
-					<td>
-						<a id="course_edit_3" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_3" href="project_view.html" class="open_tabs">查看</a>
+						<a id="project_edit_3" onclick="addChapter('project_chapter_create.html?3');" href="###">编辑</a>
+						<a id="project_del_3" href="project_view.html" class="open_tabs">删除</a>
 					</td>
 				</tr>
 				<tr>
+					<td>1114</td>
+					<td>学数学小学数学小学数学</td>
+					<td>戴宁</td>
+					<td>2012-1-22</td>
+					<td>录播</td>
+					<td>待录制</td>
 					<td>
-						<input type="checkbox"/>
-						学数学小学数学小学数学
-					</td>
-					<td>一年级</td>
-					<td>
-						<span class="state one"></span>
-						<span class="state two"></span>
-					</td>
-					<td>
-						<a id="course_edit_4" href="project_edit.html" class="open_tabs">编辑详情</a>
-						<a id="course_view_4" href="project_view.html" class="open_tabs">查看</a>
+						<a id="project_edit_4" onclick="addChapter('project_chapter_create.html?4');" href="###">编辑</a>
+						<a id="project_del_4" href="project_view.html" class="open_tabs">删除</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="http://js03.xesimg.com/import/import.course.js"></script>
-	<script type="text/javascript">
-		// xes.tips.error('test');
-	</script>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.outline.js"></script>
+
 	
 </body>
 
