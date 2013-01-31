@@ -73,6 +73,10 @@ var goTab = function(url, title, id, closeSelf){
 		});
 
 		
+	}else{
+		window.parent.getActiveTabs(function(self){
+			window.parent.goTabs(url, title, id);
+		});
 	}
 }
 /**
@@ -544,14 +548,14 @@ function fileUpload(){
 	xes.dialog.show('win_fileUpload');
 }
 
-function fileDown(){
-	var item = $('#fileList').find('input.file_checkbox:checked');
-	if(item.length > 0){
+// function fileDown(){
+// 	var item = $('#fileList').find('input.file_checkbox:checked');
+// 	if(item.length > 0){
 
-	}else{
-		alert('请选择要下载的文件');
-	}
-}
+// 	}else{
+// 		alert('请选择要下载的文件');
+// 	}
+// }
 
 $(function(){
 	$('.grid_item tbody tr').hover(function(){
