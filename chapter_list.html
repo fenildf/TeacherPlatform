@@ -52,37 +52,50 @@
 				<a href=""  class="page_next">下一页</a>
 			</li>
 		</ul>
+		
 	</div>
-	<div class="contentData contentData1">
-		<table>
+	<ul class="list_button">
+		<li>
+			<a onclick="chapterConfig();" href="###">可见性设置</a>
+		</li>
+	</ul>
+	<div class="grid_item_content">
+		<table class="grid_item">
+			<colgroup>
+				<col width="60px" />
+				<col width="40px" />
+				<col width="" />
+				<col width="100px" />
+				<col width="100px" />
+				<col width="60px" />
+			</colgroup>
 			<thead>
 				<tr>
+					<th>选择</th>
 					<th>ID</th>
 					<th>讲名称</th>
 					<th>年级</th>
 					<th>教师</th>
-					<th>讲状态</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 					<td>5641</td>
 					<td>三角代数</td>
 					<td>一年级</td>
 					<td>徐倩2</td>
-					<td>未预约</td>
 					<td>
-						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="">录播预约</a>
 						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="chapter_info.html" text="">详情</a>
 					</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
 					<td>5641</td>
 					<td>三角代数</td>
 					<td>一年级</td>
 					<td>徐倩2</td>
-					<td>未预约</td>
 					<td>
 						<a id="student_2" class="open_tabs" title="1078987654@xueersi.com" href="chapter_info.html" text="">详情</a>
 					</td>
@@ -105,6 +118,11 @@
 
 	</div>
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.chapter.list.js"></script>
-
+	<script type="text/javascript">
+		function chapterConfig(url){
+			var result = window.showModalDialog('chapter_setting.html','','dialogLeft:300px;dialogTop:200px;dialogWidth:600px;DialogHeight=200px;status:no;resizable:1;');
+			// $('#'+id).attr('value',result);
+		}
+	</script>
 </body>
 </html>

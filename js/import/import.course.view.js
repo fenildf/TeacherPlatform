@@ -75,6 +75,10 @@ var goTab = function(url, title, id, closeSelf){
 		});
 
 		
+	}else{
+		window.parent.getActiveTabs(function(self){
+			window.parent.goTabs(url, title, id);
+		});
 	}
 }
 /**

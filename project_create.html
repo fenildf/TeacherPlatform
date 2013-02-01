@@ -136,8 +136,21 @@
 			</span>
 		</li>
 	</ul>
-	<script type="text/javascript" src="js/import/import.project.edit.js"></script>
-	
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.edit.js"></script>
+	<script type="text/javascript">
+		function searchTeacher(){
+			var result = window.showModalDialog('/teacherCourses/teacherList','','dialogLeft:300px;dialogTop:360px;dialogWidth:930px;DialogHeight=430px;status:no;resizable:1;')
+			var t = result.split(',');
+			var tname = [], tid = [];
+			$.each(t,function(a,b){
+				var _v = b.split('|');
+				tname.push(_v[1]);
+				tid.push(_v[0]);
+			});
+			$('#teacherNames').val(name);
+			$('#teacherIds').val(tid);
+		} 
+	</script>
 </body>
 
 </html>

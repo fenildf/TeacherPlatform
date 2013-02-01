@@ -1,3 +1,10 @@
 /* ==================== dialog.css ===================== */
-
+.xes_win {width:540px;overflow:hidden;border:1px solid #ccc;height: auto;box-shadow: 3px 3px 3px rgba(231, 231, 231, 0.4), -3px -3px 3px rgba(231, 231, 231, 0.4);}
+.xes_win h1 {background:#d6ead8;height:33px;line-height:33px;border:1px solid #fff;border-bottom:1px solid #f7fbf8;padding-left: 20px;font-size: 14px;font-weight: bold;}
+.xes_win h1 span {float: left;}
+.xes_win h1 span.close {float: right;width:35px;height:33px;text-indent: -99999em; background: url(http://img03.xesimg.com/close.jpg) 10px 10px no-repeat;cursor: pointer;}
+.contenttxt {overflow: hidden;width:auto;margin:10px auto;}
 .xes_win {position: absolute;z-index: 1001;display: none;background-color: #FFF}
+
+.w300 {width: 300px}
+.w240 {width: 240px}

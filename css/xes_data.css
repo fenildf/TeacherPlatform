@@ -442,7 +442,7 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 /* icon */
 .page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
-.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
+.action_item {height: 36px;width:100%;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
 .action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
 .action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
@@ -577,7 +577,7 @@ ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
 
 /* ==================== calendar.css ===================== */
 
-.calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
+.calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; z-index: 10000;width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
 
 .calendar .calMain { width: 189px; height: 180px; float: left; overflow: hidden; position: absolute; }
 .calendar .calMain .calTitle { width: 189px; float: left; height: 23px; background: #fff; overflow: hidden; }

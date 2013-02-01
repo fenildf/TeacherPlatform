@@ -4,13 +4,11 @@
  */
 
 /*
- * 创建项目
- * project.create.js
- * @update : 2013-1-30
+ * import.chapter.setting.js
+ * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
-
 
 /* -------------------- xes.iframe.js --------------------- */
 
@@ -115,76 +113,80 @@ var unDomClick = function(){
 	$(document).unbind('click');
 };
 
-/* -------------------- ui/xes.ui.tips.js --------------------- */
+/* -------------------- xes.ajax.js --------------------- */
+
 /*
- * tips
+ * xes.ajax.js
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
 
-var tips = tips || {};
+var xes = xes || {};
+
+xes.ajax = xes.ajax || {};
 
 (function(){
-	var t = tips;
-
-	t.create = function(tp, content){
-		var _html = '<div class="ui_tips tips_' + tp + '"><span>' + content + '</span><a href="javascript:void(0);" class="tips_close">关闭</a></div>';
-		if($('.ui_tips').length == 0){
-			$('body').append(_html);
-		}else{
-			$('.ui_tips').attr('class','ui_tips tips_'+tp).find('span').text(content);
-		}
-		// this.show();
-		this.dom = $('.ui_tips');
-		this.dom.find('.tips_close').die('click').live('click',function(){
-			t.close();
+	var a = xes.ajax;
+	a._load = $('.laodding');
+	a._bg = $('.loadding_bg');
+	a._ajax = function(url,data,sucess,error){
+		$.ajax({
+			async: true,
+			type: 'POST',
+			url : url,
+			data: data,
+			dataType: 'json',
+			jsonp : 'callback',
+			timeout: 70000,
+			complete:function(){},
+			success:function(d){
+				sucess(d);
+			},
+			error:function(){}
 		});
-		return this;
 	};
-
-	t.show = function(dom){
-		var _tips = dom || this.dom;
-		_tips.fadeIn();
-		return this;
+	a.start = function(dom, fn){
+		$(dom).ajaxStart(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('show');
+			}
+		});
 	};
-	t.hide = function(dom){
-		var _tips = dom || this.dom;
-		_tips.fadeOut();
-		return this;
+	a.stop = function(dom, fn){
+		$(dom).ajaxStop(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('hide');
+			}
+		});
 	};
-	t.close = function(fn){
-		if(fn){
-			fn(t.dom);
+	a._loadding = function(tp){
+		if(tp == 'show'){
+			a._load.show();
+			a._bg.show();
+		}else{
+			a._load.hide();
+			a._bg.hide();
 		}
-		t.hide();
-		return this;
 	};
-
-	t.error = function(content){
-		this.create('error',content).show();
+	a.sync = function(){};
+	a.get = function(){};
+	a.set = function(){};
+	a.post = function(url, data, sucess, error){
+		a._ajax(url, data, sucess, error);
 	};
-	t.succeed = function(content){
-		this.create('succeed',content).show();
-	};
-	t.help = function(content){
-		this.create('help',content).show();
-	};
-	t.info = function(content){
-		this.create('info',content).show();
-	};
+	a.getJSON = function(){};
+	a.callback = function(){};
+	a.status = function(){};
 
 })();
 
 
-/* 注册到UI库 */
-(function(xes){
-	if(xes.ui){
-		xes.ui.add('tips',tips,function(msg){
-			xes.tips = xes.ui.tips;
-		});
-	}
-})(xes);
+xes.post = xes.ajax.post;
 
 
 /* -------------------- xes.form.js --------------------- */
@@ -489,34 +491,8 @@ function generateMixed(n) {
 };
 
 
-/* -------------------- xes.search.js --------------------- */
+/* =-=-=-=-=-=-=-=-=-=-=-= course_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-/*
- * search表单相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
-
-/**
- * 在提交表单之前，充值分页数为1
- */
 $(function(){
-    var submit = $('#listSerch input:submit');
-    submit.mousedown(function(){
-        $('#pages').val(1);
-        $('#currpage').val(1);
-        $('#listSerch')[0].onSubmit = false;
-    });
-    submit.mouseup(function(){
-        $('#listSerch')[0].onSubmit = true;
-    });
-});
 
-/* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
-
-$(function () {
-	// $("#startDate").calendar();
-	
 });

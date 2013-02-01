@@ -4,13 +4,11 @@
  */
 
 /*
- * 创建项目
- * project.create.js
- * @update : 2013-1-30
+ * import.course.js
+ * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
-
 
 /* -------------------- xes.iframe.js --------------------- */
 
@@ -115,6 +113,62 @@ var unDomClick = function(){
 	$(document).unbind('click');
 };
 
+/* -------------------- widget/jquery.cookie.js --------------------- */
+
+/*
+ * jQuery.cooke
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ * @example:
+    example $.cookie(’the_cookie’, ‘the_value’);
+    设置cookie的值
+    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
+    新建一个cookie 包括有效期 路径 域名等
+    example $.cookie(’the_cookie’, ‘the_value’);
+    新建cookie
+    example $.cookie(’the_cookie’, null);
+    删除一个cookie
+ */
+
+jQuery.cookie = function(name, value, options) {  
+    if (typeof value != 'undefined') { // name and value given, set cookie  
+        options = options || {};  
+        if (value === null) {  
+            value = '';  
+            options.expires = -1;  
+        }  
+        var expires = '';  
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {  
+            var date;  
+            if (typeof options.expires == 'number') {  
+                date = new Date();  
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));  
+            } else {  
+                date = options.expires;  
+            }  
+            expires = '; expires=' + date.toUTCString();  
+        }  
+        var path = options.path ? '; path=' + (options.path) : '';  
+        var domain = options.domain ? '; domain=' + (options.domain) : '';  
+        var secure = options.secure ? '; secure' : '';  
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');  
+    } else {  
+        var cookieValue = null;  
+        if (document.cookie && document.cookie != '') {  
+            var cookies = document.cookie.split(';');  
+            for (var i = 0; i < cookies.length; i++) {  
+                var cookie = jQuery.trim(cookies[i]);  
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
+                    break;  
+                }  
+            }  
+        }  
+        return cookieValue;  
+    }  
+}; 
+
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
  * tips
@@ -185,6 +239,84 @@ var tips = tips || {};
 		});
 	}
 })(xes);
+
+
+/* //import:ui/xes.ui.select.js// */
+
+/* -------------------- xes.ajax.js --------------------- */
+
+/*
+ * xes.ajax.js
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
+xes.ajax = xes.ajax || {};
+
+(function(){
+	var a = xes.ajax;
+	a._load = $('.laodding');
+	a._bg = $('.loadding_bg');
+	a._ajax = function(url,data,sucess,error){
+		$.ajax({
+			async: true,
+			type: 'POST',
+			url : url,
+			data: data,
+			dataType: 'json',
+			jsonp : 'callback',
+			timeout: 70000,
+			complete:function(){},
+			success:function(d){
+				sucess(d);
+			},
+			error:function(){}
+		});
+	};
+	a.start = function(dom, fn){
+		$(dom).ajaxStart(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('show');
+			}
+		});
+	};
+	a.stop = function(dom, fn){
+		$(dom).ajaxStop(function(handle){
+			if(fn){
+				fn(handle);
+			}else{
+				a._loadding('hide');
+			}
+		});
+	};
+	a._loadding = function(tp){
+		if(tp == 'show'){
+			a._load.show();
+			a._bg.show();
+		}else{
+			a._load.hide();
+			a._bg.hide();
+		}
+	};
+	a.sync = function(){};
+	a.get = function(){};
+	a.set = function(){};
+	a.post = function(url, data, sucess, error){
+		a._ajax(url, data, sucess, error);
+	};
+	a.getJSON = function(){};
+	a.callback = function(){};
+	a.status = function(){};
+
+})();
+
+
+xes.post = xes.ajax.post;
 
 
 /* -------------------- xes.form.js --------------------- */
@@ -514,9 +646,38 @@ $(function(){
     });
 });
 
-/* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+/* -------------------- xes.pages.js --------------------- */
 
-$(function () {
-	// $("#startDate").calendar();
-	
+/*
+ * pages分页相关操作
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+
+$('#pages').change(function(){
+    var _page = this.value;
+     $("#currpage").val(_page);
+     $("#listSerch").submit();
+});
+$(".ui_pages a").click(function(){
+    _url = $(this).attr('href');
+    _re = /curpage\:(\d+)$/;
+    _page = _url.match(_re);
+    if(_page!=null){
+        $("#currpage").val(_page[1]);
+        $(this).attr('href','###');
+        $("#listSerch").submit();
+    }
+});
+
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-= chapter_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+$(function(){
+	$('.grid_item tbody tr').hover(function(){
+		$(this).addClass('hover').siblings('tr').removeClass('hover');
+	});
 });

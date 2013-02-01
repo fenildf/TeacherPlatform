@@ -5,3 +5,5 @@ ul.labelCon {overflow: hidden;width:auto;margin:10px 3px ;color: #666;}
 ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
 ul.labelCon li label {float: left;width: 70px; text-align: right;}
 ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
+
+.w400 {width: 400px}

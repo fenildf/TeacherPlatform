@@ -344,7 +344,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 /* icon */
 .page_prev, .page_next {background: url(http://img03.xesimg.com/course_bgpic.png) no-repeat;}
 
-.action_item {height: 36px;width:1050px;margin-top:20px;position:relative;}
+.action_item {height: 36px;width:100%;margin-top:20px;position:relative;}
 .action_item .action {float: left;display: inline;}
 .action_item .action li {float: left;display: inline;height: 36px;line-height: 36px;font-size: 14px; cursor: pointer;margin-right: 10px}
 .action_item .action li button {height:34px;cursor: pointer;padding:0 15px;border:0px solid transparent;background-color: transparent;}
