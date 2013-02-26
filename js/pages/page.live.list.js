@@ -24,6 +24,8 @@
 
 ///import:xes.date.js///
 
+///import:widget/jquery.cookie.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= live_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 // function liveCancel(liveId){

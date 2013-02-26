@@ -83,7 +83,14 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
-	window.parent.refreshTabs(id);
+	// alert(id);
+	// console.log(window.location.href);
+	// window.parent.refreshTabs(id);
+	var url = window.location.href;
+	if(url.split('###').length>1){
+		url = url.replace(/###$/,'');
+	}
+	window.location.href = url;
 };
 
 /**
@@ -168,6 +175,24 @@ jQuery.cookie = function(name, value, options) {
         return cookieValue;  
     }  
 }; 
+
+function getCookie(objName) { //获取指定名称的cookie的值
+    var arrStr = document.cookie.split("; ");
+    for(var i = 0; i < arrStr.length; i++) {
+        var temp = arrStr[i].split("=");
+        if(temp[0] == objName) return unescape(temp[1]);
+    }
+}
+function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+    var date = new Date();
+    date.setTime(date.getTime() - 10000);
+    document.cookie = name + "=a; expires=" + date.toGMTString()+"; path=/";
+    var c = getCookie(name);
+    alert(c);
+}
+
+
+
 
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
@@ -422,6 +447,27 @@ var xform = xform || {};
 			});
 		};
 
+		/**
+		* 复选框选择(根据复选框的值 选中复选框)
+		* @example
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="2">
+		*			<input type="checkbox" id="checkbox[]" name="checkbox[]" value="3">
+		*
+		*			<a href="javascript:void(0);" onclick="checkBoxes('checkbox[]', '2,3'); return false;">复选框选择</a>
+		*
+		* @param string cbs_name 复选框name
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.setCheckBox = function (cbs_name, cbs_values) {
+			$.each($('input[type="checkbox"][name="' + cbs_name + '"]'), function() {
+				$(this).attr('checked', false);
+			});
+			$.each(cbs_values.split(','), function(i, n) {
+				$('input[type="checkbox"][name="' + cbs_name + '"][value="' + n + '"]').attr('checked', true);
+			});
+		}
 
 		/**
 		* 单选框选择(根据单选框的值 选中单选框)
@@ -553,13 +599,14 @@ var xform = xform || {};
 				cookievalue = ',';
 			}
 			$.each($('table[id='+tableid+'] tr input[type="checkbox"]'),function (){
-				var indexof = cookievalue.indexOf(','+$(this).val()+',')
+				var indexof = cookievalue.indexOf(','+$(this).val()+',');
 				if(indexof>=0){
 					$(this).attr('checked',true);
 				}
 			});
+
 			$('table[id='+tableid+'] tr input[type="checkbox"]').click(function(){
-				
+
 				//点击checkbox的值
 				var checkedvalue = $(this).val();
 				//方便搜素特殊处理的值
@@ -567,15 +614,14 @@ var xform = xform || {};
 				//如果checkbox为选中状态
 				if($(this).attr('checked') === 'checked'){
 					//查找选中checkbox值在cookie中是否存在
-					var indexof = cookievalue.indexOf(','+checkedvalue+',')
+					var indexof = cookievalue.indexOf(','+checkedvalue+',');
 					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
 					if(indexof == -1){
 						//将指定的值添加到cookie中
 						cookievalue = cookievalue+checkedvalue+',';
 					}
-					$.cookie(name, cookievalue, { expires: 0 });
-					// $.cookie(name, cookievalue, { path: '/', expires: 0 });
 				}
+
 				//如果checkbox为未选中状态
 				if($(this).attr('checked') != 'checked'){
 					//查找选中checkbox值在cookie中是否存在
@@ -586,15 +632,45 @@ var xform = xform || {};
 						cookievalue = cookievalue.replace(','+checkedvalue+',' , ',');
 
 					}
-					$.cookie(name, cookievalue, { expires: 0 });
-					// $.cookie(name, cookievalue, { path: '/', expires: 0 });
 				}
+				$.cookie(name, cookievalue, { expires: 0 });
+				// cookievalue = ',';
 			});
+			
 		}
 
+		// 把tableCheckbox选中的值（cookie里面的）转化为数组格式
+		f.getCheckboxValue = function (cookieName){
+			var arr = $.cookie(cookieName);
+			if(arr){
+				arr = arr.replace(/^,/,'').replace(/,$/,'');
+				return arr;
+			}else{
+				return false;
+			}
+		}
 
+		f.defaultValue = function(){
+			var placeholder = '';
+			$("input:text").focus(function () { 
+				this.defaultValue = $(this).attr('placeholder');
 
+				var check1 = $(this).val(); 
+				if (check1 == this.defaultValue) { 
+					$(this).val(''); 
+				}
+				$(this).attr('placeholder','');
+			}); 
+			$("input:text").blur(function () { 
+				
 
+				var check1 = $(this).val(); 
+				if (check1 == '') { 
+					$(this).attr('placeholder', this.defaultValue); 
+				}
+			}); 
+			
+		};
 
 })();
 
@@ -602,8 +678,16 @@ var xform = xform || {};
 xes.form = xform;
 
 
-
-
+// 把tableCheckbox选中的值（cookie里面的）转化为数组格式
+// function getCheckValue(cookieName){
+// 	var arr = $.cookie(cookieName);
+// 	if(arr){
+// 		arr = arr.replace(/^,/,'').replace(/,$/,'');
+// 		return arr;
+// 	}else{
+// 		return false;
+// 	}
+// }
 
 
 
@@ -718,22 +802,42 @@ var dialog = dialog || {};
 		// }
 		d.hide();
 		d.box.show();
+		d.bg('show');
 		d.position();
 		d.close();
 	};
 	d.hide = function(ID){
 		if(ID){
-			d.box = $('#'+ID);
+			// d.box = $('#'+ID);
+			$('#'+ID).hide();
 		}else{
+			// d.box = $('.xes_win:visible');
 			$('.xes_win:visible').hide();
 		}
-		d.box.hide();
+		// d.box.hide();
+		d.bg('hide');
 	};
 	d.close = function(){
 		d.box.find('.close').click(function(){
 			d.hide();	
 		});
 		
+	};
+	d.bg = function(tp){
+		var box = $('.xes_win_bg');
+		if(tp == 'show'){
+			var w = $(window);
+			var html = '<div class="xes_win_bg">&nbsp;</div>';
+			if(box.length == 0){
+				$('body').append(html);
+			}
+			$('.xes_win_bg').show().css({
+				width: w.width(),
+				height: w.height()
+			});
+		}else{
+			$('.xes_win_bg').hide();
+		}
 	};
 })();
 

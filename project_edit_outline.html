@@ -21,7 +21,7 @@
 
 		<ul class="action">
 			<li>
-				<a id="project_create" onclick="addChapter('project_chapter_create.html');" href="###">添加讲</a>
+				<a id="project_create" onclick="addChapter('project_create');" href="javascript:void(0);">添加讲</a>
 				<a id="project_record_all" onclick="viewChapter('project_chapter_list.html');" href="###">浏览讲</a>
 			</li>
 			
@@ -108,15 +108,97 @@
 	<div class="action_item">
 		<a href="project_create_outline.html" class="btn_ancel btn_prev">提交审核</a>
 	</div>
+	<div id="win_chapterCreate" class="share_layer xes_win w240">
+		<h1>
+			<span>添加讲</span>
+			<span class="close">关闭</span>
+		</h1>
+		<div class="contenttxt">
+			<ul class="labelCon">
+				<li>
+					<label for="">试题名称</label>
+					<span>
+						<input size="" value="" type="text" class="input_text" placeholder="小学奥数"/>
+					</span>
+				</li>
+				<li>
+					<label for="">教师</label>
+					<span>
+						<input size="" value="" type="text" class="input_text" placeholder="戴宁" />
+					</span>
+				</li>
+				<li>
+					<label for="">讲类型</label>
+					<span>
+						<select class="ui-select-list">
+							<option class="ui-select-button">录播</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+					</span>
+				</li>
+				<li>
+					<label for="">讲上线时间</label>
+					<span>
+						<input id="dateTime" size="" value="" type="text" class="input_text" placeholder="非必填"/>
+					</span>
+				</li>
+				<li>
+					<label for="">&nbsp;</label>
+					<span>
+						<input type="hidden" name="" id="chapter_id" />
+						<a href="javascript:void(0);" onclick="goSubmit();" class="btn_ancel btn_prev">提交</a>
+					</span>
+					<!-- <span>
+						<a href="#">预览</a>
+					</span> -->
+				</li>
+			</ul>
+		</div>
+	</div>
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.outline.js"></script>
 	<script type="text/javascript">
-		function addChapter(url){
-			var result = window.showModalDialog(url,'','dialogLeft:300px;dialogTop:200px;dialogWidth:260px;DialogHeight=230px;status:no;resizable:1;');
-			// $('#'+id).attr('value',result);
+		function addChapter(id,teacherSpell){
+			xes.dialog.show('win_chapterCreate');
+			var box = {
+				name : $('#chapterName'),
+				teacher : $('#teacherSpell'),
+				type : $('#type'),
+				time : $('#dateTime'),
+				id : $('#chapter_id')
+			};
+			if(id){
+				
+				var c = $('#courseList_'+id).find('td');
+				var dom = {
+					name : c.eq(1).text(),
+					teacher : c.eq(2).text(),
+					type : c.eq(4).text(),
+					time : c.eq(3).text()
+				};
+				var tp = dom.type == '录播' ? 1 : 2;
+				box.name.val(dom.name);
+				box.teacher.val(teacherSpell);
+				box.type.val(tp);
+				box.time.val(dom.time);
+				box.id.val(id)
+			}else{
+				box.name.val('');
+				box.teacher.val('');
+				box.type.val('');
+				box.time.val('');
+				box.id.val('');
+			}
 		}
+
 		function viewChapter(url){
 			var result = window.showModalDialog(url,'','dialogLeft:300px;dialogTop:200px;dialogWidth:800px;DialogHeight=400px;status:no;resizable:1;');
 			// $('#'+id).attr('value',result);
+		}
+		function goSubmit(){
+			refreshTab('course_edit_1');
 		}
 	</script>
 	

@@ -44,22 +44,42 @@ var dialog = dialog || {};
 		// }
 		d.hide();
 		d.box.show();
+		d.bg('show');
 		d.position();
 		d.close();
 	};
 	d.hide = function(ID){
 		if(ID){
-			d.box = $('#'+ID);
+			// d.box = $('#'+ID);
+			$('#'+ID).hide();
 		}else{
+			// d.box = $('.xes_win:visible');
 			$('.xes_win:visible').hide();
 		}
-		d.box.hide();
+		// d.box.hide();
+		d.bg('hide');
 	};
 	d.close = function(){
 		d.box.find('.close').click(function(){
 			d.hide();	
 		});
 		
+	};
+	d.bg = function(tp){
+		var box = $('.xes_win_bg');
+		if(tp == 'show'){
+			var w = $(window);
+			var html = '<div class="xes_win_bg">&nbsp;</div>';
+			if(box.length == 0){
+				$('body').append(html);
+			}
+			$('.xes_win_bg').show().css({
+				width: w.width(),
+				height: w.height()
+			});
+		}else{
+			$('.xes_win_bg').hide();
+		}
 	};
 })();
 

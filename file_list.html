@@ -39,8 +39,9 @@
 		<span class="share_l">
 			全部分享记录
 		</span>
+		
 		<ul class="item_pag ui_pages">
-			<li class="page_list_tips">共<em>100</em>条记录  4M/500M</li>
+			<li class="page_list_tips">共<em>100</em>条记录  </li>
 			<li class="page_list ui-select-box">
 				<select name="pages" id="" class="ui-select">
 					<option value="1">1/5</option>
@@ -57,6 +58,9 @@
 				<a href=""  class="page_next">下一页</a>
 			</li>
 		</ul>
+		<p class="action_side file_size">
+			<span>4M</span>/500M
+		</p>
 	</div>
 	<div class="contentData contentData1">
 		<table class="grid_item">
@@ -76,7 +80,7 @@
 					<th>操作</th>
 				</tr>
 			</thead>
-			<tbody id="fileList">
+			<tbody id="share_fiels_ids">
 				<tr>
 					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" /></td>
 					<td>
@@ -152,7 +156,7 @@
 				<input value=""  class="input_text" type="text"/>
 			</p>
 			<p class="area_input">
-				内容：
+				<label>内容：</label>
 				<br/>
 				<textarea></textarea>
 			</p>
@@ -182,6 +186,17 @@
 	</div>
 	<!-- 弹出框 分享 End-->
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.file.list.js"></script>
-
+	<script type="text/javascript">
+		$(function(){
+			$('#file_all').click(function(){
+				emptyCheckbox();
+			})
+		});
+		function emptyCheckbox(){
+			$('#share_fiels_ids tr input:checkbox').each(function(){
+			    $(this).attr('checked',false);
+			});
+		}
+	</script>
 </body>
 </html>

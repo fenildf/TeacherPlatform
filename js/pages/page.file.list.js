@@ -20,6 +20,8 @@
 
 ///import:ui/xes.ui.dialog.js///
 
+///import:widget/jquery.cookie.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= file_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 function fileShare(id,file){
 	xes.dialog.show('win_fileShare');
@@ -59,8 +61,11 @@ $(function(){
 		var list = $('#fileList').find('input.file_checkbox');
 		list.attr('checked',this.checked);
 	});
-	$('.file_checkbox').click(function(){
+	// $('.file_checkbox').click(function(){
 
-	});
+	// });
+	if($('input:text').length > 0){
+		xes.form.defaultValue();
+	}
 });
 

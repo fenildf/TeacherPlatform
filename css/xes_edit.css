@@ -281,26 +281,6 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 #footer p { text-align: center;line-height: 30px;}
 #footer p.xueersi{color: #999;}
 
-/*登录页 start*/
-.login_logo,.left_inforpic,.rihgt_login_bg{background: url(http://img03.xesimg.com/login_bg.png) no-repeat;}
-#header_login {height:94px;background: url(http://img03.xesimg.com/course_icon.png) 0 -245px repeat-x;}
-#header_login .login_logo {width:980px;height:70px;margin:0 auto;overflow: hidden;text-indent: -9999999px;}
-#main {width:980px;margin:60px auto;overflow: hidden;}
-#main .left_inforpic {float: left;width:457px;height: 363px;background-position: 0 -125px;}
-#main .rihgt_login_bg {float: left;width:413px; height: 363px;position: relative;background-position: 0 -528px;}
-#main .login {overflow: hidden;width: 100px;height:36px;position: absolute;z-index: 100;top: 233px;left:113px;}
-#main .btn_login {display: block;width: 96px;height: 36px;line-height: 36px;color:#fff;font-size: 14px;font-weight:bold;border: 0;cursor: pointer; background-position: -214px -147px;}
-#main .form_text_input {overflow: hidden;}
-#main .form_text_input .user {position: absolute;z-index: 10;top:70px;left:115px;}
-#main .form_text_input .password {position: absolute;z-index: 10;top:120px;left:115px;}
-#main .form_text_input .code_num {position: absolute;z-index: 10;top:170px;left:115px;}
-#main .form_text_input input {width:215px;height:20px;border: 0;color: #666;}
-#main .form_text_input .blackFont {float:left;padding-left:10px;}
-#main .form_text_input input.code_input {width:119px;float: left;}
-#main .form_text_input .err_tips_infor {font-size: 14px;color: #cc0000;position: absolute;z-index: 10;bottom:124px;left:112px;}
-/*登录页 start*/
-
-
 
 /* tab组件 */
 .ui-tabs-items {font-family: "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;width:1260px;height: 34px;margin:0 auto;overflow: hidden;padding:0 10px;border-bottom: 4px solid #047D13}
@@ -523,8 +503,9 @@ box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0
 .contenttxt .file_input {width:auto;margin:20px 30px;}
 
 
-.contenttxt .area_input {margin-left:30px;}
-.contenttxt .area_input textarea{width: 470px;height: 100px;margin-top: 10px;border: 1px solid #d3d3d3;}
+.contenttxt .area_input {margin-left:30px;overflow: hidden;float: none;}
+.contenttxt .area_input label{float: left;}
+.contenttxt .area_input textarea{width: 410px;height: 100px;margin-top: 10px;margin-left:20px;float: left;border: 1px solid #d3d3d3;}
 .contenttxt .sharebutton {width: 200px;margin:20px auto;text-align: center;}
 .contenttxt .sharebutton a,
 .contenttxt .sharebutton button {margin-right:20px;display: inline-block;border: 0;cursor: pointer;}
@@ -533,6 +514,9 @@ box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0
 /* 2013-01-23 by:alexliu End*/
 
 .w320 {width: 320px}
+
+#win_fileUpload .textinfor {padding-left: 66px}
+#win_fileUpload .file_input {margin-top:10px;}
 
 
 

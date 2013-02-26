@@ -26,10 +26,15 @@
 
 ///import:xes.pages.js///
 
+///import:ui/xes.ui.dialog.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= chapter_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function(){
 	$('.grid_item tbody tr').hover(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
+	if($('input:text').length > 0){
+		xes.form.defaultValue();
+	}
 });

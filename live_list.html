@@ -42,10 +42,11 @@
 
 	</div>
 	<div class="createtime">
-		服务器时间： <em>2012/03/03 星期二 19：11：11</em>
+		服务器时间：  <em id="serverTime">2013-02-04 14:42:44</em>
 	</div>
 	<div class="action_item">
 		<a id="menu_2_2_2" class="open_tabs btn createbtn" title="创建直播" href="live_edit.html" >创建直播</a>
+		<a id="live_submit" onclick="liveReview();" title="直播审核" href="###" >提交审核</a>
 		<!-- <a id="menu_2_2_2" class="btn btn_submit open_tabs" title="创建直播" href="live_edit.html">创建直播</a> -->
 		<ul class="item_pag ui_pages">
 			<li class="page_list ui-select-box">
@@ -67,9 +68,11 @@
 	</div>
 	
 	<div class="grid_item_content">
-		<table class="grid_item">
+		<form action="" autocomplete="off">
+		<table class="grid_item" id="live_lists">
 			<thead>
 				<tr>
+					<th>选择</th>
 					<th>ID</th>
 					<th>直播名称</th>
 					<th>年级</th>
@@ -81,6 +84,7 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="112" class="checkbox" /></td>
 					<td>12345</td>
 					<td>学数学小学数学小学数学1</td>
 					<td>一年级</td>
@@ -94,6 +98,7 @@
 					</td>
 				</tr>
 				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="113" class="checkbox" /></td>
 					<td>12345</td>
 					<td>学数学小学数学小学数学2</td>
 					<td>一年级</td>
@@ -107,6 +112,7 @@
 					</td>
 				</tr>
 				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="114" class="checkbox" /></td>
 					<td>12345</td>
 					<td>学数学小学数学小学数学3</td>
 					<td>一年级</td>
@@ -120,6 +126,7 @@
 					</td>
 				</tr>
 				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="115" class="checkbox" /></td>
 					<td>12345</td>
 					<td>学数学小学数学小学数学4</td>
 					<td>一年级</td>
@@ -134,6 +141,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</form>
 	</div>
 	<div class="action_item">
 			
@@ -148,6 +156,31 @@
 			</ul>
 		</div>
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.live.list.js"></script>
-	
+	<script type="text/javascript">
+		$(function() {
+			xes.form.tableCheckbox('live_lists','live_lists');	
+		});						
+
+		function liveReview(){
+			var liveIds = xes.form.getCheckboxValue('live_lists');
+			// console.log(liveIds);
+			if(liveIds){
+				alert(liveIds);
+				// $.cookie('live_lists', '');
+				// $.cookie('live_lists', null, {expires: 0, path: '/', secure: true});
+				// delCookie('live_lists');
+				// console.log('cookie: '+$.cookie('live_lists'));
+				var a = $('#live_lists input:checked');
+				$.cookie('live_lists', null);
+				
+				$('#live_lists input:checkbox').attr('checked',false);
+				window.location.href = 'live_list.html';
+				
+			}else{
+				alert('请选择要审核的直播');
+			}
+			
+		}
+	</script>
 </body>
 </html>

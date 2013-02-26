@@ -71,7 +71,14 @@ var goTab = function(url, title, id, closeSelf){
  * 刷新标签
  */
 var refreshTab = function(id){
-	window.parent.refreshTabs(id);
+	// alert(id);
+	// console.log(window.location.href);
+	// window.parent.refreshTabs(id);
+	var url = window.location.href;
+	if(url.split('###').length>1){
+		url = url.replace(/###$/,'');
+	}
+	window.location.href = url;
 };
 
 /**
