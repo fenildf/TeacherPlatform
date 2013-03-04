@@ -293,7 +293,7 @@ var xform = xform || {};
 				// cookievalue = ',';
 			});
 			
-		}
+		};
 
 		// 把tableCheckbox选中的值（cookie里面的）转化为数组格式
 		f.getCheckboxValue = function (cookieName){
@@ -304,13 +304,15 @@ var xform = xform || {};
 			}else{
 				return false;
 			}
-		}
-
+		};
+		/*
+		 * input表单默认值的显示与隐藏
+		 * 获取焦点的时候隐藏默认提示信息，失去焦点的时候，如果是空值则显示默认提示信息
+		 */
 		f.defaultValue = function(){
 			var placeholder = '';
 			$("input:text").focus(function () { 
 				this.defaultValue = $(this).attr('placeholder');
-
 				var check1 = $(this).val(); 
 				if (check1 == this.defaultValue) { 
 					$(this).val(''); 
@@ -318,8 +320,6 @@ var xform = xform || {};
 				$(this).attr('placeholder','');
 			}); 
 			$("input:text").blur(function () { 
-				
-
 				var check1 = $(this).val(); 
 				if (check1 == '') { 
 					$(this).attr('placeholder', this.defaultValue); 

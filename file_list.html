@@ -1,202 +1,373 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>文件列表---课程运营平台</title>
-	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_file.css"/>
-	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
-	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>文件列表---课程运营平台</title>
+		<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_file.css"/>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 
-</head>
+	</head>
 
-<body>
-	
-	<h1 class="ui_infor_title">
-		<span>文件共享</span>
-	</h1>
+	<body>
 
-	<div class="s_grade">
-		<table >
-			<tr>
-				<td align="left">
-					<input value=""  class="input_text" type="text"/>
-					<input class="s-btn" type="submit" value="筛选" ></td>
-			</tr>
-		</table>
-	</div>
-	<div class="share_updown">
-		<span>
-			<a id="btn_fileUpload" href="###">上传</a>
-		</span>
-		<span>
-			<a id="btn_fileDown" href="###">下载</a>
-		</span>
-		<span>
-			<a id="menu_6_2" href="file_share_list.html" class="open_tabs">我的分享</a>
-		</span>
-	</div>
-	<div class="action_item share_item">
-		<span class="share_l">
-			全部分享记录
-		</span>
-		
-		<ul class="item_pag ui_pages">
-			<li class="page_list_tips">共<em>100</em>条记录  </li>
-			<li class="page_list ui-select-box">
-				<select name="pages" id="" class="ui-select">
-					<option value="1">1/5</option>
-					<option value="2">2/5</option>
-					<option value="3">3/5</option>
-					<option value="4">4/5</option>
-					<option value="5">5/5</option>
-				</select>
-			</li>
-			<li class="page_btn">
-				<span class="page_prev">上一页</span>
-			</li>
-			<li class="page_btn">
-				<a href=""  class="page_next">下一页</a>
-			</li>
-		</ul>
-		<p class="action_side file_size">
-			<span>4M</span>/500M
-		</p>
-	</div>
-	<div class="contentData contentData1">
-		<table class="grid_item">
-			<colgroup>
-				<col width="50px" />
-				<col width="" />
-				<col width="80px" />
-				<col width="150px" />
-				<col width="60px" />
-			</colgroup>
-			<thead>
-				<tr>
-					<th><input type="checkbox" name="file_all" id="file_all" /></th>
-					<th>文件名</th>
-					<th>大小</th>
-					<th>创建日期</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody id="share_fiels_ids">
-				<tr>
-					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" /></td>
-					<td>
-						<p class="textZip">国人文档</p>
-					</td>
-					<td>107</td>
-					<td>2102-02-02 25：00AM</td>
-					<td>
-						<a id="student_111" onclick="fileShare(111,'http://www.xueersi.com/')" class="" title="查看" href="###" text="徐倩1">分享</a>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_2" /></td>
-					<td>
-						<p class="textZip">国人文档</p>
-					</td>
-					<td>107</td>
-					<td>2102-02-02 25：00AM</td>
-					<td>
-						<a id="student_112" onclick="fileShare(112,'http://asdafasf')" class="" title="查看" href="###" text="徐倩1">分享</a>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_3" /></td>
-					<td>
-						<p class="textZip">国人文档</p>
-					</td>
-					<td>107</td>
-					<td>2102-02-02 25：00AM</td>
-					<td>
-						<a id="student_113" onclick="fileShare(113,'http://adsfsaff.zip')" class="" title="1078987654@xueersi.com" href="###" text="徐倩1">分享</a>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_4" /></td>
-					<td>
-						<p class="textZip">国人文档</p>
-					</td>
-					<td>107</td>
-					<td>2102-02-02 25：00AM</td>
-					<td>
-						<a id="student_114" onclick="fileShare(114,'http://www.xueersi.com/files/asdfsafas.zip')" class="" title="1078987654@xueersi.com" href="###" text="徐倩1">分享</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="action_item">
-
-		<ul class="item_pag ui_pages">
-			<li class="page_btn">
-				<span class="page_prev">上一页</span>
-			</li>
-			<li class="page_btn">
-				<a href=""  class="page_next">下一页</a>
-			</li>
-		</ul>
-
-	</div>
-	<!-- 学员列表-->
-	<!-- 弹出框 分享 -->
-	<div id="win_fileShare" class="share_layer xes_win">
-		<h1>
-			<span>分享文件</span>
-			<span class="close">关闭</span>
+		<h1 class="ui_infor_title">
+			<span>文件共享</span>
 		</h1>
-		<form action="" class="contenttxt">
-
-			<p class="textinfor">资源下载链接：<span class="filepath">http://teacher.com/updown/12345.zip</span></p>
-			<p class="cla_input">
-				班级ID：
-				<input value=""  class="input_text" type="text"/>
-			</p>
-			<p class="area_input">
-				<label>内容：</label>
-				<br/>
-				<textarea></textarea>
-			</p>
-			<input type="hidden" name="fileid" value="" class="fileid" />
-			<p class="sharebutton">
-				<a href="#" class="btnshare">分享</a>
-				<a href="#" class="btncannel">取消</a>
-			</p>
+		<form action="/teacherCourses/shareFileLists/" name="" id="listSerch" method="post">
+			<div class="s_grade">
+				<table >
+					<tr>	
+						<td align="left">
+							<input value=""  class="input_text" type="text" name="keywords" placeholder="按关键字筛选"/>
+							<input type="hidden" id="currpage" name="curpage" value="1" />
+							<input class="s-btn" type="submit" value="筛选" ></td>
+					</tr>
+				</table>
+			</div>
 		</form>
-	</div>
-	<!-- 弹出框 分享 End-->
-	<!-- 弹出框 上传 -->
-	<div id="win_fileUpload" class="share_layer xes_win w320">
-		<h1>
-			<span>分享文件</span>
-			<span class="close">关闭</span>
-		</h1>
-		<div class="contenttxt">
-			<p class="file_input">
-				文件：<input value=""  class="input_text" type="file"/>
-			</p>
-			
-			<p class="sharebutton">
-				<button class="btnshare" type="submit">上传</button>
-			</p>
+		<div class="share_updown">
+			<span>
+				<a id="btn_fileUpload" href="###">上传</a>
+			</span>
+			<span>
+				<a id="btn_fileDown" href="###">下载</a>
+			</span>
+			<span>
+				<a id="menu_6_2" href="/teacherCourses/teacherShareLists/" class="open_tabs">我的分享</a>
+			</span>
 		</div>
-	</div>
-	<!-- 弹出框 分享 End-->
-	<script type="text/javascript" src="http://js03.xesimg.com/import/import.file.list.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$('#file_all').click(function(){
-				emptyCheckbox();
-			})
-		});
-		function emptyCheckbox(){
-			$('#share_fiels_ids tr input:checkbox').each(function(){
-			    $(this).attr('checked',false);
+		<div class="action_item share_item">
+			<ul class="item_pag ui_pages">
+									<li class="page_list ui-select-box"><span>共7条 &nbsp;</span><select  name="pages" id="pages" class="ui-select"><option selected>1/1</option></select></li><li class='page_btn'><span class='page_prev' >上一页</span></li><li class="page_btn"><span class="page_next">下一页</span></li>							</ul>
+			<p class="action_side file_size"><span>0.26M</span>/500M</p>
+		</div>
+		<div class="contentData contentData1">
+			<table class="grid_item" id="share_fiels_ids">
+				<colgroup>
+					<col width="50px" />
+					<col width="" />
+					<col width="80px" />
+					<col width="200px" />
+					<col width="60px" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>选择</th>
+						<th>文件名</th>
+						<th>大小</th>
+						<th>创建日期</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="fileList">
+																		<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="10"/></td>
+								<td>
+									<p class="textZip">短信接口.txt</p>
+								</td>
+								<td>
+																																				1K
+																											</td>
+								<td>2013-02-26 12:45:03</td>
+								<td>
+									<a id="student_111" onclick="fileShare(10,'http://x02.xesimg.com/sharefile/guyunzeng/201302/13618539035822.txt')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="9"/></td>
+								<td>
+									<p class="textZip">QQ截图20121130094238.jpg</p>
+								</td>
+								<td>
+																														38K
+																											</td>
+								<td>2013-02-26 11:32:29</td>
+								<td>
+									<a id="student_111" onclick="fileShare(9,'http://x02.xesimg.com/sharefile/guyunzeng/201302/13618495497763.jpg')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="8"/></td>
+								<td>
+									<p class="textZip">QQ截图20121130093946.jpg</p>
+								</td>
+								<td>
+																														94K
+																											</td>
+								<td>2013-02-26 10:48:46</td>
+								<td>
+									<a id="student_111" onclick="fileShare(8,'http://x01.xesimg.com/sharefile/guyunzeng/201302/13618469268410.jpg')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="7"/></td>
+								<td>
+									<p class="textZip">QQ截图20121130093934.jpg</p>
+								</td>
+								<td>
+																														93K
+																											</td>
+								<td>2013-02-26 10:41:52</td>
+								<td>
+									<a id="student_111" onclick="fileShare(7,'http://s03.xesimg.com/sharefile/guyunzeng/201302/13618465125230.jpg')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="6"/></td>
+								<td>
+									<p class="textZip">QQ截图20121130093445.jpg</p>
+								</td>
+								<td>
+																														17K
+																											</td>
+								<td>2013-02-26 10:17:14</td>
+								<td>
+									<a id="student_111" onclick="fileShare(6,'http://x02.xesimg.com/sharefile/guyunzeng/201302/13618450344939.jpg')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="2"/></td>
+								<td>
+									<p class="textZip">运维上线制度.xls</p>
+								</td>
+								<td>
+																														22K
+																											</td>
+								<td>2013-02-25 17:45:43</td>
+								<td>
+									<a id="student_111" onclick="fileShare(2,'http://s03.xesimg.com/sharefile/guyunzeng/201302/13617855437388.xls')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+													<tr>
+								<td><input type="checkbox" name="file_box" class="file_checkbox" id="file_box_1" value="1"/></td>
+								<td>
+									<p class="textZip">测试.docx</p>
+								</td>
+								<td>
+																														2K
+																											</td>
+								<td>2013-02-25 15:01:54</td>
+								<td>
+									<a id="student_111" onclick="fileShare(1,'http://x04.xesimg.com/sharefile/guyunzeng/201302/13617757141704.docx')" class="" title="查看" href="###" text="徐倩1">分享</a>
+								</td>
+							</tr>
+															</tbody>
+			</table>
+		</div>
+
+		<div class="action_item">
+			<ul class="item_pag ui_pages">
+									<li class='page_btn'><span class='page_prev' >上一页</span></li><li class="page_btn"><span class="page_next">下一页</span></li>							</ul>
+		</div>
+		<!-- 学员列表-->
+		<!-- 弹出框 分享 -->
+		<div id="win_fileShare" class="share_layer xes_win">
+			<h1>
+				<span>分享文件</span>
+				<span class="close">关闭</span>
+			</h1>
+			<form action="" class="contenttxt">
+
+				<p class="textinfor">资源下载链接：<span class="filepath">http://teacher.com/updown/12345.zip</span></p>
+				<p class="cla_input">
+				班级ID：
+					<input value=""  id="shareCourseIds" name="shareCourseIds" class="input_text" type="text"/>
+				</p>
+				<p class="area_input">
+					<label>内容：</label>
+					<textarea id="shareContext" name="shareContext"></textarea>
+				</p>
+				<input type="hidden" name="shareId" id="shareId" value="" class="fileid" />
+				<p class="sharebutton">
+					<a href="#" class="btnshare" id="btnshare">分享</a>
+					<a href="#" class="btncannel">取消</a>
+				</p>
+			</form>
+		</div>
+		<!-- 弹出框 分享 End-->
+		<!-- 弹出框 上传 -->
+		<form action="/teacherCourses/uploadShareFile/" name="" id="listSerch" method="POST" enctype="multipart/form-data" onsubmit="return checkUpload();">
+			<div id="win_fileUpload" class="share_layer xes_win w300">
+				<h1>
+					<span>分享文件</span>
+					<span class="close">关闭</span>
+				</h1>
+				<div class="contenttxt">
+					<p class="textinfor">上传文件大小不能超过5M</p>
+					<p class="file_input">
+				文件：<input  type="file"  name="test_context" id="test_context"/>
+					</p>
+					<p class="sharebutton">
+						<button class="btnshare" type="submit">上传</button>
+					</p>
+				</div>
+			</div>
+		</form>
+		<!-- 弹出框 分享 End-->
+		<script type="text/javascript" src="http://js03.xesimg.com/import/import.file.list.js"></script>
+		<script type="text/javascript">
+		/**
+		 * 根据数组里面的值，设置选中的checkbox
+		 */
+		function setChecked(box, val){
+			box.each(function(){
+				var indexof = val.toString().indexOf($(this).val());
+				if(indexof>=0){
+					$(this).attr('checked',true);
+				}
 			});
 		}
-	</script>
-</body>
+
+ 		function tableCheckbox(tableid, name){
+
+ 			var _checkbox = $('table[id='+tableid+'] tr input[type="checkbox"]');
+
+ 			var _checkval = [];
+
+ 			var _cookiename = name || 'checkvalue';
+
+ 			// setChecked(_checkbox, _checkval);
+
+ 			_checkbox.click(function(){
+ 				
+ 			});
+
+
+
+			if(name==''){name = 'checkvalue';}
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			//cookie中存放的值
+			var cookievalue = $.cookie(name);
+			if(cookievalue==null){
+				cookievalue = ',';
+			}
+			$.each($('table[id='+tableid+'] tr input[type="checkbox"]'),function (){
+				var indexof = cookievalue.indexOf(','+$(this).val()+',');
+				if(indexof>=0){
+					$(this).attr('checked',true);
+				}
+			});
+
+			$('table[id='+tableid+'] tr input[type="checkbox"]').click(function(){
+				console.log(cookievalue);
+				//点击checkbox的值
+				var checkedvalue = $(this).val();
+				//方便搜素特殊处理的值
+				//var searchvalue = ','+$.cookie(name);
+				//如果checkbox为选中状态
+				if($(this).attr('checked') === 'checked'){
+					//查找选中checkbox值在cookie中是否存在
+					var indexof = cookievalue.indexOf(','+checkedvalue+',');
+					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
+					if(indexof == -1){
+						//将指定的值添加到cookie中
+						cookievalue = cookievalue+checkedvalue+',';
+					}
+				}
+
+				//如果checkbox为未选中状态
+				if($(this).attr('checked') != 'checked'){
+					//查找选中checkbox值在cookie中是否存在
+					var indexof = cookievalue.indexOf(','+checkedvalue+',')
+					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
+					if(indexof >=0 ){
+						//删除cookie中指定的值
+						cookievalue = cookievalue.replace(','+checkedvalue+',' , ',');
+
+					}
+				}
+				$.cookie(name, cookievalue, { expires: 0 });
+				// cookievalue = ',';
+			});
+			
+		}
+	//cookie
+	$(function() {
+		tableCheckbox('share_fiels_ids','share_fiels_ids');	
+	});			
+	
+	//下载文件
+	function fileDown(){
+		var shareIds = xes.form.getCheckboxValue('share_fiels_ids');
+		if(shareIds.length>0){
+			shareIds = shareIds.replace(/^,/,'').replace(/,$/,'');
+
+			var url = 'http://teacher-b.wss-test2.0.com/teacherCourses/downloadShareFile/'+shareIds;
+			$.cookie('share_fiels_ids',null);
+			$('#share_fiels_ids tr input:checkbox').each(function(){
+				$(this).attr('checked',false);
+			});	
+			console.clear();
+			console.log(shareIds);		
+			// window.location.href = url;
+		}else{
+			alert('请选择要下载的文件');
+		}
+	}	
+	
+	//上传文件
+	function checkUpload(){
+		var upload = $('#test_context').val();
+		if(upload == ''){
+			alert('上传文件不能为空');
+			return false;
+		}
+		return true;
+	}
+	
+	//老师分享文件
+	$('#btnshare').click(function(){
+		var shareCourseIds = $('#shareCourseIds').val();
+		if(shareCourseIds == ''){
+			alert('分享课程不能为空');
+			return false;
+		}
+		var shareContext = $('#shareContext').val();
+		if(shareContext == ''){
+			alert('分享内容不能为空');
+			return false;
+		}
+		var shareId = $('#shareId').val();
+		if(shareId == ''){
+			alert('文件id不合法');
+			return false;
+		}
+		var params = 'shareId='+shareId+'&shareCourseIds='+shareCourseIds+'&shareContext='+shareContext;
+		var url = "http://teacher-b.wss-test2.0.com/teacherCourses/teacherShareFile/";
+		$.ajax({
+			url :url,
+			type:'post',
+			dataType:'json',
+			data:params,
+			success: function (data) {
+				if(data.sign == 0){
+					alert(data.msg);
+				}else{
+					alert('分享成功');
+					$('#shareCourseIds').val('');
+					$('#shareContext').val('');
+					xes.dialog.hide();
+					goTab('http://teacher-b.wss-test2.0.com/teacherCourses/teacherShareLists/', '我的分享', 'menu_6_2',false);
+				}
+			},
+			error: function() {
+				alert('数据读取错误..');
+			}
+		});			
+	});
+		</script>
+	</body>
 </html>
