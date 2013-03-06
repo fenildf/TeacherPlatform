@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -210,109 +211,113 @@
 		/**
 		 * 根据数组里面的值，设置选中的checkbox
 		 */
-		function setChecked(box, val){
-			box.each(function(){
-				var indexof = val.toString().indexOf($(this).val());
-				if(indexof>=0){
-					$(this).attr('checked',true);
-				}
-			});
-		}
+		// function setChecked(id){
+		// 	// 复选框
+ 	// 		var _checkbox = $('table[id='+id+'] tr input[type="checkbox"]');
+ 	// 		// 获取已有的cookie值
+ 	// 		var _cookieval = $.cookie(id);
+ 	// 		// 将cookie值转化为数组；
+ 	// 		var _values = _cookieval ? _cookieval.split(',') : [];
+ 	// 		// 去除数组中的空白项（原来方法里面里面开头的“，”）
+ 	// 		_values = $.grep(_values, function(n) {return $.trim(n).length > 0;})
 
- 		function tableCheckbox(tableid, name){
+		// 	_checkbox.each(function(){
+		// 		var index = $.inArray($(this).val(), _values);
+		// 		if(index >= 0){
+		// 			$(this).attr('checked',true);
+		// 		}
+		// 	});
+		// }
 
- 			var _checkbox = $('table[id='+tableid+'] tr input[type="checkbox"]');
+		/**
+		 * 清除已选项
+		 * @return {[type]}
+		 */
+		// function emptyChecked(id, val){
+		// 	var _val = $.cookie(id);
+		// 	_val = _val ? _val.split(',') : [];
+ 	// 		var _checkbox = $('table[id='+id+'] tr input[type="checkbox"]');
+ 	// 		_checkbox.each(function(){
+ 	// 			var _v = $(this).val();
+ 	// 			if( $.inArray(_v , _val) > -1){
+ 	// 				this.checked = false;
+ 	// 			}
+ 	// 		});
+		// 	$.cookie(id, null);
 
- 			var _checkval = [];
+		//     // var date = new Date();
+		//     // date.setTime(date.getTime() - 10000);
+		//     // document.cookie = id + "=a; expires=" + date.toGMTString()+"; path=/";
+		// }
+		/**
+		 * 根据点击checkbox设置cookie值
+		 * 
+		 */
+		// function setCheckedValue(cookiename,box){
+ 	// 		// 获取已有的cookie值
+ 	// 		var _cookieval = $.cookie(cookiename);
+ 	// 		// 将cookie值转化为数组；
+ 	// 		var _values = _cookieval ? _cookieval.split(',') : [];
+ 	// 		// 去除数组中的空白项（原来方法里面里面开头的“，”）
+ 	// 		_values = $.grep(_values, function(n) {return $.trim(n).length > 0;})
 
- 			var _cookiename = name || 'checkvalue';
+		// 	var __checked = $(box).attr('checked');
 
- 			// setChecked(_checkbox, _checkval);
+		// 	var __val = $(box).val();
 
- 			_checkbox.click(function(){
- 				
- 			});
+		// 	var __index = $.inArray(__val, _values);
 
+		// 	/**
+		// 	 * 如果选中，且cookie中不存在，则添加
+		// 	 * 如果取消选中，且cookie里存在，则删除
+		// 	 */
+		// 	if( (__checked == 'checked') && (__index == -1) ){
 
+		// 		_values.push(__val);
 
-			if(name==''){name = 'checkvalue';}
+		// 	}else if( (__checked != 'checked') && (__index >= 0)){
 
+		// 		_values.splice(__index,1);
 
+		// 	}
 
+		// 	$.cookie(cookiename, _values);
 
-
-
-
-
-
-
-
-
-			
-			//cookie中存放的值
-			var cookievalue = $.cookie(name);
-			if(cookievalue==null){
-				cookievalue = ',';
-			}
-			$.each($('table[id='+tableid+'] tr input[type="checkbox"]'),function (){
-				var indexof = cookievalue.indexOf(','+$(this).val()+',');
-				if(indexof>=0){
-					$(this).attr('checked',true);
-				}
-			});
-
-			$('table[id='+tableid+'] tr input[type="checkbox"]').click(function(){
-				console.log(cookievalue);
-				//点击checkbox的值
-				var checkedvalue = $(this).val();
-				//方便搜素特殊处理的值
-				//var searchvalue = ','+$.cookie(name);
-				//如果checkbox为选中状态
-				if($(this).attr('checked') === 'checked'){
-					//查找选中checkbox值在cookie中是否存在
-					var indexof = cookievalue.indexOf(','+checkedvalue+',');
-					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
-					if(indexof == -1){
-						//将指定的值添加到cookie中
-						cookievalue = cookievalue+checkedvalue+',';
-					}
-				}
-
-				//如果checkbox为未选中状态
-				if($(this).attr('checked') != 'checked'){
-					//查找选中checkbox值在cookie中是否存在
-					var indexof = cookievalue.indexOf(','+checkedvalue+',')
-					//如果在cookie中没有找到对应的值则把当前checkbox写入cookie
-					if(indexof >=0 ){
-						//删除cookie中指定的值
-						cookievalue = cookievalue.replace(','+checkedvalue+',' , ',');
-
-					}
-				}
-				$.cookie(name, cookievalue, { expires: 0 });
-				// cookievalue = ',';
-			});
-			
-		}
+		// }
+ 
 	//cookie
 	$(function() {
-		tableCheckbox('share_fiels_ids','share_fiels_ids');	
+		xes.form.checkboxClick('share_fiels_ids', 'file_box');
+		// // 获取已有的cookie值
+		// var cookieVal = $.cookie('share_fiels_ids');
+		// if(cookieVal && cookieVal != ''){
+		// 	//根据cookie值设置已选项
+		// 	xes.form.setCheckBox('file_box', cookieVal);
+		// }
+		// // var _checkbox = $('#'+id).find('input[type="checkbox"]');
+		
+ 	// 	$('#share_fiels_ids').find('input:checkbox').click(function(){
+ 	// 		xes.form.setCheckedValue('share_fiels_ids', this);
+ 	// 	});
 	});			
 	
 	//下载文件
 	function fileDown(){
-		var shareIds = xes.form.getCheckboxValue('share_fiels_ids');
+		var shareIds = xes.form.getCheckedValue('file_box');
 		if(shareIds.length>0){
-			shareIds = shareIds.replace(/^,/,'').replace(/,$/,'');
+			// shareIds = shareIds.replace(/^,/,'').replace(/,$/,'');
 
-			var url = 'http://teacher-b.wss-test2.0.com/teacherCourses/downloadShareFile/'+shareIds;
-			$.cookie('share_fiels_ids',null);
-			$('#share_fiels_ids tr input:checkbox').each(function(){
-				$(this).attr('checked',false);
-			});	
+			// var url = 'http://teacher-b.wss-test2.0.com/teacherCourses/downloadShareFile/'+shareIds;
+			// $.cookie('share_fiels_ids',null);
+			// $('#share_fiels_ids tr input:checkbox').each(function(){
+			// 	$(this).attr('checked',false);
+			// });	
 			console.clear();
 			console.log(shareIds);		
+			
+			xes.form.emptyChecked('share_fiels_ids');
 			// window.location.href = url;
+			// 
 		}else{
 			alert('请选择要下载的文件');
 		}
