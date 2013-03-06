@@ -1288,7 +1288,7 @@ var xform = xform || {};
 				// cookievalue = ',';
 			});
 			
-		}
+		};
 
 		// 把tableCheckbox选中的值（cookie里面的）转化为数组格式
 		f.getCheckboxValue = function (cookieName){
@@ -1299,13 +1299,15 @@ var xform = xform || {};
 			}else{
 				return false;
 			}
-		}
-
+		};
+		/*
+		 * input表单默认值的显示与隐藏
+		 * 获取焦点的时候隐藏默认提示信息，失去焦点的时候，如果是空值则显示默认提示信息
+		 */
 		f.defaultValue = function(){
 			var placeholder = '';
 			$("input:text").focus(function () { 
 				this.defaultValue = $(this).attr('placeholder');
-
 				var check1 = $(this).val(); 
 				if (check1 == this.defaultValue) { 
 					$(this).val(''); 
@@ -1313,14 +1315,99 @@ var xform = xform || {};
 				$(this).attr('placeholder','');
 			}); 
 			$("input:text").blur(function () { 
-				
-
 				var check1 = $(this).val(); 
 				if (check1 == '') { 
 					$(this).attr('placeholder', this.defaultValue); 
 				}
 			}); 
 			
+		};
+
+		/**
+		 * 根据点击checkbox设置cookie值
+		 * @param  {string} id 存储已选值的cookiename，同时也是checkbox外围容器的id名
+		 * @param {DOM} box 点击的checkbox对象 this
+		 * 
+		 */
+		f.setCheckedValue =	function (cookiename,box){
+			console.log(box.checked);
+
+ 			// 获取已有的cookie值
+ 			var _cookieval = $.cookie(cookiename);
+
+ 			// 将cookie值转化为数组；
+ 			var _values = (_cookieval && _cookieval != '') ? _cookieval.split(',') : [];
+
+ 			// 去除数组中的空白项（原来方法里面里面开头的“，”）
+ 			_values = $.grep(_values, function(n) {return $.trim(n).length > 0;})
+
+ 			// 选中状态
+			// var __checked = $(box).attr('checked');
+			var __checked = box.checked;
+
+			// 当前点击对象的值
+			var __val = box.value;
+
+			// 查看当前选中的值在cookie中是否存在，返回其索引值，0开头
+			var __index = $.inArray(__val, _values);
+
+			/**
+			 * 如果选中，且cookie中不存在，则添加
+			 * 如果取消选中，且cookie里存在，则删除
+			 */
+			if( __checked && (__index == -1) ){
+
+				_values.push(__val);
+
+			}else if( !__checked && (__index >= 0)){
+
+				_values.splice(__index,1);
+
+			}
+
+			$.cookie(cookiename, _values);
+
+		}
+
+		/**
+		 * 清除checkbox的已选项
+		 * @param  {string} id 存储已选值的cookiename，同时也是checkbox外围容器的id名
+		 * @return {[type]}            [description]
+		 */
+		f.emptyChecked = function(id){
+			var _val = $.cookie(id);
+			if(_val){
+				_val = (_val !='') ? _val.split(',') : [];
+				if(_val.length > 0 ){
+					var _checkbox = $('#'+id).find('input[type="checkbox"]');
+		 			_checkbox.each(function(){
+		 				// var _v = $(this).val();
+		 				var _v = this.value;
+		 				if( $.inArray(_v , _val) > -1){
+		 					this.checked = false;
+		 				}
+		 			});
+				}
+				$.cookie(id, null);
+			}
+		}
+
+		/**
+		 * checkbox的点击事件
+		 * @param  {string} id 存储已选值的cookiename，同时也是checkbox外围容器的id名
+		 * @param  {string} checkboxName [checkbox的name值]	
+		 * @return {[type]}              [description]
+		 */
+		f.checkboxClick = function(id,checkboxName){
+			// 获取已有的cookie值
+			var cookieVal = $.cookie(id);
+			if(cookieVal && cookieVal != ''){
+				//根据cookie值设置已选项
+				f.setCheckBox(checkboxName, cookieVal);
+			}	
+	 		$('#'+id).find('input:checkbox').click(function(){
+	 			f.setCheckedValue(id, this);
+	 		});
 		};
 
 })();
