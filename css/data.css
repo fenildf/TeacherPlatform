@@ -4,7 +4,8 @@
 ul.labelCon {overflow: hidden;width:1050px;margin:10px 3px ;color: #666;}
 ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
 ul.labelCon li label {float: left;width: 70px; text-align: right;}
-ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
+ul.labelCon li span,ul.labelCon li p {float: left;margin-left: 10px; height: auto;width: 950px;}
+ul.labelCon li p em {width: auto;white-space: nowrap;}
 #termId {display: none;}
 
 
