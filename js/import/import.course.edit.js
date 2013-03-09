@@ -517,17 +517,18 @@ var xform = xform || {};
 		f.defaultValue = function(){
 			var placeholder = '';
 			$("input:text").focus(function () { 
-				this.defaultValue = $(this).attr('placeholder');
+				this.defaultValue = $(this).attr('placeholder') || '';
 				var check1 = $(this).val(); 
 				if (check1 == this.defaultValue) { 
 					$(this).val(''); 
 				}
 				$(this).attr('placeholder','');
 			}); 
-			$("input:text").blur(function () { 
+			$("input:text").blur(function () {
+				var d = this.defaultValue || '';
 				var check1 = $(this).val(); 
 				if (check1 == '') { 
-					$(this).attr('placeholder', this.defaultValue); 
+					$(this).attr('placeholder', d); 
 				}
 			}); 
 			
@@ -540,7 +541,6 @@ var xform = xform || {};
 		 * 
 		 */
 		f.setCheckedValue =	function (cookiename,box){
-			console.log(box.checked);
 
  			// 获取已有的cookie值
  			var _cookieval = $.cookie(cookiename);
