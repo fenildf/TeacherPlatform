@@ -1401,6 +1401,11 @@ $(function(){
 	$('#headSearch_select li').hover(function(){
 		$(this).addClass('ui-select-hover').siblings('li').removeClass('ui-select-hover');
 	});
+
+	//顶部老师名称点击事件
+	$('#topTeacherName').click(function(){
+		openTabs(this);
+	});
 });
 /**
  * 把用户名存储到cookie中（base64加密后，并替换最后的等号为'_'）
