@@ -14,9 +14,10 @@
 /*@import url("list.css");*/
 @import url("table.css");
 @import url("data.css");
+@import url("form.css");
 /*@import url("calendar.css");*/
 /*@import url("share.css");*/
 
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 
- 
+ #info_edit textarea {width: 96%;height: 80px;}

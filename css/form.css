@@ -7,3 +7,8 @@ ul.labelCon li label {float: left;width: 70px; text-align: right;}
 ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
 
 .w400 {width: 400px}
+
+input[type="text"],
+textarea,
+.input_title,
+.input_content {border:1px solid #D3D3D3; ;padding: 0 0 0 10px;background: url(http://img03.xesimg.com/bg_input.png) repeat-y left 0;}

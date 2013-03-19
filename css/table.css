@@ -34,7 +34,10 @@ table.grid_item tr.hover {background: #e0f2e3;}
 
 
 
+.more {float: right;}
 
+.title_more,
+.contentData1 tr th.title_more {width: 150px; text-align: right;padding-right: 10px}
 
 
 
