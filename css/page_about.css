@@ -21,3 +21,4 @@
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 
  #info_edit textarea {width: 96%;height: 80px;}
+ #info_edit input[type="text"] {width:50%;height: 22px}
