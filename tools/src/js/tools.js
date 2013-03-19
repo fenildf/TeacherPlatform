@@ -185,6 +185,8 @@ function createAllImportFiles(path){
 
 function getPageName(filename){
 	var data = {
+
+		'page.about.js'						:{title:'用户信息',url:'about.html'},
 		'page.chapter.info.js'				:{title:'讲 详 情',url:'chapter_info.html'},
 		'page.chapter.list.js'				:{title:'讲 列 表',url:'chapter_list.html'},
 		'page.chapter.setting.js'			:{title:'讲 设 置',url:'chapter_list.html'},
@@ -198,6 +200,8 @@ function getPageName(filename){
 		'page.live.info.js'					:{title:'直播信息',url:'live_info.html'},
 		'page.live.list.js'					:{title:'直播列表',url:'live_list.html'},
 		'page.login.js'						:{title:'直播列表',url:'login.html'},
+		'page.message.send.js'				:{title:'发送信息',url:'student_send_message.html'},
+		'page.module.list.js'				:{title:'模态弹窗',url:'module._add_monthly_exam.html'},
 		'page.platform.js'					:{title:'外框页面',url:'platform.html'},
 		'page.project.chapter.create.js'	:{title:'创 建 讲',url:'project_chapter_create.html'},
 		'page.project.chapter.list.js'		:{title:'浏 览 讲',url:'project_chapter_list.html'},

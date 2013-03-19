@@ -10,11 +10,10 @@
 @import url("base.css");
 @import url("platform.css");
 @import url("ui-select.css");
-@import url("list.css");
-@import url("table.css");
-@import url("iframe.css");
-@import url("ui_tips.css");
+@import url("edit.css");
 @import url("layer.css");
-@import url("dialog.css");
 @import url("calendar.css");
 @import url("form.css");
+
+/* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
+.contentLive dl dt {color: #999}
