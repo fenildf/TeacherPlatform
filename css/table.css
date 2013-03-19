@@ -37,10 +37,12 @@ table.grid_item tr.hover {background: #e0f2e3;}
 .more {float: right;}
 
 .title_more,
-.contentData1 tr th.title_more {width: 150px; text-align: right;padding-right: 10px}
+.contentData1 tr th.title_more,
+.contentData1 tr td.title_more {width: 150px; text-align: right;padding-right: 10px}
 
 
-
+.speak_table {border-top:1px inset #e5e5e5;background: #eee}
+.speak_table tr td {border:0 none;}
 
 
 
