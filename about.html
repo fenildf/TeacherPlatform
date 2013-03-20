@@ -29,13 +29,15 @@
 				<col />
 
 			</colgroup>
-			<thead>
+			<thead class="box_handle">
 				<tr>
 					<th colspan="7">基本信息</th>
-					<th class="title_more">收起</th>
+					<th class="title_more">
+						<a href="###" class="close">收起</a>
+					</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="box_content">
 				<tr>
 					<td class="title">姓名</td>
 					<td colspan="7" class="text">谷运增</td>
@@ -76,29 +78,78 @@
 			</tbody>
 		</table>
 		<table>
-			<thead>
+			<thead class="box_handle">
 				<tr>
 					<th>图片信息</th>
-					<th class="title_more">收起 编辑/保存</th>
+					<th class="title_more">
+						<a href="###" class="close">收起</a>
+						<a href="###" id="btnAvatarEdit" class="edit" onclick="avatarEdit();">编辑</a>
+						<a href="###" id="btnAvatarSave" class="save  btn_submit_small" onclick="avatarSave();" style="display:none;">保存</a>
+					</th>
 
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="box_content">
 				<tr>
 					
-					<td class="text">讲名称讲名称讲名称讲名称讲名称讲名称</td>
+					<td class="text" colspan="2">
+						<div class="about_avatar_list">
+							<dl class="about_avatar_item">
+								<dt class="about_avatar_img">
+									<p class="avatar_large"></p>
+								</dt>
+								<dd class="about_avatar_input">
+									<button type="button" class="btn btn_button">浏览</button>
+								</dd>
+								<dd class="about_avatar_files">
+									<p class="avatar_url"></p>
+									<input type="file" class="files" name="avatar_url" />
+								</dd>
+							</dl>
+
+							<dl class="about_avatar_item" style="width:200px">
+								<dt class="about_avatar_img">
+									<p class="avatar_small"></p>
+								</dt>
+								<dd class="about_avatar_input">
+									<button type="button" class="btn btn_button">浏览</button>
+								</dd>
+								<dd class="about_avatar_files">
+									<p class="avatar_url"></p>
+									<input type="file" class="files" name="avatar_url" />
+								</dd>
+							</dl>
+
+							<dl class="about_avatar_item" style="width:100px">
+								<dt class="about_avatar_img">
+									<p class="avatar_icon"></p>
+								</dt>
+								<dd class="about_avatar_input">
+									<button type="button" class="btn btn_button">浏览</button>
+								</dd>
+								<dd class="about_avatar_files">
+									<p class="avatar_url"></p>
+									<input type="file" class="files" name="avatar_url" />
+								</dd>
+							</dl>
+						</div>
+					</td>
 
 				</tr>
 			</tbody>
 		</table>
 		<table>
-			<thead>
+			<thead class="box_handle">
 				<tr>
 					<th colspan="5">教师介绍信息</th>
-					<th class="title_more">收起 编辑/保存</th>
+					<th class="title_more">
+						<a href="###" class="close">收起</a>
+						<a href="###" id="btnInfoEdit" class="edit" onclick="infoEdit();">编辑</a>
+						<a href="###" id="btnInfoSave" class="save btn_submit_small" onclick="infoSave();">保存</a>
+					</th>
 				</tr>
 			</thead>
-			<tbody id="info_content">
+			<tbody id="info_content" class="box_content">
 				<tr>
 					<td class="title">任教年级</td>
 					<td class="text">一年级</td>
@@ -128,7 +179,7 @@
 					<td colspan="5" class="text"></td>
 				</tr>
 			</tbody>
-			<tbody id="info_edit">
+			<tbody id="info_edit" style="display:none">
 				<tr>
 					<td class="title">任教年级</td>
 					<td colspan="5" class="text">
@@ -198,12 +249,18 @@
 						<textarea name=""></textarea>
 					</td>
 				</tr>
+				<tr>
+					<td class="title"></td>
+					<td colspan="5">
+						<button id="about_info_submit" name="about_info_submit" type="button" class="btn btn_submit" onclick="infoSave(this);">保存</button>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
 
 	<!-- 学员列表-->
-	<script src="http://js03.xesimg.com/pages/page.about.js" type="text/javascript"></script>
+	<script src="http://js03.xesimg.com/import/import.about.js" type="text/javascript"></script>
 
 </body>
 </html>

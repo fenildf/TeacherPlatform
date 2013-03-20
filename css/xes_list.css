@@ -484,13 +484,15 @@ ul.ui-select-show {display: block; position: absolute;z-index: 1001}
 .layer_900 .action_item {margin-top: 10px}
 /* ==================== table.css ===================== */
 .grid_item_content {overflow: hidden;width:1050px;margin:10px 0px ;border: 1px solid #ececec;}
-table.grid_item {width:100%;overflow: hidden;}
-table.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
-table.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
-table.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
-table.grid_item td span.one { background-position: 0px 0px;}
-table.grid_item td span.two {background-position: 0px -32px;}
-table.grid_item tr.hover {background: #e0f2e3;}
+
+
+.grid_item {width:100%;overflow: hidden;}
+.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
+.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
+.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
+.grid_item td span.one { background-position: 0px 0px;}
+.grid_item td span.two {background-position: 0px -32px;}
+.grid_item tr.hover {background: #e0f2e3;}
 
 .contentData {overflow: hidden;width:1050px;margin:10px 3px ;border: 1px solid #ececec;}
 .contentData table {width:100%;overflow: hidden; }
@@ -518,12 +520,35 @@ table.grid_item tr.hover {background: #e0f2e3;}
 
 
 
+.more {float: right;}
+
+.title_more,
+.contentData1 tr th.title_more,
+.contentData1 tr td.title_more {width: 150px; text-align: right;padding-right: 10px}
 
 
+.speak_table,
+.content_child {border:1px inset #eee;background: #f5f5f5}
+.speak_table thead td,
+.content_child thead td {color: #999}
+.speak_table tr td,
+.content_child tr td {border:0 none;}
 
+div.content_child {
+	min-height: 30px;
+	padding: 5px 20px;
+	border-style: solid;
+	border-width: 1px 0px 0px 1px;
+	border-color: #eee #fff #fff #eee;
 
+}
 
+.content_child_close{float: right;}
 
+.grid_item th.center,
+.grid_item td.center,
+.contentData table th.center,
+.contentData table td.center {text-align: center;}
 
 
 
@@ -610,6 +635,56 @@ box-shadow: -4px 0 4px rgba(153, 153, 153, 0.2),0 -4px 4px rgba(153, 153, 153, 0
 .w300 {width: 300px}
 .w320 {width: 320px}
 .w240 {width: 240px}
+/* ==================== calendar.css ===================== */
+
+.calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; z-index: 10000;width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
+
+.calendar .calMain { width: 189px; height: 180px; float: left; overflow: hidden; position: absolute; }
+.calendar .calMain .calTitle { width: 189px; float: left; height: 23px; background: #fff; overflow: hidden; }
+.calendar .calMain .calTitle .t_date { width: 149px; float: left; height: 23px; color: #51729d; font-weight: bold; line-height: 23px; text-align: center; }
+.calendar .calMain .calTitle .prevMonth { width: 15px; height: 15px; float: left; margin: 8px 0 0 5px; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 5px -87px; }
+.calendar .calMain .calTitle .nextMonth { width: 15px; height: 15px; float: right; margin: 8px 5px 0 0; cursor: pointer; background: url(http://img03.xesimg.com/date_bg.png) no-repeat 6px -157px; }
+.calendar .calMain .calTitle .currentYear { }
+.calendar .calMain .calTitle .currentMonth { }
+.calendar .calMain .calTitle .currentYearText { float: left; margin: 0 0px 0 39px; cursor: pointer; }
+.calendar .calMain .calTitle .currentMonthText { float: left; cursor: pointer; width: 30px; text-align: right; }
+
+.calendar .calMain .calContent { width: 378px; height: 157px; float: left; }
+.calendar .calMain .calContent .enabled { position: absolute; width: 189px; height: 157px; float: left; }
+.calendar .calMain .calContent .reserve { position: absolute; width: 189px; height: 157px; float: left; }
+
+.calendar .calMain .calContent .tabD { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
+.calendar .calMain .calContent .tabD th { background: url(http://img03.xesimg.com/date_bg.png) repeat-x; line-height: 22px; font-weight: normal; padding-bottom: 4px; color: #fff; }
+.calendar .calMain .calContent .tabD td { color: #1f3959; text-align: center; line-height: 19px; width: 27px; font-family: "georgia"; }
+
+.calendar .calMain .calContent .tabD td span { color: #c0c0c0; }
+
+.calendar .calMain .calContent .tabD td a { width: 23px; line-height: 18px; float: left; margin: 1px 0 0 2px; cursor: pointer; color: #51729d; }
+.calendar .calMain .calContent .tabD td .nextD { color: #bccadc; }
+.calendar .calMain .calContent .tabD td .prevD { color: #bccadc; }
+.calendar .calMain .calContent .tabD td .hover { width: 21px; line-height: 16px; border: 1px solid #7d99bd; float: left; margin: 1px 0 0 2px; }
+.calendar .calMain .calContent .tabD td .current { width: 21px; line-height: 16px; border: 1px solid #51729d; float: left; margin: 1px 0 0 2px; }
+.calendar .calMain .calContent .tabD td .select { width: 21px; line-height: 16px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 1px 0 0 2px; }
+
+.calendar .calMain .calContent .tabM { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
+.calendar .calMain .calContent .tabM td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
+.calendar .calMain .calContent .tabM td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
+.calendar .calMain .calContent .tabM td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
+.calendar .calMain .calContent .tabM td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
+.calendar .calMain .calContent .tabM td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
+
+.calendar .calMain .calContent .tabY { width: 189px; float: left; border-collapse: collapse; border-spacing: 0; border: 0; }
+.calendar .calMain .calContent .tabY td { color: #1f3959; text-align: center; height: 50px; width: 47px; font-family: "georgia"; }
+.calendar .calMain .calContent .tabY td a { width: 42px; line-height: 42px; float: left; margin: 0px 0 0 2px; cursor: pointer; color: #51729d; }
+.calendar .calMain .calContent .tabY td .nextY { color: #bccadc; }
+.calendar .calMain .calContent .tabY td .prevY { color: #bccadc; }
+.calendar .calMain .calContent .tabY td .hover { width: 40px; line-height: 40px; border: 1px solid #7d99bd; float: left; margin: 0px 0 0 2px; }
+.calendar .calMain .calContent .tabY td .current { width: 40px; line-height: 40px; border: 1px solid #51729d; float: left; margin: 0px 0 0 2px; }
+.calendar .calMain .calContent .tabY td .select { width: 40px; line-height: 40px; background: #51729d; border: 1px solid #51729d; color: #fff; float: left; margin: 0px 0 0 2px; }
+
+.calendar .calMain a:hover { text-decoration: none; }
+
+
 /* ==================== form.css ===================== */
 .input_text {height: 25px; padding-left: 5px; border:1px solid #d3d3d3;}
 
@@ -617,5 +692,44 @@ ul.labelCon {overflow: hidden;width:auto;margin:10px 3px ;color: #666;}
 ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
 ul.labelCon li label {float: left;width: 70px; text-align: right;}
 ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
+/* 
+ * upload: 2012-11-20
+ * author: Marco(wujie)
+ */
+.btn, .btn_ancel,.btn_prev,
+.btn_submit,.btn_cancel,.btn_button,.ui-pro .ui-pro-item .btn_submit {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
+button.btn_submit,
+input.btn_submit,
+button.btn_button,
+input.btn_button {border: 0 none;cursor: pointer;}
+
+/*a:hover.btn_ancel,*/
+a:hover.btn_cancel {color: #666; text-decoration: none;}
+
+a:hover.btn_prev,
+a:hover.btn_submit {color: #fff; text-decoration: none;}
+
+.btn {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+
+/*.btn_ancel, .btn_ancel:active, .btn_ancel:visited,*/
+.btn_cancel,.btn_button, .btn_cancel:active, .btn_cancel:visited,.ui-pro .ui-pro-item .btn_submit {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+
+.btn_prev, .btn_prev:active, .btn_prev:visited,
+.btn_submit, .btn_submit:active, .btn_submit:visited,.ui-pro .ui-pro-item .btn_submit{font-weight: 700;background-position: 0 0; color: #fff;}
+
+.btn_submit_small,.btn_submit_small:active,.btn_submit_small:visited {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
+
 
 .w400 {width: 400px}
+.w500 {width: 500px}
+
+.h200 {height: 200px}
+
+input[type="text"],
+textarea,
+.input_title,
+.input_content {border:1px solid #D3D3D3; ;padding-left:10px;background: url(http://img03.xesimg.com/bg_input.png) repeat-y left 0;}
+
+.input_keyword {height: 25px;padding: 0 10px}
+
+.files {display: none;}

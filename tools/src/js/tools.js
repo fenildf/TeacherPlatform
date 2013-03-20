@@ -66,6 +66,7 @@ function checkall(){
  */
 function getList(){
 	$.getJSON('/tools/getFileList.php',{},function(data){
+		console.log(data);
 		createList(data);
 	});
 }
@@ -81,6 +82,7 @@ function createList(d){
 		var page = getPageName(filename),
 			pagename = page.title,
 			pageurl = page.url;
+			console.log('page:'+page);
 		_html += '<tr>'
 				+'	<th><input type="checkbox" name="checkbox" class="checkbox"></th>\n'
 				+'	<td>' + pagename + ' (<a href="/' + pageurl + '" target="_blank">查看</a>) </td>\n'
@@ -185,7 +187,6 @@ function createAllImportFiles(path){
 
 function getPageName(filename){
 	var data = {
-
 		'page.about.js'						:{title:'用户信息',url:'about.html'},
 		'page.chapter.info.js'				:{title:'讲 详 情',url:'chapter_info.html'},
 		'page.chapter.list.js'				:{title:'讲 列 表',url:'chapter_list.html'},
@@ -219,7 +220,8 @@ function getPageName(filename){
 		'page.404.js'						:{title:'错误页面',url:'404.html'}
 		
 	};
-	return data[filename];
+	var v = data[filename] ? data[filename] : {title:'---',url:'---'};
+	return v;
 }
 
 

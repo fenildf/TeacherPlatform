@@ -1,5 +1,12 @@
 /* ==================== main.css ===================== */
+a, a:visited, a:active{color:#0066cc;text-decoration:none;}
+a:hover{color: #bc0000; text-decoration: underline;}
+h1,h2,h3,h4,h5,h6{color:#333;}
 
+a.red {color: #cc0000;}
+a.green {color: #669933;}
+a.blue{color: #006699;}
+a.grey {color: #666;}
 /* 中间区域公用样式 */
 
 /* 中间标题部分 */
