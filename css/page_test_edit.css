@@ -9,27 +9,25 @@
 
 @import url("base.css");
 @import url("main.css");
-@import url("platform.css");
+/*@import url("platform.css");*/
 /*@import url("ui-select.css");*/
 /*@import url("list.css");*/
 @import url("table.css");
-@import url("data.css");
 @import url("form.css");
 
 /*@import url("calendar.css");*/
 /*@import url("share.css");*/
 
-/* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
-.paper_text {width:500px;height:40px;padding:10px;border:1px solid #ccc;}
+/* -=-=-=-=-=-=-=-=-=-=-= test_add.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.paper_text {width:510px;height:60px;line-height: 24px;padding:0 0 0 10px;border:1px solid #ccc;}
 ul.labelCon li.infor {height:70px;}
 ul.labelCon li.choose {height: auto;overflow: hidden;padding-left:70px;}
-.choose_list {margin:3px 0 17px 0;overflow: hidden;_width:100%;}
+.choose_list {margin:3px 0 17px -12px;overflow: hidden;_width:100%;}
 .choose_list span,table {float: left;display: inline;}
-.choose_list table {width:500px;border:1px solid #ccc;}
+.choose_list table {width:522px;border:1px solid #ccc;}
 .choose_list table td {line-height:20px;padding:3px 10px;}
 .choose_list .input_text {width:30px;} 
 
-
-
-
-
+.paper_type_box {display: none;width: auto;float: left;}
+.questions_type {display: none;}

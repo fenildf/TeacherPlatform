@@ -828,7 +828,7 @@ function generateMixed(n) {
 
 
 /**
- * 在提交表单之前，充值分页数为1
+ * 在提交表单之前，重置分页数为1
  */
 $(function(){
     var submit = $('#listSerch input:submit');

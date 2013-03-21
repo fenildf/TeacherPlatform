@@ -4,12 +4,13 @@
  */
 
 /*
- * 学员学习情况
- * student.study.js
- * @update : 2012-10-05
+ * 创建试题
+ * project.create.js
+ * @update : 2013-1-30
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
+
 
 /* -------------------- xes.iframe.js --------------------- */
 
@@ -654,58 +655,26 @@ function generateMixed(n) {
 };
 
 
-/* -------------------- xes.search.js --------------------- */
+/* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-/*
- * search表单相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
+$(function () {
+	// $("#startDate").calendar();
+	$('#paper_type').change(function(){
+		var _txt = $('#paper_type option:selected').text();
+		if(this.value==2 || _txt == '考卷'){
+			$('.paper_type_box').show();
+		}else{
+			$('.paper_type_box').hide();
+		}
+	});
 
-
-/**
- * 在提交表单之前，重置分页数为1
- */
-$(function(){
-    var submit = $('#listSerch input:submit');
-    submit.mousedown(function(){
-        $('#pages').val(1);
-        $('#currpage').val(1);
-        $('#listSerch')[0].onSubmit = false;
-    });
-    submit.mouseup(function(){
-        $('#listSerch')[0].onSubmit = true;
-    });
+	$('.questions_type_button').change(function(){
+		var _box = $('.questions_type');
+		_box.hide();
+		if(this.value == 1){
+			$('#questions_type_checkbox').show();
+		}else{
+			$('#questions_type_input').show();
+		}
+	});
 });
-
-/* -------------------- xes.pages.js --------------------- */
-
-/*
- * pages分页相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
-
-$('#pages').change(function(){
-    var _page = this.value;
-     $("#currpage").val(_page);
-     $("#listSerch").submit();
-});
-$(".ui_pages a").click(function(){
-    _url = $(this).attr('href');
-    _re = /curpage\:(\d+)$/;
-    _page = _url.match(_re);
-    if(_page!=null){
-        $("#currpage").val(_page[1]);
-        $(this).attr('href','###');
-        $("#listSerch").submit();
-    }
-});
-
-
-
-/* =-=-=-=-=-=-=-=-=-=-=-= student_study.html =-=-=-=-=-=-=-=-=-=-=-=-= */
-

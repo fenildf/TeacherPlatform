@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>创建项目---课程运营平台</title>
-	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_project.css" />
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_test_edit.css" />
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 
@@ -37,32 +37,30 @@
 		<li>
 			<label for="">所属学科</label>
 			<span>
-				<input type="checkbox" value="1" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="1" name="subjectIds[]">
 				语文
-				<input type="checkbox" value="2" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="2" name="subjectIds[]">
 				数学
-				<input type="checkbox" value="3" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="3" name="subjectIds[]">
 				英语
-				<input type="checkbox" value="4" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="4" name="subjectIds[]">
 				物理
-				<input type="checkbox" value="5" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="5" name="subjectIds[]">
 				化学
-				<input type="checkbox" value="6" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="6" name="subjectIds[]">
 				生物
-				<input type="checkbox" value="12" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="12" name="subjectIds[]">
 				综合
-				<input type="checkbox" value="14" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="14" name="subjectIds[]">
 				理综
-				<input type="checkbox" value="18" size="" id="subjectIds" name="subjectIds[]">
+				<input type="radio" value="18" name="subjectIds[]">
 				全科
-				<input type="checkbox" value="19" size="" id="subjectIds" name="subjectIds[]">讲座</span>
+				<input type="radio" value="19" name="subjectIds[]">讲座</span>
 		</li>
 		<li>
-			<label for="">选择学部</label>
+			<label for="">选择题干</label>
 			<span>
 				<input type="file" name="file" style="*height:25px;"/>
-				<input type="submit" value=" 浏览 "></span>
-
 		</li>
 		<li>
 			<label for="">添加知识点</label>
@@ -82,34 +80,32 @@
 		<li>
 			<label for="">选择题型</label>
 			<span>
-				<input type="checkbox" value="1" size="" id="subjectIds" name="subjectIds[]">
+				<input class="questions_type_button" type="radio" value="1" size="" name="aa" checked="true">
 				选择题
-				<input type="checkbox" value="2" size="" id="subjectIds" name="subjectIds[]">
+				<input class="questions_type_button" type="radio" value="2" size="" name="aa">
 				填空题</span>
 		</li>
 		<li>
 			<label for="">正确答案</label>
-			<span>
-				<input type="checkbox" value="1" size="" id="subjectIds" name="subjectIds[]">
+			<span id="questions_type_checkbox" class="questions_type" style="display:block;">
+				<input type="checkbox" value="1" name="subjectIds[]">
 				A
-				<input type="checkbox" value="2" size="" id="subjectIds" name="subjectIds[]">
+				<input type="checkbox" value="2" name="subjectIds[]">
 				B
-				<input type="checkbox" value="1" size="" id="subjectIds" name="subjectIds[]">
+				<input type="checkbox" value="1" name="subjectIds[]">
 				C
-				<input type="checkbox" value="2" size="" id="subjectIds" name="subjectIds[]">D</span>
+				<input type="checkbox" value="2" name="subjectIds[]">
+				D
+			</span>
+			<span id="questions_type_input" class="questions_type">
+				<input type="text" class="input_text" />
+			</span>
 		</li>
-		<li>
-			<label for="">正确答案</label>
-			<span><input size="" value="" type="text" class="input_text" />
-				<input type="submit" value=" 添加答案 ">
-				</span>
-		</li>
+
 		<li>
 			<label for="">试题解析</label>
 			<span>
 				<input type="file" name="file" style="*height:25px;"/>
-				<input type="submit" value=" 浏览 "></span>
-
 		</li>
 		<li>
 			<label for="">关键字</label>
@@ -122,18 +118,18 @@
 			</span>
 			<label for="" style="width:100px;">关联解析视频ID</label>
 			<span>
-				<input type="file" name="file" style="*height:25px;"/>
-				<input type="submit" value=" 浏览 "></span>
+				<input type="text" class="input_text" name="file" />
+				<input type="submit" value=" 选择 "></span>
 		</li>
 
 		<li>
 			<label for="">&nbsp;</label>
 			<span>
-				<a href="project_create_outline.html" class="btn_ancel btn_prev">保存</a>
+				<a href="test_questions.html" class="btn btn_submit">保存</a>
 			</span>
 		</li>
 	</ul>
-	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.edit.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.test.edit.js"></script>
 
 </body>
 

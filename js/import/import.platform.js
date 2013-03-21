@@ -843,7 +843,6 @@ xes.platform = xes.platform || {};
 	PF.menu.create = function(data){
 		var _data = data || PF.path;
 		var _wrap = $('.sidebar');
-
 		$.each(_data, function(m, n){
 			var _h2 = '<h2 id="sidemenu_'+ n.id +'" class="h2_menu_title">' + n.name + '</h2>\n',
 				_ul = '<ul id="menu_'+ n.id +'" class="ui_fold_menu">\n';
