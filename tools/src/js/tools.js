@@ -227,7 +227,7 @@ function getPageName(filename){
 
 function createCSSFiles(path, filename){
 	// var path = path || $('#issuanceCSSPath').val();
-	console.log(path);
+	// console.log(path);
 	$.getJSON('/tools/combinationCSS.php',{'path':path,'filename':filename},function(data){
 		if(data == 'created'){
 			$('.createCSSStatus').text(filename+'已生成！');
@@ -242,11 +242,17 @@ function createCSSFiles(path, filename){
 function createAllCSSFiles(path){
 	var list = [
 		'page.css',
+		'page_about.css',
 		'page_data.css',
 		'page_edit.css',
 		'page_file.css',
+		'page_form.css',
 		'page_list.css',
+		'page_message.css',
 		'page_project.css',
+		'page_room_edit.css',
+		'page_test_edit.css',
+		'page_test_list.css',
 		'page_view.css',
 		'page_welcome.css'
 	];
