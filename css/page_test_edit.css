@@ -31,3 +31,9 @@ ul.labelCon li.choose {height: auto;overflow: hidden;padding-left:70px;}
 
 .paper_type_box {display: none;width: auto;float: left;}
 .questions_type {display: none;}
+
+ul.labelCon li.questions_type_box {}
+#questions_type_input {height: auto}
+#questions_type_input span {width: 800px;float:none;margin-left: 0;display: block;height: 30px;margin-bottom: 5px}
+#questions_type_input input {}
+#questions_type_input span a {padding-left: 10px}

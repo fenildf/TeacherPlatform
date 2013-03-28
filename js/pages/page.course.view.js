@@ -26,3 +26,11 @@
 // 	},100);
 
 // });
+
+
+function receiveTimeFromAs(t){
+	if($('#section_point_time').length > 0){
+		$('#section_point_time').val(t);
+		$('.insert_video h3 em').text(t);
+	}
+}

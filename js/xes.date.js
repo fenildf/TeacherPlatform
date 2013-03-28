@@ -166,6 +166,29 @@ xes.date = xes.date || {};
     d.clock.stop = function(){
         clearTimeout(d.clock.timeout);
     };
+    /**
+     * js日期比较(yyyy-mm-dd)
+     * @param  {[type]} a [description]
+     * @param  {[type]} b [description]
+     * @return {[type]}   [description]
+     */
+    d.compare = function(a, b){
+
+        var arr = a.split("-");
+        var starttime = new Date(arr[0], arr[1], arr[2]);
+        var starttimes = starttime.getTime();
+
+        var arrs = b.split("-");
+        var lktime = new Date(arrs[0], arrs[1], arrs[2]);
+        var lktimes = lktime.getTime();
+
+        if (starttimes > lktimes) {
+            // alert('开始时间大于离开时间，请检查');
+            return false;
+        }else{
+            return true;
+        }
+    };
 
 })();
 

@@ -378,6 +378,26 @@ var xform = xform || {};
 			});
 			return values.slice(1);
 		};
+		/**
+		* 获取相同name的input文本框的值,以逗号隔开
+		* @example
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="alert(getCheckedValue('checkbox[]')); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.getInputsValue = function (cbs_id) {
+			var values = '';
+			$.each($('input[name="' + cbs_id + '"]'), function() {
+				values = values + ',' + $(this).attr('value');
+			});
+			return values.slice(1);
+		};
 
 		/**
 		* 获取复选框选中项的TEXT值,以逗号隔开
@@ -624,6 +644,8 @@ var xform = xform || {};
 	 		});
 		};
 
+		
+
 })();
 
 
@@ -654,6 +676,27 @@ function generateMixed(n) {
     return res;
 };
 
+/**
+ * 设置知识树联动
+ * @param {[type]} department_id [学部id]
+ * @param {[type]} subject_id    [学科id]
+ */
+function setKnowledge(department_id,subject_id){
+	if(knowledge_params){
+		//修改学部
+		if(department_id){
+			knowledge_params['department_id'] = department_id;
+		}
+		//修改学科
+		if(subject_id){
+			knowledge_params['subject_id'] = subject_id;
+		}
+		//初始化
+		if(initSelects){
+			initSelects(knowledge_params);
+		}
+	}
+}
 
 /* -------------------- xes.search.js --------------------- */
 

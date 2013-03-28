@@ -378,6 +378,26 @@ var xform = xform || {};
 			});
 			return values.slice(1);
 		};
+		/**
+		* 获取相同name的input文本框的值,以逗号隔开
+		* @example
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="alert(getCheckedValue('checkbox[]')); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.getInputsValue = function (cbs_id) {
+			var values = '';
+			$.each($('input[name="' + cbs_id + '"]'), function() {
+				values = values + ',' + $(this).attr('value');
+			});
+			return values.slice(1);
+		};
 
 		/**
 		* 获取复选框选中项的TEXT值,以逗号隔开
@@ -624,6 +644,8 @@ var xform = xform || {};
 	 		});
 		};
 
+		
+
 })();
 
 
@@ -654,17 +676,75 @@ function generateMixed(n) {
     return res;
 };
 
+/**
+ * 设置知识树联动
+ * @param {[type]} department_id [学部id]
+ * @param {[type]} subject_id    [学科id]
+ */
+function setKnowledge(department_id,subject_id){
+	if(knowledge_params){
+		//修改学部
+		if(department_id){
+			knowledge_params['department_id'] = department_id;
+		}
+		//修改学科
+		if(subject_id){
+			knowledge_params['subject_id'] = subject_id;
+		}
+		//初始化
+		if(initSelects){
+			initSelects(knowledge_params);
+		}
+	}
+}
+
+/* -------------------- xes.img.js --------------------- */
+
+/**
+ * 图片相关的功能模块
+ * @update : 2013-03-25
+ * @author : Marco <Mr.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
+xes.img = xes.img || {};
+
+(function(){
+	var img = xes.img;
+
+	/**
+	 * 鼠标移入时显示图片
+	 * @return {[type]} [description]
+	 */
+	img.hoverView = function(url,dom){
+		var _top =  $(dom).offset().top + $(dom).outerHeight(true);
+		var _left = $(dom).offset().left;
+		window.parent.imgViews(url, _top, _left);
+	};
+	img.hideView = function(id){
+		window.parent.imgViewHide();
+	};
+	img.hover = function(){};
+	
+
+})();
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
+	console.log($(window.parent));
 	// $("#startDate").calendar();
 	$('#paper_type').change(function(){
 		var _txt = $('#paper_type option:selected').text();
-		if(this.value==2 || _txt == '考卷'){
+		if(this.value==2 || _txt == '考试卷'){
 			$('.paper_type_box').show();
+			$('.question_score').show();
+
 		}else{
 			$('.paper_type_box').hide();
+			$('.question_score').hide();
 		}
 	});
 
@@ -677,4 +757,158 @@ $(function () {
 			$('#questions_type_input').show();
 		}
 	});
+
+	$('#departmentId').change(function(){
+		$('.choose').html('');
+		setKnowledge($(this).val());
+	});
+	$('input[type="radio"][name="subjectId"]').click(function(){
+		$('.choose').html('');
+		setKnowledge(null,$(this).val());
+	});
+	
+	// var _b = $('.questions_type');
+	// _b.hide();
+	// if($('.questions_type_button').val() == 1){
+	// 	_b.eq(0).show();
+	// }else{
+	// 	_b.eq(1).show();
+	// }
+
+	$('em.imgView').hover(function(){
+		xes.img.hoverView($(this).text(),this);
+	},function(){
+		xes.img.hideView();
+	});
 });
+function getQuestionListDom(d,id){
+	var _html = '';
+	var _list = $('.choose div[id^="question_id_"]');
+	var _before = id ? $('#question_id_'+id) 
+					 : _list.length == 0 ? $('.choose') 
+					 					 : _list.last();
+	// var _index = $('.choose div[id^="question_id_"]').index(_before[0]);
+	$.each(d,function(k,v){
+		var _t = v.test_name,
+			_id = v.id,
+			_url = v.test_content;
+		if($('#question_id_'+_id).length > 0){
+			// alert(_t' 这道题已经添加过了，请勿重复添加');
+			if(confirm('《'+_t+'》这道题已经添加过了，请勿重复添加，点击确定将不会添加重复的《'+_t+'》')){
+				return;
+			}
+		}
+		_html += '<div id="question_id_' + _id + '" class="choose_list">'
+		+'		<span class="question_num"><em>3</em>.</span>'
+		+'		<table>'
+		+'			<colgroup>'
+		+'				<col width="20%">'		
+		+'				<col width="30%">'		
+		+'				<col width="50%">'
+		+'			</colgroup>'
+		+'		<tbody><tr class="question_data">'
+		+'			<td>ID:<em class="question_data_id">' + _id + '</em></td>'
+		+'			<td>名称：<em>' + _t + '</em></td>'
+		+'			<td><em class="imgView">' + _url + '</em></td>'
+		+'		</tr>'
+
+		+'	</tbody></table>'
+		+'	<span>'
+		+'		<a onclick="selectTestQuestions(\'' + _id + '\')" href="###">追加</a>'
+		+'		<a onclick="deleteTestQuestions(\'' + _id + '\')" href="###">删除</a>'
+		+'	</span>';
+
+		if($('#paper_type').val()==1){
+			_html +='	<span class="question_score" style="display:none;">';
+		}else{
+			_html +='	<span class="question_score">';
+		}
+		
+		_html +='		分值：'
+		+'		<input type="text" class="input_text question_data_score" value="" size="">'
+		+'	</span>'
+		
+		+'</div>';
+	});
+
+	console.log('id:'+id);
+	console.log(_before);
+	if(_list.length > 0){
+		_before.after(_html);
+	}else{
+		$('.choose').html(_html);
+	}
+	setQuestionListNum();
+	xes.iframe.setHeight();
+}
+/**
+ * 重新计算序列号
+ */
+function setQuestionListNum(){
+	var _list = $('.choose div[id^="question_id_"]');
+	_list.each(function(i){
+		$(this).find('.question_num em').text((i+1));
+	});
+}
+
+function deleteQuestion(id){
+	if(id){
+		$('#question_id_'+id).remove();
+		setQuestionListNum();
+	}
+
+}
+//获取总分
+function getAllScore(){
+	var _list = $('.question_data_score:visible');
+	var _s = 0;
+	if(_list.length>0){
+		_list.each(function(){
+			_s += Number($(this).val());
+		});
+	}
+	return _s ;
+}
+
+//获取试题信息
+function getQuestionListValue(){
+	var _list = $('.choose div[id^="question_id_"]');
+	var _v = [];
+	if(_list.length > 0 ){
+		_list.each(function(){
+			var d = $(this);
+			var v = {
+				'order_num':d.find('.question_num em').text(),
+				'test_id':d.find('.question_data_id').text(),
+				'score':Number(d.find('.question_data_score').val())
+			};
+			_v.push(v);
+		});
+	}
+	return JSON.stringify(_v);
+}
+
+/* 试题页面：*/
+
+/**
+ * 追缴填空题
+ */
+function addFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+
+	var _html = '<span><input type="text" value="" name="fillCorrectAnswer[]" class="input_text">\n'
+			  + '<a href="###" onclick="addFillCorrectAnswer(this);">追加</a>\n'
+			  + '<a href="###" onclick="removeFillCorrectAnswer(this);">删除</a></span>';
+	_wrap.after(_html);
+	// _wrap.parent().find('span').first().find('a:last').remove();
+}
+
+function removeFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+	var _list = _wrap.parent().find('span');
+	if(_list.length > 1){
+		_wrap.remove();
+	}else{
+		alert('至少要有一个正确答案');
+	}
+}

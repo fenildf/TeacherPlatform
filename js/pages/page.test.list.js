@@ -17,6 +17,8 @@
 
 ///import:ui/xes.ui.calendar.min.js///
 
+///import:widget/jquery.cookie.js///
+
 ///import:xes.form.js///
 
 ///import:xes.pages.js///
@@ -29,3 +31,4 @@ $(function () {
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
 });
+

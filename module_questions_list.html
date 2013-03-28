@@ -10,7 +10,18 @@
 
 	<body class="skin skin-green layer_900">
 		<div class="action_item">
+			<ul class="action">
+				<form action="/liveCourses/courseList/" name="" id="listSerch" method="post">
 
+					创建时间
+					<input type="text" class="input_text" value="" id="startDate" readonly="readonly">
+					至
+					<input type="text" class="input_text" value="" id="endDate" readonly="readonly">
+				</form>
+			</ul>
+		</div>
+		<div class="action_item">
+			
 			<ul class="action">
 				<form action="/liveCourses/courseList/" name="" id="listSerch" method="post">
 					<select name="gradeId" id="selectGrade" class="ui-select-box">

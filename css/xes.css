@@ -468,7 +468,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 
 
 /* ==================== view.css ===================== */
-.videos_content {overflow: hidden;}
+.videos_content {overflow: hidden;width: auto;}
 .videos_pic {float: left;display: inline;width: 660px;overflow: hidden;margin-left:30px;_margin-left:20px;}
 .videos_content h1 {font-size: 14px;height: 50px;line-height: 180%;margin: 35px 0 0 30px;}
 .videos_content h1 em {font-size: 12px;font-weight: normal;}
@@ -483,7 +483,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 #VideoPlay {width: 726px;height:408px;background: url(http://img03.xesimg.com/tem_videos_pic.png) no-repeat left 0;}
 
 /*2013-03-20 add*/
-.insert_video {width:980px;height:50px;margin:auto;overflow:hidden;padding-top: 15px; clear: both;}
+.insert_video {width:980px;height:auto;margin:auto;overflow:hidden;padding-top: 15px; clear: both;}
 .insert_video span {float: left;margin-right: 10px;}
 .input_text {border: 1px solid #D3D3D3;line-height: 27px;color:#999;padding:0 10px;}
 .grid_item_content {width: 1000px;margin: auto;}
@@ -497,6 +497,16 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .kcpic_list .btns a.bt_nkc_pic{float:left;display:block;width:95px;line-height: 20px;height: 20px; text-align: center;background: url(http://img03.xesimg.com/btn_95-20.jpg) no-repeat;color: #fff;margin:0 10px 0 50px;}
 /*2013-03-20 add end*/
 
+
+.insert_video h3 {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+}
+.insert_video h3 em {
+	color: #c00;
+	font-weight: 700;
+}
 /* ==================== ui-select.css ===================== */
 
 /*

@@ -205,6 +205,80 @@ jQuery.fn.extend({calendar:function(J){function o(){$("#"+J.controlId).find(".ta
 f+="<td><a val='9' "+(e==c.getFullYear()&&9==c.getMonth()?"class='select'":"")+" "+(e==I&&9==H?"class='current'":"")+">\u5341\u6708</a></td>";f+="<td><a val='10' "+(e==c.getFullYear()&&10==c.getMonth()?"class='select'":"")+" "+(e==I&&10==H?"class='current'":"")+">\u5341\u4e00\u6708</a></td>";f+="<td><a val='11' "+(e==c.getFullYear()&&11==c.getMonth()?"class='select'":"")+" "+(e==I&&11==H?"class='current'":"")+">\u5341\u4e8c\u6708</a></td>";f+="</tr>";f+="</table>";return f}function x(f){f=Math.floor(f/10)*10;var e="<table class='tabY'>",s=b(),n="",c="",r="";J.complement||(r="style='display:none'");for(var q=0;q<3;q++){e+="<tr>";for(var k=0;k<4;k++){c=n="";if(q+1*k+1!=1&&(q+1)*(k+1)!=12){if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='"+n+" "+c+"' >"+f+"</a></td>";f++}else{if(q+1*k+1==1){if(f-1==s.getFullYear()){n="select"}if(f-1==I){c="current"}e+="<td><a class='prevY "+n+" "+c+"' "+r+">"+(f-1)+"</a></td>"}else{if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='nextY "+n+" "+c+"' "+r+">"+f+"</a></td>"}}}e+="</tr>"}e+="</table>";return e}function p(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":"-"+f.width()+"px"},J.speed,function(){f.empty()})}function m(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":"-"+f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":f.width()+"px"},J.speed,function(){f.empty()})}function l(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":"-"+f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function i(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":"-"+f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function b(){re=/(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;var c=y.val();c=c.replace(re,"$1/$3/$5@").split("@")[0];return new Date(c)}function g(e){var c=[];c.x=e.offsetLeft;for(c.y=e.offsetTop;e=e.offsetParent;){c.x+=e.offsetLeft;c.y+=e.offsetTop}return c}J=jQuery.extend({controlId:$(this).attr("id")+"Calendar",speed:200,complement:true,readonly:true,upperLimit:NaN,lowerLimit:NaN,callback:function(){}},J||{});var y=$(this);if(J.readonly){y.attr("readonly",true);y.bind("keydown",function(c){if(c.keyCode==8){$(this).val("")}})}today=new Date;var I=today.getFullYear(),H=today.getMonth(),t=today.getDate(),G="";G+="<div id='"+J.controlId+"'class='calendar'>";G+="  <div class='calMain'>";G+="    <div class='calTitle'>";G+="      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>"+I+"</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>"+(H+1)+"</a>\u6708</span></span><a class='nextMonth'></a>";G+="    </div>";G+="    <div class='calContent'>";G+="      <div class='reserve'>";G+="      </div>";G+="      <div class='enabled'>";G+=j(I,H);G+="      </div>";G+="    </div>";G+="  </div>";G+="</div>";$("body").append(G);o();$("#"+J.controlId).find(".prevMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text())-2);m(f);if(Number(c.text())!=1){c.text(Number(c.text())-1)}else{e.text(Number(e.text())-1);c.text("12")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())-1);m(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())-10);m(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-10)
 }}}});$("#"+J.controlId).find(".nextMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text()));p(f);if(Number(c.text())!=12){c.text(Number(c.text())+1)}else{e.text(Number(e.text())+1);c.text("1")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())+1);p(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())+10);p(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+10)}}}});$("#"+J.controlId).find(".currentMonthText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabM").length>0)){var c=a(Number($("#"+J.controlId).find(".currentYear").text()));i(c);h()}});$("#"+J.controlId).find(".currentYearText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabY").length>0)){var c=x(Number($("#"+J.controlId).find(".currentYear").text()));i(c);d()}});y.bind("click focus",function(){if($("#"+J.controlId+":hidden").length!=0){$(".calendar").hide();var e=$("#"+J.controlId),c=g(y[0]),f=c.x;c=Number(y.offset().top)+Number(y.outerHeight());e.css({top:c+"px",left:f+"px"});f=$("#"+J.controlId).width();c=$("#"+J.controlId).height();e.width(0);e.height(0);e.show().animate({width:f+"px",height:c+"px"},J.speed);e.bind("selectstart",function(){return false}).bind("mousedown",function(){return false})}});$(document).mouseup(function(c){if($(c.target).attr("id")!=y.attr("id")&&($(c.target).parentsUntil("#"+J.controlId).parent().length==0||$(c.target).parentsUntil("#"+J.controlId).parent()[0].id!=J.controlId)){$("#"+J.controlId).hide()}})}});
 
+/* -------------------- widget/jquery.cookie.js --------------------- */
+
+/*
+ * jQuery.cooke
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ * @example:
+    example $.cookie(’the_cookie’, ‘the_value’);
+    设置cookie的值
+    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
+    新建一个cookie 包括有效期 路径 域名等
+    example $.cookie(’the_cookie’, ‘the_value’);
+    新建cookie
+    example $.cookie(’the_cookie’, null);
+    删除一个cookie
+ */
+
+jQuery.cookie = function(name, value, options) {  
+    if (typeof value != 'undefined') { // name and value given, set cookie  
+        options = options || {};  
+        if (value === null) {  
+            value = '';  
+            options.expires = -1;  
+        }  
+        var expires = '';  
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {  
+            var date;  
+            if (typeof options.expires == 'number') {  
+                date = new Date();  
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));  
+            } else {  
+                date = options.expires;  
+            }  
+            expires = '; expires=' + date.toUTCString();  
+        }  
+        var path = options.path ? '; path=' + (options.path) : '';  
+        var domain = options.domain ? '; domain=' + (options.domain) : '';  
+        var secure = options.secure ? '; secure' : '';  
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');  
+    } else {  
+        var cookieValue = null;  
+        if (document.cookie && document.cookie != '') {  
+            var cookies = document.cookie.split(';');  
+            for (var i = 0; i < cookies.length; i++) {  
+                var cookie = jQuery.trim(cookies[i]);  
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
+                    break;  
+                }  
+            }  
+        }  
+        return cookieValue;  
+    }  
+}; 
+
+function getCookie(objName) { //获取指定名称的cookie的值
+    var arrStr = document.cookie.split("; ");
+    for(var i = 0; i < arrStr.length; i++) {
+        var temp = arrStr[i].split("=");
+        if(temp[0] == objName) return unescape(temp[1]);
+    }
+}
+function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+    var date = new Date();
+    date.setTime(date.getTime() - 10000);
+    document.cookie = name + "=a; expires=" + date.toGMTString()+"; path=/";
+    var c = getCookie(name);
+    alert(c);
+}
+
+
+
+
 /* -------------------- xes.form.js --------------------- */
 /*
  * form操作
@@ -385,6 +459,26 @@ var xform = xform || {};
 		f.getCheckedValue = function (cbs_id) {
 			var values = '';
 			$.each($('input[name="' + cbs_id + '"]:checked'), function() {
+				values = values + ',' + $(this).attr('value');
+			});
+			return values.slice(1);
+		};
+		/**
+		* 获取相同name的input文本框的值,以逗号隔开
+		* @example
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="1">
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="2" checked>
+		*			<input type="text" id="checkbox[]" name="checkbox[]" value="3" checked>
+		*
+		*			<a href="javascript:void(0);" onclick="alert(getCheckedValue('checkbox[]')); return false;">复选框选择</a>
+		*
+		* @param string cbs_ids 复选框id
+		* @param string cbs_values 要选择的复选框的值,以半角逗号隔开
+		* @return
+		*/
+		f.getInputsValue = function (cbs_id) {
+			var values = '';
+			$.each($('input[name="' + cbs_id + '"]'), function() {
 				values = values + ',' + $(this).attr('value');
 			});
 			return values.slice(1);
@@ -635,6 +729,8 @@ var xform = xform || {};
 	 		});
 		};
 
+		
+
 })();
 
 
@@ -665,6 +761,27 @@ function generateMixed(n) {
     return res;
 };
 
+/**
+ * 设置知识树联动
+ * @param {[type]} department_id [学部id]
+ * @param {[type]} subject_id    [学科id]
+ */
+function setKnowledge(department_id,subject_id){
+	if(knowledge_params){
+		//修改学部
+		if(department_id){
+			knowledge_params['department_id'] = department_id;
+		}
+		//修改学科
+		if(subject_id){
+			knowledge_params['subject_id'] = subject_id;
+		}
+		//初始化
+		if(initSelects){
+			initSelects(knowledge_params);
+		}
+	}
+}
 
 /* -------------------- xes.pages.js --------------------- */
 
@@ -702,3 +819,4 @@ $(function () {
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
 });
+

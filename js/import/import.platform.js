@@ -1603,3 +1603,34 @@ var getTeacherName = function(){
 		return username;
 	}
 };
+
+/**
+ * 鼠标移入时显示图片
+ * @return {[type]} [description]
+ */
+var imgViews = function(url,top,left){
+		var _d = {
+			width : '400px',
+			height: 'auto'
+		};
+		var _wrap = '<div id="pictureView" style="position:absolute;z-index:1000;"></div>';
+		var _img = '<a href="' + url + '" target="_blank">'
+				 + '	<img src="' + url + '" alt="" style="width:400px;height:auto;" />'
+				 + '</a>';
+		var _box = $('#pictureView');
+		if(_box.length > 0){
+			_box.html(_img);
+		}else{
+			_img = $(_wrap).append(_img);
+			$('body').append(_img);
+		}
+		$('#pictureView').css({
+			top:top + 108,
+			left:left + $('#sidebar').offset().left + $('#sidebar').outerWidth()
+		}).show();
+};
+
+var imgViewHide = function(id){
+	var id = id || 'pictureView'
+	$('#'+id).hide();
+};
