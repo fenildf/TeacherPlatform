@@ -30,3 +30,12 @@ xes.img = xes.img || {};
 	
 
 })();
+
+
+if($('em.imgView').length > 0){
+	$('em.imgView').hover(function(){
+		xes.img.hoverView($(this).text(),this);
+	},function(){
+		xes.img.hideView();
+	});
+}

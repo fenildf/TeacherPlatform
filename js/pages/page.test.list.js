@@ -23,6 +23,8 @@
 
 ///import:xes.pages.js///
 
+///import:xes.img.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= test_paper.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
 	$("#startDate").calendar();

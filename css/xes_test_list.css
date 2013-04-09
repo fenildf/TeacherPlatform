@@ -1180,7 +1180,7 @@ div.content_child {
 /* ==================== iframe.css ===================== */
 
 /*html, body {height: 100%}*/
-
+.red {color: #cc0000!important;}
 /* ==================== ui_tips.css ===================== */
 
 /**
@@ -1945,6 +1945,11 @@ ul.labelCon li p em {width: auto;white-space: nowrap;}
 
 
 
+
+/* ==================== iframe.css ===================== */
+
+/*html, body {height: 100%}*/
+.red {color: #cc0000!important;}
 
 /* ==================== calendar.css ===================== */
 

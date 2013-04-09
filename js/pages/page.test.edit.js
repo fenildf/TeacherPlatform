@@ -64,11 +64,11 @@ $(function () {
 	// 	_b.eq(1).show();
 	// }
 
-	$('em.imgView').hover(function(){
-		xes.img.hoverView($(this).text(),this);
-	},function(){
-		xes.img.hideView();
-	});
+	// $('em.imgView').hover(function(){
+	// 	xes.img.hoverView($(this).text(),this);
+	// },function(){
+	// 	xes.img.hideView();
+	// });
 });
 function getQuestionListDom(d,id){
 	var _html = '';
@@ -98,7 +98,7 @@ function getQuestionListDom(d,id){
 		+'		<tbody><tr class="question_data">'
 		+'			<td>ID:<em class="question_data_id">' + _id + '</em></td>'
 		+'			<td>名称：<em>' + _t + '</em></td>'
-		+'			<td><em class="imgView">' + _url + '</em></td>'
+		+'			<td><em onmouseover="xes.img.hoverView(\''+ _url +'\'	,this);" onmouseout="xes.img.hideView();" class="imgView">' + _url + '</em></td>'
 		+'		</tr>'
 
 		+'	</tbody></table>'
