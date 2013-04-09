@@ -9,14 +9,10 @@
 
 @import url("base.css");
 @import url("main.css");
-/*@import url("platform.css");*/
-/*@import url("ui-select.css");*/
-/*@import url("list.css");*/
 @import url("table.css");
 @import url("data.css");
 @import url("form.css");
-/*@import url("calendar.css");*/
-/*@import url("share.css");*/
+
 
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 
@@ -46,3 +42,11 @@
 
  .title_more .btn_submit_small {float: right;margin: 0 5px;display: none;}
  #info_edit {display: none;}
+
+
+ /* editor */
+
+.contentData table.ke-container {width: auto;}
+/*.contentData table.ke-container table {width: 90%}*/
+.contentData table.ke-container table.ke-toolbar-table {width:auto;}
+.contentData1 table.ke-container tr td {height: auto;padding: 0;text-align: center;}
