@@ -24,10 +24,44 @@
 
 ///import:xes.pages.js///
 
+///import:xes.form.verify.js///
+
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
 	// $("#startDate").calendar();
 	$("#dateTimes").calendar();
-	
+
+	var btns = $('#title,#content,#dateTimes');
+	btns.each(function(){
+		var _t = $(this).attr('id'),
+			_tips = $(this).nextAll('.tips_'+_t);
+		if(_tips.length == 0){
+			$(this).after('<span class="tips tips_'+_t + '"></span>');
+		}
+		
+	});
+	btns.blur(function(){
+		xes.formVerify.checkEmpty(this);
+	});
+
+	$('.btn_cancel').click(function(){
+		closeActiveTab();
+	});
 });
+
+
+//提交时检测表单
+function checkMessageForm(){
+	var inputs = $('#title,#content,#dateTimes');
+	inputs.each(function(){
+		xes.formVerify.checkEmpty(this);
+	});
+
+	if($('.tips_error').length > 0){
+		return false;
+	}else{
+		return true;
+	}
+}
+

@@ -48,7 +48,13 @@ $(function(){
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
 };
-
+/**
+ * 关闭当前激活标签
+ * @return {[type]} [description]
+ */
+var closeActiveTab = function(id){
+	window.parent.closeActiveTabs(id);
+};
 /**
  * 打开标签（表单提交），非链接点击时
  */
@@ -107,3 +113,4 @@ var isDomClick = function(fn){
 var unDomClick = function(){
 	$(document).unbind('click');
 };
+

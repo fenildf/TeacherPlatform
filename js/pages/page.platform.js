@@ -271,7 +271,9 @@ var goTabs = function(url, title, id, closeID){
 };
 
 var closeActiveTabs = function(id){
-	var _tab = $('.ui-tabs-items').find('#tab_'+id);
+	
+	var _tab = id ? $('.ui-tabs-items').find('#tab_'+id) : $('.ui-tabs-items > li.current');
+	console.log(id);
 	var _con = $('#content_'+id);
 	_tab.find('span.del_btn').click();
 	_con.hide();

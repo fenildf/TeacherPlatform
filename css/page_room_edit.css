@@ -17,3 +17,5 @@
 
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 .contentLive dl dt {color: #999}
+
+.contentLive dl .tips {font-size: 12px;padding-left: 10px}

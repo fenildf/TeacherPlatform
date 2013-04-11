@@ -981,8 +981,8 @@ xes.platform = xes.platform || {};
 		// }
 		if(_ifr.length > 0){
 			var _ifrID = _ifr.attr('id').replace('content_','');
-			PF.findChild(_ifrID,'body>div:last',function(dom){
-				if(typeof dom != 'string'){
+			// PF.findChild(_ifrID,'body>div:last',function(dom){
+				// if(typeof dom != 'string'){
 					var _body_height = _ifr.contents().find('body').outerHeight();
 					var _html_height = _ifr.contents().find('html').outerHeight();
 					var _h = Math.max(_body_height, _html_height);
@@ -990,8 +990,8 @@ xes.platform = xes.platform || {};
 					var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
 					_ifr.height(_height);
 					$('#content').height(_height);
-				}
-			});
+				// }
+			// });
 		}
 		// setTimeout(function(){
 			
@@ -1549,7 +1549,9 @@ var goTabs = function(url, title, id, closeID){
 };
 
 var closeActiveTabs = function(id){
-	var _tab = $('.ui-tabs-items').find('#tab_'+id);
+	
+	var _tab = id ? $('.ui-tabs-items').find('#tab_'+id) : $('.ui-tabs-items > li.current');
+	console.log(id);
 	var _con = $('#content_'+id);
 	_tab.find('span.del_btn').click();
 	_con.hide();

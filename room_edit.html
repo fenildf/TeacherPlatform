@@ -2,16 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>预约录播室--将列表--课程运营平台</title>
+	<title>课程运营平台</title>
 
-	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_room_edit.css"/>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_edit.css"/>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
 	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 
 </head>
 
 <body style="position: static">
-	
 	<h1 class="ui_infor_title">
 		<span>预约录播室</span>
 	</h1>
@@ -19,53 +18,40 @@
 		<dl>
 			<dt>讲ID</dt>
 			<dd>
-				<input title="讲ID" size="" value="" class="input_text " id="courseName" name="courseName" type="text">
-				<span class="tips"></span>
-			</dd>
-			<dt>名称</dt>
+				32907			</dd>
+		</dl>
+		<dl>
+			<dt>讲名称</dt>
 			<dd>
-				<input title="名称" size="" value="" class="input_text " id="courseName" name="courseName" type="text">
-				<span class="tips"></span>
-			</dd>
+				几何模块总复习（一）			</dd>
 		</dl>
 		<dl>
-			
-		</dl>
-		<dl>
-			<dt>预定上线时间</dt>
+			<dt>最近预约</dt>
 			<dd>
-				<p>2013-3-20</p>
-			</dd>
+				2013-04-09 15:30:00 - 2013-04-09 16:00:00			</dd>
 		</dl>
 		<dl>
-			<dt>预定上线时间</dt>
+			<dt>预约排期</dt>
 			<dd>
-				<p>2013-3-20</p>
+				<input size="" value="" type="text" class="input_text w_215" id="liveDate"  name="liveDate" title="直播排期"/>
+				<span class="tips tips_liveDate"></span>
 			</dd>
 		</dl>
-		<dl>
-			<dt>延长上线时间</dt>
-			<dd>
-				<p>2013-3-20</p>
-			</dd>
-		</dl>
-		<dl>
-			<dt style="width:auto">本讲最近一次预约录制时间</dt>
-			<dd>2013-04-12 13:30</dd>
-		</dl>
-		
-		<dl>
-			<dt>预约录制日期</dt>
-			<dd>
-				<input title="录播日期" readonly="readonly" size="" value="" class="input_text w_215" id="liveDate" name="liveDate" type="text">
-				<span class="tips"></span>
-			</dd>
-		</dl>
-		<dl style="display: block;" id="liveTime">
+		<dl id="liveTime">
 			<dt>&nbsp;</dt>
 			<dd>
 				<ul>
-					<li class="title" id="time_week">时间/星期三</li>
+					<li class="title" id="time_week"><span></span>
+											<p>直播间：
+													<a href="###" id="room_1">A</a>
+													<a href="###" id="room_2">B</a>
+													<a href="###" id="room_3">C</a>
+													<a href="###" id="room_4">D</a>
+													<a href="###" id="room_5">E</a>
+													<a href="###" id="room_7">录播室名称录播室名称</a>
+													<a href="###" id="room_8">F</a>
+												</p>
+										</li>
 				</ul>
 				<ul id="liveTimeList" class="content">
 				</ul>
@@ -75,9 +61,10 @@
 			<dt>&nbsp;</dt>
 			<dd>
 				<a href="###" class="btn_ancel btn_prev" onclick="submitAdd();">保存</a>
-				<input id="liveTimeStartInput" name="startTime" value="" type="hidden">
-				<input id="liveTimeEndInput" name="endTime" value="" type="hidden">
-				<input id="LiveType" name="LiveType" value="2" type="hidden">
+				<input type="hidden" id="liveTimeStartInput" name="startTime" value=""/>
+				<input type="hidden" id="liveTimeEndInput" name="endTime" value=""/>
+				<input type="hidden" id="liveChannel" name="liveChannel" value="1"/>
+				<input type="hidden" id="chapterId" name="chapterId" value="32907"/>
 				<span class="tips"></span>
 			</dd>
 		</dl>
@@ -85,28 +72,26 @@
 <div id="liveTimeWin" class="teacherLayerAll">
 	<ul>
 		<li class="title">
-			<span class="laber">直播名称</span>
-			<span class="textCon">三角函数</span>
+			<span class="laber">讲名称</span>
+			<span class="textCon">几何模块总复习（一）</span>
 		</li>
 		<li class="teacneme">
 			<span class="laber">教师名称</span>
-			<span id="teacherName">戴琳</span>
+			<span id="teacherName"></span>
 		</li>
 		<li class="teactime">
 			<span class="laber">开始时间</span>
-			<span id="liveDateStart">2012/11/09(周四)</span>
+			<span id="liveDateStart"></span>
 			<span class="right">
 				<select id="liveTimeStart" class="live_time_select">
-					<option value="">12:00</option>
 				</select>
 			</span>
 		</li>
 		<li class="teactime">
 			<span class="laber">结束时间</span>
-			<span id="liveDateEnd">2012/11/09(周四)</span>
+			<span id="liveDateEnd"></span>
 			<span class="right">
 				<select id="liveTimeEnd" class="live_time_select">
-					<option value="">12:00</option>
 				</select>
 			</span>
 		</li>
@@ -117,24 +102,21 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="http://js03.xesimg.com/import/import.live.edit.js"></script>
+<script type="text/javascript" src="http://js03.xesimg.com/import/import.room.edit.js"></script>
 <script type="text/javascript">
 	//提交编辑
 	function submitAdd(){
-		var a = checkLiveForm();
+/*		var a = checkLiveForm();
 		if(!a){
 			return ;
-		}
-		var _courseName = $('#courseName').val();
-		var _gradeId 	= $('#gradeId').val();
-		var _subjectId 	= $('#subjectId').val();
-		var _LiveType 	= $('#LiveType').val();
-		var _description= $('#description').val();
+		}*/
+		var _chapterId 	= $('#chapterId').val();
 		var _liveDate 	= $('#liveDate').val();
 		var _startTime  = $('#liveTimeStartInput').val();
 		var _endTime 	= $('#liveTimeEndInput').val();
-		var params = 'courseName='+_courseName+'&gradeId='+_gradeId+'&subjectId='+_subjectId+'&type='+_LiveType+'&description='+_description+'&liveDate='+_liveDate+'&startTime='+_startTime+'&endTime='+_endTime;
-		var url = "/liveCourses/ajaxAddCourseLive/";
+		var _liveChannel = $('#liveChannel').val();
+		var params = 'chapterId='+_chapterId+'&recordDate='+_liveDate+'&startTime='+_startTime+'&endTime='+_endTime+'&channel='+_liveChannel;
+		var url = "http://teacher20130305.wss2.0.com/teacherCourses/ajaxAddCoursePlan/";
 		$.ajax({
 			url :url,
 			type:'post',
@@ -145,18 +127,14 @@
 					alert(data.msg);
 				}else{
 					alert(data.msg);
-//					window.location.href = '/liveCourses/liveCourseList/';
-					goTab('/liveCourses/liveCourseList/', '直播列表', 'menu_2_2_1', true);
+					goTab('/teacherCourses/chapterLists/', '讲列表', 'menu_1_1_3', true);
 				}
 			},
 			error: function() {
 				alert('数据读取错误..');
 			}
 		});	
-		
 	}
 </script>
-
-<div style="display: none;" id="liveDateCalendar" class="calendar">  <div class="calMain">    <div class="calTitle">      <a class="prevMonth"></a><span class="t_date"><span class="currentYearText"><a class="currentYear">2012</a>年</span><span class="currentMonthText"><a class="currentMonth">12</a>月</span></span><a class="nextMonth"></a>    </div>    <div class="calContent">      <div class="reserve">      </div>      <div class="enabled"><table class="tabD"><tbody><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr><tr><td><a class="prevD  ">25</a></td><td><a class="prevD  ">26</a></td><td><a class="prevD  ">27</a></td><td><a class="prevD  ">28</a></td><td><a class="prevD  ">29</a></td><td><a class="prevD  ">30</a></td><td><a>1</a></td></tr><tr><td><a>2</a></td><td><a>3</a></td><td><a class=" current">4</a></td><td><a>5</a></td><td><a>6</a></td><td><a>7</a></td><td><a>8</a></td></tr><tr><td><a>9</a></td><td><a>10</a></td><td><a>11</a></td><td><a>12</a></td><td><a>13</a></td><td><a>14</a></td><td><a>15</a></td></tr><tr><td><a>16</a></td><td><a>17</a></td><td><a>18</a></td><td><a>19</a></td><td><a>20</a></td><td><a>21</a></td><td><a>22</a></td></tr><tr><td><a>23</a></td><td><a>24</a></td><td><a>25</a></td><td><a>26</a></td><td><a>27</a></td><td><a>28</a></td><td><a>29</a></td></tr><tr><td><a>30</a></td><td><a>31</a></td><td><a class="nextD  ">1</a></td><td><a class="nextD  ">2</a></td><td><a class="nextD  ">3</a></td><td><a class="nextD  ">4</a></td><td><a class="nextD  ">5</a></td></tr></tbody></table>      </div>    </div>  </div></div>
 </body>
 </html>

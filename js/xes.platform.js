@@ -177,8 +177,8 @@ xes.platform = xes.platform || {};
 		// }
 		if(_ifr.length > 0){
 			var _ifrID = _ifr.attr('id').replace('content_','');
-			PF.findChild(_ifrID,'body>div:last',function(dom){
-				if(typeof dom != 'string'){
+			// PF.findChild(_ifrID,'body>div:last',function(dom){
+				// if(typeof dom != 'string'){
 					var _body_height = _ifr.contents().find('body').outerHeight();
 					var _html_height = _ifr.contents().find('html').outerHeight();
 					var _h = Math.max(_body_height, _html_height);
@@ -186,8 +186,8 @@ xes.platform = xes.platform || {};
 					var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
 					_ifr.height(_height);
 					$('#content').height(_height);
-				}
-			});
+				// }
+			// });
 		}
 		// setTimeout(function(){
 			

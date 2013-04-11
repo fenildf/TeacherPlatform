@@ -62,7 +62,13 @@ $(function(){
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
 };
-
+/**
+ * 关闭当前激活标签
+ * @return {[type]} [description]
+ */
+var closeActiveTab = function(id){
+	window.parent.closeActiveTabs(id);
+};
 /**
  * 打开标签（表单提交），非链接点击时
  */
@@ -121,6 +127,8 @@ var isDomClick = function(fn){
 var unDomClick = function(){
 	$(document).unbind('click');
 };
+
+
 
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
@@ -789,6 +797,7 @@ $(function () {
 	// },function(){
 	// 	xes.img.hideView();
 	// });
+	xes.iframe.setHeight();
 });
 function getQuestionListDom(d,id){
 	var _html = '';
@@ -840,15 +849,19 @@ function getQuestionListDom(d,id){
 		+'</div>';
 	});
 
-	console.log('id:'+id);
-	console.log(_before);
+	// console.log('id:'+id);
+	// console.log(_before);
 	if(_list.length > 0){
 		_before.after(_html);
 	}else{
 		$('.choose').html(_html);
 	}
+	// alert(1);
 	setQuestionListNum();
-	xes.iframe.setHeight();
+	// alert(2);
+	// setTimeout(function(){
+		xes.iframe.setHeight();
+	// },50);
 }
 /**
  * 重新计算序列号
@@ -858,6 +871,7 @@ function setQuestionListNum(){
 	_list.each(function(i){
 		$(this).find('.question_num em').text((i+1));
 	});
+	// xes.iframe.setHeight();
 }
 
 function deleteQuestion(id){

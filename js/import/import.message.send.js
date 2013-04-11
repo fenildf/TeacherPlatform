@@ -62,7 +62,13 @@ $(function(){
 var openTab = function(dom, text){
 	window.parent.openTabs(arguments);
 };
-
+/**
+ * 关闭当前激活标签
+ * @return {[type]} [description]
+ */
+var closeActiveTab = function(id){
+	window.parent.closeActiveTabs(id);
+};
 /**
  * 打开标签（表单提交），非链接点击时
  */
@@ -121,6 +127,8 @@ var isDomClick = function(fn){
 var unDomClick = function(){
 	$(document).unbind('click');
 };
+
+
 
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
@@ -763,10 +771,101 @@ $(".ui_pages a").click(function(){
 
 
 
+/* -------------------- xes.form.verify.js --------------------- */
+
+/*
+ * 表单验证
+ * @update : 2012-10-05
+ * @author : Marco <Marco.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var formVerify = formVerify || {};
+
+(function(){
+	var v = formVerify;
+	v.tips = $('.tips');
+	v.tipsError = '';
+	v.tipsSucceed = '';
+	v.checkEmpty = function(input){
+		var dom = $(input);
+		v.tips = dom.nextAll('.tips_'+dom.attr('id'));
+		if(dom.val() == ''){
+			v.setError(dom.attr('title') + '不能为空');
+		}else{
+			v.emptyError(input);
+		}
+	};
+
+	v.checkNumber = function(input){
+		var reg = '';
+		if(reg){
+			v.setTips('不是数字格式',input);
+		}else{
+			v.emptyTips(input);
+		}
+	};
+
+	v.setError = function(text,input){
+		if(input){
+			var dom = $(input);
+			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
+		}
+		v.tips.addClass('tips_error');
+		v.tips.text(text);
+	};
+
+	v.emptyError = function(input){
+		if(input){
+			var dom = $(input);
+			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
+		}
+		
+		v.tips.removeClass('tips_error');
+		v.tips.text('');
+	};
+
+})();
+
+
+xes.formVerify = formVerify;
+
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
 	// $("#startDate").calendar();
 	$("#dateTimes").calendar();
-	
+
+	var btns = $('#title,#content,#dateTimes');
+	btns.each(function(){
+		var _t = $(this).attr('id'),
+			_tips = $(this).nextAll('.tips_'+_t);
+		if(_tips.length == 0){
+			$(this).after('<span class="tips tips_'+_t + '"></span>');
+		}
+		
+	});
+	btns.blur(function(){
+		xes.formVerify.checkEmpty(this);
+	});
+
+	$('.btn_cancel').click(function(){
+		closeActiveTab();
+	});
 });
+
+
+//提交时检测表单
+function checkMessageForm(){
+	var inputs = $('#title,#content,#dateTimes');
+	inputs.each(function(){
+		xes.formVerify.checkEmpty(this);
+	});
+
+	if($('.tips_error').length > 0){
+		return false;
+	}else{
+		return true;
+	}
+}
+

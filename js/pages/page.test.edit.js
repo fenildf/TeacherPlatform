@@ -69,6 +69,7 @@ $(function () {
 	// },function(){
 	// 	xes.img.hideView();
 	// });
+	xes.iframe.setHeight();
 });
 function getQuestionListDom(d,id){
 	var _html = '';
@@ -120,15 +121,19 @@ function getQuestionListDom(d,id){
 		+'</div>';
 	});
 
-	console.log('id:'+id);
-	console.log(_before);
+	// console.log('id:'+id);
+	// console.log(_before);
 	if(_list.length > 0){
 		_before.after(_html);
 	}else{
 		$('.choose').html(_html);
 	}
+	// alert(1);
 	setQuestionListNum();
-	xes.iframe.setHeight();
+	// alert(2);
+	// setTimeout(function(){
+		xes.iframe.setHeight();
+	// },50);
 }
 /**
  * 重新计算序列号
@@ -138,6 +143,7 @@ function setQuestionListNum(){
 	_list.each(function(i){
 		$(this).find('.question_num em').text((i+1));
 	});
+	// xes.iframe.setHeight();
 }
 
 function deleteQuestion(id){

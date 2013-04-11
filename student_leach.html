@@ -1,122 +1,198 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>数据分析---课程运营平台</title>
-	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_data.css"/>
-	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
-	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>学员筛选---课程运营平台</title>
+		<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_data.css"/>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
 
-</head>
+	</head>
 
-<body>
-	<h1 class="ui_infor_title">
-		<span>学员筛选</span>
-	</h1>
-	<div class="s_grade">
-		<table>
-			<tr>
-				<td align="left">
-					<select name="select">
-						<option value ="volvo">年级</option>
-						<option value ="saab">一年级</option>
-						<option value="opel">二年级</option>
-						<option value="audi">三年级</option>
-					</select>
-					
-					买课时间 从 <input id="startDate" value=""  class="input_text" type="text"/> 至 <input id="endDate" value=""  class="input_text" type="text"/>
-					购买
-					<input value=""  class="input_text" type="text" placeholder="课程ID" />
-					学习进度
-					<select name="" >
-						<option value="">等于100%</option>
-						<option value=""></option>}
-						<option value=""></option>}
-						<option value=""></option>}
-					</select>
-					<input class="s-btn" type="submit" value="检索" ></td>
-			</tr>
-		</table>
-	</div>
-<div class="ui_tipsAll">
-	共检索出<em>100</em>条非重复记录，<a id="menu_2_2_2" class="open_tabs" title="创建直播" href="live_edit.html" >创建直播</a>
-	<a href="" title="">按筛选条件发送信息</a>
-	<a href="" title="">按选择发送信息</a>
-</div>
-	<div class="action_item">
-		<ul class="item_pag ui_pages">
-			<li class="page_list ui-select-box">
-				<select name="pages" id="" class="ui-select">
-					<option value="1">1/5</option>
-					<option value="2">2/5</option>
-					<option value="3">3/5</option>
-					<option value="4">4/5</option>
-					<option value="5">5/5</option>
+	<body>
+		<h1 class="ui_infor_title">
+			<span>筛选学员</span>
+		</h1>
+		<div class="action_item">
+			<form action="/LiveCourses/studentList" name="listSerch" id="listSerch" method="POST">	
+			<select id="gradeId" name="gradeId">
+					<option value="0">--课程年级--</option>
+					<option value="2">一年级</option>
+					<option value="3">二年级</option>
+					<option value="4">三年级</option>
+					<option value="5">四年级</option>
+					<option value="6">五年级</option>
+					<option value="7">六年级</option>
+					<option value="8">初一</option>
+					<option value="9">初二</option>
+					<option value="10">初三</option>
+					<option value="11">高一</option>
+					<option value="12">高二</option>
+					<option value="13">高三</option>
 				</select>
-			</li>
-			<li class="page_btn">
-				<span class="page_prev">上一页</span>
-			</li>
-			<li class="page_btn">
-				<a href=""  class="page_next">下一页</a>
-			</li>
-		</ul>
-	</div>
-	<div class="contentData contentData1">
-		<table>
-			<col width="80px" />
-			<col width="" />
-			<col width="80px" />
-			<col width="150px" />
-			<col width="100px" />
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>用户名</th>
-					<th>姓名</th>
-					<th>年级</th>
-					<th class="center">操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>5641</td>
-					<td>1078987654@xueersi.com</td>
-					<td>徐倩1</td>
-					<td>一年级</td>
-					<td class="center">
-						<a href="" title="">编辑</a>
-						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩1">查看</a>
+				买课时间 从 <input id="startDate" name="startDate" value=""  class="input_text" type="text"/> 
+				至 <input id="endDate" name="endDate" value=""  class="input_text" type="text"/>
+				<input class="input_text" type="text" id="courseId" name="courseId" value="" onclick="courseLists();" readonly ="ture" placeholder="点击选择课程" />
+				<input type="hidden" id="currpage" name="curpage" value="1" />
+				学习进度 从 <input id="startRate" name="startRate" value=""  class="input_text" type="text"/> 至 <input id="endRate" name="endRate" value=""  class="input_text" type="text"/>
+			<input class="s-btn" type="submit" value="检索" />
+			</form>
+		</div>
+
+
+
+
+
+		<div class="s_grade">
+			
+			<table>		
+					<tr>
+						<td align="left">
+								
+							</td>
+					</tr>
+					<tr>
+					<td>
+						
 					</td>
-				</tr>
-				<tr>
-					<td>5641</td>
-					<td>1078987654@xueersi.com</td>
-					<td>徐倩2</td>
-					<td>一年级</td>
-					<td class="center">
-						<a href="" title="">编辑</a>
-						<a id="student_2" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩2">查看</a>
-					</td>
-				</tr>
-			</tbody>
+					</tr>	
+			</table>
+			
+		</div>
+		<div class="ui_tipsAll">
+	共检索出<em>48</em>条非重复记录.
+		<a id="menu_2_2_2_1" class="open_tabs" title="创建直播" href="/liveCourses/addLive/3/38f9be04ce22ccc8414da309da719478">创建邀请直播</a>
+	<a id="mesg_1_1_1" class="open_tabs" title="教师留言" href="/liveCourses/addTeacherMsg/38f9be04ce22ccc8414da309da719478">教师留言</a>
+				</div>
+		<div class="action_item">
+			<ul class="item_pag ui_pages">
+									<li class="page_list ui-select-box"><span>共48条 &nbsp;</span><select  name="pages" id="pages" class="ui-select"><option selected>1/5</option><option value='2'>2/5</option><option value='3'>3/5</option><option value='4'>4/5</option><option value='5'>5/5</option></select></li><li class='page_btn'><span class='page_prev' >上一页</span></li> <li class="page_btn"><a class="page_next" href="/liveCourses/studentList/curpage:2">下一页</a> </li>							</ul>
+		</div>
+		<div class="contentData contentData1">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>用户名</th>
+						<th>姓名</th>
+						<th>年级</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+																		<tr>
+								<td>353348</td>
+								<td>test0311@126.com</td>
+								<td>test0311</td>
+								<td>一年级</td>
+								<td class="blue">
+									<a id="student_353348" class="open_tabs" title="test0311@126.com" href="/teacherStudents/show/353348" text="test0311@126.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253381</td>
+								<td>afu-2@xueersi.com</td>
+								<td>123123</td>
+								<td>一年级</td>
+								<td class="blue">
+									<a id="student_253381" class="open_tabs" title="afu-2@xueersi.com" href="/teacherStudents/show/253381" text="afu-2@xueersi.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253343</td>
+								<td>sss@123.com</td>
+								<td>123123123123</td>
+								<td>二年级 </td>
+								<td class="blue">
+									<a id="student_253343" class="open_tabs" title="sss@123.com" href="/teacherStudents/show/253343" text="sss@123.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253018</td>
+								<td>test181@qq.com</td>
+								<td>李朋</td>
+								<td></td>
+								<td class="blue">
+									<a id="student_253018" class="open_tabs" title="test181@qq.com" href="/teacherStudents/show/253018" text="test181@qq.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253011</td>
+								<td>test184@qq.com</td>
+								<td>test</td>
+								<td>二年级 </td>
+								<td class="blue">
+									<a id="student_253011" class="open_tabs" title="test184@qq.com" href="/teacherStudents/show/253011" text="test184@qq.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253010</td>
+								<td>0fft@126.com</td>
+								<td>零付费通台头</td>
+								<td>一年级</td>
+								<td class="blue">
+									<a id="student_253010" class="open_tabs" title="0fft@126.com" href="/teacherStudents/show/253010" text="0fft@126.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253009</td>
+								<td>test183@qq.com</td>
+								<td>李二</td>
+								<td>二年级 </td>
+								<td class="blue">
+									<a id="student_253009" class="open_tabs" title="test183@qq.com" href="/teacherStudents/show/253009" text="test183@qq.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253008</td>
+								<td>test182@qq.com</td>
+								<td>李朋</td>
+								<td>二年级 </td>
+								<td class="blue">
+									<a id="student_253008" class="open_tabs" title="test182@qq.com" href="/teacherStudents/show/253008" text="test182@qq.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253007</td>
+								<td>test179@qq.com</td>
+								<td>李大大</td>
+								<td></td>
+								<td class="blue">
+									<a id="student_253007" class="open_tabs" title="test179@qq.com" href="/teacherStudents/show/253007" text="test179@qq.com">查看</a>
+								</td>
+							</tr>
+													<tr>
+								<td>253005</td>
+								<td>test173@qq.com</td>
+								<td>李月</td>
+								<td>二年级 </td>
+								<td class="blue">
+									<a id="student_253005" class="open_tabs" title="test173@qq.com" href="/teacherStudents/show/253005" text="test173@qq.com">查看</a>
+								</td>
+							</tr>
+															</tbody>
+			</table>
+		</div>
+<!--			</tbody>
 		</table>
-	</div>
+	</div>-->
 
-	<div class="action_item">
-
-		<ul class="item_pag ui_pages">
-			<li class="page_btn">
-				<span class="page_prev">上一页</span>
-			</li>
-			<li class="page_btn">
-				<a href=""  class="page_next">下一页</a>
-			</li>
-		</ul>
-
-	</div>
-	<!-- 学员列表-->
-	<script type="text/javascript" src="http://js03.xesimg.com/import/import.student.leach.js"></script>
-	
-</body>
+		<div class="action_item">
+			<ul class="item_pag ui_pages">
+									<li class='page_btn'><span class='page_prev' >上一页</span></li> <li class="page_btn"><a class="page_next" href="/liveCourses/studentList/curpage:2">下一页</a> </li>							</ul>
+		</div>
+		<!-- 学员列表-->
+<script type="text/javascript" src="http://js03.xesimg.com/import/import.student.leach.js"></script>
+<script type="text/javascript">
+			$("#currpage").val('1');
+		$(function() {
+		xes.form.checkSelect('gradeId','0');
+		xes.form.checkSelect('areaId','0');
+	});	
+	function courseLists(){
+	var result = window.showModalDialog('/liveCourses/courseList','','dialogLeft:300px;dialogTop:360px;dialogWidth:930px;DialogHeight=430px;status:no;resizable:1;')
+		$('#courseId').attr('value',result);
+	}
+</script>
+	</body>
 </html>

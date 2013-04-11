@@ -4,8 +4,8 @@
  */
 
 /*
- * 直播
- * import.live.edit.js
+ * 录播
+ * import.room.edit.js
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
@@ -232,8 +232,9 @@ xes.liveTime = xes.liveTime || {};
 		var _oldtime = $('#oldDate').val();
 		var _courseID = $('#courseId').val();
 		var url = tp ? dd+'/'+_courseID : dd;
+		var _tp = tp ? '/2' : '//2';
 		var _room = room || 1;
-	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ _room +'/'+ url, {}, function(result){
+	 	xes.post('/liveCourses/ajaxLiveListByDate/'+ _room +'/'+ url + _tp, {}, function(result){
 	 		if(fn){
 	 			if(result.sign == 1){
 					fn(result);
@@ -308,7 +309,7 @@ xes.liveTime = xes.liveTime || {};
 				}else{
 					alert(d.msg);
 				}
-			},tp,_room);
+			},tp,_room,2);
 		}
 	};
 	l.open = function(t,e){
@@ -1760,7 +1761,7 @@ var formVerify = formVerify || {};
 
 xes.formVerify = formVerify;
 
-/* =-=-=-=-=-=-=-=-=-=-=-= live_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=-=-=-= room_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();

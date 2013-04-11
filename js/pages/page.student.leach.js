@@ -27,7 +27,15 @@
 $(function () {
 	$("#startDate").calendar();
 	$("#endDate").calendar();
+
+	// $('#startRate').calendar();
+	// $('#endRate').calendar();
+
 	$('.contentData tbody tr').hover(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
+
+	// if($('input:text.input_text').length > 0){
+	// 	xes.form.defaultValue();
+	// }
 });
