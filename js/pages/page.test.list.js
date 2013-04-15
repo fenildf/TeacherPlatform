@@ -21,6 +21,8 @@
 
 ///import:xes.form.js///
 
+///import:xes.search.js///
+
 ///import:xes.pages.js///
 
 ///import:xes.img.js///
