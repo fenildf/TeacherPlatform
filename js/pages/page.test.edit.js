@@ -84,9 +84,12 @@ function getQuestionListDom(d,id){
 			_url = v.test_content;
 		if($('#question_id_'+_id).length > 0){
 			// alert(_t' 这道题已经添加过了，请勿重复添加');
-			if(confirm('《'+_t+'》这道题已经添加过了，请勿重复添加，点击确定将不会添加重复的《'+_t+'》')){
-				return;
-			}
+			// if(confirm('《'+_t+'》这道题已经添加过了，请勿重复添加，点击确定将不会添加重复的《'+_t+'》')){
+			// 	return;
+			// }
+			alert('《'+_t+'》这道题已经添加过了，请勿重复添加!');
+			return;
+			
 		}
 		_html += '<div id="question_id_' + _id + '" class="choose_list">'
 		+'		<span class="question_num"><em>3</em>.</span>'

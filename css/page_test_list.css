@@ -9,17 +9,13 @@
 
 @import url("base.css");
 @import url("main.css");
-/*@import url("platform.css");*/
-/*@import url("ui-select.css");*/
-/*@import url("list.css");*/
+
 @import url("table.css");
 @import url("form.css");
-@import url("xes_list.css");
-@import url("xes_data.css");
-/*@import url("calendar.css");*/
-/*@import url("share.css");*/
+@import url("list.css");
+@import url("calendar.css");
 
-/* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
+/* -=-=-=-=-=-=-=-=-=-=-= test_list.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .grid_item th,td {text-align: center; }
 .ui_pages {margin-right: 15px;}
