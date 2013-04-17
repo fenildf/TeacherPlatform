@@ -23,7 +23,7 @@
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
-	console.log($(window.parent));
+//	console.log($(window.parent));
 	// $("#startDate").calendar();
 	$('#paper_type').change(function(){
 		var _txt = $('#paper_type option:selected').text();
