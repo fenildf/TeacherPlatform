@@ -48,6 +48,21 @@ $(function(){
 	// setTimeout(function(){
 	xes.iframe.setHeight();
 	// },100);	
+	
+	/**
+	 * 锚点跳转
+	 * 如果url地址中存在锚点“#”则进行跳转
+	 */
+	var url = window.location.href;
+	url = url.split('#');
+
+	if(url.length > 1){
+		// 去掉末尾的时间戳
+		var n = url[1].split('?');
+		n = n[0];
+		goAnchor(n);
+	}
+
 })
 
 
@@ -130,7 +145,18 @@ var unDomClick = function(){
 	$(document).unbind('click');
 };
 
-
+/**
+ * 跳转到锚点
+ * @param  {[type]} name 锚点id
+ * @return {[type]}      [description]
+ */
+function goAnchor(name){
+	var dom = $('#'+name);
+	if(dom.length > 0){
+		var top = dom.offset().top;
+		window.parent.setScrollTop(top);
+	}
+}
 
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
@@ -753,7 +779,7 @@ if($('em.imgView').length > 0){
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
-	console.log($(window.parent));
+//	console.log($(window.parent));
 	// $("#startDate").calendar();
 	$('#paper_type').change(function(){
 		var _txt = $('#paper_type option:selected').text();

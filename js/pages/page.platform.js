@@ -358,3 +358,11 @@ var imgViewHide = function(id){
 	var id = id || 'pictureView'
 	$('#'+id).hide();
 };
+
+/**
+ * 设置滚动条高度
+ * @param {Number} t 滚动距离
+ */
+var setScrollTop = function(t){
+	$(window).scrollTop(t);
+};
