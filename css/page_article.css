@@ -6,14 +6,15 @@
  * 上线前需要利用合并工具进行合并、压缩
  *
  **/
-
 @import url("base.css");
-
+@import url("iframe.css");
 @import url("list.css");
-@import url("table.css");
+@import url("layer.css");
 
 
 /* -=-=-=-=-=-=-=-=-=-=-= article.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
+.ui_tipsAll {width:1030px;padding:10px;overflow: hidden;border: 1px solid #e7e6e6;background: #f6f6f6;color: #999;margin-top: 10px;font-size: 14px;}		
+
 .message_info {}
 .message_info li {line-height: 22px;margin: 5px 0; overflow: hidden;}
 .message_info li em {padding-left: 20px}
