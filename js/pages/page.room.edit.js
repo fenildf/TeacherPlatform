@@ -29,6 +29,7 @@
 
 /* =-=-=-=-=-=-=-=-=-=-=-= room_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
+    xes.iframe.setHeight();
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();
 	var room = $('#liveChannel').val();
@@ -129,7 +130,7 @@ $(function () {
 //提交时检测表单
 function checkLiveForm(){
 	// var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
-	var inputs = $('#courseName,#gradeId,#subjectId,#description,#resourcePath');
+	var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
 	inputs.each(function(){
 		if(this.id == 'courseName'){
 			checkLiveTitle();
@@ -138,7 +139,7 @@ function checkLiveForm(){
 		}
 	});
 	//检查直播时间
-	// checkLiveTime();
+	// checkLiveTime]);
 	if($('.tips_error').length > 0){
 		return false;
 	}else{

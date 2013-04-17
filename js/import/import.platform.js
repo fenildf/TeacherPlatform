@@ -963,22 +963,24 @@ xes.platform = xes.platform || {};
 		var _headHeight = 108,
 			_footHeight = 85,
 			_winHeight = $(window).height();
+//        var _winHeight = document.body.clientHeight;
+//        alert(docH + ' | ' + _winHeight);
 		var _mainMinHeight = _winHeight - _headHeight - _footHeight;
 		//如果存在url则设置制定url，否则查看当前激活的iframe进行设置
 		// var _ifr = url ? $('#content').find('iframe[src="' + url + '"]') : $('#content iframe:visible');
 		var _ifr = $('#content iframe:visible');
-		// if(_ifr.length > 0){
-		// 	PF.iframeLoaded(_ifr[0],function(){
-		// 		console.log(111);
-		// 		var _body_height = _ifr.contents().find('body').outerHeight();
-		// 		var _html_height = _ifr.contents().find('html').outerHeight();
-		// 		var _h = Math.max(_body_height, _html_height);
+		 if(_ifr.length > 0){
+		 	PF.iframeLoaded(_ifr[0],function(){
+//		 		console.log(111);
+		 		var _body_height = _ifr.contents().find('body').outerHeight();
+		 		var _html_height = _ifr.contents().find('html').outerHeight();
+		 		var _h = Math.max(_body_height, _html_height);
 
-		// 		var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
-		// 		_ifr.height(_height);
-		// 		$('#content').height(_height);
-		// 	});
-		// }
+		 		var _height = (_h <= _mainMinHeight) ? _mainMinHeight  : _h;
+		 		_ifr.height(_height);
+		 		$('#content').height(_height);
+		 	});
+		 }
 		if(_ifr.length > 0){
 			var _ifrID = _ifr.attr('id').replace('content_','');
 			// PF.findChild(_ifrID,'body>div:last',function(dom){

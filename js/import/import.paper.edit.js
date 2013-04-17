@@ -4,9 +4,9 @@
  */
 
 /*
- * 学习状体数据
- * data.study.status.js
- * @update : 2012-10-05
+ * 修改试卷
+ * project.create.js
+ * @update : 2013-1-30
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
@@ -203,18 +203,6 @@ var tips = tips || {};
 	}
 })(xes);
 
-
-
-/*
- * xes.ui.calendar.min.js
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
- 
-jQuery.fn.extend({calendar:function(J){function o(){$("#"+J.controlId).find(".tabD a").mouseup(function(){var e=new Date($("#"+J.controlId).find(".currentYear").text()+"/"+$("#"+J.controlId).find(".currentMonth").text()+"/1");if($(this).hasClass("prevD")){e.setMonth(e.getMonth()-1);e.setDate($(this).text());var c=J.speed;J.speed=0;$("#"+J.controlId).find(".prevMonth").triggerHandler("mouseup");J.speed=c}else{if($(this).hasClass("nextD")){e.setMonth(e.getMonth()+1);e.setDate($(this).text());c=J.speed;J.speed=0;$("#"+J.controlId).find(".nextMonth").triggerHandler("mouseup");J.speed=c}}var f=$(this).text();e=e.getFullYear()+"-"+(Number(e.getMonth()+1)<10?"0"+Number(e.getMonth()+1):Number(e.getMonth()+1))+"-"+(Number(f)<10?"0"+f:f);y.val(e);$("#"+J.controlId+" div table a").removeClass("select");$("#"+J.controlId+" .tabD a:contains('"+f+"')").each(function(){f==$(this).text()&&!$(this).hasClass("prevD")&&!$(this).hasClass("nextD")&&$(this).addClass("select")});$("#"+J.controlId).hide();J.callback();$(y).blur()}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function h(){$("#"+J.controlId).find(".tabM a").mouseup(function(){var c=j(Number($("#"+J.controlId).find(".currentYear").text()),Number($(this).attr("val")));l(c);o();$("#"+J.controlId).find(".currentMonth").text(Number($(this).attr("val"))+1)}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function d(){$("#"+J.controlId).find(".tabY a").mouseup(function(){var c=j(Number($(this).text()),Number($("#"+J.controlId).find(".currentMonth").text())-1);l(c);o();$("#"+J.controlId).find(".currentYear").text(Number($(this).text()))}).hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})}function j(A,w){newDate=new Date(A,w,1);newDate.setDate(0);var u=1,r=newDate.getDate();newDate.setDate(1);newDate.setMonth(newDate.getMonth()+1);var f=newDate.getDay();if(f==0){f=7}r=r-f+1;newDate.setMonth(newDate.getMonth()+1);newDate.setDate(0);var e=newDate.getDate(),s="<table class='tabD'>";s+="<tr><th>\u65e5</th><th>\u4e00</th><th>\u4e8c</th><th>\u4e09</th><th>\u56db</th><th>\u4e94</th><th>\u516d</th></tr>";var q=b(),k="",c="",B="";J.complement||(B="style='display:none'");for(var z=0;z<6;z++){s+="<tr>";for(var v=0;v<7;v++){var n=z*7+v+1-f;c=k="";if(J.lowerLimit!=NaN&&J.lowerLimit>new Date(newDate.getFullYear(),newDate.getMonth(),n)||J.upperLimit!=NaN&&new Date(newDate.getFullYear(),newDate.getMonth(),n)>J.upperLimit){if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}s+="<td><span class='"+k+"'>"+n+"</span></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+r+"</span></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}s+="<td><span class='"+k+"' "+B+">"+u+"</span></td>";u++}}}}else{if(0<n&&n<=e){if(newDate.getFullYear()==I&&newDate.getMonth()==H&&n==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()==q.getMonth()&&n==q.getDate()){c="select"}s+="<td><a class='"+c+" "+k+"'>"+n+"</a></td>"}else{if(n<=0){if(newDate.getFullYear()==I&&newDate.getMonth()-1==H&&r==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()-1==q.getMonth()&&r==q.getDate()){c="select"}s+="<td><a class='prevD "+c+" "+k+"' "+B+">"+r+"</a></td>";r++}else{if(n>e){if(newDate.getFullYear()==I&&newDate.getMonth()+1==H&&u==t){k="current"}if(newDate.getFullYear()==q.getFullYear()&&newDate.getMonth()+1==q.getMonth()&&u==q.getDate()){c="select"}s+="<td><a class='nextD "+c+" "+k+"' "+B+">"+u+"</a></td>";u++}}}}s=s.replace("class=' '","")}s+="</tr>"}s+="</table>";return s}function a(e){var c=b(),f="<table class='tabM'>";f+="<tr>";f+="<td><a val='0' "+(e==c.getFullYear()&&0==c.getMonth()?"class='select'":"")+" "+(e==I&&0==H?"class='current'":"")+">\u4e00\u6708</a></td>";f+="<td><a val='1' "+(e==c.getFullYear()&&1==c.getMonth()?"class='select'":"")+" "+(e==I&&1==H?"class='current'":"")+">\u4e8c\u6708</a></td>";f+="<td><a val='2' "+(e==c.getFullYear()&&2==c.getMonth()?"class='select'":"")+" "+(e==I&&2==H?"class='current'":"")+">\u4e09\u6708</a></td>";f+="<td><a val='3' "+(e==c.getFullYear()&&3==c.getMonth()?"class='select'":"")+" "+(e==I&&3==H?"class='current'":"")+">\u56db\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='4' "+(e==c.getFullYear()&&4==c.getMonth()?"class='select'":"")+" "+(e==I&&4==H?"class='current'":"")+">\u4e94\u6708</a></td>";f+="<td><a val='5' "+(e==c.getFullYear()&&5==c.getMonth()?"class='select'":"")+" "+(e==I&&5==H?"class='current'":"")+">\u516d\u6708</a></td>";f+="<td><a val='6' "+(e==c.getFullYear()&&6==c.getMonth()?"class='select'":"")+" "+(e==I&&6==H?"class='current'":"")+">\u4e03\u6708</a></td>";f+="<td><a val='7' "+(e==c.getFullYear()&&7==c.getMonth()?"class='select'":"")+" "+(e==I&&7==H?"class='current'":"")+">\u516b\u6708</a></td>";f+="</tr>";f+="<tr>";f+="<td><a val='8' "+(e==c.getFullYear()&&8==c.getMonth()?"class='select'":"")+" "+(e==I&&8==H?"class='current'":"")+">\u4e5d\u6708</a></td>";
-f+="<td><a val='9' "+(e==c.getFullYear()&&9==c.getMonth()?"class='select'":"")+" "+(e==I&&9==H?"class='current'":"")+">\u5341\u6708</a></td>";f+="<td><a val='10' "+(e==c.getFullYear()&&10==c.getMonth()?"class='select'":"")+" "+(e==I&&10==H?"class='current'":"")+">\u5341\u4e00\u6708</a></td>";f+="<td><a val='11' "+(e==c.getFullYear()&&11==c.getMonth()?"class='select'":"")+" "+(e==I&&11==H?"class='current'":"")+">\u5341\u4e8c\u6708</a></td>";f+="</tr>";f+="</table>";return f}function x(f){f=Math.floor(f/10)*10;var e="<table class='tabY'>",s=b(),n="",c="",r="";J.complement||(r="style='display:none'");for(var q=0;q<3;q++){e+="<tr>";for(var k=0;k<4;k++){c=n="";if(q+1*k+1!=1&&(q+1)*(k+1)!=12){if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='"+n+" "+c+"' >"+f+"</a></td>";f++}else{if(q+1*k+1==1){if(f-1==s.getFullYear()){n="select"}if(f-1==I){c="current"}e+="<td><a class='prevY "+n+" "+c+"' "+r+">"+(f-1)+"</a></td>"}else{if(f==s.getFullYear()){n="select"}if(f==I){c="current"}e+="<td><a class='nextY "+n+" "+c+"' "+r+">"+f+"</a></td>"}}}e+="</tr>"}e+="</table>";return e}function p(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":"-"+f.width()+"px"},J.speed,function(){f.empty()})}function m(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");c.css({"margin-left":"-"+f.width()+"px","margin-top":"0px"});c.empty().append(e);c.animate({"margin-left":"0px"},J.speed);f.animate({"margin-left":f.width()+"px"},J.speed,function(){f.empty()})}function l(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":"-"+f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function i(e){var c=$("#"+J.controlId).find(".reserve"),f=$("#"+J.controlId).find(".enabled");c.stop();f.stop();c.removeClass("reserve").addClass("enabled");f.removeClass("enabled").addClass("reserve");$("#"+J.controlId).css({"z-index":1});c.css({"z-index":-1});f.css({"z-index":-1});c.css({"margin-left":"0px","margin-top":"-"+f.height()+"px"});c.empty().append(e);c.animate({"margin-top":"0px"},J.speed);f.animate({"margin-top":f.width()+"px"},J.speed,function(){f.empty();$("#"+J.controlId).css({"z-index":0});c.css({"z-index":0});f.css({"z-index":0})})}function b(){re=/(\d\d\d\d)(\W)?(\d\d)(\W)?(\d\d)/g;var c=y.val();c=c.replace(re,"$1/$3/$5@").split("@")[0];return new Date(c)}function g(e){var c=[];c.x=e.offsetLeft;for(c.y=e.offsetTop;e=e.offsetParent;){c.x+=e.offsetLeft;c.y+=e.offsetTop}return c}J=jQuery.extend({controlId:$(this).attr("id")+"Calendar",speed:200,complement:true,readonly:true,upperLimit:NaN,lowerLimit:NaN,callback:function(){}},J||{});var y=$(this);if(J.readonly){y.attr("readonly",true);y.bind("keydown",function(c){if(c.keyCode==8){$(this).val("")}})}today=new Date;var I=today.getFullYear(),H=today.getMonth(),t=today.getDate(),G="";G+="<div id='"+J.controlId+"'class='calendar'>";G+="  <div class='calMain'>";G+="    <div class='calTitle'>";G+="      <a class='prevMonth'></a><span class='t_date'><span class='currentYearText'><a class='currentYear'>"+I+"</a>\u5e74</span><span class='currentMonthText'><a class='currentMonth'>"+(H+1)+"</a>\u6708</span></span><a class='nextMonth'></a>";G+="    </div>";G+="    <div class='calContent'>";G+="      <div class='reserve'>";G+="      </div>";G+="      <div class='enabled'>";G+=j(I,H);G+="      </div>";G+="    </div>";G+="  </div>";G+="</div>";$("body").append(G);o();$("#"+J.controlId).find(".prevMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text())-2);m(f);if(Number(c.text())!=1){c.text(Number(c.text())-1)}else{e.text(Number(e.text())-1);c.text("12")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())-1);m(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())-10);m(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())-10)
-}}}});$("#"+J.controlId).find(".nextMonth").mouseup(function(){if($("#"+J.controlId).find(".enabled > .tabD").length>0){var e=$("#"+J.controlId).find(".currentYear"),c=$("#"+J.controlId).find(".currentMonth"),f=j(Number(e.text()),Number(c.text()));p(f);if(Number(c.text())!=12){c.text(Number(c.text())+1)}else{e.text(Number(e.text())+1);c.text("1")}o()}else{if($("#"+J.controlId).find(".enabled > .tabM").length>0){f=a(Number($("#"+J.controlId).find(".currentYear").text())+1);p(f);h();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+1)}else{if($("#"+J.controlId).find(".enabled > .tabY").length>0){f=x(Number($("#"+J.controlId).find(".currentYear").text())+10);p(f);d();$("#"+J.controlId).find(".currentYear").text(Number($("#"+J.controlId).find(".currentYear").text())+10)}}}});$("#"+J.controlId).find(".currentMonthText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabM").length>0)){var c=a(Number($("#"+J.controlId).find(".currentYear").text()));i(c);h()}});$("#"+J.controlId).find(".currentYearText").mouseup(function(){if(!($("#"+J.controlId).find(".enabled > .tabY").length>0)){var c=x(Number($("#"+J.controlId).find(".currentYear").text()));i(c);d()}});y.bind("click focus",function(){if($("#"+J.controlId+":hidden").length!=0){$(".calendar").hide();var e=$("#"+J.controlId),c=g(y[0]),f=c.x;c=Number(y.offset().top)+Number(y.outerHeight());e.css({top:c+"px",left:f+"px"});f=$("#"+J.controlId).width();c=$("#"+J.controlId).height();e.width(0);e.height(0);e.show().animate({width:f+"px",height:c+"px"},J.speed);e.bind("selectstart",function(){return false}).bind("mousedown",function(){return false})}});$(document).mouseup(function(c){if($(c.target).attr("id")!=y.attr("id")&&($(c.target).parentsUntil("#"+J.controlId).parent().length==0||$(c.target).parentsUntil("#"+J.controlId).parent()[0].id!=J.controlId)){$("#"+J.controlId).hide()}})}});
 
 /* -------------------- xes.form.js --------------------- */
 /*
@@ -720,154 +708,235 @@ function setKnowledge(department_id,subject_id){
 	}
 }
 
-/* -------------------- xes.search.js --------------------- */
-
-/*
- * search表单相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
+/* -------------------- xes.img.js --------------------- */
 
 /**
- * 在提交表单之前，重置分页数为1
- */
-$(function(){
-    var submit = $('#listSerch input:submit');
-    submit.mousedown(function(){
-        $('#pages').val(1);
-        $('#currpage').val(1);
-        $('#listSerch')[0].onSubmit = false;
-    });
-    submit.mouseup(function(){
-        $('#listSerch')[0].onSubmit = true;
-    });
-});
-
-/* -------------------- xes.pages.js --------------------- */
-
-/*
- * pages分页相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
+ * 图片相关的功能模块
+ * @update : 2013-03-25
+ * @author : Marco <Mr.Pai@msn.com>
  * @version: v1.0.0
  */
 
+var xes = xes || {};
 
-$('#pages').change(function(){
-    var _page = this.value;
-     $("#currpage").val(_page);
-     $("#listSerch").submit();
-});
-$(".ui_pages a").click(function(){
-    _url = $(this).attr('href');
-    _re = /curpage\:(\d+)$/;
-    _page = _url.match(_re);
-    if(_page!=null){
-        $("#currpage").val(_page[1]);
-        $(this).attr('href','###');
-        $("#listSerch").submit();
-    }
-});
-
-
-
-/* -------------------- xes.form.verify.js --------------------- */
-
-/*
- * 表单验证
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
-var formVerify = formVerify || {};
+xes.img = xes.img || {};
 
 (function(){
-	var v = formVerify;
-	v.tips = $('.tips');
-	v.tipsError = '';
-	v.tipsSucceed = '';
-	v.checkEmpty = function(input){
-		var dom = $(input);
-		v.tips = dom.nextAll('.tips_'+dom.attr('id'));
-		if(dom.val() == ''){
-			v.setError(dom.attr('title') + '不能为空');
-		}else{
-			v.emptyError(input);
-		}
-	};
+	var img = xes.img;
 
-	v.checkNumber = function(input){
-		var reg = '';
-		if(reg){
-			v.setTips('不是数字格式',input);
-		}else{
-			v.emptyTips(input);
-		}
+	/**
+	 * 鼠标移入时显示图片
+	 * @return {[type]} [description]
+	 */
+	img.hoverView = function(url,dom){
+		var _top =  $(dom).offset().top + $(dom).outerHeight(true);
+		var _left = $(dom).offset().left;
+		window.parent.imgViews(url, _top, _left);
 	};
-
-	v.setError = function(text,input){
-		if(input){
-			var dom = $(input);
-			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
-		}
-		v.tips.addClass('tips_error');
-		v.tips.text(text);
+	img.hideView = function(id){
+		window.parent.imgViewHide();
 	};
-
-	v.emptyError = function(input){
-		if(input){
-			var dom = $(input);
-			v.tips = dom.nextAll('.tips_'+dom.attr('id'));	
-		}
-		
-		v.tips.removeClass('tips_error');
-		v.tips.text('');
-	};
+	img.hover = function(){};
+	
 
 })();
 
 
-xes.formVerify = formVerify;
+if($('em.imgView').length > 0){
+	$('em.imgView').hover(function(){
+		xes.img.hoverView($(this).text(),this);
+	},function(){
+		xes.img.hideView();
+	});
+}
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 $(function () {
+	console.log($(window.parent));
 	// $("#startDate").calendar();
-	$("#dateTimes").calendar();
+	$('#paper_type').change(function(){
+		var _txt = $('#paper_type option:selected').text();
+		if(this.value==2 || _txt == '考试卷'){
+			$('.paper_type_box').show();
+			$('.question_score').show();
 
-	var btns = $('#title,#content,#dateTimes');
-	btns.each(function(){
-		var _t = $(this).attr('id'),
-			_tips = $(this).nextAll('.tips_'+_t);
-		if(_tips.length == 0){
-			$(this).after('<span class="tips tips_'+_t + '"></span>');
+		}else{
+			$('.paper_type_box').hide();
+			$('.question_score').hide();
+		}
+	});
+
+	$('.questions_type_button').change(function(){
+		var _box = $('.questions_type');
+		_box.hide();
+		if(this.value == 1){
+			$('#questions_type_checkbox').show();
+		}else{
+			$('#questions_type_input').show();
+		}
+	});
+
+	$('#departmentId').change(function(){
+		$('.choose').html('');
+//		setKnowledge($(this).val());
+	});
+	$('input[type="radio"][name="subjectId"]').click(function(){
+		$('.choose').html('');
+//		setKnowledge(null,$(this).val());
+	});
+	
+	// var _b = $('.questions_type');
+	// _b.hide();
+	// if($('.questions_type_button').val() == 1){
+	// 	_b.eq(0).show();
+	// }else{
+	// 	_b.eq(1).show();
+	// }
+
+	// $('em.imgView').hover(function(){
+	// 	xes.img.hoverView($(this).text(),this);
+	// },function(){
+	// 	xes.img.hideView();
+	// });
+	xes.iframe.setHeight();
+});
+function getQuestionListDom(d,id){
+	var _html = '';
+	var _list = $('.choose div[id^="question_id_"]');
+	var _before = id ? $('#question_id_'+id) 
+					 : _list.length == 0 ? $('.choose') 
+					 					 : _list.last();
+	// var _index = $('.choose div[id^="question_id_"]').index(_before[0]);
+	$.each(d,function(k,v){
+		var _t = v.test_name,
+			_id = v.id,
+			_url = v.test_content;
+		if($('#question_id_'+_id).length > 0){
+			// alert(_t' 这道题已经添加过了，请勿重复添加');
+			// if(confirm('《'+_t+'》这道题已经添加过了，请勿重复添加，点击确定将不会添加重复的《'+_t+'》')){
+			// 	return;
+			// }
+			alert('《'+_t+'》这道题已经添加过了，请勿重复添加!');
+			return;
+			
+		}
+		_html += '<div id="question_id_' + _id + '" class="choose_list">'
+		+'		<span class="question_num"><em>3</em>.</span>'
+		+'		<table>'
+		+'			<colgroup>'
+		+'				<col width="20%">'		
+		+'				<col width="30%">'		
+		+'				<col width="50%">'
+		+'			</colgroup>'
+		+'		<tbody><tr class="question_data">'
+		+'			<td>ID:<em class="question_data_id">' + _id + '</em></td>'
+		+'			<td>名称：<em>' + _t + '</em></td>'
+		+'			<td><em onmouseover="xes.img.hoverView(\''+ _url +'\'	,this);" onmouseout="xes.img.hideView();" class="imgView">' + _url + '</em></td>'
+		+'		</tr>'
+
+		+'	</tbody></table>'
+		+'	<span>'
+		+'		<a onclick="selectTestQuestions(\'' + _id + '\')" href="###">追加</a>'
+		+'		<a onclick="deleteTestQuestions(\'' + _id + '\')" href="###">删除</a>'
+		+'	</span>';
+
+		if($('#paper_type').val()==1){
+			_html +='	<span class="question_score" style="display:none;">';
+		}else{
+			_html +='	<span class="question_score">';
 		}
 		
-	});
-	btns.blur(function(){
-		xes.formVerify.checkEmpty(this);
-	});
-
-	$('.btn_cancel').click(function(){
-		closeActiveTab();
-	});
-});
-
-
-//提交时检测表单
-function checkMessageForm(){
-	var inputs = $('#title,#content,#dateTimes');
-	inputs.each(function(){
-		xes.formVerify.checkEmpty(this);
+		_html +='		分值：'
+		+'		<input type="text" class="input_text question_data_score" value="" size="">'
+		+'	</span>'
+		
+		+'</div>';
 	});
 
-	if($('.tips_error').length > 0){
-		return false;
+	// console.log('id:'+id);
+	// console.log(_before);
+	if(_list.length > 0){
+		_before.after(_html);
 	}else{
-		return true;
+		$('.choose').html(_html);
 	}
+	// alert(1);
+	setQuestionListNum();
+	// alert(2);
+	// setTimeout(function(){
+		xes.iframe.setHeight();
+	// },50);
+}
+/**
+ * 重新计算序列号
+ */
+function setQuestionListNum(){
+	var _list = $('.choose div[id^="question_id_"]');
+	_list.each(function(i){
+		$(this).find('.question_num em').text((i+1));
+	});
+	// xes.iframe.setHeight();
 }
 
+function deleteQuestion(id){
+	if(id){
+		$('#question_id_'+id).remove();
+		setQuestionListNum();
+	}
+
+}
+//获取总分
+function getAllScore(){
+	var _list = $('.question_data_score:visible');
+	var _s = 0;
+	if(_list.length>0){
+		_list.each(function(){
+			_s += Number($(this).val());
+		});
+	}
+	return _s ;
+}
+
+//获取试题信息
+function getQuestionListValue(){
+	var _list = $('.choose div[id^="question_id_"]');
+	var _v = [];
+	if(_list.length > 0 ){
+		_list.each(function(){
+			var d = $(this);
+			var v = {
+				'order_num':d.find('.question_num em').text(),
+				'test_id':d.find('.question_data_id').text(),
+				'score':Number(d.find('.question_data_score').val())
+			};
+			_v.push(v);
+		});
+	}
+	return JSON.stringify(_v);
+}
+
+/* 试题页面：*/
+
+/**
+ * 追缴填空题
+ */
+function addFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+
+	var _html = '<span><input type="text" value="" name="fillCorrectAnswer[]" class="input_text">\n'
+			  + '<a href="###" onclick="addFillCorrectAnswer(this);">追加</a>\n'
+			  + '<a href="###" onclick="removeFillCorrectAnswer(this);">删除</a></span>';
+	_wrap.after(_html);
+	// _wrap.parent().find('span').first().find('a:last').remove();
+}
+
+function removeFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+	var _list = _wrap.parent().find('span');
+	if(_list.length > 1){
+		_wrap.remove();
+	}else{
+		alert('至少要有一个正确答案');
+	}
+}

@@ -66,7 +66,9 @@ var goTab = function(url, title, id, closeSelf){
 			window.parent.goTabs(url, title, id, closeID);
 		});
 
-		
+		if(xes.img){
+			xes.img.hideView();
+		}
 	}else{
 		window.parent.getActiveTabs(function(self){
 			window.parent.goTabs(url, title, id);

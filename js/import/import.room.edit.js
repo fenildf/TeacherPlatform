@@ -79,7 +79,9 @@ var goTab = function(url, title, id, closeSelf){
 			window.parent.goTabs(url, title, id, closeID);
 		});
 
-		
+		if(xes.img){
+			xes.img.hideView();
+		}
 	}else{
 		window.parent.getActiveTabs(function(self){
 			window.parent.goTabs(url, title, id);
@@ -201,10 +203,10 @@ var tips = tips || {};
 })(xes);
 
 
-/* -------------------- xes.live.js --------------------- */
+/* -------------------- xes.room.js --------------------- */
 
 /*
- * 直播
+ * 录播
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
@@ -1763,6 +1765,7 @@ xes.formVerify = formVerify;
 
 /* =-=-=-=-=-=-=-=-=-=-=-= room_edit.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 $(function () {
+    xes.iframe.setHeight();
 	//直播状态：新建/编辑
 	var _date = $('#liveDate').val();
 	var room = $('#liveChannel').val();
@@ -1863,7 +1866,7 @@ $(function () {
 //提交时检测表单
 function checkLiveForm(){
 	// var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
-	var inputs = $('#courseName,#gradeId,#subjectId,#description,#resourcePath');
+	var inputs = $('#courseName,#gradeId,#subjectId,#description,#liveDate,#resourcePath');
 	inputs.each(function(){
 		if(this.id == 'courseName'){
 			checkLiveTitle();
@@ -1872,7 +1875,7 @@ function checkLiveForm(){
 		}
 	});
 	//检查直播时间
-	// checkLiveTime();
+	// checkLiveTime]);
 	if($('.tips_error').length > 0){
 		return false;
 	}else{
