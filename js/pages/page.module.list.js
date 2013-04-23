@@ -67,7 +67,12 @@ function dateCompare(){
 			//结束日期大于开始日期
 			var dateOK = xes.date.compare(a,b);
 			if(dateOK && todayAfter_a && todayAfter_b){
-				return true;
+				if(dateOK == 2){
+					alert('结束日期不能等于开始日期');
+					return false;
+				}else{
+					return true;
+				}
 			}else{
 				alert('结束时间不能小于开始时间，月考时间不能小于当前时间，');
 				return false;
