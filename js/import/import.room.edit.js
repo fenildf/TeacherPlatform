@@ -1721,6 +1721,7 @@ xes.date = xes.date || {};
         if (starttimes > lktimes) {
             // alert('开始时间大于离开时间，请检查');
             return false;
+        // 开始日期和结束日期相等时返回2;    
         }else if(starttimes == lktimes){
             return 2;
         }else{

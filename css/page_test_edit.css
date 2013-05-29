@@ -33,3 +33,195 @@ ul.labelCon li.questions_type_box {}
 #questions_type_input span {width: 800px;float:none;margin-left: 0;display: block;height: 30px;margin-bottom: 5px}
 #questions_type_input input {}
 #questions_type_input span a {padding-left: 10px}
+
+/*
+	批量导入部分
+ */
+
+ul.labelCon li.question_items label,
+ul.labelCon li.question_items span {float: none}
+
+.question_item {
+	width: 780px; min-height: auto; margin: 0 0 10px 80px;
+	clear: both;
+	float: none;
+	position: relative;
+} 
+.question_item dt {
+	float: left;
+	/*position: absolute;*/
+	/*left: -80px;*/
+	margin-left: -80px;
+}
+.item_btn {
+	width:22px; height: 22px;
+	display: block;
+	overflow: hidden;
+	
+	/*float: right; */
+	position: absolute;
+	right: 10px;	top: -7px;
+	background: url('http://img03.xesimg.com/icon_close_gray.png') no-repeat left 0;
+}
+.item_btn a {
+	width: 22px; height: 22px; display: block; overflow: hidden;
+	text-indent: -9000px;
+}
+.item_body {
+	width: 760px; height: auto; float: left;
+	/*position: absolute;*/
+	overflow: hidden;
+	padding:5px 0px; margin-bottom: 20px;
+	border: 1px solid #ECECEC;
+	border-radius:5px 5px; 
+	background-color: #FCFCFC;
+}
+
+.item_body div {
+	height: 40px; line-height: 40px;
+}
+
+ul.labelCon li.question_items label {
+	margin-right: 10px;
+}
+
+ul.labelCon li.question_items label.first {
+	width: 80px; float:left;
+}
+ul.labelCon li.question_items span {
+	margin-left: 0;
+}
+
+ul.labelCon li.question_items input {
+	margin-right: 5px;
+}
+.item_pic a {
+	float: left;
+	display: block; 
+	margin-right: 10px;
+	font-family: Arial,Helvetica,sans-serif;
+}
+.item_pic a em {
+	width: 300px; height: 40px; line-height: 40px;
+	display: inline-block; overflow: hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-moz-binding:url("http://css03.xesimg.com/ellipsis.xml#ellipsis");
+}
+ul.labelCon li.question_items .item_pic label{
+	float: left;
+	width: auto;
+}
+ul.labelCon li.question_items .item_pic label.first {
+	width: 80px;
+}
+ul.labelCon div.questions_type_box p{
+	display: block; width: 650px; float: left;
+	margin-left: 0;
+}
+
+.btn_brown {
+	border:1px solid #BDA4A0;
+	background: linear-gradient(#ffffff 0%,#FDF9F8 50%,#F6EBE7 100%);
+	color:#9F6B6D;
+	cursor: pointer;
+	padding: 2px;
+}
+ul.labelCon li p.question_handle_btn {
+	float: left;
+    padding-right: 30px;
+    text-align: right;
+    width: 40px;
+}
+
+ul.labelCon li p.question_counts {
+	width: 750px; float: left;
+	margin-left: 0;
+	text-align: right;
+}
+
+p[id^="questions_type_input_"] span {
+	display: block;
+    float: none;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    width: 800px;
+}
+.item_head {
+	text-align: right;
+	width:40px;
+	padding-left: 30px;
+	background: url('http://img03.xesimg.com/icon_accordion.png') no-repeat 20px 2px;
+	background-position: 20px -28px;
+
+}
+
+.btn_accordion {display: none;}
+/*ul.labelCon li span.btn_accordion {
+	border-radius:20px 20px; 
+	border: 1px solid #ECECEC;
+	display: inline-block;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color:#B3B3B3;
+	background-color: #EFEFEF;
+	box-shadow:2px 2px 5px #e0e0e0 inset;  
+}*/
+ul.labelCon li span.item_number {
+	width: 14px; height: 22px; line-height: 24px;
+	overflow: hidden;
+	display: inline-block;
+	padding-right:10px;
+	text-align: right;
+	white-space:nowrap;
+
+}
+
+.question_item dt.accordion_open {
+	background-position: 20px 2px;
+}
+
+
+/*.question_item dt.accordion_close {
+	background-position: 20px -28px;
+}
+*/
+ul.labelCon li p.items_collapsed {
+	background: url('http://img03.xesimg.com/icon_up.png') no-repeat 45px 8px;
+
+}
+ul.labelCon li p.items_expanded {
+	background: url('http://img03.xesimg.com/icon_down.png') no-repeat 45px 8px;
+
+}
+
+/*.question_item dd.item_collapsed {
+	height: 40px;
+}*/
+
+
+ul.labelCon li .collapsed {}
+
+ul.labelCon li .collapsed dd.item_body {
+	height: 40px;
+}
+
+ul.labelCon li .collapsed dt {
+	/*background-position: 20px -28px;*/
+	background-position: 20px 2px;
+	
+}
+
+ul.labelCon li .collapsed .item_pic {
+	position: absolute;
+	top: 6px; left: 230px;
+}
+ul.labelCon li .collapsed .item_pic em{
+	width: 190px;
+}
+
+ul.labelCon li .collapsed .item_title{
+	display: none;
+}

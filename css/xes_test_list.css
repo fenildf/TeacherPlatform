@@ -159,10 +159,10 @@ a, a:visited, a:active{color:#0066cc;text-decoration:none;}
 a:hover{color: #bc0000; text-decoration: underline;}
 h1,h2,h3,h4,h5,h6{color:#333;}
 
-a.red {color: #cc0000;}
-a.green {color: #669933;}
-a.blue{color: #006699;}
-a.grey {color: #666;}
+a.red,span.red, em.red,.red {color: #cc0000;}
+a.green, span.green {color: #669933;}
+a.blue, span.blue {color: #006699;}
+a.grey, span.gray {color: #666;}
 /* 中间区域公用样式 */
 
 /* 中间标题部分 */
@@ -214,9 +214,9 @@ a.grey {color: #666;}
 .contentData1 tr th.title_more,
 .contentData1 tr td.title_more {width: 150px; text-align: right;padding-right: 10px}
 
-
+.speak_table {border-collapse:none;}
 .speak_table,
-.content_child {border:1px inset #eee;background: #f5f5f5}
+.content_child {border:1px inset #f0f0f0;border-width:1px 0 0 0;background: #f8f8f8}
 .speak_table thead td,
 .content_child thead td {color: #999}
 .speak_table tr td,
@@ -241,7 +241,12 @@ div.content_child {
 
 
 
+/*.tborder {border:1px solid #ccc;}*/
+.tborder td, .tborder th {border: 1px solid #eee}
+.tcenter tr td, .tcenter tr th {text-align: center;padding-left: 0}
+.tleft tr td, .tleft tr th {text-align: left;padding-left: 10px}
 
+.tleft tr td.time {text-align: center;padding-left: 0}
 /* ==================== form.css ===================== */
 .input_text {height: 25px; padding-left: 5px; border:1px solid #d3d3d3;}
 
@@ -281,6 +286,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .btn_submit_small,.btn_submit_small:active,.btn_submit_small:visited {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
 
 
+
 .w400 {width: 400px}
 .w500 {width: 500px}
 
@@ -294,6 +300,19 @@ textarea,
 .input_keyword {height: 25px;padding: 0 10px}
 
 .files {display: none;}
+
+input.w30 {width: 30px}
+input.w40 {width: 40px}
+input.w50{width: 50px}
+input.w60{width: 60px}
+input.w70{width: 70px}
+input.w80{width: 80px}
+input.w90{width: 90px}
+input.w100{width: 100px}
+input.w120{width: 120px}
+input.w130{width: 130px}
+input.w150{width: 150px}
+input.w200{width: 200px}
 /* ==================== list.css ===================== */
 
 /* 

@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>批量导入试卷---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_test_edit.css" />
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>批量导入试卷</span>
+	</h1>
+
+	<ul class="labelCon">
+		<li>
+			<label for="">试题名称</label>
+			<span>
+				<input size="" value="" type="text" class="input_text" />
+			</span>
+		</li>
+		<li>
+			<label for="">试题类型</label>
+			<span>
+				<select id="paper_type" class="ui-select-list">
+					<option class="ui-select-button" value="1">测试卷</option>
+					<option value="2">考卷</option>
+
+				</select>
+			</span>
+			<div class="paper_type_box">
+				<label for="">答题时间</label>
+				<span>
+					<input size="" value="单位为分钟" type="text" class="input_text" />
+				</span>
+				<label for="">试卷分值</label>
+				<span>
+					<input type="radio" value="1" name="subjectIds[]">
+					100
+					<input type="radio" value="1" name="subjectIds[]">
+					120
+					<input type="radio" value="1" name="subjectIds[]">
+					150
+					<input type="radio" value="1" name="subjectIds[]">
+					300
+				</span>
+			</div>
+		</li>
+		<li>
+			
+		</li>
+		<li>
+			<label for="">选择学部</label>
+			<span>
+				<select class="ui-select-list">
+					<option class="ui-select-button">年级</option>
+					<option value="小学">小学</option>
+					<option value="初中">初中</option>
+					<option value="高中">高中</option>
+
+				</select>
+			</span>
+		</li>
+
+		<li>
+			<label for="">所属学科</label>
+			<span>
+				<input type="radio" value="1" name="subjectIds[1]">
+				语文
+				<input type="radio" value="2" name="subjectIds[1]">
+				数学
+				<input type="radio" value="3" name="subjectIds[1]">
+				英语
+				<input type="radio" value="4" name="subjectIds[1]">
+				物理
+				<input type="radio" value="5" name="subjectIds[1]">
+				化学
+				<input type="radio" value="6" name="subjectIds[1]">
+				生物
+				<input type="radio" value="12" name="subjectIds[1]">
+				综合
+				<input type="radio" value="14" name="subjectIds[1]">
+				理综
+				<input type="radio" value="18" name="subjectIds[1]">
+				全科
+				<input type="radio" value="19" name="subjectIds[1]">讲座</span>
+		</li>
+		<li class="infor">
+			<label for="">试卷描述</label>
+			<span>
+				<textarea class="paper_text">试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述
+				</textarea>
+			</span>
+
+		</li>
+		<li class="question_handle">
+			<p class="question_handle_btn items_collapsed">收起</p>
+			<p class="question_counts">共导入7道试题，7个解析（带<em class="red">※</em>为必填项）</p>
+		</li>
+		<li class="question_items">
+			<dl class="question_item">
+				<dt class="item_head accordion_close">
+					<span class="btn_accordion">+</span>
+					<span class="item_number">10000.</span>
+				</dt>
+				<dd class="item_btn">
+					<a href="javascript:void(0);" class="item_delete">删除</a>
+				</dd>
+				<dd class="item_body">
+					<div class="item_body_1st">
+						<label for="" class="first"><em class="red">※ </em>试题序号</label> <input type="text" class="input_text w30" /> 
+						<label for=""><em class="red">※</em>分值</label><input type="text" class="input_text w30" />
+						<span class="item_title"><label for=""> 试题名称</label><input type="text" class="input_text w200" /></span>
+					</div>
+					<div class="item_pic">
+						<label for="" class="first"><em class="red">※ </em>试题题干</label>
+						<a href="http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg">
+							<em class="imgView">http://r04.xesimg.com/test_papers/2013/05/21/13691027271340.jpg</em></a>
+						<label for=""> 解析</label>
+						<a href="http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg">
+							<em class="imgView">http://r04.xesimg.com/test_papers/2013/05/21/13691027271340.jpg</em></a>
+					</div>
+					<div>
+						<label for="" class="first"><span class="red">※ </span>知 识 点</label>
+						<span id="knowledge_1" class="knowledge_box">
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+						</span>
+						<span>
+							<input type="button" value="应用所有" class="btn_brown" />
+						</span>
+					</div>
+					<div>
+						<label for="" class="first">试题类型</label>
+						<span><input type="radio" checked="true" name="testType_1" size="" value="1" class="questions_type_button">选择题</span>
+						<span><input type="radio" name="testType_1" size="" value="2" class="questions_type_button">填空题</span>
+					</div>
+					<div class="questions_type_box">
+						<label for="" class="first">正确答案</label>
+						<span style="display: block;" class="questions_type" id="questions_type_checkbox_1">
+							<input type="checkbox" name="correctAnswer[]" value="1">
+							A
+							<input type="checkbox" name="correctAnswer[]" value="2">
+							B
+							<input type="checkbox" name="correctAnswer[]" value="4">
+							C
+							<input type="checkbox" name="correctAnswer[]" value="8">
+							D
+						</span>
+						<p class="questions_type" style="display: none;" id="questions_type_input_1">
+							<span>
+								<input type="text" class="input_text w130" name="fillCorrectAnswer[]" value="">
+								<a onclick="addFillCorrectAnswer(this);" href="###">追加</a>
+							</span>
+						</p>
+					</div>
+					<div>
+						<label for="" class="first">关键字</label><input type="text" class="input_text w130" />
+						<label for="">自定义难度系数</label><input type="text" class="input_text w80" />
+						<label for="">关联解析视频ID</label><input type="text" class="input_text w100" placeholder="" /><input type="button" value="选择" class="btn_brown" />
+					</div>
+				</dd>
+			</dl>
+			<dl class="question_item">
+				<dt class="item_head">
+					<span class="btn_accordion">+</span>
+					<span class="item_number">1</span>
+				</dt>
+				<dd class="item_btn">
+					<a href="javascript:void(0);" class="item_delete">删除</a>
+				</dd>
+				<dd class="item_body">
+					<div class="item_body_1st">
+						<label for="" class="first"><em class="red">※ </em>试题序号</label> <input type="text" class="input_text w30" /> 
+						<label for=""><em class="red">※</em>分值</label><input type="text" class="input_text w30" />
+						<span class="item_title"><label for=""> 试题名称</label><input type="text" class="input_text w200" /></span>
+					</div>
+					<div class="item_pic">
+						<label for="" class="first"><em class="red">※ </em>试题题干</label>
+						<a href="http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg">
+							<em class="imgView">http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg</em></a>
+						<label for=""> 解析</label>
+						<a href="http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg">
+							<em class="imgView">http://x01.xesimg.com/test/2013/05/28/PDF1369709967375/pdf_2.jpg</em></a>
+					</div>
+					<div>
+						<label for="" class="first"><span class="red">※ </span>知 识 点</label>
+						<span id="knowledge_1" class="knowledge_box">
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+							<select name="" id=""></select>
+						</span>
+						<span>
+							<input type="button" value="应用所有" class="btn_brown" />
+						</span>
+					</div>
+					<div>
+						<label for="" class="first">试题类型</label>
+						<span><input type="radio" checked="true" name="testType_2" size="" value="1" class="questions_type_button">选择题</span>
+						<span><input type="radio" name="testType_2" size="" value="2" class="questions_type_button">填空题</span>
+					</div>
+					<div class="questions_type_box">
+						<label for="" class="first">正确答案</label>
+						<span style="display: block;" class="questions_type" id="questions_type_checkbox_2">
+							<input type="checkbox" name="correctAnswer[]" value="1">
+							A
+							<input type="checkbox" name="correctAnswer[]" value="2">
+							B
+							<input type="checkbox" name="correctAnswer[]" value="4">
+							C
+							<input type="checkbox" name="correctAnswer[]" value="8">
+							D
+						</span>
+						<p class="questions_type" style="display: none;" id="questions_type_input_2">
+							<span>
+								<input type="text" class="input_text w130" name="fillCorrectAnswer[]" value="">
+								<a onclick="addFillCorrectAnswer(this);" href="###">追加</a>
+							</span>
+						</p>
+					</div>
+					<div>
+						<label for="" class="first">关键字</label><input type="text" class="input_text w130" />
+						<label for="">自定义难度系数</label><input type="text" class="input_text w80" />
+						<label for="">关联解析视频ID</label><input type="text" class="input_text w100" placeholder="" /><input type="button" value="选择" class="btn_brown" />
+					</div>
+				</dd>
+			</dl>
+		</li>
+
+		<li>
+			<label for="">&nbsp;</label>
+  			<span>
+				<a href="test_paper.html" class="btn btn_submit">保存</a>
+			</span>
+		</li>
+</ul>
+<script type="text/javascript" src="http://js03.xesimg.com/import/import.test.batch.js"></script>
+
+</body>
+
+</html>

@@ -622,6 +622,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 .btn_submit_small,.btn_submit_small:active,.btn_submit_small:visited {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
 
 
+
 .w400 {width: 400px}
 .w500 {width: 500px}
 
@@ -635,6 +636,19 @@ textarea,
 .input_keyword {height: 25px;padding: 0 10px}
 
 .files {display: none;}
+
+input.w30 {width: 30px}
+input.w40 {width: 40px}
+input.w50{width: 50px}
+input.w60{width: 60px}
+input.w70{width: 70px}
+input.w80{width: 80px}
+input.w90{width: 90px}
+input.w100{width: 100px}
+input.w120{width: 120px}
+input.w130{width: 130px}
+input.w150{width: 150px}
+input.w200{width: 200px}
 
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 .contentLive dl dt {color: #999}

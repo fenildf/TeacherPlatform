@@ -3,12 +3,14 @@
  * Copyright 2012 xueersi.com All rights reserved.
  */
 
-/* 直播列表
- * live.list.js
- * @update : 2012-10-05
+/*
+ * 批量导入试题
+ * project.create.js
+ * @update : 2013-1-30
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
  */
+
 
 /* -------------------- xes.iframe.js --------------------- */
 
@@ -227,8 +229,6 @@ var tips = tips || {};
 	}
 })(xes);
 
-
-/* //import:ui/xes.ui.select.js// */
 
 /* -------------------- xes.form.js --------------------- */
 /*
@@ -734,342 +734,667 @@ function setKnowledge(department_id,subject_id){
 	}
 }
 
-/* -------------------- xes.search.js --------------------- */
-
-/*
- * search表单相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
+// /import:xes.img.js/ //
 
 /**
- * 在提交表单之前，重置分页数为1
- */
-$(function(){
-    var submit = $('#listSerch input:submit');
-    submit.mousedown(function(){
-        $('#pages').val(1);
-        $('#currpage').val(1);
-        $('#listSerch')[0].onSubmit = false;
-    });
-    submit.mouseup(function(){
-        $('#listSerch')[0].onSubmit = true;
-    });
-});
-
-/* -------------------- xes.pages.js --------------------- */
-
-/*
- * pages分页相关操作
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
+ * knowledge
+ *
+ * 知识点
+ * @authors Marco
+ * @date    2013-05-27 17:50:59
+ * @version $Id$
  */
 
+var xes = xes || {};
 
-$('#pages').change(function(){
-    var _page = this.value;
-     $("#currpage").val(_page);
-     $("#listSerch").submit();
-});
-$(".ui_pages a").click(function(){
-    _url = $(this).attr('href');
-    _re = /curpage\:(\d+)$/;
-    _page = _url.match(_re);
-    if(_page!=null){
-        $("#currpage").val(_page[1]);
-        $(this).attr('href','###');
-        $("#listSerch").submit();
-    }
-});
-
-
-
-/* -------------------- xes.date.js --------------------- */
-/*
- * Date日期处理方法
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
-
-/**      
-* 对Date的扩展，将 Date 转化为指定格式的String      
-* 月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q) 可以用 1-2 个占位符      
-* 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)      
-* eg:      
-* (new Date()).pattern("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423      
-* (new Date()).pattern("yyyy-MM-dd E HH:mm:ss") ==> 2009-03-10 二 20:09:04      
-* (new Date()).pattern("yyyy-MM-dd EE hh:mm:ss") ==> 2009-03-10 周二 08:09:04      
-* (new Date()).pattern("yyyy-MM-dd EEE hh:mm:ss") ==> 2009-03-10 星期二 08:09:04      
-* (new Date()).pattern("yyyy-M-d h:m:s.S") ==> 2006-7-2 8:9:4.18   
-    
-//var date = new Date();      
-//window.alert(date.pattern("yyyy-MM-dd hh:mm:ss"));      
-*/        
-Date.prototype.format=function(fmt) {         
-    var o = {         
-    "M+" : this.getMonth()+1, //月份         
-    "d+" : this.getDate(), //日         
-    "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12, //小时         
-    "H+" : this.getHours(), //小时         
-    "m+" : this.getMinutes(), //分         
-    "s+" : this.getSeconds(), //秒         
-    "q+" : Math.floor((this.getMonth()+3)/3), //季度         
-    "S" : this.getMilliseconds() //毫秒         
-    };         
-    var week = {         
-    "0" : "\u65e5",         
-    "1" : "\u4e00",         
-    "2" : "\u4e8c",         
-    "3" : "\u4e09",         
-    "4" : "\u56db",         
-    "5" : "\u4e94",         
-    "6" : "\u516d"        
-    };         
-    if(/(y+)/.test(fmt)){         
-        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));         
-    }         
-    if(/(E+)/.test(fmt)){         
-        fmt=fmt.replace(RegExp.$1, ((RegExp.$1.length>1) ? (RegExp.$1.length>2 ? "\u661f\u671f" : "\u5468") : "")+week[this.getDay()+""]);         
-    }         
-    for(var k in o){         
-        if(new RegExp("("+ k +")").test(fmt)){         
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));         
-        }         
-    }         
-    return fmt;         
-}
-
-xes.date = xes.date || {};
+xes.knowledge = xes.knowledge || {};
+xes.LocalStorage = xes.LocalStorage || {};
+(function() {
+	var ls = xes.LocalStorage;
+	ls.set = function(k, v) {
+		var _val = (typeof(v) === "object") ? JSON.stringify(v) : v;
+		window.localStorage.setItem(k, _val)
+	};
+	ls.get = function(k) {
+		var v = window.localStorage.getItem(k);
+		v = JSON.parse(v);
+		return v
+	};
+	ls.del = function(k) {
+		window.localStorage.removeItem(k)
+	}
+})();
 
 (function(){
-	var d = xes.date;
-	/**
-	 * 根据日期获得星期数
-	 * alert(getWeekday('2012-12-3'))
-	 */
-	d.getWeek = function(sdate){
-		var _date = new Date(sdate.replace(/-/g, '/'));
-	    var _week = ['星期日', '星期一','星期二','星期三','星期四','星期五','星期六'];
-	    return _week[_date.getDay()];
+	var k = xes.knowledge;
+	//知识点容器集合
+	k.box = '.knowledge_box';
+	k.departmentID = 0;
+	k.subjectID = 0;
+	k.params = {};
+	k.setParams = function(json){
+		var knowledge = {
+			// ajax请求数据地址
+			'url':	'http://www.wss2.0.com/coursev4/knowledge/',
+			// 联动容器id
+			'container_id': 'knowledge',
+			// 知识点一级类别标识
+			'level_1_id': 'knowledgePoint1Id',
+			// 知识点一级类别默认值
+			'level_1_default': '',
+			// 知识点二级类别标识
+			'level_2_id': 'knowledgePoint2Id',
+			// 知识点二级类别默认值
+			'level_2_default': '',
+			// 知识点三级类别标识
+			'level_3_id': 'knowledgePoint3Id',
+			// 知识点三级类别默认值
+			'level_3_default': '',
+			// 知识点四级类别标识
+			'level_4_id': 'knowledgePoint4Id',
+			// 知识点四级类别默认值
+			'level_4_default': '',
+			// 显示层级
+			'level': 4,
+			// 学部
+			'department_id': k.departmentID,
+			// 学科
+			'subject_id': k.subjectID
+		};
+		k.params = knowledge;
+		return this;
 	};
 
-    d.clock = d.clock || {};
-    d.clock.date = '';
-    d.clock.dom = '';
+	k.config = function(){
 
-    d.clock.count = function(){
-        var date = new Date();
-        this.year = date.getFullYear();
-        this.month = date.getMonth() + 1;
-        this.date = date.getDate();
-        this.day = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")[date.getDay()];
-        this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-        this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-        this.toString = function() {
-            return "现在是:" + this.year + "年" + this.month + "月" + this.date + "日 " + this.hour + ":" + this.minute + ":" + this.second + " " + this.day;
-        };
-        this.toSimpleDate = function() {
-            return this.year + "-" + this.month + "-" + this.date;
-        };
-        this.toDetailDate = function() {
-            return this.year + "-" + this.month + "-" + this.date + " " + this.hour + ":" + this.minute + ":" + this.second;
-        };
-        this.display = function(ele) {
-            var count = new d.clock.count(day);
+	};
 
-            var html = count.toDetailDate();
-            ele.html(html); 
-            window.setTimeout(function() {
-                count.display(ele);
-            }
-            , 1000);
-        };
-    };
-
-    d.clock.serverClock = function(s_year, s_month, s_day, s_hour, s_min, s_sec) {
-        //估计从服务器下载网页到达客户端的延时时间，默认为1秒。 
-        var _delay = 1000;
-
-        //服务器端的时间 
-        var serverTime = null;
-        if(arguments.length == 0) {
-            //没有设置服务器端的时间，按当前时间处理 
-            serverTime = new Date();
-            _delay = 0;
-        } else {
-            serverTime = new Date(s_year, s_month - 1, s_day, s_hour, s_min, s_sec)
-        };
-
-        //客户端浏览器的时间 
-        var clientTime = new Date();
-        //获取时间差 
-        var _diff = serverTime.getTime() - clientTime.getTime();
-
-        //设置从服务器下载网页到达客户端的延时时间，默认为1秒。 
-        this.set_delay = function(value) {
-            _delay = value;
-        };
-
-        //获取服务的日期时间 
-        this.get_ServerTime = function(formatstring) {
-            clientTime = new Date();
-            serverTime.setTime(clientTime.getTime() + _diff + _delay);
-            if(formatstring == null) {
-                return serverTime;
-            }else{
-                return serverTime.format(formatstring);
-            }
-        };
-    };
-
-    d.clock.start = function(dom,day){
-        var day = dom.text();
-        var time = {};
-        time.tmp = day.split(' ');
-        time.days = time.tmp[0].split('-');
-        time.times = time.tmp[1].split(':');
-
-        time.year = time.days[0];
-        time.month = time.days[1];
-        time.day = time.days[2];
-
-        time.hour = time.times[0];
-        time.minute = time.times[1];
-        time.second = time.times[2];
-
-        var srvClock = new d.clock.serverClock(time.year, time.month, time.day, time.hour, time.minute, time.second); 
-
-        window.setInterval(function(){ 
-            var html = srvClock.get_ServerTime('yyyy-MM-dd HH:mm:ss');
-            dom.html(html); 
-        },500);
-
-    };
-
-    d.clock.stop = function(){
-        clearTimeout(d.clock.timeout);
-    };
-    /**
-     * js日期比较(yyyy-mm-dd)
-     * @param  {[type]} a [description]
-     * @param  {[type]} b [description]
-     * @return {[type]}   [description]
-     */
-    d.compare = function(a, b){
-
-        var arr = a.split("-");
-        var starttime = new Date(arr[0], arr[1], arr[2]);
-        var starttimes = starttime.getTime();
-
-        var arrs = b.split("-");
-        var lktime = new Date(arrs[0], arrs[1], arrs[2]);
-        var lktimes = lktime.getTime();
-
-        if (starttimes > lktimes) {
-            // alert('开始时间大于离开时间，请检查');
-            return false;
-        // 开始日期和结束日期相等时返回2;    
-        }else if(starttimes == lktimes){
-            return 2;
-        }else{
-            return true;
-        }
-    };
+	k.init = function(json){
+		initSelects(k.params);	
+	};
 
 })();
 
 
-
-/* -------------------- widget/jquery.cookie.js --------------------- */
-
-/*
- * jQuery.cooke
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- * @example:
-    example $.cookie(’the_cookie’, ‘the_value’);
-    设置cookie的值
-    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
-    新建一个cookie 包括有效期 路径 域名等
-    example $.cookie(’the_cookie’, ‘the_value’);
-    新建cookie
-    example $.cookie(’the_cookie’, null);
-    删除一个cookie
- */
-
-jQuery.cookie = function(name, value, options) {  
-    if (typeof value != 'undefined') { // name and value given, set cookie  
-        options = options || {};  
-        if (value === null) {  
-            value = '';  
-            options.expires = -1;  
-        }  
-        var expires = '';  
-        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {  
-            var date;  
-            if (typeof options.expires == 'number') {  
-                date = new Date();  
-                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));  
-            } else {  
-                date = options.expires;  
-            }  
-            expires = '; expires=' + date.toUTCString();  
-        }  
-        var path = options.path ? '; path=' + (options.path) : '';  
-        var domain = options.domain ? '; domain=' + (options.domain) : '';  
-        var secure = options.secure ? '; secure' : '';  
-        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');  
-    } else {  
-        var cookieValue = null;  
-        if (document.cookie && document.cookie != '') {  
-            var cookies = document.cookie.split(';');  
-            for (var i = 0; i < cookies.length; i++) {  
-                var cookie = jQuery.trim(cookies[i]);  
-                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
-                    break;  
-                }  
-            }  
-        }  
-        return cookieValue;  
-    }  
-}; 
-
-function getCookie(objName) { //获取指定名称的cookie的值
-    var arrStr = document.cookie.split("; ");
-    for(var i = 0; i < arrStr.length; i++) {
-        var temp = arrStr[i].split("=");
-        if(temp[0] == objName) return unescape(temp[1]);
-    }
+/**
+* 初始化四级联动下拉框
+*
+* priely	2013-03-25
+*/
+function initSelects(params) {
+	function set1(result){
+		if (result != '') {
+				var str = '';
+				str += '<select id="' + params.level_1_id + '" name="' + params.level_1_id + '">';
+				str += '<option value="" selected>--选择知识点--</option>';
+				
+				$.each(result, function(i, j) {
+					if (params.department_id == 0 && params.subject_id == 0) {
+						if (params.level_1_default != '') {
+							str += '<option value="' + i + '"';
+							if (params.level_1_default == i) {
+								str += ' selected ';
+								if (params.level_2_default != '') {
+									initSelects_2(params, i);
+								}
+							}
+							str += '>' + j['name'] + '</option>';
+						} else {
+							str += '<option value="' + i + '">' + j['name'] + '</option>';
+						}
+					}else{
+						if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+							if (params.level_1_default != '') {
+								str += '<option value="' + i + '"';
+								if (params.level_1_default == i) {
+									str += ' selected ';
+									if (params.level_2_default != '') {
+										initSelects_2(params, i);
+									}
+								}
+								str += '>' + j['name'] + '</option>';
+							} else {
+								str += '<option value="' + i + '">' + j['name'] + '</option>';
+							}
+						}
+					}
+				});
+				str += '</select>';
+				
+				$('#' + params.container_id).html(str);
+				
+				$('#' + params.level_1_id).bind("change", function() {
+					initSelects_2(params, $(this).val());
+				});
+			}
+	}
+	var a1 = xes.LocalStorage.get('k1');
+		if(a1){
+			set1(a1);
+		}else{
+			$.ajax({
+				url		: params.url + '1',
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(result) {
+					xes.LocalStorage.set('k1',json);
+							set1(json);
+					
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});	
+		}
 }
-function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
-    var date = new Date();
-    date.setTime(date.getTime() - 10000);
-    document.cookie = name + "=a; expires=" + date.toGMTString()+"; path=/";
-    var c = getCookie(name);
-    alert(c);
+
+
+function initSelects_2(params, pid) {
+	var box = $('#' + params.level_1_id);
+	if(pid == '') {
+		// 如果没有选择一级,则删除二,三,四级下拉框
+		box.nextAll('select').remove();
+	} else {
+		function set2(result){
+			// 如果有子类别,则显示
+			if (params.level>=2 && result[pid] && result[pid] != '') {
+				var str = '&nbsp;';
+				str += '<select id="' + params.level_2_id + '" name="' + params.level_2_id + '">';
+				str += '<option value="" selected>--选择知识点--</option>';
+
+				$.each(result[pid], function(i, j) {
+					if (params.department_id == 0 && params.subject_id == 0) {
+						if (params.level_2_default != '') {
+							str += '<option value="' + i + '"';
+							if (params.level_2_default == i) {
+								str += ' selected ';
+								if (params.level_3_default != '') {
+									initSelects_3(params, i);
+								}
+							}
+							str += '>' + j['name'] + '</option>';
+						} else {
+							str += '<option value="' + i + '">' + j['name'] + '</option>';
+						}
+					}else{
+						if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+							if (params.level_2_default != '') {
+								str += '<option value="' + i + '"';
+								if (params.level_2_default == i) {
+									str += ' selected ';
+									if (params.level_3_default != '') {
+										initSelects_3(params, i);
+									}
+								}
+								str += '>' + j['name'] + '</option>';
+							} else {
+								str += '<option value="' + i + '">' + j['name'] + '</option>';
+							}
+						}
+					}
+				});
+				str += '</select>';
+				
+				box.nextAll('select').remove();
+				box.after(str);
+
+				box.next('select').bind("change", function() {
+					initSelects_3(params, $(this).val());
+				});
+			} else {
+				// 如果没有子类, 则隐藏下级下拉框
+				box.nextAll('select').remove();
+			}
+		};
+		var a2 = xes.LocalStorage.get('k2');
+		if(a2){
+			set2(a2);
+		}else{
+			$.ajax({
+				url		: params.url + '2',
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(json) {
+					xes.LocalStorage.set('k2',json);
+					set2(json);
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});
+		}
+
+	}
 }
 
 
+function initSelects_3(params, pid) {
+	var box = $('#' + params.level_2_id);
+	if(pid == '') {
+		// 如果没有选择二级,则删除三,四级下拉框
+		box.nextAll('select').remove();
+	} else {
+		function set3(result){
+			// 如果有子类别,则显示
+				if (params.level>=3 && result[pid] && result[pid] != '') {
+					var str = '&nbsp;';
+					str += '<select id="' + params.level_3_id + '" name="' + params.level_3_id + '">';
+					str += '<option value="" selected>--选择知识点--</option>';
+					
+					$.each(result[pid], function(i, j) {
+						if (params.department_id == 0 && params.subject_id == 0) {
+							if (params.level_3_default != '') {
+								str += '<option value="' + i + '"';
+								if (params.level_3_default == i) {
+									str += ' selected ';
+									if (params.level_4_default != '') {
+										initSelects_4(params, i);
+									}
+								}
+								str += '>' + j['name'] + '</option>';
+							} else {
+								str += '<option value="' + i + '">' + j['name'] + '</option>';
+							}
+						}else{
+							if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+								if (params.level_3_default != '') {
+									str += '<option value="' + i + '"';
+									if (params.level_3_default == i) {
+										str += ' selected ';
+										if (params.level_4_default != '') {
+											initSelects_4(params, i);
+										}
+									}
+									str += '>' + j['name'] + '</option>';
+								} else {
+									str += '<option value="' + i + '">' + j['name'] + '</option>';
+								}
+							}
+						}
+					});
+					str += '</select>';
+					box.nextAll('select').remove();
+					box.after(str);
+					box.next('select').bind("change", function() {
+						initSelects_4(params, $(this).val());
+					});
+				} else {
+					// 如果没有子类, 则隐藏下级下拉框
+					box.nextAll('select').remove();
+				}
+		}
+		var a3 = xes.LocalStorage.get('k3');
+		if(a3){
+			set3(a3);
+		}else{
+			$.ajax({
+				url		: params.url + '3',
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(json) {
+					xes.LocalStorage.set('k3',json);
+					set3(json);
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});
+		}
+	}
+}
 
 
-/* =-=-=-=-=-=-=-=-=-=-=-= live_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+function initSelects_4(params, pid) {
+	var box = $('#' + params.level_3_id);
+	if(pid == '') {
+		// 如果没有选择三级,则删除四级下拉框
+		box.nextAll('select').remove();
+	} else {
+		function set4(result){
+			// 如果有子类别,则显示
+				if (params.level>=4 && result[pid] && result[pid] != '') {
+					var str = '&nbsp;';
+					str += '<select id="' + params.level_4_id + '" name="' + params.level_4_id + '">';
+					str += '<option value="" selected>--选择知识点--</option>';
+					
+					$.each(result[pid], function(i, j) {
+						if (params.department_id == 0 && params.subject_id == 0) {
+							if (params.level_4_default != '') {
+								str += '<option value="' + i + '"';
+								if (params.level_4_default == i) {
+									str += ' selected ';
+								}
+								str += '>' + j['name'] + '</option>';
+							} else {
+								str += '<option value="' + i + '">' + j['name'] + '</option>';
+							}
+						}else{
+							if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+								if (params.level_4_default != '') {
+									str += '<option value="' + i + '"';
+									if (params.level_4_default == i) {
+										str += ' selected ';
+									}
+									str += '>' + j['name'] + '</option>';
+								} else {
+									str += '<option value="' + i + '">' + j['name'] + '</option>';
+								}
+							}
+						}
+					});
+					str += '</select>';
+					
+					box.nextAll('select').remove();
+					box.after(str);	
+				} else {
+					// 如果没有子类, 则隐藏下级下拉框
+					box.nextAll('select').remove();
+				}
+		}
+		var a4 = xes.LocalStorage.get('k4');
+		if(a4){
+			set4(a4);
+		}else{
+			$.ajax({
+				url		: params.url + '4',
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(json) {
+					xes.LocalStorage.set('k4',json);
+					set4(json);
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});
+		}
+	}
+}
 
-// function liveCancel(liveId){
-// 	alert('已取消');
-// }
+/* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
-$(function(){
-	$('.grid_item tbody tr').hover(function(){
-		$(this).addClass('hover').siblings('tr').removeClass('hover');
+
+$(function () {
+	$('#paper_type').change(function(){
+		var _txt = $('#paper_type option:selected').text();
+		if(this.value==2 || _txt == '考试卷'){
+			$('.paper_type_box').show();
+			$('.question_score').show();
+
+		}else{
+			$('.paper_type_box').hide();
+			$('.question_score').hide();
+		}
 	});
 
-	xes.date.clock.start($('#serverTime'));
+	$('.questions_type_button').change(function(){
+		var n = $(this).attr('name').replace('testType_','');
+		console.log(n);
+		if(this.value == 1){
+			$('#questions_type_checkbox_'+n).show().siblings('.questions_type').hide();
+		}else{
+			$('#questions_type_input_'+n).show().siblings('.questions_type').hide();
+		}
+	});
+
+	$('#departmentId').change(function(){
+		$('.choose').html('');
+		setKnowledge($(this).val());
+	});
+	$('input[type="radio"][name="subjectId"]').click(function(){
+		$('.choose').html('');
+		setKnowledge(null,$(this).val());
+	});
+	
+	xes.iframe.setHeight();
 });
+function getQuestionListDom(d,id){
+	var _html = '';
+	var _list = $('.choose div[id^="question_id_"]');
+	var _before = id ? $('#question_id_'+id) 
+					 : _list.length == 0 ? $('.choose') 
+					 					 : _list.last();
+	$.each(d,function(k,v){
+		var _t = v.test_name,
+			_id = v.id,
+			_url = v.test_content;
+		if($('#question_id_'+_id).length > 0){
+			alert('《'+_t+'》这道题已经添加过了，请勿重复添加!');
+			return;
+		}
+		_html += '<div id="question_id_' + _id + '" class="choose_list">'
+		+'		<span class="question_num"><em>3</em>.</span>'
+		+'		<table>'
+		+'			<colgroup>'
+		+'				<col width="20%">'		
+		+'				<col width="30%">'		
+		+'				<col width="50%">'
+		+'			</colgroup>'
+		+'		<tbody><tr class="question_data">'
+		+'			<td>ID:<em class="question_data_id">' + _id + '</em></td>'
+		+'			<td>名称：<em>' + _t + '</em></td>'
+		+'			<td><em onmouseover="xes.img.hoverView(\''+ _url +'\'	,this);" onmouseout="xes.img.hideView();" class="imgView">' + _url + '</em></td>'
+		+'		</tr>'
+
+		+'	</tbody></table>'
+		+'	<span>'
+		+'		<a onclick="selectTestQuestions(\'' + _id + '\')" href="###">追加</a>'
+		+'		<a onclick="deleteTestQuestions(\'' + _id + '\')" href="###">删除</a>'
+		+'	</span>';
+
+		if($('#paper_type').val()==1){
+			_html +='	<span class="question_score" style="display:none;">';
+		}else{
+			_html +='	<span class="question_score">';
+		}
+		
+		_html +='		分值：'
+		+'		<input type="text" class="input_text question_data_score" value="" size="">'
+		+'	</span>'
+		
+		+'</div>';
+	});
+
+	if(_list.length > 0){
+		_before.after(_html);
+	}else{
+		$('.choose').html(_html);
+	}
+	setQuestionListNum();
+		xes.iframe.setHeight();
+}
+/**
+ * 重新计算序列号
+ */
+function setQuestionListNum(){
+	var _list = $('.choose div[id^="question_id_"]');
+	_list.each(function(i){
+		$(this).find('.question_num em').text((i+1));
+	});
+}
+
+function deleteQuestion(id){
+	if(id){
+		$('#question_id_'+id).remove();
+		setQuestionListNum();
+	}
+
+}
+//获取总分
+function getAllScore(){
+	var _list = $('.question_data_score:visible');
+	var _s = 0;
+	if(_list.length>0){
+		_list.each(function(){
+			_s += Number($(this).val());
+		});
+	}
+	return _s ;
+}
+
+//获取试题信息
+function getQuestionListValue(){
+	var _list = $('.choose div[id^="question_id_"]');
+	var _v = [];
+	if(_list.length > 0 ){
+		_list.each(function(){
+			var d = $(this);
+			var v = {
+				'order_num':d.find('.question_num em').text(),
+				'test_id':d.find('.question_data_id').text(),
+				'score':Number(d.find('.question_data_score').val())
+			};
+			_v.push(v);
+		});
+	}
+	return JSON.stringify(_v);
+}
+
+/* 试题页面：*/
+
+/**
+ * 追缴填空题
+ */
+function addFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+
+	var _html = '<span><input type="text" value="" name="fillCorrectAnswer[]" class="input_text w130">\n'
+			  + '<a href="###" onclick="addFillCorrectAnswer(this);">追加</a>\n'
+			  + '<a href="###" onclick="removeFillCorrectAnswer(this);">删除</a></span>';
+	_wrap.after(_html);
+}
+
+function removeFillCorrectAnswer(d){
+	var _wrap = $(d).parent();
+	var _list = _wrap.parent().find('span');
+	if(_list.length > 1){
+		_wrap.remove();
+	}else{
+		alert('至少要有一个正确答案');
+	}
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-= 编辑导入试题部分 =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+
+var batch = {
+	name:'试卷名称',
+	type:'试卷类型',
+	time:'答题时间',
+	total:'试卷总分',
+	department:'学部',
+	subject:'学科',
+	description:'描述',
+	items:{
+		'1001':{
+			id:'',
+			num:'1',
+			content:'http://...jpg',
+			answerAnalysis:'解析',
+			title:'试题名称',
+			keyword:'关键字',
+			customDifficulty:'系数',
+			knowledge:[2,3,2],
+			type:'试题类型',
+			questions_type_checkbox:[1,2,4,8]/*'正确答案'*/,
+			score:'分值'
+
+		}
+	}
+};
+
+
+var items = {
+	'1':{
+		id:''
+	}
+};
+
+/**
+ * 试题列表折叠
+ * expanded / collapsed 
+ */
+function itemAaccordion(dom,tp){
+	var item = $(dom).find('.item_body');
+	if(tp == 'collapsed'){
+		item.addClass('item_collapsed');
+	}else{
+		item.removeClass('item_collapsed');
+	}
+}
+
+function itemToggle(dom, tp){
+	if(tp == 'collapsed'){
+		dom.addClass('collapsed');
+	}else{
+		dom.removeClass('collapsed');
+	}
+}
+
+function itemsToggle(dom, tp){
+	if(tp == 'collapsed'){
+			dom.removeClass('items_collapsed').addClass('items_expanded');
+			dom.text('展开');
+		}else{
+			dom.removeClass('items_expanded').addClass('items_collapsed');
+			dom.text('收起');
+		}
+}
+
+$(function(){
+	//试题单个点击展开/折叠
+	$('ul.labelCon li .question_item').on('click','dt', function(){
+		var box = $(this).parent();
+		
+		if(box.hasClass('collapsed')){
+			itemToggle(box, 'expanded');
+			// box.removeClass('collapsed');
+		}else{
+			itemToggle(box, 'collapsed');
+			// box.addClass('collapsed');
+		}
+
+		//当单个全部收起或者展开时，整体的那个按钮样式和文字的修改
+		var items = $('ul.labelCon li .question_item');
+		var collapsed = $('ul.labelCon li dl.collapsed');
+		var handle = $('.question_handle_btn');
+		if(items.length == collapsed.length){
+			handle.removeClass('items_collapsed').addClass('items_expanded');
+			handle.text('展开');
+		}
+		if(collapsed.length == 0){
+			handle.removeClass('items_expanded').addClass('items_collapsed');
+			handle.text('收起');
+		}
+	});
+
+	//整体展开/折叠
+	$('.question_handle_btn').on('click', function(){
+		var collapsed = $(this).hasClass('items_collapsed');
+		var items = $('ul.labelCon li .question_item');
+		if(collapsed){
+			// items.addClass('collapsed');
+			itemToggle(items, 'collapsed');
+			itemsToggle($(this), 'collapsed');
+
+			// $(this).removeClass('items_collapsed').addClass('items_expanded');
+			// $(this).text('展开');
+		}else{
+			// items.removeClass('collapsed');
+			itemToggle(items, 'expanded');
+			itemsToggle($(this), 'expanded');
+
+			// $(this).removeClass('items_expanded').addClass('items_collapsed');
+			// $(this).text('收起');
+		}
+	});
+
+	//单个移出
+	$('ul.labelCon li .question_item').on('click', '.item_delete', function(){
+		$(this).parents('.question_item').remove();
+	});
+})

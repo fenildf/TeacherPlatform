@@ -91,6 +91,7 @@ $(function(){
 		}else{
 			$('#headSearch_value').val('');
 		}
+		// console.log(headSearch);
 		headSearch();
 	});
 	$('#headSearch_select').find('li a').click(function(){
@@ -162,9 +163,10 @@ function getUserName(){
 function headSearch(id){
 	var tp = $('#headSearch_type').val(),
 		val = $('#headSearch_value').val();
-	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_3_3_1'; 
+	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_2_2_3'; 
 
 	var d = xes.platform.menu.getItem(id);
+	console.log(d);
 	openTabs(d.url, d.name, id);
 	xes.platform.findChild(id, '.search_key', function(dom){
 		if(typeof dom != 'string'){
@@ -273,7 +275,7 @@ var goTabs = function(url, title, id, closeID){
 var closeActiveTabs = function(id){
 	
 	var _tab = id ? $('.ui-tabs-items').find('#tab_'+id) : $('.ui-tabs-items > li.current');
-	console.log(id);
+	// console.log(id);
 	var _con = $('#content_'+id);
 	_tab.find('span.del_btn').click();
 	_con.hide();

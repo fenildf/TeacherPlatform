@@ -4,7 +4,7 @@
  */
 
 /*
- * 创建试题
+ * 批量导入试题
  * project.create.js
  * @update : 2013-1-30
  * @author : Marco <Marco.Pai@msn.com>
@@ -18,13 +18,14 @@
 
 ///import:xes.form.js///
 
-///import:xes.img.js///
+// /import:xes.img.js/ //
+
+///import:xes.knowledge.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
+
 $(function () {
-	// console.log($(window.parent));
-	// $("#startDate").calendar();
 	$('#paper_type').change(function(){
 		var _txt = $('#paper_type option:selected').text();
 		if(this.value==2 || _txt == '考试卷'){
@@ -38,12 +39,12 @@ $(function () {
 	});
 
 	$('.questions_type_button').change(function(){
-		var _box = $('.questions_type');
-		_box.hide();
+		var n = $(this).attr('name').replace('testType_','');
+		console.log(n);
 		if(this.value == 1){
-			$('#questions_type_checkbox').show();
+			$('#questions_type_checkbox_'+n).show().siblings('.questions_type').hide();
 		}else{
-			$('#questions_type_input').show();
+			$('#questions_type_input_'+n).show().siblings('.questions_type').hide();
 		}
 	});
 
@@ -56,19 +57,6 @@ $(function () {
 		setKnowledge(null,$(this).val());
 	});
 	
-	// var _b = $('.questions_type');
-	// _b.hide();
-	// if($('.questions_type_button').val() == 1){
-	// 	_b.eq(0).show();
-	// }else{
-	// 	_b.eq(1).show();
-	// }
-
-	// $('em.imgView').hover(function(){
-	// 	xes.img.hoverView($(this).text(),this);
-	// },function(){
-	// 	xes.img.hideView();
-	// });
 	xes.iframe.setHeight();
 });
 function getQuestionListDom(d,id){
@@ -77,19 +65,13 @@ function getQuestionListDom(d,id){
 	var _before = id ? $('#question_id_'+id) 
 					 : _list.length == 0 ? $('.choose') 
 					 					 : _list.last();
-	// var _index = $('.choose div[id^="question_id_"]').index(_before[0]);
 	$.each(d,function(k,v){
 		var _t = v.test_name,
 			_id = v.id,
 			_url = v.test_content;
 		if($('#question_id_'+_id).length > 0){
-			// alert(_t' 这道题已经添加过了，请勿重复添加');
-			// if(confirm('《'+_t+'》这道题已经添加过了，请勿重复添加，点击确定将不会添加重复的《'+_t+'》')){
-			// 	return;
-			// }
 			alert('《'+_t+'》这道题已经添加过了，请勿重复添加!');
 			return;
-			
 		}
 		_html += '<div id="question_id_' + _id + '" class="choose_list">'
 		+'		<span class="question_num"><em>3</em>.</span>'
@@ -124,19 +106,13 @@ function getQuestionListDom(d,id){
 		+'</div>';
 	});
 
-	// console.log('id:'+id);
-	// console.log(_before);
 	if(_list.length > 0){
 		_before.after(_html);
 	}else{
 		$('.choose').html(_html);
 	}
-	// alert(1);
 	setQuestionListNum();
-	// alert(2);
-	// setTimeout(function(){
 		xes.iframe.setHeight();
-	// },50);
 }
 /**
  * 重新计算序列号
@@ -146,7 +122,6 @@ function setQuestionListNum(){
 	_list.each(function(i){
 		$(this).find('.question_num em').text((i+1));
 	});
-	// xes.iframe.setHeight();
 }
 
 function deleteQuestion(id){
@@ -194,11 +169,10 @@ function getQuestionListValue(){
 function addFillCorrectAnswer(d){
 	var _wrap = $(d).parent();
 
-	var _html = '<span><input type="text" value="" name="fillCorrectAnswer[]" class="input_text">\n'
+	var _html = '<span><input type="text" value="" name="fillCorrectAnswer[]" class="input_text w130">\n'
 			  + '<a href="###" onclick="addFillCorrectAnswer(this);">追加</a>\n'
 			  + '<a href="###" onclick="removeFillCorrectAnswer(this);">删除</a></span>';
 	_wrap.after(_html);
-	// _wrap.parent().find('span').first().find('a:last').remove();
 }
 
 function removeFillCorrectAnswer(d){
@@ -210,3 +184,126 @@ function removeFillCorrectAnswer(d){
 		alert('至少要有一个正确答案');
 	}
 }
+
+/* =-=-=-=-=-=-=-=-=-=-=-= 编辑导入试题部分 =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+
+var batch = {
+	name:'试卷名称',
+	type:'试卷类型',
+	time:'答题时间',
+	total:'试卷总分',
+	department:'学部',
+	subject:'学科',
+	description:'描述',
+	items:{
+		'1001':{
+			id:'',
+			num:'1',
+			content:'http://...jpg',
+			answerAnalysis:'解析',
+			title:'试题名称',
+			keyword:'关键字',
+			customDifficulty:'系数',
+			knowledge:[2,3,2],
+			type:'试题类型',
+			questions_type_checkbox:[1,2,4,8]/*'正确答案'*/,
+			score:'分值'
+
+		}
+	}
+};
+
+
+var items = {
+	'1':{
+		id:''
+	}
+};
+
+/**
+ * 试题列表折叠
+ * expanded / collapsed 
+ */
+function itemAaccordion(dom,tp){
+	var item = $(dom).find('.item_body');
+	if(tp == 'collapsed'){
+		item.addClass('item_collapsed');
+	}else{
+		item.removeClass('item_collapsed');
+	}
+}
+
+//试题单个点击展开/折叠
+function itemToggle(dom, tp){
+	if(tp == 'collapsed'){
+		dom.addClass('collapsed');
+	}else{
+		dom.removeClass('collapsed');
+	}
+}
+
+//整体展开/折叠
+function itemsToggle(dom, tp){
+	if(tp == 'collapsed'){
+		dom.removeClass('items_collapsed').addClass('items_expanded');
+		dom.text('展开');
+	}else{
+		dom.removeClass('items_expanded').addClass('items_collapsed');
+		dom.text('收起');
+	}
+}
+
+$(function(){
+	//试题单个点击展开/折叠
+	$('ul.labelCon li .question_item').on('click','dt', function(){
+		var box = $(this).parent();
+		
+		if(box.hasClass('collapsed')){
+			itemToggle(box, 'expanded');
+			// box.removeClass('collapsed');
+		}else{
+			itemToggle(box, 'collapsed');
+			// box.addClass('collapsed');
+		}
+
+		//当单个全部收起或者展开时，整体的那个按钮样式和文字的修改
+		var items = $('ul.labelCon li .question_item');
+		var collapsed = $('ul.labelCon li dl.collapsed');
+		var handle = $('.question_handle_btn');
+		if(items.length == collapsed.length){
+			handle.removeClass('items_collapsed').addClass('items_expanded');
+			handle.text('展开');
+		}
+		if(collapsed.length == 0){
+			handle.removeClass('items_expanded').addClass('items_collapsed');
+			handle.text('收起');
+		}
+	});
+
+	//整体展开/折叠
+	$('.question_handle_btn').on('click', function(){
+		var collapsed = $(this).hasClass('items_collapsed');
+		var items = $('ul.labelCon li .question_item');
+		if(collapsed){
+			// items.addClass('collapsed');
+			itemToggle(items, 'collapsed');
+			itemsToggle($(this), 'collapsed');
+
+			// $(this).removeClass('items_collapsed').addClass('items_expanded');
+			// $(this).text('展开');
+		}else{
+			// items.removeClass('collapsed');
+			itemToggle(items, 'expanded');
+			itemsToggle($(this), 'expanded');
+
+			// $(this).removeClass('items_expanded').addClass('items_collapsed');
+			// $(this).text('收起');
+		}
+	});
+
+	//单个移出
+	$('ul.labelCon li .question_item').on('click', '.item_delete', function(){
+		$(this).parents('.question_item').remove();
+	});
+})
