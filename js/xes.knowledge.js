@@ -121,54 +121,7 @@ xes.LocalStorage = xes.LocalStorage || {};
 
 xes.knowledge.setParams();
 
-function setSelect(params, pid, level){
-	var str = '&nbsp;';
-	str += '<select id="' + params['level_'+level+'_id'] + '" name="' + params['level_'+level+'_id'] + '">';
-	str += '<option value="" selected>--选择知识点--</option>';
 
-	$.each(result[pid], function(i, j) {
-		if (params.department_id == 0 && params.subject_id == 0) {
-			if (params['level_'+level+'_default'] != '') {
-				str += '<option value="' + i + '"';
-				if (params['level_'+level+'_default'] == i) {
-					str += ' selected ';
-					if (params['level_'+(level+1)+'_default'] != '') {
-						// initSelects_3(params, i);
-						xes.knowledge.checkData(params, i, level+1);
-					}
-				}
-				str += '>' + j['name'] + '</option>';
-			} else {
-				str += '<option value="' + i + '">' + j['name'] + '</option>';
-			}
-		}else{
-			if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-				if (params['level_'+level+'_default'] != '') {
-					str += '<option value="' + i + '"';
-					if (params['level_'+level+'_default'] == i) {
-						str += ' selected ';
-						if (params['level_'+(level+1)+'_default'] != '') {
-							// initSelects_3(params, i);
-							xes.knowledge.checkData(params, i, level+1);
-
-						}
-					}
-					str += '>' + j['name'] + '</option>';
-				} else {
-					str += '<option value="' + i + '">' + j['name'] + '</option>';
-				}
-			}
-		}
-	});
-	str += '</select>';
-	box.nextAll('select').remove();
-	box.after(str);
-	box.next('select').bind("change", function() {
-		// initSelects_3(params, $(this).val());
-		xes.knowledge.checkData(params, $(this).val() , level+1);
-
-	});
-}
 
 function setDom(result, pid, level){
 	var level = Number(level);
@@ -244,13 +197,15 @@ function initSelects(params) {
 				str += '<option value="" selected>--选择知识点--</option>';
 				
 				$.each(result, function(i, j) {
+					//当学部和学科为0时
 					if (params.department_id == 0 && params.subject_id == 0) {
+						//1级类别默认值不为空
 						if (params.level_1_default != '') {
 							str += '<option value="' + i + '"';
 							if (params.level_1_default == i) {
 								str += ' selected ';
 								if (params.level_2_default != '') {
-									initSelects_2(params, i);
+									// initSelects_2(params, i);
 									xes.knowledge.checkData(params, i, 2);
 								}
 							}
@@ -265,7 +220,8 @@ function initSelects(params) {
 								if (params.level_1_default == i) {
 									str += ' selected ';
 									if (params.level_2_default != '') {
-										initSelects_2(params, i);
+										// initSelects_2(params, i);
+										xes.knowledge.checkData(params, i, 2);
 									}
 								}
 								str += '>' + j['name'] + '</option>';
@@ -280,7 +236,8 @@ function initSelects(params) {
 				$('#' + params.container_id).html(str);
 				
 				$('#' + params.level_1_id).bind("change", function() {
-					initSelects_2(params, $(this).val());
+					// initSelects_2(params, $(this).val());
+					xes.knowledge.checkData(params, $(this).val(), 2);
 				});
 			}
 	}

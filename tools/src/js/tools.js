@@ -247,6 +247,7 @@ function createAllCSSFiles(path){
 		'page_data.css',
 		'page_edit.css',
 		'page_file.css',
+		'page_file_edit.css',
 		'page_form.css',
 		'page_list.css',
 		'page_message.css',
