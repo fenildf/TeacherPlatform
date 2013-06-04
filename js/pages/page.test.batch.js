@@ -304,6 +304,17 @@ $(function(){
 
 	//单个移出
 	$('ul.labelCon li .question_item').on('click', '.item_delete', function(){
-		$(this).parents('.question_item').remove();
+		if(confirm('是否确定删除')){
+			$(this).parents('.question_item').remove();
+		}
+	});
+
+	// 选择试卷类型
+	$('#paper_type').on('change', function(){
+		if(this.value == 2){
+			$('.question_item').removeClass('test_paper');
+		}else{
+			$('.question_item').addClass('test_paper');
+		}
 	});
 })

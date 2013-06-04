@@ -295,7 +295,7 @@ a:hover.btn_submit {color: #fff; text-decoration: none;}
 input[type="text"],
 textarea,
 .input_title,
-.input_content {border:1px solid #D3D3D3; ;padding-left:10px;background: url(http://img03.xesimg.com/bg_input.png) repeat-y left 0;}
+.input_content {border:1px solid #D3D3D3; ;padding-left:10px;background: #fff url(http://img03.xesimg.com/bg_input.png) repeat-y left 0;}
 
 .input_keyword {height: 25px;padding: 0 10px}
 

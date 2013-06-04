@@ -225,3 +225,43 @@ ul.labelCon li .collapsed .item_pic em{
 ul.labelCon li .collapsed .item_title{
 	display: none;
 }
+
+ul.labelCon li.question_items input.error {
+	border-color:#C00;
+}
+
+/* 测试卷 */
+ul.labelCon li .test_paper {}
+ul.labelCon li .test_paper .item_sorce {
+	display: none;
+}
+ul.labelCon li .collapsed.test_paper .item_pic {
+	left: 130px;
+
+}
+ul.labelCon li .collapsed.test_paper .item_pic em {
+	width:240px;
+}
+
+ul.labelCon li .collapsed.test_list .item_pic {
+	left:0;
+}
+ul.labelCon li .collapsed.test_list .item_pic em {
+	width:300px;
+}
+/* 表单验证提示 */
+
+dd.item_error {
+	border-color: #FF9393;
+	background-color: #FFF9F9;
+}
+
+dd.item_ok {
+	border-color: #AED9A4;
+	background-color: #F4FAF3;
+}
+
+ul.labelCon li.question_items input.form_error {
+	border-color:#C00;
+}
+

@@ -75,15 +75,168 @@ xes.LocalStorage = xes.LocalStorage || {};
 		initSelects(k.params);	
 	};
 
+	k.checkData = function(params, pid, level){
+		var pid = Number(pid);
+		var box = $('#' + params['level_'+(level-1)+'_id']);
+		if(pid == '') {
+			// 如果没有选择一级,则删除二,三,四级下拉框
+			box.nextAll('select').remove();
+		} else {
+			
+			var _json = xes.LocalStorage.get('k'+level);
+
+			// var a2 = xes.LocalStorage.get('k2');
+			if(_json){
+				setDom(_json, pid, level);
+			}else{
+				$.ajax({
+					url		: params.url + level,
+					dataType: 'jsonp',
+					jsonp	: 'jsonCallback',
+					timeout	: 6000,
+					success	: function(json) {
+						xes.LocalStorage.set('k'+level, json);
+						setDom(json, pid, level);
+					},
+					error	: function() {
+						alert('数据读取错误..');
+					}
+				});
+			}
+		}
+	};
+
+	k.dropdown = {
+		1 : function(){},
+		2 : function(){
+			k.checkData('', '', 2);
+		},
+		3 : function(){
+			k.checkData('', '', 3);
+		},
+		4 : function(){}
+	};
+
 })();
 
+xes.knowledge.setParams();
+
+function setSelect(params, pid, level){
+	var str = '&nbsp;';
+	str += '<select id="' + params['level_'+level+'_id'] + '" name="' + params['level_'+level+'_id'] + '">';
+	str += '<option value="" selected>--选择知识点--</option>';
+
+	$.each(result[pid], function(i, j) {
+		if (params.department_id == 0 && params.subject_id == 0) {
+			if (params['level_'+level+'_default'] != '') {
+				str += '<option value="' + i + '"';
+				if (params['level_'+level+'_default'] == i) {
+					str += ' selected ';
+					if (params['level_'+(level+1)+'_default'] != '') {
+						// initSelects_3(params, i);
+						xes.knowledge.checkData(params, i, level+1);
+					}
+				}
+				str += '>' + j['name'] + '</option>';
+			} else {
+				str += '<option value="' + i + '">' + j['name'] + '</option>';
+			}
+		}else{
+			if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+				if (params['level_'+level+'_default'] != '') {
+					str += '<option value="' + i + '"';
+					if (params['level_'+level+'_default'] == i) {
+						str += ' selected ';
+						if (params['level_'+(level+1)+'_default'] != '') {
+							// initSelects_3(params, i);
+							xes.knowledge.checkData(params, i, level+1);
+
+						}
+					}
+					str += '>' + j['name'] + '</option>';
+				} else {
+					str += '<option value="' + i + '">' + j['name'] + '</option>';
+				}
+			}
+		}
+	});
+	str += '</select>';
+	box.nextAll('select').remove();
+	box.after(str);
+	box.next('select').bind("change", function() {
+		// initSelects_3(params, $(this).val());
+		xes.knowledge.checkData(params, $(this).val() , level+1);
+
+	});
+}
+
+function setDom(result, pid, level){
+	var level = Number(level);
+	var params = xes.knowledge.params;
+	var val = level == 1 ? result : result[pid];
+	var box = $('#' + params['level_'+(level-1)+'_id']);
+	// 如果有子类别,则显示
+	if (params.level>=level && result[pid] && result[pid] != '') {
+		var str = '&nbsp;';
+		str += '<select id="' + params['level_'+level+'_id'] + '" name="' + params['level_'+level+'_id'] + '">';
+		str += '<option value="" selected>--选择知识点--</option>';
+
+		$.each(val, function(i, j) {
+			if (params.department_id == 0 && params.subject_id == 0) {
+				if (params['level_'+level+'_default'] != '') {
+					str += '<option value="' + i + '"';
+					if (params['level_'+level+'_default'] == i) {
+						str += ' selected ';
+						if (params['level_'+(level+1)+'_default'] != '') {
+							// initSelects_3(params, i);
+							xes.knowledge.checkData(params, i, level+1);
+						}
+					}
+					str += '>' + j['name'] + '</option>';
+				} else {
+					str += '<option value="' + i + '">' + j['name'] + '</option>';
+				}
+			}else{
+				if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
+					if (params['level_'+level+'_default'] != '') {
+						str += '<option value="' + i + '"';
+						if (params['level_'+level+'_default'] == i) {
+							str += ' selected ';
+							if (params['level_'+(level+1)+'_default'] != '') {
+								// initSelects_3(params, i);
+								xes.knowledge.checkData(params, i, level+1);
+
+							}
+						}
+						str += '>' + j['name'] + '</option>';
+					} else {
+						str += '<option value="' + i + '">' + j['name'] + '</option>';
+					}
+				}
+			}
+		});
+		str += '</select>';
+		box.nextAll('select').remove();
+		box.after(str);
+		box.next('select').bind("change", function() {
+			// initSelects_3(params, $(this).val());
+			xes.knowledge.checkData(params, $(this).val() , level+1);
+
+		});
+	} else {
+		// 如果没有子类, 则隐藏下级下拉框
+		box.nextAll('select').remove();
+	}
+}
 
 /**
-* 初始化四级联动下拉框
-*
-* priely	2013-03-25
-*/
+ * 初始化四级联动下拉框
+ *
+ * priely	2013-03-25
+ */
 function initSelects(params) {
+	var params = xes.knowledge.params;
+
 	function set1(result){
 		if (result != '') {
 				var str = '';
@@ -98,6 +251,7 @@ function initSelects(params) {
 								str += ' selected ';
 								if (params.level_2_default != '') {
 									initSelects_2(params, i);
+									xes.knowledge.checkData(params, i, 2);
 								}
 							}
 							str += '>' + j['name'] + '</option>';
@@ -152,161 +306,63 @@ function initSelects(params) {
 }
 
 
-function initSelects_2(params, pid) {
-	var box = $('#' + params.level_1_id);
-	if(pid == '') {
-		// 如果没有选择一级,则删除二,三,四级下拉框
-		box.nextAll('select').remove();
-	} else {
-		function set2(result){
-			// 如果有子类别,则显示
-			if (params.level>=2 && result[pid] && result[pid] != '') {
-				var str = '&nbsp;';
-				str += '<select id="' + params.level_2_id + '" name="' + params.level_2_id + '">';
-				str += '<option value="" selected>--选择知识点--</option>';
-
-				$.each(result[pid], function(i, j) {
-					if (params.department_id == 0 && params.subject_id == 0) {
-						if (params.level_2_default != '') {
-							str += '<option value="' + i + '"';
-							if (params.level_2_default == i) {
-								str += ' selected ';
-								if (params.level_3_default != '') {
-									initSelects_3(params, i);
-								}
-							}
-							str += '>' + j['name'] + '</option>';
-						} else {
-							str += '<option value="' + i + '">' + j['name'] + '</option>';
-						}
-					}else{
-						if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-							if (params.level_2_default != '') {
-								str += '<option value="' + i + '"';
-								if (params.level_2_default == i) {
-									str += ' selected ';
-									if (params.level_3_default != '') {
-										initSelects_3(params, i);
-									}
-								}
-								str += '>' + j['name'] + '</option>';
-							} else {
-								str += '<option value="' + i + '">' + j['name'] + '</option>';
-							}
-						}
-					}
-				});
-				str += '</select>';
-				
-				box.nextAll('select').remove();
-				box.after(str);
-
-				box.next('select').bind("change", function() {
-					initSelects_3(params, $(this).val());
-				});
-			} else {
-				// 如果没有子类, 则隐藏下级下拉框
-				box.nextAll('select').remove();
-			}
-		};
-		var a2 = xes.LocalStorage.get('k2');
-		if(a2){
-			set2(a2);
-		}else{
-			$.ajax({
-				url		: params.url + '2',
-				dataType: 'jsonp',
-				jsonp	: 'jsonCallback',
-				timeout	: 6000,
-				success	: function(json) {
-					xes.LocalStorage.set('k2',json);
-					set2(json);
-				},
-				error	: function() {
-					alert('数据读取错误..');
-				}
-			});
-		}
-
-	}
-}
+// function initSelects_2(params, pid) {
+// 	console.log('pid:' + pid);
+// 	var box = $('#' + params.level_1_id);
+// 	if(pid == '') {
+// 		// 如果没有选择一级,则删除二,三,四级下拉框
+// 		box.nextAll('select').remove();
+// 	} else {
+		
+// 		var a2 = xes.LocalStorage.get('k2');
+// 		if(a2){
+// 			setDom(a2, pid, 2);
+// 		}else{
+// 			$.ajax({
+// 				url		: params.url + '2',
+// 				dataType: 'jsonp',
+// 				jsonp	: 'jsonCallback',
+// 				timeout	: 6000,
+// 				success	: function(json) {
+// 					xes.LocalStorage.set('k2',json);
+// 					setDom(json, pid, 2);
+// 				},
+// 				error	: function() {
+// 					alert('数据读取错误..');
+// 				}
+// 			});
+// 		}
+// 	}
+// }
 
 
-function initSelects_3(params, pid) {
-	var box = $('#' + params.level_2_id);
-	if(pid == '') {
-		// 如果没有选择二级,则删除三,四级下拉框
-		box.nextAll('select').remove();
-	} else {
-		function set3(result){
-			// 如果有子类别,则显示
-				if (params.level>=3 && result[pid] && result[pid] != '') {
-					var str = '&nbsp;';
-					str += '<select id="' + params.level_3_id + '" name="' + params.level_3_id + '">';
-					str += '<option value="" selected>--选择知识点--</option>';
-					
-					$.each(result[pid], function(i, j) {
-						if (params.department_id == 0 && params.subject_id == 0) {
-							if (params.level_3_default != '') {
-								str += '<option value="' + i + '"';
-								if (params.level_3_default == i) {
-									str += ' selected ';
-									if (params.level_4_default != '') {
-										initSelects_4(params, i);
-									}
-								}
-								str += '>' + j['name'] + '</option>';
-							} else {
-								str += '<option value="' + i + '">' + j['name'] + '</option>';
-							}
-						}else{
-							if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-								if (params.level_3_default != '') {
-									str += '<option value="' + i + '"';
-									if (params.level_3_default == i) {
-										str += ' selected ';
-										if (params.level_4_default != '') {
-											initSelects_4(params, i);
-										}
-									}
-									str += '>' + j['name'] + '</option>';
-								} else {
-									str += '<option value="' + i + '">' + j['name'] + '</option>';
-								}
-							}
-						}
-					});
-					str += '</select>';
-					box.nextAll('select').remove();
-					box.after(str);
-					box.next('select').bind("change", function() {
-						initSelects_4(params, $(this).val());
-					});
-				} else {
-					// 如果没有子类, 则隐藏下级下拉框
-					box.nextAll('select').remove();
-				}
-		}
-		var a3 = xes.LocalStorage.get('k3');
-		if(a3){
-			set3(a3);
-		}else{
-			$.ajax({
-				url		: params.url + '3',
-				dataType: 'jsonp',
-				jsonp	: 'jsonCallback',
-				timeout	: 6000,
-				success	: function(json) {
-					xes.LocalStorage.set('k3',json);
-					set3(json);
-				},
-				error	: function() {
-					alert('数据读取错误..');
-				}
-			});
-		}
-	}
-}
+// function initSelects_3(params, pid) {
+// 	var box = $('#' + params.level_2_id);
+// 	if(pid == '') {
+// 		// 如果没有选择二级,则删除三,四级下拉框
+// 		box.nextAll('select').remove();
+// 	} else {
+		
+// 		var a3 = xes.LocalStorage.get('k3');
+// 		if(a3){
+// 			setDom(a3, 3);
+// 		}else{
+// 			$.ajax({
+// 				url		: params.url + '3',
+// 				dataType: 'jsonp',
+// 				jsonp	: 'jsonCallback',
+// 				timeout	: 6000,
+// 				success	: function(json) {
+// 					xes.LocalStorage.set('k3',json);
+// 					setDom(json, 3);
+// 				},
+// 				error	: function() {
+// 					alert('数据读取错误..');
+// 				}
+// 			});
+// 		}
+// 	}
+// }
 
 
 function initSelects_4(params, pid) {

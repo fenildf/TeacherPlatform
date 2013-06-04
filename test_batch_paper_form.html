@@ -16,26 +16,25 @@
 
 	<ul class="labelCon">
 		<li>
-			<label for="">试题名称</label>
+			<label for=""><em class="red">※</em>试题名称</label>
 			<span>
 				<input size="" value="" type="text" class="input_text" />
 			</span>
 		</li>
 		<li>
-			<label for="">试题类型</label>
+			<label for=""><em class="red">※</em>试题类型</label>
 			<span>
 				<select id="paper_type" class="ui-select-list">
 					<option class="ui-select-button" value="1">测试卷</option>
 					<option value="2">考卷</option>
-
 				</select>
 			</span>
 			<div class="paper_type_box">
-				<label for="">答题时间</label>
+				<label for=""><em class="red">※</em>答题时间</label>
 				<span>
 					<input size="" value="单位为分钟" type="text" class="input_text" />
 				</span>
-				<label for="">试卷分值</label>
+				<label for=""><em class="red">※</em>试卷分值</label>
 				<span>
 					<input type="radio" value="1" name="subjectIds[]">
 					100
@@ -52,7 +51,7 @@
 			
 		</li>
 		<li>
-			<label for="">选择学部</label>
+			<label for=""><em class="red">※</em>选择学部</label>
 			<span>
 				<select class="ui-select-list">
 					<option class="ui-select-button">年级</option>
@@ -65,7 +64,7 @@
 		</li>
 
 		<li>
-			<label for="">所属学科</label>
+			<label for=""><em class="red">※</em>所属学科</label>
 			<span>
 				<input type="radio" value="1" name="subjectIds[1]">
 				语文
@@ -100,7 +99,7 @@
 			<p class="question_counts">共导入7道试题，7个解析（带<em class="red">※</em>为必填项）</p>
 		</li>
 		<li class="question_items">
-			<dl class="question_item">
+			<dl class="question_item test_paper">
 				<dt class="item_head accordion_close">
 					<span class="btn_accordion">+</span>
 					<span class="item_number">10000.</span>
@@ -110,8 +109,12 @@
 				</dd>
 				<dd class="item_body">
 					<div class="item_body_1st">
-						<label for="" class="first"><em class="red">※ </em>试题序号</label> <input type="text" class="input_text w30" /> 
-						<label for=""><em class="red">※</em>分值</label><input type="text" class="input_text w30" />
+						<span class="item_num">
+							<label for="" class="first"><em class="red">※ </em>试题序号</label> <input type="text" class="input_text w30" /> 
+						</span>
+						<span class="item_sorce">
+							<label for=""><em class="red">※</em>分值</label><input type="text" class="input_text w30" />
+						</span>
 						<span class="item_title"><label for=""> 试题名称</label><input type="text" class="input_text w200" /></span>
 					</div>
 					<div class="item_pic">
