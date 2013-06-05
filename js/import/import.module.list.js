@@ -617,7 +617,8 @@ var xform = xform || {};
 		* @return
 		*/
 		f.checkAll = function (cbs_id) {
-			var ifChecked = $('input[type="checkbox"][id="checkAll"]').attr('checked');
+			// var ifChecked = $('input[type="checkbox"][id="checkAll"]').attr('checked');
+			var ifChecked = $('input[type="checkbox"][id="checkAll"]')[0].checked;
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
 				$(this).attr('checked', ifChecked);
 			});
@@ -640,7 +641,8 @@ var xform = xform || {};
 			var uncheckedBox = 0;
 			// 全选所有复选框
 			$.each($('input[type="checkbox"][id="' + cbs_id + '"]'), function() {
-				if($(this).attr('checked') == false) {
+				var checked = $(this).attr('checked');
+				if(checked == false || checked == undefined) {
 					$(this).attr('checked', true);
 					uncheckedBox = 1;
 				}
