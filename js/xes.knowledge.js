@@ -37,7 +37,7 @@ xes.LocalStorage = xes.LocalStorage || {};
 	k.setParams = function(json){
 		var knowledge = {
 			// ajax请求数据地址
-			'url':	'http://www.wss2.0.com/coursev4/knowledge/',
+			'url':	'http://www.test-wss2.0.com/coursev4/knowledge/',
 			// 联动容器id
 			'container_id': 'knowledge',
 			// 知识点一级类别标识
