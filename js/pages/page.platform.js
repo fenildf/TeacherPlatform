@@ -128,6 +128,12 @@ $(function(){
 	$('#topTeacherName').click(function(){
 		openTabs(this);
 	});
+
+	// 退出时先清除cookie
+	$('.ui_user_list li.line a').mousedown(function(){
+		xes.ui.tabs.clearCookie();
+		return;
+	});
 });
 /**
  * 把用户名存储到cookie中（base64加密后，并替换最后的等号为'_'）

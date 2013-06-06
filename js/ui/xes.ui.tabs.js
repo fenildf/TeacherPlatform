@@ -117,7 +117,7 @@ var tabs = tabs || {};
 		if(config.isCookie){
 			t.isCookie = true;
 			//7天后过期
-			t.cookieExpires = 7;
+			t.cookieExpires = 0;
 			var cookieName = $.cookie('platform_u');
 			if(cookieName){
 				t.o.cookieName = cookieName;
@@ -350,6 +350,19 @@ var tabs = tabs || {};
 		var tabsName = t.o.cookieName+'tabs';
 		$.cookie(tabsName,ids, {expires:t.cookieExpires});
 	};	
+
+	/**
+	 * 清除cookie里的内容
+	 * 
+	 */
+	t.clearCookie = function(){
+		var _tabs = t.o.cookieName + 'tabs';
+		var _history = t.o.cookieName + 'history';
+		var _active = t.o.cookieName + 'active';
+		$.cookie(_tabs, null);
+		$.cookie(_history, null);
+		$.cookie(_active, null);
+	};
 	/**
 	 * 设置历史记录
 	 */
