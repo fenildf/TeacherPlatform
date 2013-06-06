@@ -1424,7 +1424,6 @@ $(function(){
 
 	// 退出时先清除cookie
 	$('.ui_user_list li.line a').mousedown(function(){
-		// alert(this.href);
 		xes.ui.tabs.clearCookie();
 		return;
 	});
