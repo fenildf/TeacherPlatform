@@ -8,7 +8,7 @@
 
 require 'path.php';
 
-$url = $PATH_PAGES.'\\'.$_GET['filename']; //获取源码，用上面的匹配函数获得需要的内容页网址
+$url = $PATH_PAGES.DIRECTORY_SEPARATOR.$_GET['filename']; //获取源码，用上面的匹配函数获得需要的内容页网址
 
 $identifier = '///import:[url]///'; //函数第1个参数,源码里德地址形式
 //根据url获取js文件内容

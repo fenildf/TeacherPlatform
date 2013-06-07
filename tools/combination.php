@@ -19,8 +19,8 @@ $filename = strtr($file, array('.js' => ''));
 $newfilename = strtr($filename, array('page' => 'import'));
 
 $type = $_GET['isCombine']; //压缩
-$path = realpath($PATH.$_GET['path']).'\\'; //生成的路径
-if($path == '\\'){
+$path = realpath($PATH.$_GET['path']).DIRECTORY_SEPARATOR; //生成的路径
+if($path == DIRECTORY_SEPARATOR){
 	return;
 }
 set_time_limit(0); 
