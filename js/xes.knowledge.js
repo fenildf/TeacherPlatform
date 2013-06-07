@@ -1,3 +1,5 @@
+/* -------------------- xes.knowledge.js --------------------- */
+
 /**
  * knowledge
  *
@@ -9,7 +11,8 @@
 
 var xes = xes || {};
 
-xes.knowledge = xes.knowledge || {};
+///import:xes.localstorage.js///
+
 xes.LocalStorage = xes.LocalStorage || {};
 (function() {
 	var ls = xes.LocalStorage;
@@ -27,6 +30,111 @@ xes.LocalStorage = xes.LocalStorage || {};
 	}
 })();
 
+
+xes.know = xes.know || {};
+
+(function(){
+	var k = xes.know;
+
+	/**
+	 * 学部ID
+	 * @type {Number}
+	 */
+	k.department = 0;
+
+	/**
+	 * 学科ID
+	 * @type {Number}
+	 */
+	k.subject = 0;
+
+	/**
+	 * 知识点外围样式
+	 * @type {String}
+	 * @example <span class="knowledge_items"></span>
+	 * 
+	 */
+	k.wrap = '.knowledge_items';
+
+	/**
+	 * 知识点DOM
+	 * @type {String}
+	 * @example 
+	 * <span class="knowledge_items">
+	 * 		<select></select>
+	 * 		<select></select>
+	 * </span>
+	 */
+	k.item = '.knowledge_items select';
+
+	/**
+	 * 获取当前点击的知识点的索引值（level）
+	 * 
+	 * @return {[type]} [description]
+	 */
+	k.getIndex = function(DOM){
+		return $(k.item).index(DOM);
+	};
+
+	/**
+	 * 获取知识点数据
+	 * @return {[type]} [description]
+	 */
+	k.getJSON = function(){};
+
+	/**
+	 * 创建HTML节点
+	 * @return {[type]} [description]
+	 */
+	k.createDOM = function(){};
+
+	/**
+	 * 移除知识点
+	 * @return {[type]} [description]
+	 */
+	k.remove = function(){};
+
+	/**
+	 * 复制知识点
+	 * @return {[type]} [description]
+	 */
+	k.clone = function(from, to){};
+
+	/**
+	 * 获取选中的值
+	 * @return {[type]} [description]
+	 */
+	k.getValue = function(){};
+
+	/**
+	 * 设置要选中的值
+	 * @return {[type]} [description]
+	 */
+	k.setValue = function(){};
+	
+
+	/**
+	 * 知识点的点击事件
+	 * @return {[type]} [description]
+	 */
+	k.click = function(dom, level){};
+
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+xes.knowledge = xes.knowledge || {};
+
 (function(){
 	var k = xes.knowledge;
 	//知识点容器集合
@@ -37,7 +145,7 @@ xes.LocalStorage = xes.LocalStorage || {};
 	k.setParams = function(json){
 		var knowledge = {
 			// ajax请求数据地址
-			'url':	'http://www.test-wss2.0.com/coursev4/knowledge/',
+			'url':	'http://www.wss-test2.0.com/coursev4/knowledge/',
 			// 联动容器id
 			'container_id': 'knowledge',
 			// 知识点一级类别标识

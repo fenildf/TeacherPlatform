@@ -20,6 +20,8 @@
 
 // /import:xes.img.js/ //
 
+///import:xes.localstorage.js///
+
 ///import:xes.knowledge.js///
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
