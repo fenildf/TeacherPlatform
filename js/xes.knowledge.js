@@ -99,25 +99,65 @@ xes.know = xes.know || {};
 	 * 可以有两种调用方式：
 	 *
 	 * 1. 通过回掉函数：
-		 	k._getJSON(level, pid, function(data){
+		 	k._getData(level, pid, function(data){
 				k._createHTML(data, level)._append(level);
 			});
 		2. 直接调用：
-			k._getJSON(level, pid);
+			k._getData(level, pid);
 
 	 */
-	k._getJSON = function(level, pid, func){
+	k._getData = function(level, pid, func){
 
 		//还差本地存储部分
+		var localData = xes.LocalStorage.get('knowledge_' + level);
+		console.log(localData);
+		if(localData){
+			_operateData(localData);
+		}else{
+			$.ajax({
+				url		: k.url + level,
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(json) {
+					var json = JSON.parse(json);
+					xes.LocalStorage.set('knowledge_'+level, json);
+					_operateData(json);
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});	
+		}
+		/**
+		 * 处理json数据
+		 * @param  {json | string} data [可以是Json格式，也可以是序列化的字符串]
+		 * 
+		 * @return {[type]}      [description]
+		 */
+		function _operateData(data){
+			
+			var json = data;
+			json = (pid == 0) ? json : json[pid];
+
+			// 如果没有子节点则不处理
+			if(json != undefined){
+
+				if(func){
+					func(json);
+				}else{
+					k._createHTML(json, level)._append(level);
+				}
+
+			}
+		}
+
+		return this;
+	};
 
 
-		$.ajax({
-			url		: k.url + level,
-			dataType: 'jsonp',
-			jsonp	: 'jsonCallback',
-			timeout	: 6000,
-			success	: function(json) {
-				var json = JSON.parse(json);
+	k._operateData = function(data, level, pid){
+		var json = JSON.parse(data);
 
 				json = (pid == 0) ? json : json[pid];
 
@@ -131,16 +171,7 @@ xes.know = xes.know || {};
 					}
 
 				}
-			},
-			error	: function() {
-				alert('数据读取错误..');
-			}
-		});
-
-
-		return this;
 	};
-
 
 	/**
 	 * 生成HTML节点
@@ -199,19 +230,19 @@ xes.know = xes.know || {};
 	 * @param  {Number} pid   父级id
 	 * @return {[type]}       [description]
 	 *
-	 * 
+	 * @example :
+	 		1. 可以用下面回掉函数的方式
+				k._getData(level, pid, function(data){
+			 		k._createHTML(data, level)._append(level);
+				});
+
+			2. 也可以直接调用: k._getData(level, pid);
 	 */
 	k.create = function(level, pid){
 		var pid = pid || 0;
 
-		// 可以用下吗回掉函数的方式
-		
-		// k._getJSON(level, pid, function(data){
-		// 	k._createHTML(data, level)._append(level);
-		// });
-
-		// 也可以直接调用
-		k._getJSON(level, pid);
+		// 直接调用
+		k._getData(level, pid);
 
 		return this;
 	};
@@ -270,25 +301,52 @@ xes.know = xes.know || {};
 
 	/**
 	 * 知识点初始化方法
-	 * @param  {JSON} opt  配置参数，只支持：
-	 	{
-			department 	:0,							// 学部ID
-			subject 	:0,							// 学科ID
-			wrap 		:'$('.knowledge_box')',		// 存放知识点的容器：可以是选择符，也可以直接是jQuery对象
-			items 		:'$('select')',				// 知识点的select组：可以是选择符，也可以是jQuery对象
-			url 		:'',						// ajax请求路径
-			val 		:[1,2,3,4],					// 默认知识点选中的值（ID）：4位的数组分别代表4个级别，如果没有则用0标识
-			func 		:function(know){}			// 初始化后要执行的方法，如果只需要初始化参数可不用写这个回掉
-	 	}
-	 * @param  {Function} func 回掉函数：如果不用opt.func的话，可以在这里进行回掉，会返回一个xes.know对象
+	 * @param  {JSON | String} opt  配置参数，可以是JSON对象；或是字符串：
+	 			1. 如果是JSON对象，则只支持：
+						 	{
+								department 	:0,							// 学部ID
+								subject 	:0,							// 学科ID
+								wrap 		:'$('.knowledge_box')',		// 存放知识点的容器：可以是选择符，也可以直接是jQuery对象
+								items 		:'$('select')',				// 知识点的select组：可以是选择符，也可以是jQuery对象
+								url 		:'',						// ajax请求路径
+								val 		:[1,2,3,4],					// 默认知识点选中的值（ID）：4位的数组分别代表4个级别，如果没有则用0标识
+								func 		:function(know){}			// 初始化后要执行的方法，如果只需要初始化参数可不用写这个回掉
+						 	}
+				2. 如果是字符串，则直接指定xes.know对应的键，并且下面第二个参数是此键的值；
+
+	 * @param  {String | Function}  val 
+	 *                   1. 如果传入的只是string的话，则第一个参数为Key，第二个参数为value；
+	 *                   2. 如果是function的话则为回掉函数，可以在这里进行回掉，会返回一个xes.know对象
+	 *                   
+	 * @param  {Function} func 回掉函数（可不用）：如果不用opt.func的话，可以在这里进行回掉，会返回一个xes.know对象
+	 * 
 	 * @return {[type]}      [description]
 	 */
-	k.init = function(opt, func){
+	k.init = function(opt, v, func){
+
+		//判断opt的类型
+		var tp = typeof(opt);
+
+		/**
+		 *  判断第二个参数是否为回调函数：
+		 *  true : 回调函数
+		 *  false: 第一个参数的值
+		 *  
+		 */
+		var isCallback = (typeof(v) == 'function');
 
 		//覆盖原有设置
-		$.each(opt, function(key, val){
-			k[key] = val;
-		});
+		if(tp == 'object'){
+			$.each(opt, function(key, val){
+				k[key] = val;
+			});
+		//如果v不是回调，并且 opt 是字符串，则直接给xes.know里面指定的键赋值
+		}else if(!isCallback && tp == 'string'){
+			k[opt] = v;
+		}
+		
+		//初始化创建第一级节点
+		k.create(1);
 
 		/**
 		 * 初始化后要执行的方法
@@ -299,8 +357,9 @@ xes.know = xes.know || {};
 			opt.func(k);
 		}
 
-		if(func){
-			func(this);
+		//如果有回调则执行回调函数，返回xes.know对象，否则直接返回xes.know对象
+		if(isCallback){
+			v(this);
 		}else{
 			return this;
 		}
@@ -311,13 +370,23 @@ xes.know = xes.know || {};
 
 
 
+/**
+ * 知识点调用样例：
+ * 1. 初始化：
+		xes.know.init({
+			department:2,
+			subject:2,
+			func : function(a){
+				// console.log(a);
+				// a.create(1);
+				a.addlistener();
+			}
+		}); 
 
-xes.know.init({
-	department:2,
-	subject:2,
-	func : function(a){
-		console.log(a);
-		a.create(1);
-		a.addlistener();
-	}
-});
+	2. 初始化之后，需要重新设置参数：
+	xes.know.init({
+		department:2,
+		subject:2,
+	});
+ */
+

@@ -42,7 +42,7 @@ $(function () {
 
 	$('.questions_type_button').change(function(){
 		var n = $(this).attr('name').replace('testType_','');
-		console.log(n);
+		// console.log(n);
 		if(this.value == 1){
 			$('#questions_type_checkbox_'+n).show().siblings('.questions_type').hide();
 		}else{
@@ -52,11 +52,17 @@ $(function () {
 
 	$('#departmentId').change(function(){
 		$('.choose').html('');
-		setKnowledge($(this).val());
+		// setKnowledge($(this).val());
+		xes.know.init({
+			department: $(this).val()
+		});
 	});
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
-		setKnowledge(null,$(this).val());
+		// setKnowledge(null,$(this).val());
+		xes.know.init({
+			subject: $(this).val()
+		});
 	});
 	
 	xes.iframe.setHeight();

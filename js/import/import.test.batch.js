@@ -775,7 +775,7 @@ xes.LocalStorage = xes.LocalStorage || {};
 
 
 /* -------------------- xes.knowledge.js --------------------- */
-
+ 
 /**
  * knowledge
  *
@@ -875,25 +875,65 @@ xes.know = xes.know || {};
 	 * 可以有两种调用方式：
 	 *
 	 * 1. 通过回掉函数：
-		 	k._getJSON(level, pid, function(data){
+		 	k._getData(level, pid, function(data){
 				k._createHTML(data, level)._append(level);
 			});
 		2. 直接调用：
-			k._getJSON(level, pid);
+			k._getData(level, pid);
 
 	 */
-	k._getJSON = function(level, pid, func){
+	k._getData = function(level, pid, func){
 
 		//还差本地存储部分
+		var localData = xes.LocalStorage.get('knowledge_' + level);
+		console.log(localData);
+		if(localData){
+			_operateData(localData);
+		}else{
+			$.ajax({
+				url		: k.url + level,
+				dataType: 'jsonp',
+				jsonp	: 'jsonCallback',
+				timeout	: 6000,
+				success	: function(json) {
+					var json = JSON.parse(json);
+					xes.LocalStorage.set('knowledge_'+level, json);
+					_operateData(json);
+				},
+				error	: function() {
+					alert('数据读取错误..');
+				}
+			});	
+		}
+		/**
+		 * 处理json数据
+		 * @param  {json | string} data [可以是Json格式，也可以是序列化的字符串]
+		 * 
+		 * @return {[type]}      [description]
+		 */
+		function _operateData(data){
+			
+			var json = data;
+			json = (pid == 0) ? json : json[pid];
+
+			// 如果没有子节点则不处理
+			if(json != undefined){
+
+				if(func){
+					func(json);
+				}else{
+					k._createHTML(json, level)._append(level);
+				}
+
+			}
+		}
+
+		return this;
+	};
 
 
-		$.ajax({
-			url		: k.url + level,
-			dataType: 'jsonp',
-			jsonp	: 'jsonCallback',
-			timeout	: 6000,
-			success	: function(json) {
-				var json = JSON.parse(json);
+	k._operateData = function(data, level, pid){
+		var json = JSON.parse(data);
 
 				json = (pid == 0) ? json : json[pid];
 
@@ -907,16 +947,7 @@ xes.know = xes.know || {};
 					}
 
 				}
-			},
-			error	: function() {
-				alert('数据读取错误..');
-			}
-		});
-
-
-		return this;
 	};
-
 
 	/**
 	 * 生成HTML节点
@@ -975,19 +1006,19 @@ xes.know = xes.know || {};
 	 * @param  {Number} pid   父级id
 	 * @return {[type]}       [description]
 	 *
-	 * 
+	 * @example :
+	 		1. 可以用下面回掉函数的方式
+				k._getData(level, pid, function(data){
+			 		k._createHTML(data, level)._append(level);
+				});
+
+			2. 也可以直接调用: k._getData(level, pid);
 	 */
 	k.create = function(level, pid){
 		var pid = pid || 0;
 
-		// 可以用下吗回掉函数的方式
-		
-		// k._getJSON(level, pid, function(data){
-		// 	k._createHTML(data, level)._append(level);
-		// });
-
-		// 也可以直接调用
-		k._getJSON(level, pid);
+		// 直接调用
+		k._getData(level, pid);
 
 		return this;
 	};
@@ -1046,25 +1077,52 @@ xes.know = xes.know || {};
 
 	/**
 	 * 知识点初始化方法
-	 * @param  {JSON} opt  配置参数，只支持：
-	 	{
-			department 	:0,							// 学部ID
-			subject 	:0,							// 学科ID
-			wrap 		:'$('.knowledge_box')',		// 存放知识点的容器：可以是选择符，也可以直接是jQuery对象
-			items 		:'$('select')',				// 知识点的select组：可以是选择符，也可以是jQuery对象
-			url 		:'',						// ajax请求路径
-			val 		:[1,2,3,4],					// 默认知识点选中的值（ID）：4位的数组分别代表4个级别，如果没有则用0标识
-			func 		:function(know){}			// 初始化后要执行的方法，如果只需要初始化参数可不用写这个回掉
-	 	}
-	 * @param  {Function} func 回掉函数：如果不用opt.func的话，可以在这里进行回掉，会返回一个xes.know对象
+	 * @param  {JSON | String} opt  配置参数，可以是JSON对象；或是字符串：
+	 			1. 如果是JSON对象，则只支持：
+						 	{
+								department 	:0,							// 学部ID
+								subject 	:0,							// 学科ID
+								wrap 		:'$('.knowledge_box')',		// 存放知识点的容器：可以是选择符，也可以直接是jQuery对象
+								items 		:'$('select')',				// 知识点的select组：可以是选择符，也可以是jQuery对象
+								url 		:'',						// ajax请求路径
+								val 		:[1,2,3,4],					// 默认知识点选中的值（ID）：4位的数组分别代表4个级别，如果没有则用0标识
+								func 		:function(know){}			// 初始化后要执行的方法，如果只需要初始化参数可不用写这个回掉
+						 	}
+				2. 如果是字符串，则直接指定xes.know对应的键，并且下面第二个参数是此键的值；
+
+	 * @param  {String | Function}  val 
+	 *                   1. 如果传入的只是string的话，则第一个参数为Key，第二个参数为value；
+	 *                   2. 如果是function的话则为回掉函数，可以在这里进行回掉，会返回一个xes.know对象
+	 *                   
+	 * @param  {Function} func 回掉函数（可不用）：如果不用opt.func的话，可以在这里进行回掉，会返回一个xes.know对象
+	 * 
 	 * @return {[type]}      [description]
 	 */
-	k.init = function(opt, func){
+	k.init = function(opt, v, func){
+
+		//判断opt的类型
+		var tp = typeof(opt);
+
+		/**
+		 *  判断第二个参数是否为回调函数：
+		 *  true : 回调函数
+		 *  false: 第一个参数的值
+		 *  
+		 */
+		var isCallback = (typeof(v) == 'function');
 
 		//覆盖原有设置
-		$.each(opt, function(key, val){
-			k[key] = val;
-		});
+		if(tp == 'object'){
+			$.each(opt, function(key, val){
+				k[key] = val;
+			});
+		//如果v不是回调，并且 opt 是字符串，则直接给xes.know里面指定的键赋值
+		}else if(!isCallback && tp == 'string'){
+			k[opt] = v;
+		}
+		
+		//初始化创建第一级节点
+		k.create(1);
 
 		/**
 		 * 初始化后要执行的方法
@@ -1075,8 +1133,9 @@ xes.know = xes.know || {};
 			opt.func(k);
 		}
 
-		if(func){
-			func(this);
+		//如果有回调则执行回调函数，返回xes.know对象，否则直接返回xes.know对象
+		if(isCallback){
+			v(this);
 		}else{
 			return this;
 		}
@@ -1087,381 +1146,27 @@ xes.know = xes.know || {};
 
 
 
-
-xes.know.init({
-	department:2,
-	subject:2,
-	func : function(a){
-		console.log(a);
-		a.create(1);
-		a.addlistener();
-	}
-});
-
-// xes.knowledge = xes.knowledge || {};
-
-// (function(){
-// 	var k = xes.knowledge;
-// 	//知识点容器集合
-// 	k.box = '.knowledge_box';
-// 	k.departmentID = 0;
-// 	k.subjectID = 0;
-// 	k.params = {};
-// 	k.setParams = function(json){
-// 		var knowledge = {
-// 			// ajax请求数据地址
-// 			'url':	'http://www.wss-test2.0.com/coursev4/knowledge/',
-// 			// 联动容器id
-// 			'container_id': 'knowledge',
-// 			// 知识点一级类别标识
-// 			'level_1_id': 'knowledgePoint1Id',
-// 			// 知识点一级类别默认值
-// 			'level_1_default': '',
-// 			// 知识点二级类别标识
-// 			'level_2_id': 'knowledgePoint2Id',
-// 			// 知识点二级类别默认值
-// 			'level_2_default': '',
-// 			// 知识点三级类别标识
-// 			'level_3_id': 'knowledgePoint3Id',
-// 			// 知识点三级类别默认值
-// 			'level_3_default': '',
-// 			// 知识点四级类别标识
-// 			'level_4_id': 'knowledgePoint4Id',
-// 			// 知识点四级类别默认值
-// 			'level_4_default': '',
-// 			// 显示层级
-// 			'level': 4,
-// 			// 学部
-// 			'department_id': k.departmentID,
-// 			// 学科
-// 			'subject_id': k.subjectID
-// 		};
-// 		k.params = knowledge;
-// 		return this;
-// 	};
-
-// 	k.config = function(){
-
-// 	};
-
-// 	k.init = function(json){
-// 		initSelects(k.params);	
-// 	};
-
-// 	k.checkData = function(params, pid, level){
-// 		var pid = Number(pid);
-// 		var box = $('#' + params['level_'+(level-1)+'_id']);
-// 		if(pid == '') {
-// 			// 如果没有选择一级,则删除二,三,四级下拉框
-// 			box.nextAll('select').remove();
-// 		} else {
-			
-// 			var _json = xes.LocalStorage.get('k'+level);
-
-// 			// var a2 = xes.LocalStorage.get('k2');
-// 			if(_json){
-// 				setDom(_json, pid, level);
-// 			}else{
-// 				$.ajax({
-// 					url		: params.url + level,
-// 					dataType: 'jsonp',
-// 					jsonp	: 'jsonCallback',
-// 					timeout	: 6000,
-// 					success	: function(json) {
-// 						xes.LocalStorage.set('k'+level, json);
-// 						setDom(json, pid, level);
-// 					},
-// 					error	: function() {
-// 						alert('数据读取错误..');
-// 					}
-// 				});
-// 			}
-// 		}
-// 	};
-
-// 	k.dropdown = {
-// 		1 : function(){},
-// 		2 : function(){
-// 			k.checkData('', '', 2);
-// 		},
-// 		3 : function(){
-// 			k.checkData('', '', 3);
-// 		},
-// 		4 : function(){}
-// 	};
-
-// })();
-
-// xes.knowledge.setParams();
-
-
-
-// function setDom(result, pid, level){
-// 	var level = Number(level);
-// 	var params = xes.knowledge.params;
-// 	var val = level == 1 ? result : result[pid];
-// 	var box = $('#' + params['level_'+(level-1)+'_id']);
-// 	// 如果有子类别,则显示
-// 	if (params.level>=level && result[pid] && result[pid] != '') {
-// 		var str = '&nbsp;';
-// 		str += '<select id="' + params['level_'+level+'_id'] + '" name="' + params['level_'+level+'_id'] + '">';
-// 		str += '<option value="" selected>--选择知识点--</option>';
-
-// 		$.each(val, function(i, j) {
-// 			if (params.department_id == 0 && params.subject_id == 0) {
-// 				if (params['level_'+level+'_default'] != '') {
-// 					str += '<option value="' + i + '"';
-// 					if (params['level_'+level+'_default'] == i) {
-// 						str += ' selected ';
-// 						if (params['level_'+(level+1)+'_default'] != '') {
-// 							// initSelects_3(params, i);
-// 							xes.knowledge.checkData(params, i, level+1);
-// 						}
-// 					}
-// 					str += '>' + j['name'] + '</option>';
-// 				} else {
-// 					str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 				}
-// 			}else{
-// 				if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-// 					if (params['level_'+level+'_default'] != '') {
-// 						str += '<option value="' + i + '"';
-// 						if (params['level_'+level+'_default'] == i) {
-// 							str += ' selected ';
-// 							if (params['level_'+(level+1)+'_default'] != '') {
-// 								// initSelects_3(params, i);
-// 								xes.knowledge.checkData(params, i, level+1);
-
-// 							}
-// 						}
-// 						str += '>' + j['name'] + '</option>';
-// 					} else {
-// 						str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 					}
-// 				}
-// 			}
-// 		});
-// 		str += '</select>';
-// 		box.nextAll('select').remove();
-// 		box.after(str);
-// 		box.next('select').bind("change", function() {
-// 			// initSelects_3(params, $(this).val());
-// 			xes.knowledge.checkData(params, $(this).val() , level+1);
-
-// 		});
-// 	} else {
-// 		// 如果没有子类, 则隐藏下级下拉框
-// 		box.nextAll('select').remove();
-// 	}
-// }
-
 /**
- * 初始化四级联动下拉框
- *
- * priely	2013-03-25
+ * 知识点调用样例：
+ * 1. 初始化：
+		xes.know.init({
+			department:2,
+			subject:2,
+			func : function(a){
+				// console.log(a);
+				// a.create(1);
+				a.addlistener();
+			}
+		}); 
+
+	2. 初始化之后，需要重新设置参数：
+	xes.know.init({
+		department:2,
+		subject:2,
+	});
  */
-// function initSelects(params) {
-// 	var params = xes.knowledge.params;
-
-// 	function set1(result){
-// 		if (result != '') {
-// 				var str = '';
-// 				str += '<select id="' + params.level_1_id + '" name="' + params.level_1_id + '">';
-// 				str += '<option value="" selected>--选择知识点--</option>';
-				
-// 				$.each(result, function(i, j) {
-// 					//当学部和学科为0时
-// 					if (params.department_id == 0 && params.subject_id == 0) {
-// 						//1级类别默认值不为空
-// 						if (params.level_1_default != '') {
-// 							str += '<option value="' + i + '"';
-// 							if (params.level_1_default == i) {
-// 								str += ' selected ';
-// 								if (params.level_2_default != '') {
-// 									// initSelects_2(params, i);
-// 									xes.knowledge.checkData(params, i, 2);
-// 								}
-// 							}
-// 							str += '>' + j['name'] + '</option>';
-// 						} else {
-// 							str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 						}
-// 					}else{
-// 						if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-// 							if (params.level_1_default != '') {
-// 								str += '<option value="' + i + '"';
-// 								if (params.level_1_default == i) {
-// 									str += ' selected ';
-// 									if (params.level_2_default != '') {
-// 										// initSelects_2(params, i);
-// 										xes.knowledge.checkData(params, i, 2);
-// 									}
-// 								}
-// 								str += '>' + j['name'] + '</option>';
-// 							} else {
-// 								str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 							}
-// 						}
-// 					}
-// 				});
-// 				str += '</select>';
-				
-// 				$('#' + params.container_id).html(str);
-				
-// 				$('#' + params.level_1_id).bind("change", function() {
-// 					// initSelects_2(params, $(this).val());
-// 					xes.knowledge.checkData(params, $(this).val(), 2);
-// 				});
-// 			}
-// 	}
-// 	var a1 = xes.LocalStorage.get('k1');
-// 		if(a1){
-// 			set1(a1);
-// 		}else{
-// 			$.ajax({
-// 				url		: params.url + '1',
-// 				dataType: 'jsonp',
-// 				jsonp	: 'jsonCallback',
-// 				timeout	: 6000,
-// 				success	: function(result) {
-// 					xes.LocalStorage.set('k1',json);
-// 							set1(json);
-					
-// 				},
-// 				error	: function() {
-// 					alert('数据读取错误..');
-// 				}
-// 			});	
-// 		}
-// }
 
 
-// function initSelects_2(params, pid) {
-// 	console.log('pid:' + pid);
-// 	var box = $('#' + params.level_1_id);
-// 	if(pid == '') {
-// 		// 如果没有选择一级,则删除二,三,四级下拉框
-// 		box.nextAll('select').remove();
-// 	} else {
-		
-// 		var a2 = xes.LocalStorage.get('k2');
-// 		if(a2){
-// 			setDom(a2, pid, 2);
-// 		}else{
-// 			$.ajax({
-// 				url		: params.url + '2',
-// 				dataType: 'jsonp',
-// 				jsonp	: 'jsonCallback',
-// 				timeout	: 6000,
-// 				success	: function(json) {
-// 					xes.LocalStorage.set('k2',json);
-// 					setDom(json, pid, 2);
-// 				},
-// 				error	: function() {
-// 					alert('数据读取错误..');
-// 				}
-// 			});
-// 		}
-// 	}
-// }
-
-
-// function initSelects_3(params, pid) {
-// 	var box = $('#' + params.level_2_id);
-// 	if(pid == '') {
-// 		// 如果没有选择二级,则删除三,四级下拉框
-// 		box.nextAll('select').remove();
-// 	} else {
-		
-// 		var a3 = xes.LocalStorage.get('k3');
-// 		if(a3){
-// 			setDom(a3, 3);
-// 		}else{
-// 			$.ajax({
-// 				url		: params.url + '3',
-// 				dataType: 'jsonp',
-// 				jsonp	: 'jsonCallback',
-// 				timeout	: 6000,
-// 				success	: function(json) {
-// 					xes.LocalStorage.set('k3',json);
-// 					setDom(json, 3);
-// 				},
-// 				error	: function() {
-// 					alert('数据读取错误..');
-// 				}
-// 			});
-// 		}
-// 	}
-// }
-
-
-// function initSelects_4(params, pid) {
-// 	var box = $('#' + params.level_3_id);
-// 	if(pid == '') {
-// 		// 如果没有选择三级,则删除四级下拉框
-// 		box.nextAll('select').remove();
-// 	} else {
-// 		function set4(result){
-// 			// 如果有子类别,则显示
-// 				if (params.level>=4 && result[pid] && result[pid] != '') {
-// 					var str = '&nbsp;';
-// 					str += '<select id="' + params.level_4_id + '" name="' + params.level_4_id + '">';
-// 					str += '<option value="" selected>--选择知识点--</option>';
-					
-// 					$.each(result[pid], function(i, j) {
-// 						if (params.department_id == 0 && params.subject_id == 0) {
-// 							if (params.level_4_default != '') {
-// 								str += '<option value="' + i + '"';
-// 								if (params.level_4_default == i) {
-// 									str += ' selected ';
-// 								}
-// 								str += '>' + j['name'] + '</option>';
-// 							} else {
-// 								str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 							}
-// 						}else{
-// 							if (params.department_id == j['department_id'] && params.subject_id == j['subject_id']) {
-// 								if (params.level_4_default != '') {
-// 									str += '<option value="' + i + '"';
-// 									if (params.level_4_default == i) {
-// 										str += ' selected ';
-// 									}
-// 									str += '>' + j['name'] + '</option>';
-// 								} else {
-// 									str += '<option value="' + i + '">' + j['name'] + '</option>';
-// 								}
-// 							}
-// 						}
-// 					});
-// 					str += '</select>';
-					
-// 					box.nextAll('select').remove();
-// 					box.after(str);	
-// 				} else {
-// 					// 如果没有子类, 则隐藏下级下拉框
-// 					box.nextAll('select').remove();
-// 				}
-// 		}
-// 		var a4 = xes.LocalStorage.get('k4');
-// 		if(a4){
-// 			set4(a4);
-// 		}else{
-// 			$.ajax({
-// 				url		: params.url + '4',
-// 				dataType: 'jsonp',
-// 				jsonp	: 'jsonCallback',
-// 				timeout	: 6000,
-// 				success	: function(json) {
-// 					xes.LocalStorage.set('k4',json);
-// 					set4(json);
-// 				},
-// 				error	: function() {
-// 					alert('数据读取错误..');
-// 				}
-// 			});
-// 		}
-// 	}
-// }
 
 /* =-=-=-=-=-=-=-=-=-=-=-= data1_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
 
@@ -1481,7 +1186,7 @@ $(function () {
 
 	$('.questions_type_button').change(function(){
 		var n = $(this).attr('name').replace('testType_','');
-		console.log(n);
+		// console.log(n);
 		if(this.value == 1){
 			$('#questions_type_checkbox_'+n).show().siblings('.questions_type').hide();
 		}else{
@@ -1491,11 +1196,17 @@ $(function () {
 
 	$('#departmentId').change(function(){
 		$('.choose').html('');
-		setKnowledge($(this).val());
+		// setKnowledge($(this).val());
+		xes.know.init({
+			department: $(this).val()
+		});
 	});
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
-		setKnowledge(null,$(this).val());
+		// setKnowledge(null,$(this).val());
+		xes.know.init({
+			subject: $(this).val()
+		});
 	});
 	
 	xes.iframe.setHeight();

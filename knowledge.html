@@ -69,36 +69,42 @@
 </body>
 <script type="text/javascript">
 $(function() {
-	knowledge_params = {
-		// ajax请求数据地址
-		'url':	'http://www.wss-test2.0.com/coursev4/knowledge/',
-		// 联动容器id
-		'container_id': 'knowledge',
-		// 知识点一级类别标识
-		'level_1_id': 'knowledgePoint1Id',
-		// 知识点一级类别默认值
-		'level_1_default': '',
-		// 知识点二级类别标识
-		'level_2_id': 'knowledgePoint2Id',
-		// 知识点二级类别默认值
-		'level_2_default': '',
-		// 知识点三级类别标识
-		'level_3_id': 'knowledgePoint3Id',
-		// 知识点三级类别默认值
-		'level_3_default': '',
-		// 知识点四级类别标识
-		'level_4_id': 'knowledgePoint4Id',
-		// 知识点四级类别默认值
-		'level_4_default': '',
-		// 显示层级
-		'level': 4,
-		// 学部
-		'department_id': 0,
-		// 学科
-		'subject_id': 0
-	};
-	initSelects(knowledge_params);	
-})
+
+	xes.know.init({
+		department:2,
+		subject:2
+	}).addlistener();
+
+	// knowledge_params = {
+	// 	// ajax请求数据地址
+	// 	'url':	'http://www.wss-test2.0.com/coursev4/knowledge/',
+	// 	// 联动容器id
+	// 	'container_id': 'knowledge',
+	// 	// 知识点一级类别标识
+	// 	'level_1_id': 'knowledgePoint1Id',
+	// 	// 知识点一级类别默认值
+	// 	'level_1_default': '',
+	// 	// 知识点二级类别标识
+	// 	'level_2_id': 'knowledgePoint2Id',
+	// 	// 知识点二级类别默认值
+	// 	'level_2_default': '',
+	// 	// 知识点三级类别标识
+	// 	'level_3_id': 'knowledgePoint3Id',
+	// 	// 知识点三级类别默认值
+	// 	'level_3_default': '',
+	// 	// 知识点四级类别标识
+	// 	'level_4_id': 'knowledgePoint4Id',
+	// 	// 知识点四级类别默认值
+	// 	'level_4_default': '',
+	// 	// 显示层级
+	// 	'level': 4,
+	// 	// 学部
+	// 	'department_id': 0,
+	// 	// 学科
+	// 	'subject_id': 0
+	// };
+	// initSelects(knowledge_params);	
+});
 	//选择解析视频
 	function sectionLists(){
 		var result = window.showModalDialog('/testQuestions/teacherSectionLists/','','dialogLeft:300px;dialogTop:360px;dialogWidth:930px;DialogHeight=430px;status:no;resizable:1;')
