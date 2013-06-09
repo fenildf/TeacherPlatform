@@ -50,6 +50,7 @@ $(function () {
 		}
 	});
 
+	// 选择学部
 	$('#departmentId').change(function(){
 		$('.choose').html('');
 
@@ -64,6 +65,8 @@ $(function () {
 		 */		
 		xes.know.init('department', $(this).val());
 	});
+
+	// 选择学科
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
 		xes.know.init('subject', $(this).val());
@@ -71,6 +74,7 @@ $(function () {
 	
 	xes.iframe.setHeight();
 });
+
 function getQuestionListDom(d,id){
 	var _html = '';
 	var _list = $('.choose div[id^="question_id_"]');
@@ -126,6 +130,7 @@ function getQuestionListDom(d,id){
 	setQuestionListNum();
 	xes.iframe.setHeight();
 }
+
 /**
  * 重新计算序列号
  */
@@ -135,6 +140,7 @@ function setQuestionListNum(){
 		$(this).find('.question_num em').text((i+1));
 	});
 }
+
 
 function deleteQuestion(id){
 	if(id){
@@ -176,7 +182,7 @@ function getQuestionListValue(){
 /* 试题页面：*/
 
 /**
- * 追缴填空题
+ * 追加填空题
  */
 function addFillCorrectAnswer(d){
 	var _wrap = $(d).parent();
@@ -273,10 +279,8 @@ $(function(){
 		
 		if(box.hasClass('collapsed')){
 			itemToggle(box, 'expanded');
-			// box.removeClass('collapsed');
 		}else{
 			itemToggle(box, 'collapsed');
-			// box.addClass('collapsed');
 		}
 
 		//当单个全部收起或者展开时，整体的那个按钮样式和文字的修改
@@ -298,19 +302,11 @@ $(function(){
 		var collapsed = $(this).hasClass('items_collapsed');
 		var items = $('ul.labelCon li .question_item');
 		if(collapsed){
-			// items.addClass('collapsed');
 			itemToggle(items, 'collapsed');
 			itemsToggle($(this), 'collapsed');
-
-			// $(this).removeClass('items_collapsed').addClass('items_expanded');
-			// $(this).text('展开');
 		}else{
-			// items.removeClass('collapsed');
 			itemToggle(items, 'expanded');
 			itemsToggle($(this), 'expanded');
-
-			// $(this).removeClass('items_expanded').addClass('items_collapsed');
-			// $(this).text('收起');
 		}
 	});
 
@@ -352,7 +348,6 @@ $(function(){
 			$(this).find('option[value="' + this.value + '"]').attr('checked',true);
 		});
 		
-		// console.log(v);
 		// 复制到所有的知识点容器中
 		$('.knowledge_box').html(p.html());
 
@@ -370,7 +365,7 @@ $(function(){
 	});
 
 
-
+	// 页面加载之后第一次初始化知识点
 	xes.know.init({
 		department:2,
 		subject:2,
@@ -378,6 +373,25 @@ $(function(){
 	}).addlistener();
 
 });
+
+
+
+/* --------------------- 表单验证部分 -------------------- */
+
+
+// 试卷
+
+
+
+// 试题
+
+
+
+
+
+
+
+
 
 
 
