@@ -121,27 +121,32 @@ xes.know = xes.know || {};
 		 * 否则ajax获取数据后存储本地存储，然后再调用处理函数(_operateData)
 		 */
 		var localData = xes.LocalStorage.get('knowledge_' + level);
-
 		if(localData){
 			_operateData(localData);
 		}else{
-			$.ajax({
-				url		: k.url + level,
-				dataType: 'jsonp',
-				jsonp	: 'jsonCallback',
-				timeout	: 6000,
-				success	: function(json) {
-					//如果不是object则格式化数据
-					if(typeof(json) != 'object'){
-						var json = JSON.parse(json);
+			//如果超出5级则不再请求
+			if(level < 5){
+				$.ajax({
+					url		: k.url + level,
+					dataType: 'jsonp',
+					jsonp	: 'jsonCallback',
+					timeout	: 6000,
+					success	: function(json) {
+						//如果不是object则格式化数据
+						if(typeof(json) != 'object'){
+							var json = JSON.parse(json);
+						}
+						xes.LocalStorage.set('knowledge_'+level, json);
+						_operateData(json);
+					},
+					error	: function() {
+						alert('数据读取错误..');
 					}
-					xes.LocalStorage.set('knowledge_'+level, json);
-					_operateData(json);
-				},
-				error	: function() {
-					alert('数据读取错误..');
-				}
-			});	
+				});	
+			}else{
+				return this;
+			}
+			
 		}
 
 		/**

@@ -373,7 +373,8 @@ $(function(){
 
 	xes.know.init({
 		department:2,
-		subject:2
+		subject:2,
+		url:'http://www.wss2.0.com/coursev4/knowledge/'
 	}).addlistener();
 
 });

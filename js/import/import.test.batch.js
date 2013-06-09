@@ -897,27 +897,32 @@ xes.know = xes.know || {};
 		 * 否则ajax获取数据后存储本地存储，然后再调用处理函数(_operateData)
 		 */
 		var localData = xes.LocalStorage.get('knowledge_' + level);
-
 		if(localData){
 			_operateData(localData);
 		}else{
-			$.ajax({
-				url		: k.url + level,
-				dataType: 'jsonp',
-				jsonp	: 'jsonCallback',
-				timeout	: 6000,
-				success	: function(json) {
-					//如果不是object则格式化数据
-					if(typeof(json) != 'object'){
-						var json = JSON.parse(json);
+			//如果超出5级则不再请求
+			if(level < 5){
+				$.ajax({
+					url		: k.url + level,
+					dataType: 'jsonp',
+					jsonp	: 'jsonCallback',
+					timeout	: 6000,
+					success	: function(json) {
+						//如果不是object则格式化数据
+						if(typeof(json) != 'object'){
+							var json = JSON.parse(json);
+						}
+						xes.LocalStorage.set('knowledge_'+level, json);
+						_operateData(json);
+					},
+					error	: function() {
+						alert('数据读取错误..');
 					}
-					xes.LocalStorage.set('knowledge_'+level, json);
-					_operateData(json);
-				},
-				error	: function() {
-					alert('数据读取错误..');
-				}
-			});	
+				});	
+			}else{
+				return this;
+			}
+			
 		}
 
 		/**
@@ -1189,19 +1194,20 @@ $(function () {
 
 	$('#departmentId').change(function(){
 		$('.choose').html('');
-		// setKnowledge($(this).val());
-		// xes.know.init({
-		// 	department: $(this).val()
-		// });
+
+		/**
+		 * 两种方法初始化知识点：
+		 *
+		  	1. 传入object：
+		  		xes.know.init({
+					department: $(this).val()
+				});
+			2. 直接将键、值当2个参数传入进去：	xes.know.init('department', $(this).val());
+		 */		
 		xes.know.init('department', $(this).val());
 	});
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
-		// setKnowledge(null,$(this).val());
-		// xes.know.init({
-		// 	subject: $(this).val()
-		// });
-
 		xes.know.init('subject', $(this).val());
 	});
 	
@@ -1509,7 +1515,8 @@ $(function(){
 
 	xes.know.init({
 		department:2,
-		subject:2
+		subject:2,
+		url:'http://www.wss2.0.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
