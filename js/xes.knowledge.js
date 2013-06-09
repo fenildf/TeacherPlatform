@@ -53,12 +53,20 @@ xes.know = xes.know || {};
 	k.json = {};
 
 	/**
-	 * 知识点外围样式
-	 * @type {String}
+	 * 知识点容器
+	 * @type {String | jQuery}
+	 *   
 	 * @example <span class="knowledge_items"></span>
-	 * 
+	 *
+	 * 当点击知识点之后，此容器存储的是点击节点的父级容器
 	 */
 	k.wrap = '.knowledge_box';
+
+	/**
+	 * 知识点组外围容器的样式
+	 * @type {String}
+	 */
+	k.items = '.knowledge_box';
 
 	/**
 	 * 知识点DOM
@@ -69,7 +77,7 @@ xes.know = xes.know || {};
 	 * 		<select></select>
 	 * </span>
 	 */
-	k.items = '.knowledge_box select';
+	k.item = '.knowledge_box select';
 
 	k.url = 'http://teacher.com/knowledge.php?level=';
 
@@ -108,9 +116,12 @@ xes.know = xes.know || {};
 	 */
 	k._getData = function(level, pid, func){
 
-		//还差本地存储部分
+		/**
+		 * 判断本地存储中是否有数据，如果有直接把数据传入处理函数(_operateData)中,
+		 * 否则ajax获取数据后存储本地存储，然后再调用处理函数(_operateData)
+		 */
 		var localData = xes.LocalStorage.get('knowledge_' + level);
-		console.log(localData);
+
 		if(localData){
 			_operateData(localData);
 		}else{
@@ -120,7 +131,10 @@ xes.know = xes.know || {};
 				jsonp	: 'jsonCallback',
 				timeout	: 6000,
 				success	: function(json) {
-					var json = JSON.parse(json);
+					//如果不是object则格式化数据
+					if(typeof(json) != 'object'){
+						var json = JSON.parse(json);
+					}
 					xes.LocalStorage.set('knowledge_'+level, json);
 					_operateData(json);
 				},
@@ -129,6 +143,7 @@ xes.know = xes.know || {};
 				}
 			});	
 		}
+
 		/**
 		 * 处理json数据
 		 * @param  {json | string} data [可以是Json格式，也可以是序列化的字符串]
@@ -155,24 +170,6 @@ xes.know = xes.know || {};
 		return this;
 	};
 
-
-	k._operateData = function(data, level, pid){
-		var json = JSON.parse(data);
-
-				json = (pid == 0) ? json : json[pid];
-
-				// 如果没有子节点则不处理
-				if(json != undefined){
-					if(func){
-						func(json);
-					}else{
-						k._createHTML(json, level)._append(level);
-						// xes.LocalStorage.set('k'+level, json);
-					}
-
-				}
-	};
-
 	/**
 	 * 生成HTML节点
 	 * @param  {JSON} data  从数据中筛选出来的JSON数据
@@ -181,7 +178,7 @@ xes.know = xes.know || {};
 	 */
 	k._createHTML = function(data, level){
 		var dom = '<select name="level_' + level + '_id">'
-				+ '<option value="" selected=true>--选择知识点--</option>';
+				+ '<option value="">--选择知识点--</option>';
 		$.each(data, function(key, val){
 			if(k.department == 0 && k.subject == 0){
 				dom += '<option value="'+ key +'">' + val['name'] + '</option>';
@@ -212,16 +209,14 @@ xes.know = xes.know || {};
 		//如果不是1级，则先清空后面的，然后追加
 		if(level > 0){
 			//由于eq是从0开始算起的，所以要-1；
-			$(k.items).eq(level-1).nextAll().remove();
-			$(k.items).eq(level-1).after(html);	
+			$(k.item).eq(level-1).nextAll().remove();
+			$(k.item).eq(level-1).after(html);	
 		}else{
-			$(k.wrap).html(html);
+			$(k.items).html(html);
 		}
 		
 		return this;
 	};
-
-
 
 
 	/**
@@ -270,7 +265,6 @@ xes.know = xes.know || {};
 	 * @return {[type]} [description]
 	 */
 	k.setValue = function(){};
-	
 
 	/**
 	 * 知识点的点击事件
@@ -279,11 +273,10 @@ xes.know = xes.know || {};
 	k.click = function(dom, level){
 		//点击后需要将当前元素与父级节点存储到变量中，方便多组知识点同时调用
 		k.wrap = $(dom).parent();
-		k.items = k.wrap.children();
+		k.item = k.wrap.children();
 
 		k.create(level, dom.value);
 	};
-
 
 	/**
 	 * 监听select的change事件

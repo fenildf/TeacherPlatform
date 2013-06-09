@@ -53,12 +53,11 @@
 		<li>
 			<label for=""><em class="red">※</em>选择学部</label>
 			<span>
-				<select class="ui-select-list">
-					<option class="ui-select-button">年级</option>
-					<option value="小学">小学</option>
-					<option value="初中">初中</option>
-					<option value="高中">高中</option>
-
+				<select class="ui-select-list" name="departmentId" id="departmentId">
+					<option class="ui-select-button" value="0">学部</option>
+					<option value="1">小学</option>
+					<option value="2">初中</option>
+					<option value="3">高中</option>
 				</select>
 			</span>
 		</li>
@@ -66,25 +65,17 @@
 		<li>
 			<label for=""><em class="red">※</em>所属学科</label>
 			<span>
-				<input type="radio" value="1" name="subjectIds[1]">
-				语文
-				<input type="radio" value="2" name="subjectIds[1]">
-				数学
-				<input type="radio" value="3" name="subjectIds[1]">
-				英语
-				<input type="radio" value="4" name="subjectIds[1]">
-				物理
-				<input type="radio" value="5" name="subjectIds[1]">
-				化学
-				<input type="radio" value="6" name="subjectIds[1]">
-				生物
-				<input type="radio" value="12" name="subjectIds[1]">
-				综合
-				<input type="radio" value="14" name="subjectIds[1]">
-				理综
-				<input type="radio" value="18" name="subjectIds[1]">
-				全科
-				<input type="radio" value="19" name="subjectIds[1]">讲座</span>
+				<input type="radio" value="1" name="subjectId">语文
+				<input type="radio" value="2" name="subjectId">数学
+				<input type="radio" value="3" name="subjectId">英语
+				<input type="radio" value="4" name="subjectId">物理
+				<input type="radio" value="5" name="subjectId">化学
+				<input type="radio" value="6" name="subjectId">生物
+				<input type="radio" value="12" name="subjectId">综合
+				<input type="radio" value="14" name="subjectId">理综
+				<input type="radio" value="18" name="subjectId">全科
+				<input type="radio" value="19" name="subjectId">讲座	
+			</span>
 		</li>
 		<li class="infor">
 			<label for="">试卷描述</label>
@@ -127,13 +118,8 @@
 					</div>
 					<div>
 						<label for="" class="first"><span class="red">※ </span>知 识 点</label>
-						<span id="knowledge_1" class="knowledge_box">
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-						</span>
-						<span>
+						<span id="knowledge_1" class="knowledge_box"></span>
+						<span class="knowledge_setall">
 							<input type="button" value="应用所有" class="btn_brown" />
 						</span>
 					</div>
@@ -192,13 +178,8 @@
 					</div>
 					<div>
 						<label for="" class="first"><span class="red">※ </span>知 识 点</label>
-						<span id="knowledge_1" class="knowledge_box">
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-							<select name="" id=""></select>
-						</span>
-						<span>
+						<span id="knowledge_2" class="knowledge_box"></span>
+						<span class="knowledge_setall">
 							<input type="button" value="应用所有" class="btn_brown" />
 						</span>
 					</div>

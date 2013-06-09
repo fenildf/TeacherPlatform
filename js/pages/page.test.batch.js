@@ -52,17 +52,21 @@ $(function () {
 
 	$('#departmentId').change(function(){
 		$('.choose').html('');
-		// setKnowledge($(this).val());
-		xes.know.init({
-			department: $(this).val()
-		});
+
+		/**
+		 * 两种方法初始化知识点：
+		 *
+		  	1. 传入object：
+		  		xes.know.init({
+					department: $(this).val()
+				});
+			2. 直接将键、值当2个参数传入进去：	xes.know.init('department', $(this).val());
+		 */		
+		xes.know.init('department', $(this).val());
 	});
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
-		// setKnowledge(null,$(this).val());
-		xes.know.init({
-			subject: $(this).val()
-		});
+		xes.know.init('subject', $(this).val());
 	});
 	
 	xes.iframe.setHeight();
@@ -120,7 +124,7 @@ function getQuestionListDom(d,id){
 		$('.choose').html(_html);
 	}
 	setQuestionListNum();
-		xes.iframe.setHeight();
+	xes.iframe.setHeight();
 }
 /**
  * 重新计算序列号
@@ -325,4 +329,54 @@ $(function(){
 			$('.question_item').addClass('test_paper');
 		}
 	});
-})
+
+	/**
+	 * 应用所有知识点
+	 *
+	 * 一共有3步：
+	 * 		1. 获取当前要应用的知识点组
+	 * 		2. 获取里面每个节点的值，将其存入到数组中
+	 * 		3. 复制节点到所有知识点容器中
+	 * 		4. 根据数组里面存储的值，设置所有知识点节点的选中状态
+	 * 		
+	 * @return {[type]} [description]
+	 */
+	$('.knowledge_setall').on('click', 'button,input', function(){
+		// 存储以选中的知识点状态指：数组索引就是知识点的级别：1级对应的是v[0]，2级对应的是v[1];
+		var v = [];
+		var p = $(this).parent().prev();
+
+		// 遍历当前点击“应用所有”按钮所属的知识点组里面的节点，将选中的值存储到数组中
+		p.find('select').each(function(){
+			v.push(this.value);
+			$(this).find('option[value="' + this.value + '"]').attr('checked',true);
+		});
+		
+		// console.log(v);
+		// 复制到所有的知识点容器中
+		$('.knowledge_box').html(p.html());
+
+		/**
+		 * 设置select的选中状态
+		 * 先循环有多少个知识点组，再遍历里面的知识点节点
+		 * @return {[type]} [description]
+		 */
+		$('.knowledge_box').each(function(){
+			$(this).find('select').each(function(i){
+				this.value = v[i];
+			});
+		});
+
+	});
+
+
+
+	xes.know.init({
+		department:2,
+		subject:2
+	}).addlistener();
+
+});
+
+
+
