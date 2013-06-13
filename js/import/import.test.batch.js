@@ -1511,7 +1511,7 @@ $(function(){
 	xes.know.init({
 		department:2,
 		subject:2
-		// url:'http://www.wss2.0.com/coursev4/knowledge/'
+		url:'http://www.wss2.0.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
@@ -1729,9 +1729,9 @@ batchTest.getValue = function(){
 			d.addClass('error');
 			d.parents('div').addClass('wrap_error');
 			error.push(d);
-			if(msg){
-				alert(msg);
-			}
+			// if(msg){
+			// 	alert(msg);
+			// }
 		}
 
 		// 清除错误提示
@@ -1746,8 +1746,10 @@ batchTest.getValue = function(){
 		 * 检测如果error数组中有错误元素，则在父级增加错误效果，否则检测通过,这是成果样式
 		 */
 		if(error.length > 0){
-			dom.prevAll('dl').find('.item_body').removeClass('check_error');
+			// dom.prevAll('dl').find('.item_body').removeClass('check_error');
+			$('.question_items dl').find('.item_body').removeClass('check_error');
 			dom.find('.item_body').addClass('check_error');
+			alert('请检查第 ' + (Number(num)+1) + ' 道试题内容是否填写完整');
 			return false;
 		}else{
 			dom.find('.item_body').addClass('check_succeed');
@@ -1763,6 +1765,7 @@ batchTest.getValue = function(){
 	// console.log(error);
 
 	if(error.length > 0){
+
 		return false;
 	}else{
 		return batchTest.items;
