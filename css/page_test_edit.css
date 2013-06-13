@@ -77,6 +77,16 @@ ul.labelCon li.question_items span {float: none}
 	background-color: #FCFCFC;
 }
 
+.check_succeed {
+	border-color: #C7FDCD;
+	background-color: #EEFFEE;
+}
+
+.check_error {
+	border-color: #FDCDD6;
+	background-color: #FFEEEA;
+}
+
 .item_body div {
 	height: 40px; line-height: 40px;
 }
@@ -123,6 +133,7 @@ ul.labelCon div.questions_type_box p{
 .btn_brown {
 	border:1px solid #BDA4A0;
 	background: linear-gradient(#ffffff 0%,#FDF9F8 50%,#F6EBE7 100%);
+	background: -moz-linear-gradient(#ffffff 0%,#FDF9F8 50%,#F6EBE7 100%);
 	color:#9F6B6D;
 	cursor: pointer;
 	padding: 2px;

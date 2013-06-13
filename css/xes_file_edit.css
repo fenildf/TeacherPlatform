@@ -315,6 +315,17 @@ input.w150{width: 150px}
 input.w200{width: 200px}
 
 
+
+input.error, textarea.error {
+	border-color: #C00;
+}
+
+.wrap_error {
+	background-color: #FDCDD6;
+}
+
+
+
 /* -=-=-=-=-=-=-=-=-=-=-= test_add.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .paper_text {width:510px;height:60px;line-height: 24px;padding:0 0 0 10px;border:1px solid #ccc;}

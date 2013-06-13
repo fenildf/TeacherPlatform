@@ -650,6 +650,17 @@ input.w130{width: 130px}
 input.w150{width: 150px}
 input.w200{width: 200px}
 
+
+
+input.error, textarea.error {
+	border-color: #C00;
+}
+
+.wrap_error {
+	background-color: #FDCDD6;
+}
+
+
 /* -=-=-=-=-=-=-=-=-=-=-= about.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
 .contentLive dl dt {color: #999}
 

@@ -1192,6 +1192,7 @@ $(function () {
 		}
 	});
 
+	// 选择学部
 	$('#departmentId').change(function(){
 		$('.choose').html('');
 
@@ -1206,6 +1207,8 @@ $(function () {
 		 */		
 		xes.know.init('department', $(this).val());
 	});
+
+	// 选择学科
 	$('input[type="radio"][name="subjectId"]').click(function(){
 		$('.choose').html('');
 		xes.know.init('subject', $(this).val());
@@ -1213,6 +1216,7 @@ $(function () {
 	
 	xes.iframe.setHeight();
 });
+
 function getQuestionListDom(d,id){
 	var _html = '';
 	var _list = $('.choose div[id^="question_id_"]');
@@ -1268,6 +1272,7 @@ function getQuestionListDom(d,id){
 	setQuestionListNum();
 	xes.iframe.setHeight();
 }
+
 /**
  * 重新计算序列号
  */
@@ -1277,6 +1282,7 @@ function setQuestionListNum(){
 		$(this).find('.question_num em').text((i+1));
 	});
 }
+
 
 function deleteQuestion(id){
 	if(id){
@@ -1318,7 +1324,7 @@ function getQuestionListValue(){
 /* 试题页面：*/
 
 /**
- * 追缴填空题
+ * 追加填空题
  */
 function addFillCorrectAnswer(d){
 	var _wrap = $(d).parent();
@@ -1415,10 +1421,8 @@ $(function(){
 		
 		if(box.hasClass('collapsed')){
 			itemToggle(box, 'expanded');
-			// box.removeClass('collapsed');
 		}else{
 			itemToggle(box, 'collapsed');
-			// box.addClass('collapsed');
 		}
 
 		//当单个全部收起或者展开时，整体的那个按钮样式和文字的修改
@@ -1440,19 +1444,11 @@ $(function(){
 		var collapsed = $(this).hasClass('items_collapsed');
 		var items = $('ul.labelCon li .question_item');
 		if(collapsed){
-			// items.addClass('collapsed');
 			itemToggle(items, 'collapsed');
 			itemsToggle($(this), 'collapsed');
-
-			// $(this).removeClass('items_collapsed').addClass('items_expanded');
-			// $(this).text('展开');
 		}else{
-			// items.removeClass('collapsed');
 			itemToggle(items, 'expanded');
 			itemsToggle($(this), 'expanded');
-
-			// $(this).removeClass('items_expanded').addClass('items_collapsed');
-			// $(this).text('收起');
 		}
 	});
 
@@ -1494,7 +1490,6 @@ $(function(){
 			$(this).find('option[value="' + this.value + '"]').attr('checked',true);
 		});
 		
-		// console.log(v);
 		// 复制到所有的知识点容器中
 		$('.knowledge_box').html(p.html());
 
@@ -1512,14 +1507,444 @@ $(function(){
 	});
 
 
-
+	// 页面加载之后第一次初始化知识点
 	xes.know.init({
 		department:2,
-		subject:2,
-		url:'http://www.wss2.0.com/coursev4/knowledge/'
+		subject:2
+		// url:'http://www.wss2.0.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
+
+
+
+/* --------------------- 表单验证部分 -------------------- */
+
+
+// var batchItems = {
+// 	'serialNumber':{
+// 		id:1,
+// 		serialNumber:1,
+// 		testName: '试题名称',
+// 		testType: '试题类别',
+// 		// 试题答案
+// 		correctAnswer:[1,2,4,8],
+// 		// 知识点
+// 		knowledgePoint:[1, 1.1, 1.1.1],
+// 		textContent:'http://xueersi.com/试题题干.jpg',
+// 		answerAnalysis:'http://xueersi.com/试题解析.jpg',
+// 		// 难度系数
+// 		customDifficulty:0.1,
+// 		// 关键字
+// 		keyword:'wfca',
+// 		// 解析视频ID
+// 		analysisVideo:10005,
+
+// 		// 试题分数
+// 		testpaperScore: 10
+
+// 	}
+// };
+
+
+function checkBatchForm(dom){
+
+}
+
+var batchTest = batchTest || {};
+
+// 所有试题的表单值
+batchTest.items = {
+	// 'serialNumber': {
+	// 	id:1,
+	// 	serialNumber:1,
+	// 	testName: '试题名称',
+	// 	testType: '试题类别',
+	// 	// 试题答案
+	// 	correctAnswer:[1,2,4,8],
+	// 	// 知识点
+	// 	knowledgePoint:[1, 1.1, 11],
+	// 	textContent:'http://xueersi.com/试题题干.jpg',
+	// 	answerAnalysis:'http://xueersi.com/试题解析.jpg',
+	// 	// 难度系数
+	// 	customDifficulty:0.1,
+	// 	// 关键字
+	// 	keyword:'wfca',
+	// 	// 解析视频ID
+	// 	analysisVideo:10005,
+
+	// 	// 试题分数
+	// 	testpaperScore: 10
+	// }
+};
+
+/**
+ * 检测批量试题的表单
+ * @return {[type]} [description]
+ */
+batchTest.getValue = function(){
+
+	var items = $('.question_items dl');
+
+	var dom, tpbox, tp, num, answerBoxType, answerItems, n, d, o, itemData, answer, error;
+
+
+	items.each(function(){
+
+		dom = $(this);
+
+		// 获取当前item的索引值
+		n = dom.attr('id').replace('question_item_','');
+
+		// 答案数组
+		answer = [];
+
+		error = [];
+
+		d = {
+			serial : dom.find('.item_num input'),
+			score  : dom.find('.item_sorce input'),
+			type   : dom.find('input[name^="testType_"]:checked'),
+			name   : dom.find('.item_title input'),
+			content: dom.find('.item_pic .imgView').eq(0),
+			analysis : dom.find('.item_pic .imgView').eq(1),
+			// knowledge: [],
+			// answer : '',
+			keyword: $('#keyword_'+n),
+			difficulty: $('#customDifficulty_'+n),
+			video  : $('#analysisVideo_'+n)
+		};
+
+
+		o = {
+			serial : d.serial.val(),
+			score  : d.score.val(),
+			type   : d.type.val(),
+			// name   : d.name.val(),
+			// content: d.content.text(),
+			// analysis : d.analysis.text(),
+			// knowledge: [],
+			// answer : [],
+			// keyword: d.keyword.val(),
+			// difficulty: d.difficulty.val(),
+			// video  : d.video.val()
+		};
+
+		// 检测：序号、分值、类型
+		$.each(o, function(k, v){
+			if(v == ''){
+				// d[k].addClass('error');
+				// error.push(d[k]);
+				errorSet(d[k]);
+
+			}else{
+				errorClear(d[k]);
+			}
+		});
+
+		o.name = dom.find('.item_title input').val();
+		o.keyword = $('#keyword_'+n).val();
+		o.difficulty = $('#customDifficulty_'+n).val();
+		o.video = $('#analysisVideo_'+n).val();
+
+
+		/**
+		 * 处理试题答案的值 -------------------------------------------------- 
+		 */
+
+		// 试题类型
+		tp = d.type.val();
+
+		o.type = tp;
+
+		if(o.type == ''){
+			// d.type.addClass('error');
+			// error.push(d.type);
+			errorSet(d.type, '请选择试题类型');
+
+		}else{
+			errorClear(d.type);
+		}
+
+		// 答案类型：如果是1则为选择题，否则为填空
+		answerBoxType = (tp == 1) ? 'checkbox_' + n : 'input_' + n;
+
+		// 存储答案的容器
+		d.answer = dom.find('#questions_type_' + answerBoxType).find('input');
+
+		// 如果是1则为选择题，只把选中的值存入数组中
+		if(tp == 1){
+			d.answer.each(function(){
+				if(this.checked){
+					answer.push(this.value);
+				}
+			});
+		}else{
+			d.answer.each(function(){
+				answer.push(this.value);
+			})
+		}
+
+
+		o.answer = answer;
+
+		if(o.answer.length == 0){
+			// d.answer.addClass('error');
+			// error.push(d.answer);
+			errorSet(d.answer, '请填写试题答案');
+
+		}else{
+			errorClear(d.answer);
+		}
+
+
+		/**
+		 * 处理知识点的值 ----------------------------------------------- 
+		 */
+		
+		o.knowledge = [];
+
+		d.knowledge = dom.find('.knowledge_box select');
+		// 循环知识点，将已选中的值存入数组中
+		d.knowledge.each(function(){
+			if(this.value){
+				o.knowledge.push(this.value);
+			}
+		});
+
+		if(o.knowledge.length == 0){
+			errorSet(d.knowledge, '请选择知识点');
+		}else{
+			errorClear(d.knowledge);
+		}
+
+
+		/**
+		 * 设置错误提示
+		 * @param  {jQuery Object} d   出错的表单元素
+		 * @param  {String} msg 错误提示
+		 * @return {[type]}     [description]
+		 */
+		function errorSet(d, msg){
+			d.addClass('error');
+			d.parents('div').addClass('wrap_error');
+			error.push(d);
+			if(msg){
+				alert(msg);
+			}
+		}
+
+		// 清除错误提示
+		function errorClear(d){
+			d.parents('div').removeClass('wrap_error');
+		}
+
+
+
+		/**
+		 * 检查每道题的错误情况
+		 * 检测如果error数组中没有错误元素，则检测通过，否则在父级增加错误效果
+		 */
+		if(error.length > 0){
+			dom.prevAll('dl').find('.item_body').removeClass('check_error');
+			dom.find('.item_body').addClass('check_error');
+			return false;
+		}else{
+			dom.find('.item_body').addClass('check_succeed');
+
+			batchTest.items[o.serial] = o;
+
+		}
+
+
+/*
+
+
+		o = {
+			serial : d.serial.val(),
+			score  : d.score.val(),
+			name   : d.name.val(),
+			content: d.content.text(),
+			analysis : d.analysis.text(),
+			knowledge: [],
+			type   : d.type.val(),
+			answer : checkType().val,
+			keyword: d.keyword.val(),
+			difficulty: d.difficulty.val(),
+			video  : d.video.val()
+		};
+
+
+
+
+
+
+
+		// 试题类型
+		tp = d.type.val();
+
+		// 获取类型中的序号
+		// num = tpbox.attr('name').replace('testType_','');
+		
+		// 答案类型：如果是1则为选择题，否则为填空
+		answerBoxType = (tp == 1) ? 'checkbox_' + n : 'input_' + n;
+
+		// 存储答案的容器
+		d.answer = dom.find('#questions_type_' + answerBoxType).find('input');
+
+		// 如果是1则为选择题，只把选中的值存入数组中
+		if(tp == 1){
+			d.answer.each(function(){
+				if(this.checked){
+					answer.push(this.value);
+				}
+			});
+		}else{
+			d.answer.each(function(){
+				answer.push(this.value);
+			})
+		}
+
+		o.type = tp;
+
+		o.answer = answer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+		// 循环知识点，将已选中的值存入数组中
+		dom.find('.knowledge_box select').each(function(){
+			if(this.value){
+				o.knowledge.push(this.value);
+			}
+		});
+
+
+
+
+
+		var itemData = o;
+		// var itemData = batchTest.each(dom);
+
+
+
+
+
+
+		//将数据存储到batchTest.items当中，以serial为键
+		batchTest.items[itemData.serial] = itemData;
+*/
+	});
+	var json = $.parseJSON(batchTest.items);
+	return json;
+
+};
+
+
+
+batchTest.checkValue = function(dom, val){
+
+	if(val == ''){
+		dom.addClass('error');
+		dom.parents('.item_body').addClass('check_error');
+		return false;		
+	}else{
+		// dom.parents('.item_body').addClass('check_succeed');
+		return ;
+	}
+};
+
+// batchTest.each = function(dom){
+// 	// 获取当前item的索引值
+// 	var n = dom.attr('id').replace('question_item_','');
+// 	var o = {
+// 		serial : dom.find('.item_num input').val(),
+// 		score  : dom.find('.item_sorce input').val(),
+// 		name   : dom.find('.item_title input').val(),
+// 		content: dom.find('.item_pic .imgView').eq(0).text(),
+// 		analysis : dom.find('.item_pic .imgView').eq(1).text(),
+// 		knowledge: [],
+// 		type   : checkType().tp,
+// 		answer : checkType().val,
+// 		keyword: $('#keyword_'+n).val(),
+// 		difficulty: $('#customDifficulty_'+n).val(),
+// 		video  : $('#analysisVideo_'+n).val()
+// 	};
+
+// 	// 循环知识点，将已选中的值存入数组中
+// 	dom.find('.knowledge_box select').each(function(){
+// 		if(this.value){
+// 			o.knowledge.push(this.value);
+// 		}
+// 	});
+
+// 	// 检查试题类型
+// 	function checkType(tp){
+
+// 		var box = dom.find('input[name^="testType_"]:checked');
+
+// 		var tp = box.val();
+
+// 		// 获取类型中的序号
+// 		var num = box.attr('name').replace('testType_','');
+// 		// 答案类型：如果是1则为选择题，否则为填空
+// 		var answerType = (tp == 1) ? 'checkbox_'+num : 'input_'+num;
+// 		// 存储答案的容器
+// 		var answerItems = dom.find('#questions_type_'+answerType).find('input');
+// 		// 答案数组
+// 		var answer = [];
+
+// 		// 如果是1则为选择题，只把选中的值存入数组中
+// 		if(tp == 1){
+// 			answerItems.each(function(){
+// 				if(this.checked){
+// 					answer.push(this.value);
+// 				}
+// 			});
+// 		}else{
+// 			answerItems.each(function(){
+// 				answer.push(this.value);
+// 			})
+// 		}
+// 		return {
+// 			tp: tp,
+// 			val: answer
+// 		};
+
+// 	}
+// 	return o;
+
+// };
+
+
+
+// 试卷
+
+
+
+// 试题
+
+
+
+
+
+
+
+
 
 
 

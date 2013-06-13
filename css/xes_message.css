@@ -625,6 +625,17 @@ input.w120{width: 120px}
 input.w130{width: 130px}
 input.w150{width: 150px}
 input.w200{width: 200px}
+
+
+
+input.error, textarea.error {
+	border-color: #C00;
+}
+
+.wrap_error {
+	background-color: #FDCDD6;
+}
+
 /* ==================== calendar.css ===================== */
 
 .calendar { font:500 normal 12px/20px "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", Arial, Helvetica, sans-serif;position: absolute; z-index: 10000;width: 191px; height: 180px; padding: 1px 5px 5px 1px; _padding: 1px 0 1px 1px; background: url(http://img03.xesimg.com/date_bg2.png) no-repeat; display: none; float: left; }
