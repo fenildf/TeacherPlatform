@@ -1580,13 +1580,28 @@ batchTest.items = {
 
 /**
  * 检测批量试题的表单
- * @return {[type]} [description]
+ * @return {JSON} 返回整个试题数组;
+ *
+ *
+ * o = {
+			serial : d.serial.val(),
+			score  : d.score.val(),
+			type   : d.type.val(),
+			name   : d.name.val(),
+			content: d.content.text(),
+			analysis : d.analysis.text(),
+			knowledge: [],
+			answer : [],
+			keyword: d.keyword.val(),
+			difficulty: d.difficulty.val(),
+			video  : d.video.val()
+		};
  */
 batchTest.getValue = function(){
 
 	var items = $('.question_items dl');
 
-	var dom, tpbox, tp, num, answerBoxType, answerItems, n, d, o, itemData, answer, error;
+	var dom, tpbox, tp, num, answerBoxType, answerItems, num, d, o, itemData, answer, error;
 
 
 	items.each(function(){
@@ -1594,10 +1609,7 @@ batchTest.getValue = function(){
 		dom = $(this);
 
 		// 获取当前item的索引值
-		n = dom.attr('id').replace('question_item_','');
-
-		// 答案数组
-		answer = [];
+		num = dom.attr('id').replace('question_item_','');
 
 		error = [];
 
@@ -1610,42 +1622,31 @@ batchTest.getValue = function(){
 			analysis : dom.find('.item_pic .imgView').eq(1),
 			// knowledge: [],
 			// answer : '',
-			keyword: $('#keyword_'+n),
-			difficulty: $('#customDifficulty_'+n),
-			video  : $('#analysisVideo_'+n)
+			keyword: $('#keyword_' + num),
+			difficulty: $('#customDifficulty_' + num),
+			video  : $('#analysisVideo_' + num)
 		};
 
 
 		o = {
 			serial : d.serial.val(),
 			score  : d.score.val(),
-			type   : d.type.val(),
-			// name   : d.name.val(),
-			// content: d.content.text(),
-			// analysis : d.analysis.text(),
-			// knowledge: [],
-			// answer : [],
-			// keyword: d.keyword.val(),
-			// difficulty: d.difficulty.val(),
-			// video  : d.video.val()
+			type   : d.type.val()
 		};
 
 		// 检测：序号、分值、类型
 		$.each(o, function(k, v){
 			if(v == ''){
-				// d[k].addClass('error');
-				// error.push(d[k]);
 				errorSet(d[k]);
-
 			}else{
 				errorClear(d[k]);
 			}
 		});
 
 		o.name = dom.find('.item_title input').val();
-		o.keyword = $('#keyword_'+n).val();
-		o.difficulty = $('#customDifficulty_'+n).val();
-		o.video = $('#analysisVideo_'+n).val();
+		o.keyword = $('#keyword_' + num).val();
+		o.difficulty = $('#customDifficulty_' + num).val();
+		o.video = $('#analysisVideo_' + num).val();
 
 
 		/**
@@ -1657,6 +1658,9 @@ batchTest.getValue = function(){
 
 		o.type = tp;
 
+		// 答案数组
+		answer = [];
+
 		if(o.type == ''){
 			// d.type.addClass('error');
 			// error.push(d.type);
@@ -1667,7 +1671,7 @@ batchTest.getValue = function(){
 		}
 
 		// 答案类型：如果是1则为选择题，否则为填空
-		answerBoxType = (tp == 1) ? 'checkbox_' + n : 'input_' + n;
+		answerBoxType = (tp == 1) ? 'checkbox_' + num : 'input_' + num;
 
 		// 存储答案的容器
 		d.answer = dom.find('#questions_type_' + answerBoxType).find('input');
@@ -1684,15 +1688,11 @@ batchTest.getValue = function(){
 				answer.push(this.value);
 			})
 		}
-
-
+		// 将答案存到o对象中
 		o.answer = answer;
 
 		if(o.answer.length == 0){
-			// d.answer.addClass('error');
-			// error.push(d.answer);
 			errorSet(d.answer, '请填写试题答案');
-
 		}else{
 			errorClear(d.answer);
 		}
@@ -1743,7 +1743,7 @@ batchTest.getValue = function(){
 
 		/**
 		 * 检查每道题的错误情况
-		 * 检测如果error数组中没有错误元素，则检测通过，否则在父级增加错误效果
+		 * 检测如果error数组中有错误元素，则在父级增加错误效果，否则检测通过,这是成果样式
 		 */
 		if(error.length > 0){
 			dom.prevAll('dl').find('.item_body').removeClass('check_error');
@@ -1752,106 +1752,21 @@ batchTest.getValue = function(){
 		}else{
 			dom.find('.item_body').addClass('check_succeed');
 
+			//将数据存储到batchTest.items当中，以serial为键
 			batchTest.items[o.serial] = o;
 
 		}
 
-
-/*
-
-
-		o = {
-			serial : d.serial.val(),
-			score  : d.score.val(),
-			name   : d.name.val(),
-			content: d.content.text(),
-			analysis : d.analysis.text(),
-			knowledge: [],
-			type   : d.type.val(),
-			answer : checkType().val,
-			keyword: d.keyword.val(),
-			difficulty: d.difficulty.val(),
-			video  : d.video.val()
-		};
-
-
-
-
-
-
-
-		// 试题类型
-		tp = d.type.val();
-
-		// 获取类型中的序号
-		// num = tpbox.attr('name').replace('testType_','');
-		
-		// 答案类型：如果是1则为选择题，否则为填空
-		answerBoxType = (tp == 1) ? 'checkbox_' + n : 'input_' + n;
-
-		// 存储答案的容器
-		d.answer = dom.find('#questions_type_' + answerBoxType).find('input');
-
-		// 如果是1则为选择题，只把选中的值存入数组中
-		if(tp == 1){
-			d.answer.each(function(){
-				if(this.checked){
-					answer.push(this.value);
-				}
-			});
-		}else{
-			d.answer.each(function(){
-				answer.push(this.value);
-			})
-		}
-
-		o.type = tp;
-
-		o.answer = answer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-
-
-		// 循环知识点，将已选中的值存入数组中
-		dom.find('.knowledge_box select').each(function(){
-			if(this.value){
-				o.knowledge.push(this.value);
-			}
-		});
-
-
-
-
-
-		var itemData = o;
-		// var itemData = batchTest.each(dom);
-
-
-
-
-
-
-		//将数据存储到batchTest.items当中，以serial为键
-		batchTest.items[itemData.serial] = itemData;
-*/
 	});
-	var json = $.parseJSON(batchTest.items);
-	return json;
 
+	var json = $.parseJSON(batchTest.items);
+	// console.log(error);
+
+	if(error.length > 0){
+		return false;
+	}else{
+		return batchTest.items;
+	}
 };
 
 
