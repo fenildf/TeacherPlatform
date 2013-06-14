@@ -369,7 +369,7 @@ $(function(){
 	xes.know.init({
 		department:2,
 		subject:2
-		url:'http://www.wss2.0.com/coursev4/knowledge/'
+		// url:'http://www.wss2.0.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
@@ -595,6 +595,7 @@ batchTest.getValue = function(){
 		// 清除错误提示
 		function errorClear(d){
 			d.parents('div').removeClass('wrap_error');
+			d.removeClass('error');
 		}
 
 
@@ -604,10 +605,9 @@ batchTest.getValue = function(){
 		 * 检测如果error数组中有错误元素，则在父级增加错误效果，否则检测通过,这是成果样式
 		 */
 		if(error.length > 0){
-			// dom.prevAll('dl').find('.item_body').removeClass('check_error');
 			$('.question_items dl').find('.item_body').removeClass('check_error');
 			dom.find('.item_body').addClass('check_error');
-			alert('请检查第 ' + (Number(num)+1) + ' 道试题内容是否填写完整');
+			alert('请检查第 ' + (Number(num)+1) + ' 道试题标红线的内容是否填写完整');
 			return false;
 		}else{
 			dom.find('.item_body').addClass('check_succeed');
@@ -632,17 +632,17 @@ batchTest.getValue = function(){
 
 
 
-batchTest.checkValue = function(dom, val){
+// batchTest.checkValue = function(dom, val){
 
-	if(val == ''){
-		dom.addClass('error');
-		dom.parents('.item_body').addClass('check_error');
-		return false;		
-	}else{
-		// dom.parents('.item_body').addClass('check_succeed');
-		return ;
-	}
-};
+// 	if(val == ''){
+// 		dom.addClass('error');
+// 		dom.parents('.item_body').addClass('check_error');
+// 		return false;		
+// 	}else{
+// 		// dom.parents('.item_body').addClass('check_succeed');
+// 		return ;
+// 	}
+// };
 
 // batchTest.each = function(dom){
 // 	// 获取当前item的索引值

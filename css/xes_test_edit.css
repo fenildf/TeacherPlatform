@@ -587,4 +587,9 @@ dd.item_ok {
 ul.labelCon li.question_items input.form_error {
 	border-color:#C00;
 }
-
+.wrap_error {
+	border: 2px #C00 solid;
+	border-width: 0 0 0 2px;
+	/*border-bottom-color: #FF9393;*/
+	background-color: transparent;
+}
