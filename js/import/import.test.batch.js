@@ -1184,7 +1184,6 @@ $(function () {
 
 	$('.questions_type_button').change(function(){
 		var n = $(this).attr('name').replace('testType_','');
-		// console.log(n);
 		if(this.value == 1){
 			$('#questions_type_checkbox_'+n).show().siblings('.questions_type').hide();
 		}else{
@@ -1348,38 +1347,32 @@ function removeFillCorrectAnswer(d){
 /* =-=-=-=-=-=-=-=-=-=-=-= 编辑导入试题部分 =-=-=-=-=-=-=-=-=-=-=-=-= */
 
 
-var batch = {
-	name:'试卷名称',
-	type:'试卷类型',
-	time:'答题时间',
-	total:'试卷总分',
-	department:'学部',
-	subject:'学科',
-	description:'描述',
-	items:{
-		'1001':{
-			id:'',
-			num:'1',
-			content:'http://...jpg',
-			answerAnalysis:'解析',
-			title:'试题名称',
-			keyword:'关键字',
-			customDifficulty:'系数',
-			knowledge:[2,3,2],
-			type:'试题类型',
-			questions_type_checkbox:[1,2,4,8]/*'正确答案'*/,
-			score:'分值'
+// var batch = {
+// 	name:'试卷名称',
+// 	type:'试卷类型',
+// 	time:'答题时间',
+// 	total:'试卷总分',
+// 	department:'学部',
+// 	subject:'学科',
+// 	description:'描述',
+// 	items:{
+// 		'1001':{
+// 			id:'',
+// 			num:'1',
+// 			content:'http://...jpg',
+// 			answerAnalysis:'解析',
+// 			title:'试题名称',
+// 			keyword:'关键字',
+// 			customDifficulty:'系数',
+// 			knowledge:[2,3,2],
+// 			type:'试题类型',
+// 			questions_type_checkbox:[1,2,4,8]/*'正确答案'*/,
+// 			score:'分值'
 
-		}
-	}
-};
+// 		}
+// 	}
+// };
 
-
-var items = {
-	'1':{
-		id:''
-	}
-};
 
 /**
  * 试题列表折叠
@@ -1520,66 +1513,34 @@ $(function(){
 
 /* --------------------- 表单验证部分 -------------------- */
 
-
-// var batchItems = {
-// 	'serialNumber':{
-// 		id:1,
-// 		serialNumber:1,
-// 		testName: '试题名称',
-// 		testType: '试题类别',
-// 		// 试题答案
-// 		correctAnswer:[1,2,4,8],
-// 		// 知识点
-// 		knowledgePoint:[1, 1.1, 1.1.1],
-// 		textContent:'http://xueersi.com/试题题干.jpg',
-// 		answerAnalysis:'http://xueersi.com/试题解析.jpg',
-// 		// 难度系数
-// 		customDifficulty:0.1,
-// 		// 关键字
-// 		keyword:'wfca',
-// 		// 解析视频ID
-// 		analysisVideo:10005,
-
-// 		// 试题分数
-// 		testpaperScore: 10
-
-// 	}
-// };
-
-
-function checkBatchForm(dom){
-
-}
-
 var batchTest = batchTest || {};
 
-// 所有试题的表单值
-batchTest.items = {
-	// 'serialNumber': {
-	// 	id:1,
-	// 	serialNumber:1,
-	// 	testName: '试题名称',
-	// 	testType: '试题类别',
-	// 	// 试题答案
-	// 	correctAnswer:[1,2,4,8],
-	// 	// 知识点
-	// 	knowledgePoint:[1, 1.1, 11],
-	// 	textContent:'http://xueersi.com/试题题干.jpg',
-	// 	answerAnalysis:'http://xueersi.com/试题解析.jpg',
-	// 	// 难度系数
-	// 	customDifficulty:0.1,
-	// 	// 关键字
-	// 	keyword:'wfca',
-	// 	// 解析视频ID
-	// 	analysisVideo:10005,
-
-	// 	// 试题分数
-	// 	testpaperScore: 10
-	// }
-};
+/**
+ * 所有测试题表单值
+ * @type {Object}
+ * {
+ *  	'serialNumber': {
+			id 				: 1,
+			serialNumber 	: 1,
+			testName 		: '试题名称',
+			testType 		: '试题类别',			
+			correctAnswer 	: [1,2,4,8],		// 试题答案
+			knowledgePoint 	: [1, 1.1, 11],		// 知识点
+			textContent 	: 'http://xueersi.com/试题题干.jpg',
+			answerAnalysis 	: 'http://xueersi.com/试题解析.jpg',
+			customDifficulty: 0.1,				// 难度系数
+			keyword 		: 'wfca',			// 关键字
+			analysisVideo 	: 10005,			// 解析视频ID
+			testpaperScore 	: 10 				// 试题分数
+		},
+		{2:{}},
+		{3:{}}
+	}
+ */
+batchTest.items = {};
 
 /**
- * 检测批量试题的表单
+ * 获取批量试题的表单值
  * @return {JSON} 返回整个试题数组;
  *
  *
@@ -1620,8 +1581,6 @@ batchTest.getValue = function(){
 			name   : dom.find('.item_title input'),
 			content: dom.find('.item_pic .imgView').eq(0),
 			analysis : dom.find('.item_pic .imgView').eq(1),
-			// knowledge: [],
-			// answer : '',
 			keyword: $('#keyword_' + num),
 			difficulty: $('#customDifficulty_' + num),
 			video  : $('#analysisVideo_' + num)
@@ -1643,10 +1602,10 @@ batchTest.getValue = function(){
 			}
 		});
 
-		o.name = dom.find('.item_title input').val();
-		o.keyword = $('#keyword_' + num).val();
+		o.name 		 = dom.find('.item_title input').val();
+		o.keyword 	 = $('#keyword_' + num).val();
 		o.difficulty = $('#customDifficulty_' + num).val();
-		o.video = $('#analysisVideo_' + num).val();
+		o.video 	 = $('#analysisVideo_' + num).val();
 
 
 		/**
@@ -1662,10 +1621,7 @@ batchTest.getValue = function(){
 		answer = [];
 
 		if(o.type == ''){
-			// d.type.addClass('error');
-			// error.push(d.type);
 			errorSet(d.type, '请选择试题类型');
-
 		}else{
 			errorClear(d.type);
 		}
@@ -1704,7 +1660,9 @@ batchTest.getValue = function(){
 		
 		o.knowledge = [];
 
+		// 知识点选择器
 		d.knowledge = dom.find('.knowledge_box select');
+
 		// 循环知识点，将已选中的值存入数组中
 		d.knowledge.each(function(){
 			if(this.value){
@@ -1729,9 +1687,7 @@ batchTest.getValue = function(){
 			d.addClass('error');
 			d.parents('div').addClass('wrap_error');
 			error.push(d);
-			// if(msg){
-			// 	alert(msg);
-			// }
+			// if(msg){}
 		}
 
 		// 清除错误提示
@@ -1739,8 +1695,6 @@ batchTest.getValue = function(){
 			d.parents('div').removeClass('wrap_error');
 			d.removeClass('error');
 		}
-
-
 
 		/**
 		 * 检查每道题的错误情况
@@ -1753,16 +1707,13 @@ batchTest.getValue = function(){
 			return false;
 		}else{
 			dom.find('.item_body').addClass('check_succeed');
-
 			//将数据存储到batchTest.items当中，以serial为键
 			batchTest.items[o.serial] = o;
-
 		}
 
 	});
 
 	var json = $.parseJSON(batchTest.items);
-	// console.log(error);
 
 	if(error.length > 0){
 
@@ -1771,82 +1722,6 @@ batchTest.getValue = function(){
 		return batchTest.items;
 	}
 };
-
-
-
-// batchTest.checkValue = function(dom, val){
-
-// 	if(val == ''){
-// 		dom.addClass('error');
-// 		dom.parents('.item_body').addClass('check_error');
-// 		return false;		
-// 	}else{
-// 		// dom.parents('.item_body').addClass('check_succeed');
-// 		return ;
-// 	}
-// };
-
-// batchTest.each = function(dom){
-// 	// 获取当前item的索引值
-// 	var n = dom.attr('id').replace('question_item_','');
-// 	var o = {
-// 		serial : dom.find('.item_num input').val(),
-// 		score  : dom.find('.item_sorce input').val(),
-// 		name   : dom.find('.item_title input').val(),
-// 		content: dom.find('.item_pic .imgView').eq(0).text(),
-// 		analysis : dom.find('.item_pic .imgView').eq(1).text(),
-// 		knowledge: [],
-// 		type   : checkType().tp,
-// 		answer : checkType().val,
-// 		keyword: $('#keyword_'+n).val(),
-// 		difficulty: $('#customDifficulty_'+n).val(),
-// 		video  : $('#analysisVideo_'+n).val()
-// 	};
-
-// 	// 循环知识点，将已选中的值存入数组中
-// 	dom.find('.knowledge_box select').each(function(){
-// 		if(this.value){
-// 			o.knowledge.push(this.value);
-// 		}
-// 	});
-
-// 	// 检查试题类型
-// 	function checkType(tp){
-
-// 		var box = dom.find('input[name^="testType_"]:checked');
-
-// 		var tp = box.val();
-
-// 		// 获取类型中的序号
-// 		var num = box.attr('name').replace('testType_','');
-// 		// 答案类型：如果是1则为选择题，否则为填空
-// 		var answerType = (tp == 1) ? 'checkbox_'+num : 'input_'+num;
-// 		// 存储答案的容器
-// 		var answerItems = dom.find('#questions_type_'+answerType).find('input');
-// 		// 答案数组
-// 		var answer = [];
-
-// 		// 如果是1则为选择题，只把选中的值存入数组中
-// 		if(tp == 1){
-// 			answerItems.each(function(){
-// 				if(this.checked){
-// 					answer.push(this.value);
-// 				}
-// 			});
-// 		}else{
-// 			answerItems.each(function(){
-// 				answer.push(this.value);
-// 			})
-// 		}
-// 		return {
-// 			tp: tp,
-// 			val: answer
-// 		};
-
-// 	}
-// 	return o;
-
-// };
 
 
 
