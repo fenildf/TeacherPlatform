@@ -384,7 +384,7 @@ var batchTest = batchTest || {};
 			testType 		: '试题类别',			
 			correctAnswer 	: [1,2,4,8],		// 试题答案
 			knowledgePoint 	: [1, 1.1, 11],		// 知识点
-			textContent 	: 'http://xueersi.com/试题题干.jpg',
+			testContent 	: 'http://xueersi.com/试题题干.jpg',
 			answerAnalysis 	: 'http://xueersi.com/试题解析.jpg',
 			customDifficulty: 0.1,				// 难度系数
 			keyword 		: 'wfca',			// 关键字
@@ -484,7 +484,7 @@ batchTest.getValue = function(){
 		o.keyword 	 = $('#keyword_' + num).val();
 		o.customDifficulty = $('#customDifficulty_' + num).val();
 		o.analysisVideo 	 = $('#analysisVideo_' + num).val();
-		o.textContent = d.content.text();
+		o.testContent = d.content.text();
 		o.answerAnalysis = d.analysis.text();
 
 
