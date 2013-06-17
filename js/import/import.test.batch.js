@@ -1447,8 +1447,12 @@ $(function(){
 
 	//单个移出
 	$('ul.labelCon li .question_item').on('click', '.item_delete', function(){
-		if(confirm('是否确定删除')){
-			$(this).parents('.question_item').remove();
+		if($('.question_item').length > 1){
+			if(confirm('是否确定删除')){
+				$(this).parents('.question_item').remove();
+			}			
+		}else{
+			alert('此试题为最后1道试题，请勿删除');
 		}
 	});
 
