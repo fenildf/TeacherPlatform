@@ -1608,10 +1608,13 @@ batchTest.getValue = function(){
 
 
 		o = {
-			serialNumber : d.serialNumber.val(),
+			// 如果没有序号的input表单，则直接取前面的序号（试卷有序号input，试题没有）
+			serialNumber : d.serialNumber.length == 0 ? dom.find('.item_number').text() : d.serialNumber.val(),
 			questionScore  : d.questionScore.val(),
 			testType   : d.testType.val()
 		};
+
+		// o.serialNumber = d.serialNumber.length == 0 ? dom.find('.item_number').text() : d.serialNumber.val();
 
 		// 检测：序号、分值、类型
 		$.each(o, function(k, v){
@@ -1635,7 +1638,12 @@ batchTest.getValue = function(){
 		 */
 		// 如何是考试卷，则试题分值累加
 		if(paperScore > 0){
-			score += Number(o.questionScore);
+			if(o.questionScore == 0){
+				errorSet(d.questionScore, '试题分值不能为0');
+			}else{
+				errorClear(d.questionScore);
+				score += Number(o.questionScore);
+			}
 		}
 
 		/**
@@ -1688,8 +1696,8 @@ batchTest.getValue = function(){
 		 * 处理知识点的值 ----------------------------------------------- 
 		 */
 		
-		// o.knowledgePoint = [];
-		o.knowledgePoint = {};
+		o.knowledgePoint = [];
+		// o.knowledgePoint = {};
 		
 
 		// 知识点选择器
@@ -1697,12 +1705,13 @@ batchTest.getValue = function(){
 
 		// 循环知识点，将已选中的值存入数组中
 		d.knowledge.each(function(k,v){
-			console.log(k);
 			if(this.value){
-				o.knowledgePoint[k+1] = this.value;
-				// o.knowledgePoint.push(this.value);
+				// o.knowledgePoint[k+1] = this.value;
+				o.knowledgePoint.push(this.value);
 			}
 		});
+
+		// console.log(o.knowledgePoint.keys);
 
 		if(o.knowledgePoint.length == 0){
 			errorSet(d.knowledge, '请选择知识点');
