@@ -541,12 +541,15 @@ batchTest.getValue = function(){
 			});
 		}else{
 			d.answer.each(function(){
-				answer.push(this.value);
+				if(this.value != ''){
+					answer.push(this.value);
+				}
 			})
 		}
 		// 将答案存到o对象中
 		o.correctAnswer = answer;
-
+		// console.log(answer);
+		// console.log('answer: '+o.correctAnswer.length);
 		if(o.correctAnswer.length == 0){
 			errorSet(d.answer, '请填写试题答案');
 		}else{
