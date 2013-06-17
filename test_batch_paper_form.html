@@ -37,13 +37,13 @@
 				</span>
 				<label for=""><em class="red">※</em>试卷分值</label>
 				<span>
-					<input type="radio" value="1" name="testpaperScore" checked="true">
+					<input type="radio" value="100" name="testpaperScore" checked="true">
 					100
-					<input type="radio" value="1" name="testpaperScore">
+					<input type="radio" value="120" name="testpaperScore">
 					120
-					<input type="radio" value="1" name="testpaperScore">
+					<input type="radio" value="150" name="testpaperScore">
 					150
-					<input type="radio" value="1" name="testpaperScore">
+					<input type="radio" value="300" name="testpaperScore">
 					300
 				</span>
 			</div>
@@ -78,7 +78,7 @@
 		</li>
 		<li class="question_handle">
 			<p class="question_handle_btn items_collapsed">收起</p>
-			<p class="question_counts">共导入3道试题，3个解析（带<em class="red">※</em>为必填项）</p>
+			<p class="question_counts">共导入2道试题，2个解析（带<em class="red">※</em>为必填项）</p>
 		</li>
 		<li class="question_items">
 						<dl class="question_item test_paper" id="question_item_0">
@@ -201,66 +201,7 @@
 					</div>
 				</dd>
 			</dl>
-						<dl class="question_item test_paper" id="question_item_2">
-				<dt class="item_head">
-					<span class="btn_accordion">+</span>
-					<span class="item_number">3</span>
-				</dt>
-				<dd class="item_btn">
-					<a class="item_delete" href="javascript:void(0);">删除</a>
-				</dd>
-				<dd class="item_body">
-					<div class="item_body_1st">
-						<span class="item_num"><label for="" class="first"><em class="red">※ </em>试题序号</label> <input type="text" class="input_text w30" id="serialNumber_2" value="3"/> </span>
-						<span class="item_sorce"><label for=""><em class="red">※ </em>分值</label><input type="text" class="input_text w30" id="questionScore_2" value="0"/></span>
-						<span class="item_title"><label for=""> 试题名称</label><input type="text" class="input_text w200" id="testName_2" value=""/></span>
-					</div>
-					<div class="item_pic">
-						<label for="" class="first"><em class="red">※ </em>试题题干</label>
-						<a href="###" id="testContent_2">
-							<em class="imgView">http://s01.xesimg.com/test_papers/2013/05/21/13691027271340.jpg</em></a>
-						<label for=""> 解析</label>
-						<a href="###" id="testContent_2">
-							<em class="imgView">http://s04.xesimg.com/test_papers/2013/05/21/13691027271340.jpg</em></a>
-					</div>
-					<div>
-						<label for="" class="first"><span class="red">※ </span>知 识 点</label>
-						<span id="knowledge" class="knowledge_box"></span>
-						<span class="knowledge_setall">
-							<input type="button" value="应用所有" class="btn_brown" />
-						</span>
-					</div>
-					<div>
-						<label for="" class="first"><span class="red">※ </span>试题类型</label>
-						<span><input type="radio" checked="true" name="testType_2"  size="" value="1" class="questions_type_button">选择题</span>
-						<span><input type="radio" name="testType_2" size="" value="2" class="questions_type_button">填空题</span>
-					</div>
-					<div class="questions_type_box">
-						<label for="" class="first"><span class="red">※ </span>正确答案</label>
-						<span style="display: block;" class="questions_type" id="questions_type_checkbox_2">
-							<input type="checkbox" name="correctAnswer[]" value="1">
-							A
-							<input type="checkbox" name="correctAnswer[]" value="2">
-							B
-							<input type="checkbox" name="correctAnswer[]" value="4">
-							C
-							<input type="checkbox" name="correctAnswer[]" value="8">
-							D
-						</span>
-						<p class="questions_type" style="display: none;" id="questions_type_input_2">
-							<span>
-								<input type="text" class="input_text" name="fillCorrectAnswer[]" value="">
-								<a onclick="addFillCorrectAnswer(this);" href="###">追加</a>
-							</span>
-						</p>
-					</div>
-					<div>
-						<label for="" class="first">关 键 字</label><input type="text" class="input_text w130" id="keyword_2" value=""/>
-						<label for="">自定义难度系数</label><input type="text" class="input_text w80" id="customDifficulty_2" value="0.1"/>
-						<label for="">关联解析视频ID</label><input type="text" class="input_text w100" placeholder="" id="analysisVideo_2" value=""/><input type="button" value="选择" class="btn_brown" onclick="sectionLists(2);"/>
-					</div>
-				</dd>
-			</dl>
+				
 					</li>
 
 		<li>
@@ -348,8 +289,8 @@
 		
 			//批量试题处理
 			var questions = batchTest.getValue();
-			// console.log(questions);
-			// return false;
+			console.log(questions);
+			return false;
 			if(!questions){
 				return false;
 			}

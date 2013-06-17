@@ -418,10 +418,30 @@ batchTest.items = {};
  */
 batchTest.getValue = function(){
 
+	var paperType = $('#paper_type').val();
+
 	var items = $('.question_items dl');
 
-	var dom, tpbox, tp, num, answerBoxType, answerItems, num, d, o, itemData, answer, error;
+	var dom, tpbox, tp, num, answerBoxType, answerItems, num, d, o, itemData, answer, error, score = 0;
+/*
+	var testpaperScore = $('input[name="testpaperScore"]:checked:visible');
 
+	var paperScore = testpaperScore.length > 0 ? testpaperScore.val() : 0;
+
+	paperScore = Number(paperScore);
+*/
+
+	var paperScore = 0;
+
+	if(paperType == 2){
+		paperScore = Number($('input[name="testpaperScore"]:checked').val());
+	}
+	
+
+
+
+
+	
 
 	items.each(function(){
 
@@ -434,9 +454,9 @@ batchTest.getValue = function(){
 
 		d = {
 			serialNumber : dom.find('.item_num input'),
-			score  : dom.find('.item_sorce input'),
-			type   : dom.find('input[name^="testType_"]:checked'),
-			name   : dom.find('.item_title input'),
+			testpaperScore  : dom.find('.item_sorce input:visible'),
+			testType   : dom.find('input[name^="testType_"]:checked'),
+			testName   : dom.find('.item_title input'),
 			content: dom.find('.item_pic .imgView').eq(0),
 			analysis : dom.find('.item_pic .imgView').eq(1),
 			keyword: $('#keyword_' + num),
@@ -447,8 +467,8 @@ batchTest.getValue = function(){
 
 		o = {
 			serialNumber : d.serialNumber.val(),
-			score  : d.score.val(),
-			type   : d.type.val()
+			testpaperScore  : d.testpaperScore.val(),
+			testType   : d.testType.val()
 		};
 
 		// 检测：序号、分值、类型
@@ -460,28 +480,38 @@ batchTest.getValue = function(){
 			}
 		});
 
-		o.name 		 = dom.find('.item_title input').val();
+		o.testName 		 = dom.find('.item_title input').val();
 		o.keyword 	 = $('#keyword_' + num).val();
-		o.difficulty = $('#customDifficulty_' + num).val();
-		o.video 	 = $('#analysisVideo_' + num).val();
+		o.customDifficulty = $('#customDifficulty_' + num).val();
+		o.analysisVideo 	 = $('#analysisVideo_' + num).val();
+		o.textContent = d.content.text();
+		o.answerAnalysis = d.analysis.text();
 
+
+		/**
+		 * 处理试题分数的值 -------------------------------------------------- 
+		 */
+		// 如何是考试卷，则试题分值累加
+		if(paperScore > 0){
+			score += Number(o.testpaperScore);
+		}
 
 		/**
 		 * 处理试题答案的值 -------------------------------------------------- 
 		 */
 
 		// 试题类型
-		tp = d.type.val();
+		tp = d.testType.val();
 
-		o.type = tp;
+		o.testType = tp;
 
 		// 答案数组
 		answer = [];
 
-		if(o.type == ''){
-			errorSet(d.type, '请选择试题类型');
+		if(o.testType == ''){
+			errorSet(d.testType, '请选择试题类型');
 		}else{
-			errorClear(d.type);
+			errorClear(d.testType);
 		}
 
 		// 答案类型：如果是1则为选择题，否则为填空
@@ -503,9 +533,9 @@ batchTest.getValue = function(){
 			})
 		}
 		// 将答案存到o对象中
-		o.answer = answer;
+		o.correctAnswer = answer;
 
-		if(o.answer.length == 0){
+		if(o.correctAnswer.length == 0){
 			errorSet(d.answer, '请填写试题答案');
 		}else{
 			errorClear(d.answer);
@@ -516,7 +546,7 @@ batchTest.getValue = function(){
 		 * 处理知识点的值 ----------------------------------------------- 
 		 */
 		
-		o.knowledge = [];
+		o.knowledgePoint = [];
 
 		// 知识点选择器
 		d.knowledge = dom.find('.knowledge_box select');
@@ -524,11 +554,11 @@ batchTest.getValue = function(){
 		// 循环知识点，将已选中的值存入数组中
 		d.knowledge.each(function(){
 			if(this.value){
-				o.knowledge.push(this.value);
+				o.knowledgePoint.push(this.value);
 			}
 		});
 
-		if(o.knowledge.length == 0){
+		if(o.knowledgePoint.length == 0){
 			errorSet(d.knowledge, '请选择知识点');
 		}else{
 			errorClear(d.knowledge);
@@ -572,7 +602,13 @@ batchTest.getValue = function(){
 		}
 
 	});
-// console.log(batchTest.items);
+
+	// 如何是考试卷，则判断试题分值总和是否大于试卷分值
+	if(paperScore > 0){
+		if(score > paperScore){
+			alert('您的试题分值总数大于试卷分值');
+		}
+	}
 
 	// var json = $.parseJSON(batchTest.items);
 	var jsons = JSON.stringify(batchTest.items);
