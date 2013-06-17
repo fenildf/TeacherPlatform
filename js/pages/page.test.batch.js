@@ -560,6 +560,8 @@ batchTest.getValue = function(){
 
 		if(o.knowledgePoint.length == 0){
 			errorSet(d.knowledge, '请选择知识点');
+		}else if(o.knowledgePoint.length < 2){
+			errorSet(d.knowledge, '最少需要选择2级知识点');
 		}else{
 			errorClear(d.knowledge);
 		}
