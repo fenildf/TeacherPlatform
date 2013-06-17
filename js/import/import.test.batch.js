@@ -1707,19 +1707,23 @@ batchTest.getValue = function(){
 			return false;
 		}else{
 			dom.find('.item_body').addClass('check_succeed');
+			// o = $.parseJSON(o);
+			// console.log(o);
 			//将数据存储到batchTest.items当中，以serial为键
 			batchTest.items[o.serial] = o;
 		}
 
 	});
+// console.log(batchTest.items);
 
-	var json = $.parseJSON(batchTest.items);
-
+	// var json = $.parseJSON(batchTest.items);
+	var jsons = JSON.stringify(batchTest.items);
 	if(error.length > 0){
 
 		return false;
 	}else{
-		return batchTest.items;
+		// return batchTest.items;
+		return jsons;
 	}
 };
 
