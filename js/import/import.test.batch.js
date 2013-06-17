@@ -1575,7 +1575,7 @@ batchTest.getValue = function(){
 		error = [];
 
 		d = {
-			serial : dom.find('.item_num input'),
+			serialNumber : dom.find('.item_num input'),
 			score  : dom.find('.item_sorce input'),
 			type   : dom.find('input[name^="testType_"]:checked'),
 			name   : dom.find('.item_title input'),
@@ -1588,7 +1588,7 @@ batchTest.getValue = function(){
 
 
 		o = {
-			serial : d.serial.val(),
+			serialNumber : d.serialNumber.val(),
 			score  : d.score.val(),
 			type   : d.type.val()
 		};
@@ -1709,8 +1709,8 @@ batchTest.getValue = function(){
 			dom.find('.item_body').addClass('check_succeed');
 			// o = $.parseJSON(o);
 			// console.log(o);
-			//将数据存储到batchTest.items当中，以serial为键
-			batchTest.items[o.serial] = o;
+			//将数据存储到batchTest.items当中，以serialNumber为键
+			batchTest.items[o.serialNumber] = o;
 		}
 
 	});
