@@ -1688,15 +1688,19 @@ batchTest.getValue = function(){
 		 * 处理知识点的值 ----------------------------------------------- 
 		 */
 		
-		o.knowledgePoint = [];
+		// o.knowledgePoint = [];
+		o.knowledgePoint = {};
+		
 
 		// 知识点选择器
 		d.knowledge = dom.find('.knowledge_box select');
 
 		// 循环知识点，将已选中的值存入数组中
-		d.knowledge.each(function(){
+		d.knowledge.each(function(k,v){
+			console.log(k);
 			if(this.value){
-				o.knowledgePoint.push(this.value);
+				o.knowledgePoint[k+1] = this.value;
+				// o.knowledgePoint.push(this.value);
 			}
 		});
 
