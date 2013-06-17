@@ -1332,6 +1332,8 @@ function addFillCorrectAnswer(d){
 			  + '<a href="###" onclick="addFillCorrectAnswer(this);">追加</a>\n'
 			  + '<a href="###" onclick="removeFillCorrectAnswer(this);">删除</a></span>';
 	_wrap.after(_html);
+	xes.iframe.setHeight();
+
 }
 
 function removeFillCorrectAnswer(d){
@@ -1342,6 +1344,8 @@ function removeFillCorrectAnswer(d){
 	}else{
 		alert('至少要有一个正确答案');
 	}
+	xes.iframe.setHeight();
+
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-= 编辑导入试题部分 =-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -1430,6 +1434,7 @@ $(function(){
 			handle.removeClass('items_expanded').addClass('items_collapsed');
 			handle.text('收起');
 		}
+		xes.iframe.setHeight();
 	});
 
 	//整体展开/折叠
@@ -1443,6 +1448,7 @@ $(function(){
 			itemToggle(items, 'expanded');
 			itemsToggle($(this), 'expanded');
 		}
+		xes.iframe.setHeight();
 	});
 
 	//单个移出
@@ -1454,6 +1460,7 @@ $(function(){
 		}else{
 			alert('此试题为最后1道试题，请勿删除');
 		}
+		xes.iframe.setHeight();
 	});
 
 	// 选择试卷类型
