@@ -18,7 +18,7 @@
 
 ///import:xes.form.js///
 
-// /import:xes.img.js/ //
+///import:xes.img.js///
 
 ///import:xes.localstorage.js///
 
