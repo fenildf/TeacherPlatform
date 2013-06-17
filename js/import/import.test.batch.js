@@ -1745,17 +1745,24 @@ batchTest.getValue = function(){
 
 	});
 
+
+
+	/**
+	 * 数据验证，如果出错，则直接 return false
+	 * 
+	 */
+
 	// 如何是考试卷，则判断试题分值总和是否大于试卷分值
 	if(paperScore > 0){
 		if(score > paperScore){
 			alert('您的试题分值总数大于试卷分值');
+			return false;
 		}
 	}
 
 	// var json = $.parseJSON(batchTest.items);
 	var jsons = JSON.stringify(batchTest.items);
 	if(error.length > 0){
-
 		return false;
 	}else{
 		// return batchTest.items;
