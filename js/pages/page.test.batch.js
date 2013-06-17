@@ -454,7 +454,7 @@ batchTest.getValue = function(){
 
 		d = {
 			serialNumber : dom.find('.item_num input'),
-			testpaperScore  : dom.find('.item_sorce input:visible'),
+			questionScore  : dom.find('.item_sorce input:visible'),
 			testType   : dom.find('input[name^="testType_"]:checked'),
 			testName   : dom.find('.item_title input'),
 			content: dom.find('.item_pic .imgView').eq(0),
@@ -467,7 +467,7 @@ batchTest.getValue = function(){
 
 		o = {
 			serialNumber : d.serialNumber.val(),
-			testpaperScore  : d.testpaperScore.val(),
+			questionScore  : d.questionScore.val(),
 			testType   : d.testType.val()
 		};
 
@@ -493,7 +493,7 @@ batchTest.getValue = function(){
 		 */
 		// 如何是考试卷，则试题分值累加
 		if(paperScore > 0){
-			score += Number(o.testpaperScore);
+			score += Number(o.questionScore);
 		}
 
 		/**
