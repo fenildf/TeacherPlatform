@@ -311,8 +311,19 @@ $(function(){
 
 	//单个移出
 	$('ul.labelCon li .question_item').on('click', '.item_delete', function(){
+
+
 		if($('.question_item').length > 1){
 			if(confirm('是否确定删除')){
+				// 判断如果已经有提交的数据，则从里面删除当前点击关闭的这条记录信息
+				if(batchTest.items){
+					var num = $(this).parents('dl').attr('id');
+					num = num.replace('question_item_','');
+					num = Number(num)+1;
+
+					delete batchTest.items[num];
+					// batchTest.del(this);
+				}
 				$(this).parents('.question_item').remove();
 			}			
 		}else{
@@ -409,6 +420,27 @@ var batchTest = batchTest || {};
  */
 batchTest.items = {};
 
+/**
+ * 删除数据项
+ * @param  {Object | Number} d [如果是Object的话，则传入的是要关闭的DOM对象，需要通过父级ID获取]
+ * @return {[type]}   [description]
+ */
+batchTest.del = function(d){
+	
+	var num;
+
+	if(typeof(d) == 'Object'){
+		var id = $(dom).parents('dl').attr('id');
+		num = id.replace('question_item_','');
+	}else{
+		num = d;
+	}
+
+	num = Number(num)+1;
+
+	delete this.items[num];
+	// return this;
+};
 /**
  * 获取批量试题的表单值
  * @return {JSON} 返回整个试题数组;
@@ -649,7 +681,8 @@ batchTest.getValue = function(){
 	}
 
 	// var json = $.parseJSON(batchTest.items);
-	var jsons = JSON.stringify(batchTest.items);
+	// var jsons = JSON.stringify(batchTest.items);
+	var jsons = batchTest.items;
 	if(error.length > 0){
 		return false;
 	}else{
