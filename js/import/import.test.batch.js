@@ -1556,7 +1556,7 @@ $(function(){
 	xes.know.init({
 		department:2,
 		subject:2,
-		url:'http://' + xes.domain +'/coursev4/knowledge/'
+		url:'http://www.xueersi.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
