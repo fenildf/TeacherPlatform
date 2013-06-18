@@ -1640,7 +1640,7 @@ var imgViews = function(url,top,left){
 		};
 		var _wrap = '<div id="pictureView" style="position:absolute;z-index:1000;"></div>';
 		var _img = '<a href="' + url + '" target="_blank">'
-				 + '	<img src="' + url + '" alt="" style="width:400px;height:auto;" />'
+				 + '	<img src="' + url + '" alt="" style="width:400px;height:auto;border:1px solid #CCC; padding:2px 5px 5px 2px; box-shadow:1px 1px 7px #ccc; background-color:#fff;" />'
 				 + '</a>';
 		var _box = $('#pictureView');
 		if(_box.length > 0){
