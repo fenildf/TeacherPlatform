@@ -370,10 +370,11 @@ $(function(){
 
 
 	// 页面加载之后第一次初始化知识点
+	// 
 	xes.know.init({
 		department:2,
-		subject:2
-		// url:'http://www.wss2.0.com/coursev4/knowledge/'
+		subject:2,
+		url:'http://' + xes.domain +'/coursev4/knowledge/'
 	}).addlistener();
 
 });
