@@ -681,8 +681,8 @@ batchTest.getValue = function(){
 	}
 
 	// var json = $.parseJSON(batchTest.items);
-	// var jsons = JSON.stringify(batchTest.items);
-	var jsons = batchTest.items;
+	var jsons = JSON.stringify(batchTest.items);
+	// var jsons = batchTest.items;
 	if(error.length > 0){
 		return false;
 	}else{
