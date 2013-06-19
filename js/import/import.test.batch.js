@@ -1026,9 +1026,13 @@ xes.know = xes.know || {};
 		//这里需要的是上一级的级别数
 		var level = Number(level) - 1;
 		var html = html || k.HTML;
+		console.log('level: '+level);
 
 		//如果不是1级，则先清空后面的，然后追加
 		if(level > 0){
+			console.log('------');
+			console.log('level: '+level);
+			console.log('======');
 			//由于eq是从0开始算起的，所以要-1；
 			$(k.item).eq(level-1).nextAll().remove();
 			$(k.item).eq(level-1).after(html);	
@@ -1107,7 +1111,11 @@ xes.know = xes.know || {};
 
 		$(k.wrap).on('change', 'select', function(a){
 			var index = k._getIndex(this);
-			k.click(this, Number(index) + 1);
+			if(this.value != ''){
+				k.click(this, Number(index) + 1);
+			}else{
+				$(this).nextAll('select').remove();
+			}
 		});
 
 		return this;
@@ -1565,8 +1573,8 @@ $(function(){
 	// 页面加载之后第一次初始化知识点
 	// 
 	xes.know.init({
-		department:2,
-		subject:2,
+		// department:2,
+		// subject:2,
 		url:'http://www.xueersi.com/coursev4/knowledge/'
 	}).addlistener();
 

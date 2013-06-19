@@ -383,8 +383,8 @@ $(function(){
 	// 页面加载之后第一次初始化知识点
 	// 
 	xes.know.init({
-		department:2,
-		subject:2,
+		// department:2,
+		// subject:2,
 		url:'http://www.xueersi.com/coursev4/knowledge/'
 	}).addlistener();
 
