@@ -462,6 +462,8 @@ batchTest.del = function(d){
  */
 batchTest.getValue = function(){
 
+	batchTest.items = {};
+
 	var paperType = $('#paper_type').val();
 
 	var items = $('.question_items dl');
@@ -528,13 +530,15 @@ batchTest.getValue = function(){
 			}
 		});
 
-		if(batchTest.items[o.serialNumber]){
-			// alert('序号重复，请检查');
-			errorSet(d.serialNumber, '序号重复，请检查');
-		}
+		// if(batchTest.items[o.serialNumber]){
+		// 	// alert('序号重复，请检查');
+		// 	errorSet(d.serialNumber, '序号重复，请检查');
+		// }
 
 		// 
-		if(!sn.kv[o.serialNumber]){
+		if(sn.kv[o.serialNumber]){
+			errorSet(d.serialNumber, '序号重复，请检查');
+		}else{
 			sn.len++;
 			sn.kv[o.serialNumber] = num;
 			sn['items'].push({
