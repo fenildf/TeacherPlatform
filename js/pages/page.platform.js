@@ -206,11 +206,15 @@ var setIframeHeight = xes.platform.setMainHeight;
 var createTabs = function(obj, fn){
 	if(obj.url){
 		var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
+		//根据左侧菜单创建tabs标签
 		if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
 			_menu.parent().click();
 		}else{
-			//根据左侧菜单创建tabs标签
-			xes.ui.tabs.create(obj).click(obj.id);
+			
+			xes.ui.tabs.create(obj);
+			setTimeout(function(){
+				xes.ui.tabs.click(obj.id);
+			}, 100);
 		}
 		if(fn){
 			fn(obj.id);
