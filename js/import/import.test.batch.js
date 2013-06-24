@@ -986,13 +986,13 @@ xes.know = xes.know || {};
 		//这里需要的是上一级的级别数
 		var level = Number(level) - 1;
 		var html = html || k.HTML;
-		console.log('level: '+level);
+		// console.log('level: '+level);
 
 		//如果不是1级，则先清空后面的，然后追加
 		if(level > 0){
-			console.log('------');
-			console.log('level: '+level);
-			console.log('======');
+			// console.log('------');
+			// console.log('level: '+level);
+			// console.log('======');
 			//由于eq是从0开始算起的，所以要-1；
 			$(k.item).eq(level-1).nextAll().remove();
 			$(k.item).eq(level-1).after(html);	
@@ -1610,7 +1610,7 @@ batchTest.del = function(d){
 			video  : d.video.val()
 		};
  */
-batchTest.getValue = function(){
+batchTest.getValue = function(callType){
 
 	batchTest.items = {};
 
@@ -1619,7 +1619,7 @@ batchTest.getValue = function(){
 	var items = $('.question_items dl');
 
 	var dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
-		tempItems = [], score = 0, sn = {len:0, kv:[], items:[]};
+		tempItems = [], score = 0, sn = {len:0, items:[]};
 /*
 	var testpaperScore = $('input[name="testpaperScore"]:checked:visible');
 
@@ -1633,11 +1633,6 @@ batchTest.getValue = function(){
 	if(paperType == 2){
 		paperScore = Number($('input[name="testpaperScore"]:checked').val());
 	}
-	
-
-
-
-
 	
 
 	items.each(function(){
@@ -1680,25 +1675,15 @@ batchTest.getValue = function(){
 			}
 		});
 
-		// if(batchTest.items[o.serialNumber]){
-		// 	// alert('序号重复，请检查');
-		// 	errorSet(d.serialNumber, '序号重复，请检查');
-		// }
-
-		// 
-		if(sn.kv[o.serialNumber]){
+		// 序号检测：如果不重复则存储到临时序号数组中
+		if(sn.items[o.serialNumber]){
 			errorSet(d.serialNumber, '序号重复，请检查');
 		}else{
 			sn.len++;
-			sn.kv[o.serialNumber] = num;
-			sn['items'].push({
-				id:num,
-				val:o.serialNumber
-			});
+			sn.items[o.serialNumber] = num;
+			errorClear(d.serialNumber);
 		}
 		
-		// sn[num] = o.serialNumber;
-
 		o.testName 		 = dom.find('.item_title input').val();
 		o.keyword 	 = $('#keyword_' + num).val();
 		o.customDifficulty = $('#customDifficulty_' + num).val();
@@ -1760,8 +1745,6 @@ batchTest.getValue = function(){
 		}
 		// 将答案存到o对象中
 		o.correctAnswer = answer;
-		// console.log(answer);
-		// console.log('answer: '+o.correctAnswer.length);
 		if(o.correctAnswer.length == 0){
 			errorSet(d.answer, '请填写试题答案');
 		}else{
@@ -1774,8 +1757,6 @@ batchTest.getValue = function(){
 		 */
 		
 		o.knowledgePoint = [];
-		// o.knowledgePoint = {};
-		
 
 		// 知识点选择器
 		d.knowledge = dom.find('.knowledge_box select');
@@ -1783,12 +1764,9 @@ batchTest.getValue = function(){
 		// 循环知识点，将已选中的值存入数组中
 		d.knowledge.each(function(k,v){
 			if(this.value){
-				// o.knowledgePoint[k+1] = this.value;
 				o.knowledgePoint.push(this.value);
 			}
 		});
-
-		// console.log(o.knowledgePoint.keys);
 
 		if(o.knowledgePoint.length == 0){
 			errorSet(d.knowledge, '请选择知识点');
@@ -1809,7 +1787,6 @@ batchTest.getValue = function(){
 			d.addClass('error');
 			d.parents('div').addClass('wrap_error');
 			error.push(d);
-			// if(msg){}
 		}
 
 		// 清除错误提示
@@ -1817,26 +1794,25 @@ batchTest.getValue = function(){
 			d.parents('div').removeClass('wrap_error');
 			d.removeClass('error');
 		}
-
 		/**
 		 * 检查每道题的错误情况
 		 * 检测如果error数组中有错误元素，则在父级增加错误效果，否则检测通过,这是成果样式
 		 */
 		if(error.length > 0){
 			$('.question_items dl').find('.item_body').removeClass('check_error');
-			dom.find('.item_body').addClass('check_error');
+			dom.find('.item_body').removeClass('check_succeed').addClass('check_error');
 			alert('请检查第 ' + (Number(num)+1) + ' 道试题标红线的内容是否填写完整');
 			return false;
 		}else{
-			dom.find('.item_body').addClass('check_succeed');
-			// o = $.parseJSON(o);
-			// console.log(o);
-			//将数据存储到batchTest.items当中，以serialNumber为键
+			dom.find('.item_body').removeClass('check_error').addClass('check_succeed');
+			
+			// 存储到临时数组当中，便于排序
 			tempItems.push({
 				id: o.serialNumber,
 				val: o
 			});
 
+			//将数据存储到batchTest.items当中，以serialNumber为键
 			// batchTest.items[o.serialNumber] = o;
 		}
 
@@ -1857,49 +1833,33 @@ batchTest.getValue = function(){
 		}
 	}
 
-	// 判断序号是否重复
-	console.log(sn);
-	// console.log(sn.len);
-	// var newItems;
-	// if(sn.len < items.length){
-	// 	alert('您的试题序号有重复，请检查！');
-	// 	// return false;
-	// }else{
-	// 	newItems = sn['items'].sort(function(a,b){
-	// 		return (a.val - b.val);
-	// 	});
-	// 	console.log('newItems: ');
 
-	// 	console.log(newItems);
-	// 	console.log('---------------');
-	// }
+	// 对临时数组进行排序
 	tempItems = tempItems.sort(function(a, b){
 		return (a.id - b.id);
 	});
 
-	var ii = 1;
+	// 按照临时数组中的顺序添加到batchTest.items当中
 	$.each(tempItems, function(k, v){
-		batchTest.items[ii] = v;
-		ii++;
+
+		// 让里面序号的值也变成重新排列后的
+		v['val'].serialNumber = (k + 1);
+
+		// 将这条记录存储到batchTest中
+		batchTest.items[k+1] = v.val;
 	});
 
 
-	console.log('===========================');
-	console.log(batchTest.items);
-	console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-');
-	console.log(tempItems);
-
-	// var json = $.parseJSON(batchTest.items);
 	var jsons = JSON.stringify(batchTest.items);
 	
-	// var jsons = batchTest.items;
 	if(error.length > 0){
 		return false;
 	}else{
-		// return batchTest.items;
+
 		delete dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
 		tempItems, score, sn;		 
-		return jsons;
+
+		return (callType == 'json' ? batchTest.items : jsons);
 	}
 
 

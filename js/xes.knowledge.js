@@ -210,13 +210,13 @@ xes.know = xes.know || {};
 		//这里需要的是上一级的级别数
 		var level = Number(level) - 1;
 		var html = html || k.HTML;
-		console.log('level: '+level);
+		// console.log('level: '+level);
 
 		//如果不是1级，则先清空后面的，然后追加
 		if(level > 0){
-			console.log('------');
-			console.log('level: '+level);
-			console.log('======');
+			// console.log('------');
+			// console.log('level: '+level);
+			// console.log('======');
 			//由于eq是从0开始算起的，所以要-1；
 			$(k.item).eq(level-1).nextAll().remove();
 			$(k.item).eq(level-1).after(html);	
