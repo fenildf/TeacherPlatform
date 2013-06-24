@@ -736,47 +736,7 @@ function setKnowledge(department_id,subject_id){
 	}
 }
 
-/* -------------------- xes.img.js --------------------- */
-
-/**
- * 图片相关的功能模块
- * @update : 2013-03-25
- * @author : Marco <Mr.Pai@msn.com>
- * @version: v1.0.0
- */
-
-var xes = xes || {};
-
-xes.img = xes.img || {};
-
-(function(){
-	var img = xes.img;
-
-	/**
-	 * 鼠标移入时显示图片
-	 * @return {[type]} [description]
-	 */
-	img.hoverView = function(url,dom){
-		var _top =  $(dom).offset().top + $(dom).outerHeight(true);
-		var _left = $(dom).offset().left;
-		window.parent.imgViews(url, _top, _left);
-	};
-	img.hideView = function(id){
-		window.parent.imgViewHide();
-	};
-	img.hover = function(){};
-	
-
-})();
-
-
-if($('em.imgView').length > 0){
-	$('em.imgView').hover(function(){
-		xes.img.hoverView($(this).text(),this);
-	},function(){
-		xes.img.hideView();
-	});
-}
+// /import:xes.img.js///
 
 /**
  * 
@@ -837,11 +797,6 @@ xes.LocalStorage = xes.LocalStorage || {};
 		window.localStorage.setItem(k, _val)
 	};
 	ls.get = function(k) {
-		try{
-			window.localStorage;
-		}catch(error){
-			console.log(error.message);
-		}
 		var v = window.localStorage.getItem(k);
 		v = JSON.parse(v);
 		return v
@@ -1661,7 +1616,8 @@ batchTest.getValue = function(){
 
 	var items = $('.question_items dl');
 
-	var dom, tpbox, tp, num, answerBoxType, answerItems, num, d, o, itemData, answer, error, score = 0;
+	var dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
+		tempItems = [], score = 0, sn = {len:0, kv:[], items:[]};
 /*
 	var testpaperScore = $('input[name="testpaperScore"]:checked:visible');
 
@@ -1721,6 +1677,23 @@ batchTest.getValue = function(){
 				errorClear(d[k]);
 			}
 		});
+
+		if(batchTest.items[o.serialNumber]){
+			// alert('序号重复，请检查');
+			errorSet(d.serialNumber, '序号重复，请检查');
+		}
+
+		// 
+		if(!sn.kv[o.serialNumber]){
+			sn.len++;
+			sn.kv[o.serialNumber] = num;
+			sn['items'].push({
+				id:num,
+				val:o.serialNumber
+			});
+		}
+		
+		// sn[num] = o.serialNumber;
 
 		o.testName 		 = dom.find('.item_title input').val();
 		o.keyword 	 = $('#keyword_' + num).val();
@@ -1855,7 +1828,12 @@ batchTest.getValue = function(){
 			// o = $.parseJSON(o);
 			// console.log(o);
 			//将数据存储到batchTest.items当中，以serialNumber为键
-			batchTest.items[o.serialNumber] = o;
+			tempItems.push({
+				id: o.serialNumber,
+				val: o
+			});
+
+			// batchTest.items[o.serialNumber] = o;
 		}
 
 	});
@@ -1875,15 +1853,52 @@ batchTest.getValue = function(){
 		}
 	}
 
+	// 判断序号是否重复
+	console.log(sn);
+	// console.log(sn.len);
+	// var newItems;
+	// if(sn.len < items.length){
+	// 	alert('您的试题序号有重复，请检查！');
+	// 	// return false;
+	// }else{
+	// 	newItems = sn['items'].sort(function(a,b){
+	// 		return (a.val - b.val);
+	// 	});
+	// 	console.log('newItems: ');
+
+	// 	console.log(newItems);
+	// 	console.log('---------------');
+	// }
+	tempItems = tempItems.sort(function(a, b){
+		return (a.id - b.id);
+	});
+
+	var ii = 1;
+	$.each(tempItems, function(k, v){
+		batchTest.items[ii] = v;
+		ii++;
+	});
+
+
+	console.log('===========================');
+	console.log(batchTest.items);
+	console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-');
+	console.log(tempItems);
+
 	// var json = $.parseJSON(batchTest.items);
 	var jsons = JSON.stringify(batchTest.items);
+	
 	// var jsons = batchTest.items;
 	if(error.length > 0){
 		return false;
 	}else{
 		// return batchTest.items;
+		delete dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
+		tempItems, score, sn;		 
 		return jsons;
 	}
+
+
 };
 
 

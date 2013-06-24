@@ -21,11 +21,6 @@ xes.LocalStorage = xes.LocalStorage || {};
 		window.localStorage.setItem(k, _val)
 	};
 	ls.get = function(k) {
-		try{
-			window.localStorage;
-		}catch(error){
-			console.log(error.message);
-		}
 		var v = window.localStorage.getItem(k);
 		v = JSON.parse(v);
 		return v

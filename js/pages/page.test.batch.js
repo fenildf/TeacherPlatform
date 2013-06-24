@@ -18,7 +18,7 @@
 
 ///import:xes.form.js///
 
-///import:xes.img.js///
+// /import:xes.img.js///
 
 ///import:xes.localstorage.js///
 
@@ -466,7 +466,8 @@ batchTest.getValue = function(){
 
 	var items = $('.question_items dl');
 
-	var dom, tpbox, tp, num, answerBoxType, answerItems, num, d, o, itemData, answer, error, score = 0;
+	var dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
+		tempItems = [], score = 0, sn = {len:0, kv:[], items:[]};
 /*
 	var testpaperScore = $('input[name="testpaperScore"]:checked:visible');
 
@@ -526,6 +527,23 @@ batchTest.getValue = function(){
 				errorClear(d[k]);
 			}
 		});
+
+		if(batchTest.items[o.serialNumber]){
+			// alert('序号重复，请检查');
+			errorSet(d.serialNumber, '序号重复，请检查');
+		}
+
+		// 
+		if(!sn.kv[o.serialNumber]){
+			sn.len++;
+			sn.kv[o.serialNumber] = num;
+			sn['items'].push({
+				id:num,
+				val:o.serialNumber
+			});
+		}
+		
+		// sn[num] = o.serialNumber;
 
 		o.testName 		 = dom.find('.item_title input').val();
 		o.keyword 	 = $('#keyword_' + num).val();
@@ -660,7 +678,12 @@ batchTest.getValue = function(){
 			// o = $.parseJSON(o);
 			// console.log(o);
 			//将数据存储到batchTest.items当中，以serialNumber为键
-			batchTest.items[o.serialNumber] = o;
+			tempItems.push({
+				id: o.serialNumber,
+				val: o
+			});
+
+			// batchTest.items[o.serialNumber] = o;
 		}
 
 	});
@@ -680,15 +703,52 @@ batchTest.getValue = function(){
 		}
 	}
 
+	// 判断序号是否重复
+	console.log(sn);
+	// console.log(sn.len);
+	// var newItems;
+	// if(sn.len < items.length){
+	// 	alert('您的试题序号有重复，请检查！');
+	// 	// return false;
+	// }else{
+	// 	newItems = sn['items'].sort(function(a,b){
+	// 		return (a.val - b.val);
+	// 	});
+	// 	console.log('newItems: ');
+
+	// 	console.log(newItems);
+	// 	console.log('---------------');
+	// }
+	tempItems = tempItems.sort(function(a, b){
+		return (a.id - b.id);
+	});
+
+	var ii = 1;
+	$.each(tempItems, function(k, v){
+		batchTest.items[ii] = v;
+		ii++;
+	});
+
+
+	console.log('===========================');
+	console.log(batchTest.items);
+	console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-');
+	console.log(tempItems);
+
 	// var json = $.parseJSON(batchTest.items);
 	var jsons = JSON.stringify(batchTest.items);
+	
 	// var jsons = batchTest.items;
 	if(error.length > 0){
 		return false;
 	}else{
 		// return batchTest.items;
+		delete dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
+		tempItems, score, sn;		 
 		return jsons;
 	}
+
+
 };
 
 
