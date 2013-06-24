@@ -40,9 +40,11 @@
 }
 .upload_img_thumb_list li img {width: 68px; height: 42px;}
 .upload_img_thumb a[class^="upload_img_btn_"] {
-	/*position: absolute; bottom: 15px;*/
-	display: inline-block; 
-	width: 28px; height: 28px; margin: 12px 3px;
+	/*position: absolute;
+	bottom: 15px;*/ display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin: 12px 3px;
 	text-indent: -999px;
 	overflow: hidden;
 	background-image: url('http://img03.xesimg.com/course_bgpic.png');

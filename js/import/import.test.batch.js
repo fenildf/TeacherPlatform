@@ -837,6 +837,11 @@ xes.LocalStorage = xes.LocalStorage || {};
 		window.localStorage.setItem(k, _val)
 	};
 	ls.get = function(k) {
+		try{
+			window.localStorage;
+		}catch(error){
+			console.log(error.message);
+		}
 		var v = window.localStorage.getItem(k);
 		v = JSON.parse(v);
 		return v
@@ -1575,7 +1580,7 @@ $(function(){
 	xes.know.init({
 		// department:2,
 		// subject:2,
-		url:'http://www.xueersi.com/coursev4/knowledge/'
+		// url:'http://www.xueersi.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
