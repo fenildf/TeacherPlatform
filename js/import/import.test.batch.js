@@ -682,6 +682,39 @@ var xform = xform || {};
 	 		});
 		};
 
+		/**
+		 * 按钮不可点击状态
+		 * @param  {选择符} expr 支持选择符或者jQuery对象
+		 * @return {[type]}      按钮设置为不可点击状态，同时上面增加一个遮罩层
+		 */
+		f.disible = function(expr){
+			var btn = $(expr);
+			var dom = '<div class="btn_disible_mask"></div>';
+			btn.attr({
+				disible:true,
+				readonly:true
+			});
+			$(dom).css({
+				width: btn.outerWidth(true),
+				height: btn.outerHeight(true),
+				top: btn.offset().top,
+				left: btn.offset().left,
+				position:'absolute',
+				// backgroundColor:'#000',
+				zIndex:1000
+			}).appendTo('body');
+
+		};
+
+		f.enable = function(expr){
+			var btn = $(expr);
+			var dom = $('.btn_disible_mask');
+			btn.attr({
+				disible:false,
+				readonly:false
+			});
+			dom.remove();
+		};
 		
 
 })();
@@ -736,7 +769,47 @@ function setKnowledge(department_id,subject_id){
 	}
 }
 
-// /import:xes.img.js///
+/* -------------------- xes.img.js --------------------- */
+
+/**
+ * 图片相关的功能模块
+ * @update : 2013-03-25
+ * @author : Marco <Mr.Pai@msn.com>
+ * @version: v1.0.0
+ */
+
+var xes = xes || {};
+
+xes.img = xes.img || {};
+
+(function(){
+	var img = xes.img;
+
+	/**
+	 * 鼠标移入时显示图片
+	 * @return {[type]} [description]
+	 */
+	img.hoverView = function(url,dom){
+		var _top =  $(dom).offset().top + $(dom).outerHeight(true);
+		var _left = $(dom).offset().left;
+		window.parent.imgViews(url, _top, _left);
+	};
+	img.hideView = function(id){
+		window.parent.imgViewHide();
+	};
+	img.hover = function(){};
+	
+
+})();
+
+
+if($('em.imgView').length > 0){
+	$('em.imgView').hover(function(){
+		xes.img.hoverView($(this).text(),this);
+	},function(){
+		xes.img.hideView();
+	});
+}
 
 /**
  * 
@@ -986,13 +1059,10 @@ xes.know = xes.know || {};
 		//这里需要的是上一级的级别数
 		var level = Number(level) - 1;
 		var html = html || k.HTML;
-		// console.log('level: '+level);
 
 		//如果不是1级，则先清空后面的，然后追加
 		if(level > 0){
-			// console.log('------');
-			// console.log('level: '+level);
-			// console.log('======');
+
 			//由于eq是从0开始算起的，所以要-1；
 			$(k.item).eq(level-1).nextAll().remove();
 			$(k.item).eq(level-1).after(html);	
@@ -1222,6 +1292,20 @@ $(function () {
 	});
 	
 	xes.iframe.setHeight();
+
+	/**
+	 * 解决左侧当前激活位置不对的情况
+	 *
+	 * 		获取当前激活标签，再执行一次点击：
+	 * 		var act = window.parent.getActiveTabs();
+	 * 		act.find('a').click();
+	 * 
+	 * 		或者直接调用父级的 clickActives方法：
+	 * 		window.parent.clickActives();
+	 */
+	if(window.parent){
+		window.parent.clickActives();
+	}
 });
 
 function getQuestionListDom(d,id){
@@ -1535,7 +1619,7 @@ $(function(){
 	xes.know.init({
 		// department:2,
 		// subject:2,
-		// url:'http://www.xueersi.com/coursev4/knowledge/'
+		url:'http://www.xueersi.com/coursev4/knowledge/'
 	}).addlistener();
 
 });
@@ -1612,6 +1696,8 @@ batchTest.del = function(d){
  */
 batchTest.getValue = function(callType){
 
+
+
 	batchTest.items = {};
 
 	var paperType = $('#paper_type').val();
@@ -1633,7 +1719,6 @@ batchTest.getValue = function(callType){
 	if(paperType == 2){
 		paperScore = Number($('input[name="testpaperScore"]:checked').val());
 	}
-	
 
 	items.each(function(){
 
@@ -1655,7 +1740,6 @@ batchTest.getValue = function(callType){
 			difficulty: $('#customDifficulty_' + num),
 			video  : $('#analysisVideo_' + num)
 		};
-
 
 		o = {
 			// 如果没有序号的input表单，则直接取前面的序号（试卷有序号input，试题没有）
@@ -1690,7 +1774,6 @@ batchTest.getValue = function(callType){
 		o.analysisVideo 	 = $('#analysisVideo_' + num).val();
 		o.testContent = d.content.text();
 		o.answerAnalysis = d.analysis.text();
-
 
 		/**
 		 * 处理试题分数的值 -------------------------------------------------- 
@@ -1751,7 +1834,6 @@ batchTest.getValue = function(callType){
 			errorClear(d.answer);
 		}
 
-
 		/**
 		 * 处理知识点的值 ----------------------------------------------- 
 		 */
@@ -1775,7 +1857,6 @@ batchTest.getValue = function(callType){
 		}else{
 			errorClear(d.knowledge);
 		}
-
 
 		/**
 		 * 设置错误提示
@@ -1801,7 +1882,7 @@ batchTest.getValue = function(callType){
 		if(error.length > 0){
 			$('.question_items dl').find('.item_body').removeClass('check_error');
 			dom.find('.item_body').removeClass('check_succeed').addClass('check_error');
-			alert('请检查第 ' + (Number(num)+1) + ' 道试题标红线的内容是否填写完整');
+			alert('请检查第 ' + (Number(num)+1) + ' 道试题标红线的内容是否有误，序号是否重复');
 			return false;
 		}else{
 			dom.find('.item_body').removeClass('check_error').addClass('check_succeed');
@@ -1818,8 +1899,6 @@ batchTest.getValue = function(callType){
 
 	});
 
-
-
 	/**
 	 * 数据验证，如果出错，则直接 return false
 	 * 
@@ -1832,7 +1911,6 @@ batchTest.getValue = function(callType){
 			return false;
 		}
 	}
-
 
 	// 对临时数组进行排序
 	tempItems = tempItems.sort(function(a, b){
@@ -1849,7 +1927,6 @@ batchTest.getValue = function(callType){
 		batchTest.items[k+1] = v.val;
 	});
 
-
 	var jsons = JSON.stringify(batchTest.items);
 	
 	if(error.length > 0){
@@ -1857,11 +1934,15 @@ batchTest.getValue = function(callType){
 	}else{
 
 		delete dom, tpbox, tp, num, answerBoxType, answerItems, d, o, itemData, answer, error, 
-		tempItems, score, sn;		 
+		tempItems, score, sn;	
+
+		/**
+		 * 这里是个补丁：递交表单时给提交按钮增加一个遮罩，防止第二次提交
+		 */
+		xes.form.disible('ul.labelCon li:last .btn_submit');
 
 		return (callType == 'json' ? batchTest.items : jsons);
 	}
-
 
 };
 

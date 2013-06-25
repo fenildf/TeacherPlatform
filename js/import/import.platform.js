@@ -1465,7 +1465,7 @@ function headSearch(id){
 	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_2_2_3'; 
 
 	var d = xes.platform.menu.getItem(id);
-	console.log(d);
+	// console.log(d);
 	openTabs(d.url, d.name, id);
 	xes.platform.findChild(id, '.search_key', function(dom){
 		if(typeof dom != 'string'){
@@ -1499,11 +1499,11 @@ var setIframeHeight = xes.platform.setMainHeight;
 var createTabs = function(obj, fn){
 	if(obj.url){
 		var _menu = $('#sidebar ul.ui_fold_menu li').find('a[url="' + obj.url + '"]');
+		//根据左侧菜单创建tabs标签
 		if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
 			_menu.parent().click();
 		}else{
-			//根据左侧菜单创建tabs标签
-			xes.ui.tabs.create(obj).click(obj.id);
+				xes.ui.tabs.create(obj).click(obj.id);
 		}
 		if(fn){
 			fn(obj.id);
@@ -1666,4 +1666,16 @@ var imgViewHide = function(id){
  */
 var setScrollTop = function(t){
 	$(window).scrollTop(t);
+};
+
+/**
+ * 点击tab
+ * @return {[type]} [description]
+ */
+var clickActives = function(expr){
+	var act = getActiveTabs();
+	// $(expr).click();
+	// xes.ui.tabs.click($(expr).attr('id'));
+	act.find('a').click();
+	// alert(111);
 };

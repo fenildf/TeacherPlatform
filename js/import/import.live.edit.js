@@ -1481,6 +1481,39 @@ var xform = xform || {};
 	 		});
 		};
 
+		/**
+		 * 按钮不可点击状态
+		 * @param  {选择符} expr 支持选择符或者jQuery对象
+		 * @return {[type]}      按钮设置为不可点击状态，同时上面增加一个遮罩层
+		 */
+		f.disible = function(expr){
+			var btn = $(expr);
+			var dom = '<div class="btn_disible_mask"></div>';
+			btn.attr({
+				disible:true,
+				readonly:true
+			});
+			$(dom).css({
+				width: btn.outerWidth(true),
+				height: btn.outerHeight(true),
+				top: btn.offset().top,
+				left: btn.offset().left,
+				position:'absolute',
+				// backgroundColor:'#000',
+				zIndex:1000
+			}).appendTo('body');
+
+		};
+
+		f.enable = function(expr){
+			var btn = $(expr);
+			var dom = $('.btn_disible_mask');
+			btn.attr({
+				disible:false,
+				readonly:false
+			});
+			dom.remove();
+		};
 		
 
 })();

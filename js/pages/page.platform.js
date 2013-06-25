@@ -172,7 +172,7 @@ function headSearch(id){
 	var id = tp == '课程' ? 'menu_1_1_1' : 'menu_2_2_3'; 
 
 	var d = xes.platform.menu.getItem(id);
-	console.log(d);
+	// console.log(d);
 	openTabs(d.url, d.name, id);
 	xes.platform.findChild(id, '.search_key', function(dom){
 		if(typeof dom != 'string'){
@@ -210,11 +210,7 @@ var createTabs = function(obj, fn){
 		if(_menu.length >0 && (_menu.parent().attr('id') == obj.id)){
 			_menu.parent().click();
 		}else{
-			
-			xes.ui.tabs.create(obj);
-			setTimeout(function(){
-				xes.ui.tabs.click(obj.id);
-			}, 100);
+				xes.ui.tabs.create(obj).click(obj.id);
 		}
 		if(fn){
 			fn(obj.id);
@@ -377,4 +373,16 @@ var imgViewHide = function(id){
  */
 var setScrollTop = function(t){
 	$(window).scrollTop(t);
+};
+
+/**
+ * 点击tab
+ * @return {[type]} [description]
+ */
+var clickActives = function(expr){
+	var act = getActiveTabs();
+	// $(expr).click();
+	// xes.ui.tabs.click($(expr).attr('id'));
+	act.find('a').click();
+	// alert(111);
 };
