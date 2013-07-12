@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>浏览讲---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_list.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<div class="action_item" style="width:auto;">
+
+		<ul class="action">
+			<li>
+			<form action="" name="" id="listSerch">
+				<select name="" id="selectGrade" class="ui-select-box">
+					<option>--年级--</option>
+					<option value="1">一年级</option>
+					<option value="2">二年级</option>
+					<option value="3">三年级</option>
+					<option value="4">四年级</option>
+					<option value="5">五年级</option>
+					<option value="5">六年级</option>
+				</select>
+				<select name="" id="selectCourseType" class="ui-select-box">
+					<option>--课程状态--</option>
+					<option value="1">已上架</option>
+					<option value="2">未上架</option>
+					<option value="3">已审核</option>
+					<option value="4">未审核</option>
+				</select>
+				<input type="submit" value="筛选" class="s-btn">
+				<input type="hidden" class="search_key" title="存储头部搜索结果" />
+				<input type="hidden" id="currpage" class="currpage" name="currpage" value="1" />
+			</form>
+			</li>
+			
+		</ul>
+		<ul class="item_pag ui_pages">
+			<li class="page_list ui-select-box">
+				<select name="pages" id="pages" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span href="" class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<span class="page_next">下一页</span>
+			</li>
+		</ul>
+
+	</div>
+	<div class="grid_item_content" style="width:auto;">
+		<table class="grid_item">
+			<colgroup>
+				<col width="40px" />
+				<col width="" />
+				<col width="60px" />
+				<col width="60px" />
+				<col width="60px" />
+				<col width="60px" />
+				<col width="60px" />
+
+			</colgroup>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>讲名称</th>
+					<th>科目</th>
+					<th>年级</th>
+					<th>创建人</th>
+					<th>状态</th>
+					<th>选择</th>
+				</tr>
+			</thead>
+			<tbody id="courseList">
+				<tr>
+					<td>1234</td>
+					<td>讲名称讲名称讲名称讲讲名称讲名称讲名称讲名称讲名称名称讲名称</td>
+					<td>数学</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
+				</tr>
+				<tr>
+					<td>1235</td>
+					<td>讲名称讲名称讲名称讲名称讲名称</td>
+					<td>语文</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
+				</tr>
+				<tr>
+					<td>1236</td>
+					<td>讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称讲名称</td>
+					<td>数学</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
+				</tr>
+				<tr>
+					<td>1237</td>
+					<td>讲名称讲名称讲名称讲名称讲名称</td>
+					<td>物理</td>
+					<td>三年级</td>
+					<td>张三</td>
+					<td>正常</td>
+					<td><input type="checkbox" name="checkbox" id="" class="checkbox" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="action_item" style="width:auto;">
+		<a href="project_create_outline.html" class="btn_ancel btn_prev">提交审核</a>
+		<ul class="item_pag ui_pages">
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+		<!-- <button class="btn btn_submit">提交</button> -->
+	</div>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.chapter.list.js"></script>
+	
+</body>
+
+</html>

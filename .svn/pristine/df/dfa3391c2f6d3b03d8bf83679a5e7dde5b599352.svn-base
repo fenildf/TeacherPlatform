@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>课程运营平台</title>
+
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_edit.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body style="position: static">
+	<h1 class="ui_infor_title">
+		<span>预约录播室</span>
+	</h1>
+	<div class="contentLive">
+		<dl>
+			<dt>讲ID</dt>
+			<dd>
+				32907			</dd>
+		</dl>
+		<dl>
+			<dt>讲名称</dt>
+			<dd>
+				几何模块总复习（一）			</dd>
+		</dl>
+		<dl>
+			<dt>最近预约</dt>
+			<dd>
+				2013-04-09 15:30:00 - 2013-04-09 16:00:00			</dd>
+		</dl>
+		<dl>
+			<dt>预约排期</dt>
+			<dd>
+				<input size="" value="" type="text" class="input_text w_215" id="liveDate"  name="liveDate" title="直播排期"/>
+				<span class="tips tips_liveDate"></span>
+			</dd>
+		</dl>
+		<dl id="liveTime">
+			<dt>&nbsp;</dt>
+			<dd>
+				<ul>
+					<li class="title" id="time_week"><span></span>
+											<p>直播间：
+													<a href="###" id="room_1">A</a>
+													<a href="###" id="room_2">B</a>
+													<a href="###" id="room_3">C</a>
+													<a href="###" id="room_4">D</a>
+													<a href="###" id="room_5">E</a>
+													<a href="###" id="room_7">录播室名称录播室名称</a>
+													<a href="###" id="room_8">F</a>
+												</p>
+										</li>
+				</ul>
+				<ul id="liveTimeList" class="content">
+				</ul>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<a href="###" class="btn_ancel btn_prev" onclick="submitAdd();">保存</a>
+				<input type="hidden" id="liveTimeStartInput" name="startTime" value=""/>
+				<input type="hidden" id="liveTimeEndInput" name="endTime" value=""/>
+				<input type="hidden" id="liveChannel" name="liveChannel" value="1"/>
+				<input type="hidden" id="chapterId" name="chapterId" value="32907"/>
+				<span class="tips"></span>
+			</dd>
+		</dl>
+	</div>
+<div id="liveTimeWin" class="teacherLayerAll">
+	<ul>
+		<li class="title">
+			<span class="laber">讲名称</span>
+			<span class="textCon">几何模块总复习（一）</span>
+		</li>
+		<li class="teacneme">
+			<span class="laber">教师名称</span>
+			<span id="teacherName"></span>
+		</li>
+		<li class="teactime">
+			<span class="laber">开始时间</span>
+			<span id="liveDateStart"></span>
+			<span class="right">
+				<select id="liveTimeStart" class="live_time_select">
+				</select>
+			</span>
+		</li>
+		<li class="teactime">
+			<span class="laber">结束时间</span>
+			<span id="liveDateEnd"></span>
+			<span class="right">
+				<select id="liveTimeEnd" class="live_time_select">
+				</select>
+			</span>
+		</li>
+	</ul>
+	<div id="liveTimeButton" style="width:196px;margin:10px auto;overflow:hidden;">
+		<a href="javascript:void(0);" class="btn btn_submit">确定</a>
+		<a href="javascript:void(0);" class="btn btn_cancel">取消</a>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://js03.xesimg.com/import/import.room.edit.js"></script>
+<script type="text/javascript">
+	//提交编辑
+	function submitAdd(){
+/*		var a = checkLiveForm();
+		if(!a){
+			return ;
+		}*/
+		var _chapterId 	= $('#chapterId').val();
+		var _liveDate 	= $('#liveDate').val();
+		var _startTime  = $('#liveTimeStartInput').val();
+		var _endTime 	= $('#liveTimeEndInput').val();
+		var _liveChannel = $('#liveChannel').val();
+		var params = 'chapterId='+_chapterId+'&recordDate='+_liveDate+'&startTime='+_startTime+'&endTime='+_endTime+'&channel='+_liveChannel;
+		var url = "http://teacher20130305.wss2.0.com/teacherCourses/ajaxAddCoursePlan/";
+		$.ajax({
+			url :url,
+			type:'post',
+			dataType:'json',
+			data:params,
+			success: function (data) {
+				if(data.sign == 0){
+					alert(data.msg);
+				}else{
+					alert(data.msg);
+					goTab('/teacherCourses/chapterLists/', '讲列表', 'menu_1_1_3', true);
+				}
+			},
+			error: function() {
+				alert('数据读取错误..');
+			}
+		});	
+	}
+</script>
+</body>
+</html>

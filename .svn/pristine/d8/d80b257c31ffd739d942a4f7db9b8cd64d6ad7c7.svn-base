@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>创建项目---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_test_edit.css" />
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+</head>
+	
+<body>
+	<h1 class="ui_infor_title">
+		<span>试题添加</span>
+	</h1>
+	
+	<form action="/testQuestions/addQuestion/" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+	<ul class="labelCon">
+
+		<li>
+			<label for="">选择学部</label>
+			<span>
+				<select class="ui-select-list" name="departmentId" id="departmentId">
+					<option class="ui-select-button" value="0">学部</option>
+					<option value="1">小学</option>
+					<option value="2">初中</option>
+					<option value="3">高中</option>
+				</select>
+			</span>
+		</li>
+
+		<li>
+			<label for="">所属学科</label>
+			<span>
+				<input type="radio" value="1" name="subjectId">语文
+				<input type="radio" value="2" name="subjectId">数学
+				<input type="radio" value="3" name="subjectId">英语
+				<input type="radio" value="4" name="subjectId">物理
+				<input type="radio" value="5" name="subjectId">化学
+				<input type="radio" value="6" name="subjectId">生物
+				<input type="radio" value="12" name="subjectId">综合
+				<input type="radio" value="14" name="subjectId">理综
+				<input type="radio" value="18" name="subjectId">全科
+				<input type="radio" value="19" name="subjectId">讲座
+			</span>
+		</li>
+
+		<li>
+			<label for="">添加知识点</label>
+			<span id="knowledge" class="knowledge_box"></span>
+			<span class="knowledge_setall">
+				<button class="btn btn_button" type="button">应用所有</button>
+			</span>
+		</li>
+		<li>
+			<label for="">添加知识点</label>
+			<span id="knowledge2" class="knowledge_box"></span>
+			<span class="knowledge_setall">
+				<button class="btn btn_button" type="button">应用所有</button>
+			</span>
+		</li>
+		<li>
+			<label for="">添加知识点</label>
+			<span id="knowledge3" class="knowledge_box"></span>
+			<span class="knowledge_setall">
+				<button class="btn btn_button" type="button">应用所有</button>
+			</span>
+		</li>
+		<li>
+			<label for="">&nbsp;</label>
+			<span>
+				<input type="submit" class="btn btn_submit" value="保存">
+			</span>
+		</li>
+	</ul>
+	</form>
+	<!--script type="text/javascript" src="http://www.wss2.0.com/js/knowledge.js"></script-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.test.batch.js"></script>
+</body>
+<script type="text/javascript">
+$(function() {
+
+	xes.know.init({
+		department:2,
+		subject:2
+	}).addlistener();
+
+	// knowledge_params = {
+	// 	// ajax请求数据地址
+	// 	'url':	'http://www.wss-test2.0.com/coursev4/knowledge/',
+	// 	// 联动容器id
+	// 	'container_id': 'knowledge',
+	// 	// 知识点一级类别标识
+	// 	'level_1_id': 'knowledgePoint1Id',
+	// 	// 知识点一级类别默认值
+	// 	'level_1_default': '',
+	// 	// 知识点二级类别标识
+	// 	'level_2_id': 'knowledgePoint2Id',
+	// 	// 知识点二级类别默认值
+	// 	'level_2_default': '',
+	// 	// 知识点三级类别标识
+	// 	'level_3_id': 'knowledgePoint3Id',
+	// 	// 知识点三级类别默认值
+	// 	'level_3_default': '',
+	// 	// 知识点四级类别标识
+	// 	'level_4_id': 'knowledgePoint4Id',
+	// 	// 知识点四级类别默认值
+	// 	'level_4_default': '',
+	// 	// 显示层级
+	// 	'level': 4,
+	// 	// 学部
+	// 	'department_id': 0,
+	// 	// 学科
+	// 	'subject_id': 0
+	// };
+	// initSelects(knowledge_params);	
+});
+	//选择解析视频
+	function sectionLists(){
+		var result = window.showModalDialog('/testQuestions/teacherSectionLists/','','dialogLeft:300px;dialogTop:360px;dialogWidth:930px;DialogHeight=430px;status:no;resizable:1;')
+		$('#analysisVideo').attr('value',result);
+	}	
+	
+	//验证提交数据
+	function checkSubmit(){
+		//验证学部
+		var departmentId = $('#departmentId').val();
+		if(departmentId != 1 && departmentId !=2 && departmentId!= 3){
+			alert('学部不合法');
+			return false;	
+		}
+		//所属学科
+		var subjectId = $("input[name='subjectId']:checked").val()
+		if(subjectId == undefined){
+			alert('学科不能为空');
+			return false;
+		}
+		
+		//验证知识点1
+		var knowledgePoint1Id = $('#knowledgePoint1Id').val();
+		if(knowledgePoint1Id == ''){
+			alert('知识点1不能为空');
+			return false;	
+		}		
+		
+		//验证知识点2
+		var knowledgePoint2Id = $('#knowledgePoint2Id').val();
+		if(knowledgePoint2Id == ''){
+			alert('试题知识点至少包含一级、二级知识点');
+			return false;	
+		}	
+
+		
+		return true;
+	}
+	
+	</script>
+</html>

@@ -42,7 +42,8 @@ xes.iframe = xes.iframe || {};
 	};
 })();
 $(function(){
-
+	loaded();
+	
 	// setTimeout(function(){
 	xes.iframe.setHeight();
 	// },100);	
@@ -65,6 +66,22 @@ $(function(){
 
 
 /* =-=-=-=-=-=-=-=-=-=-=-=- 子页面调用父级方法 -=-=-=-=-=-=-=-=-=-=-=-=-= */
+var checkLoading = function(){
+	if(window.parent){
+		window.parent.checkLoadings(arguments);
+	}
+};
+var loading = function(dom, text){
+	if(window.parent){
+		// window.parent.loadings(arguments);
+	}
+};
+
+var loaded = function(dom, text){
+	if(window.parent){
+		// window.parent.loadeds(arguments);		
+	}
+};
 
 /**
  * 创建标签
@@ -749,6 +766,7 @@ var xform = xform || {};
 		 * 
 		 */
 		f.setCheckedValue =	function (cookiename,box){
+			console.log(cookiename);
 
  			// 获取已有的cookie值
  			var _cookieval = $.cookie(cookiename);

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>数据分析---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_data.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>信息提示</span>
+	</h1>
+
+<div class="ui_tipsAll">
+	<div class="icon_tips icon_tips_err">
+		<p>项目提交失败，等待项目组审核！！！！！</p>
+		<p>
+			<a href="#">返回</a>
+		
+		</p>
+	</div>
+</div>
+	
+
+	
+	<!-- 学员列表-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.tips.error.js"></script>
+</body>
+</html>

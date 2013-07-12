@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>前端开发工具</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="/css/base.css" rel="stylesheet">
+<link href="src/css/tools.css" rel="stylesheet">
+<link href="src/css/button.css" rel="stylesheet">
+<link href="src/css/input.css" rel="stylesheet">
+<link href="src/css/form.css" rel="stylesheet">
+<script type="text/javascript" src="/js/xes.base.js"></script>
+<script type="text/javascript" src="/js/xes.js"></script>
+</head>
+<body>
+    <div id="header">
+    	<h1>学而思前端开发工具</h1>
+    </div>
+    <div id="sidebar"></div>
+    <div id="main">
+    	<div class="control radius shadow">
+    		<h2 class="head">操作说明</h2>
+    		<div class="control_body">
+    			<form action="" id="contorlForm" class="control_form">
+    				<input class="input input_text control_input" type="" id="issuancePath" value="/js/import/">
+    				<button class="button silver">更新JS路径</button>
+    			</form>
+    			<form action="" id="contorlForm" class="control_form">
+    				<input class="input input_text control_input" type="" id="issuanceCSSPath" value="/css/">
+    				<button type="button" class="button silver">更新CSS路径</button><button id="createAllCSSFiles" type="button" class="button blue">全部生成</button><span class="createCSSStatus"></span>
+    			</form>
+    		</div>
+    	</div>
+    	<div class="table_toolbar">
+    		<span class="tips_arrow"> a</span>
+    		<button id="checkAllButton" class="button white">是否压缩</button><button id="createAllFiles" class="button blue">全部生成</button>
+    	</div>
+    	<table width="100%" class="table_list">
+    		<colgroup>
+    			<col width="50px">
+    			<col width="300px">
+    			<col width="">
+    			<col width="100px">
+    		</colgroup>
+			<thead class="thead">
+				<tr>
+					<th>
+						<input type="checkbox" id="checkAll" name="checkall" class="checkbox">
+					</th>
+					<td>所属页面</td>
+					<td>文件名</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody id="filelist" class="tbody">
+				<tr class="bg">
+					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
+					<td>a</td>
+					<td>a</td>
+					<td>
+						<button class="button blue medium">生成</button>
+					</td>
+				</tr>
+				<tr class="child">
+					<td colspan="4">
+						<ul>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
+					<td>a</td>
+					<td>a</td>
+					<td><button class="button blue medium">生成</button></td>
+				</tr>
+				<tr class="bg">
+					<th><input type="checkbox" name="checkbox" class="checkbox"></th>
+					<td>a</td>
+					<td>a</td>
+					<td><button class="button blue medium">生成</button></td>
+				</tr>
+
+			</tbody>
+		</table>
+    </div>
+    <!-- <div id="container"></div> -->
+    <div id="footer"></div>
+    <script type="text/javascript" src="/js/xes.form.js"></script>
+    <script type="text/javascript" src="src/js/tools.js"></script>
+</body>
+</html>

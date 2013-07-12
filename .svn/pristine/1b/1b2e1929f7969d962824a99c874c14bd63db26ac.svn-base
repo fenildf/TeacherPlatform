@@ -1,0 +1,76 @@
+/* ==================== form.css ===================== */
+.input_text {height: 25px; padding-left: 5px; border:1px solid #d3d3d3;}
+
+ul.labelCon {overflow: hidden;width:auto;margin:10px 3px ;color: #666;}
+ul.labelCon li {padding:7px 0;overflow: hidden;line-height: 25px;}
+ul.labelCon li label {float: left;width: 70px; text-align: right;}
+ul.labelCon li span {float: left;margin-left: 10px; height: 25px;}
+ul.labelCon li p {float: left;margin-left: 10px; height: auto;width: 950px;}
+ul.labelCon li p em {width: auto;white-space: nowrap;}
+#termId {display: none;}
+
+/* 
+ * upload: 2012-11-20
+ * author: Marco(wujie)
+ */
+.btn, .btn_ancel,.btn_prev,
+.btn_submit,.btn_cancel,.btn_button,.ui-pro .ui-pro-item .btn_submit {background: url(http://img03.xesimg.com/btn.jpg) no-repeat;} 
+button.btn_submit,
+input.btn_submit,
+button.btn_button,
+input.btn_button {border: 0 none;cursor: pointer;}
+
+/*a:hover.btn_ancel,*/
+a:hover.btn_cancel {color: #666; text-decoration: none;}
+
+a:hover.btn_prev,
+a:hover.btn_submit {color: #fff; text-decoration: none;}
+
+.btn {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+
+/*.btn_ancel, .btn_ancel:active, .btn_ancel:visited,*/
+.btn_cancel,.btn_button, .btn_cancel:active, .btn_cancel:visited,.ui-pro .ui-pro-item .btn_submit {float: left;display: inline;width: 88px;height: 29px;line-height: 29px; text-align: center;margin-right: 10px;  color: #666;font-size: 12px; font-weight: bold;background-position: 0 -40px;}
+
+.btn_prev, .btn_prev:active, .btn_prev:visited,
+.btn_submit, .btn_submit:active, .btn_submit:visited,.ui-pro .ui-pro-item .btn_submit{font-weight: 700;background-position: 0 0; color: #fff;}
+
+.btn_submit_small,.btn_submit_small:active,.btn_submit_small:visited {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
+
+
+
+.w400 {width: 400px}
+.w500 {width: 500px}
+
+.h200 {height: 200px}
+
+input[type="text"],
+textarea,
+.input_title,
+.input_content {border:1px solid #D3D3D3; ;padding-left:10px;background: #fff url(http://img03.xesimg.com/bg_input.png) repeat-y left 0;}
+
+.input_keyword {height: 25px;padding: 0 10px}
+
+.files {display: none;}
+
+input.w30 {width: 30px}
+input.w40 {width: 40px}
+input.w50{width: 50px}
+input.w60{width: 60px}
+input.w70{width: 70px}
+input.w80{width: 80px}
+input.w90{width: 90px}
+input.w100{width: 100px}
+input.w120{width: 120px}
+input.w130{width: 130px}
+input.w150{width: 150px}
+input.w200{width: 200px}
+
+
+
+input.error, textarea.error {
+	border-color: #C00;
+}
+
+.wrap_error {
+	background-color: #FDCDD6;
+}

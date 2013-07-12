@@ -1,0 +1,9 @@
+/* ==================== ui_tips.css ===================== */
+
+/**
+ * 提示信息
+ */
+
+.ui_tips {display: none;position: absolute;top: 0;left: 0;width: 1032px;line-height: 30px;padding: 0 10px;border-radius:0 0 5px 5px;box-shadow:0 0 15px rgba(0, 0, 0, 0.2);}
+.tips_error {color:#C00;border:2px solid #FADEC5;border-width: 0 1px 1px 1px;background-color: #FEF7D8}
+.ui_tips a.tips_close {display: block;position: absolute;right:10px;top:0}

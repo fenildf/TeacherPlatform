@@ -1,0 +1,77 @@
+/* ==================== table.css ===================== */
+.grid_item_content {overflow: hidden;width:1050px;margin:10px 0px ;border: 1px solid #ececec;}
+
+
+.grid_item {width:100%;overflow: hidden;}
+.grid_item th {overflow: hidden;background: #f5f5f5;height: 32px;line-height:32px;font-size: 14px;padding-left:20px;}
+.grid_item td {overflow: hidden;color: #666;border-bottom: 1px dashed #ececec;padding: 10px 0 10px 20px;}
+.grid_item td span.state {float: left;display: inline;width: 17px;height: 17px;margin-right: 10px;}
+.grid_item td span.one { background-position: 0px 0px;}
+.grid_item td span.two {background-position: 0px -32px;}
+.grid_item tr.hover {background: #e0f2e3;}
+
+.contentData {overflow: hidden;width:1050px;margin:10px 3px ;border: 1px solid #ececec;}
+.contentData table {width:100%;overflow: hidden; }
+.contentData table th {background: #f5f5f5;height:30px;padding: 2px;border-right: 1px solid #ececec;text-align: center;font-size: 12px;}
+.contentData table td {color: #666;padding: 5px 0;border-right: 1px solid #ececec;border-bottom: 1px solid #ececec;text-align: center;}
+.contentData table tbody td.title {text-align: left;padding-left: 20px}
+.contentData table th.title {height: 43px; background: #fff;border-bottom: 1px solid #ececec;}
+.contentData table tr.even,.contentData table tr.hover {background: #e0f2e3;}
+
+.contentData table td.blue {width: 200px}
+
+.contentData1 tr th{ height:32px; text-align:left; padding-left:20px;border: 0;color:#999;}
+.contentData1 tbody tr th {background: #fafafa;}
+.contentData1 tr td{ height:34px; text-align:left; padding-left:20px; border-right:none;color:#333; }
+.contentData1 tr td span{ padding-left:0px; color:#333;}
+.contentData1 tr th.edit {text-align:right;padding-right:15px;font-size:12px;}
+.contentData1 tr td.title {width: 80px;color: #999;}
+.contentData1 tr td.text {color: #333;}
+.contentData2 {margin-top:30px;}
+.contentData2 table td {border: 0;height:20px;}
+
+.w_70 {width: 70px;}
+.all_title {float:left;font-size:14px;line-height:45px;padding-left:10px;color:#666;}
+.s_gradegrade { margin-left:10px; overflow: hidden;}
+
+
+
+.more {float: right;}
+
+.title_more,
+.contentData1 tr th.title_more,
+.contentData1 tr td.title_more {width: 150px; text-align: right;padding-right: 10px}
+
+.speak_table {border-collapse:none;}
+.speak_table,
+.content_child {border:1px inset #f0f0f0;border-width:1px 0 0 0;background: #f8f8f8}
+.speak_table thead td,
+.content_child thead td {color: #999}
+.speak_table tr td,
+.content_child tr td {border:0 none;}
+
+div.content_child {
+	min-height: 30px;
+	padding: 5px 20px;
+	border-style: solid;
+	border-width: 1px 0px 0px 1px;
+	border-color: #eee #fff #fff #eee;
+
+}
+
+.content_child_close{float: right;}
+
+.grid_item th.center,
+.grid_item td.center,
+.contentData table th.center,
+.contentData table td.center {text-align: center;}
+
+
+
+
+/*.tborder {border:1px solid #ccc;}*/
+.tborder td, .tborder th {border: 1px solid #eee}
+.tcenter tr td, .tcenter tr th {text-align: center;padding-left: 0}
+.tleft tr td, .tleft tr th {text-align: left;padding-left: 10px}
+
+.tleft tr td.time {text-align: center;padding-left: 0}

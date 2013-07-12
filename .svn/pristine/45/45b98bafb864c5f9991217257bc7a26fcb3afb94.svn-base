@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>学习情况---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_data.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	
+	<!-- 学员列表-->
+	<h1 class="ui_infor_title">
+		<span>学习情况</span>
+	</h1>
+	<div class="contentData contentData1">
+		<table>
+			<colgroup>
+				<col width="80px"></col>
+			</colgroup>
+			<thead>
+				<tr>
+					<th colspan="2">课程信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>课程名称</td>
+					<td><span>小学奥数</span></td>
+				</tr>
+				<tr>
+					<td>讲数量</td>
+					<td><span>30</span></td>
+				</tr>
+				<tr>
+					<td>节数量</td>
+					<td><span>120</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="action_item">
+		<span class="all_title">学习情况 (40/120)</span>
+		
+	</div>
+	
+	<div class="contentData">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="5" style="background:#fff;">第一讲，中华人民共和国</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>节名称</th>
+					<th>学习状态</th>
+					<th>测试成绩</th>
+					<th>测试卷总分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>已学完</td>
+					<td>60</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>已学完</td>
+					<td>60</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="contentData">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="5" style="background:#fff;">第二讲，中华人民共和国</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>节名称</th>
+					<th>学习状态</th>
+					<th>测试成绩</th>
+					<th>测试卷总分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>已学完</td>
+					<td>60</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>已学完</td>
+					<td>60</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!-- 学员详情-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.student.study.js"></script>
+</body>
+</html>

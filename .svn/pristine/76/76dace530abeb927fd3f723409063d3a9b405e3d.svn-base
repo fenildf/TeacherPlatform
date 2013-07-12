@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>课程运营平台</title>
+<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/platform.css"/>
+<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+</head>
+
+<body>
+	<div id="header_login">
+		  <div class="login_logo">课程运营平台</div>
+		</div>
+			<!-- 头部 -->
+	<div id="main">
+		<div class="left_inforpic"></div>
+		<div class="rihgt_login_bg">
+			<form name="teacher_login" action="platform.html" >
+			<div class="form_text_input">
+				<p class="err_tips_infor">请输入用户名</p>
+				<span class="user">
+					<input id="username" value="" size="" type="text"/>			
+				</span>
+				<span class="password">
+					<input id="password" value="" size="" type="password"/>			
+				</span>
+				<span class="code_num">
+					<input id="verificationCode" value="" size="" type="text" class="code_input" />				
+					<a class="blackFont" onclick="changeVerificationImg('verificationImg'); return false;" href="javascript:void(0);">
+						<img width="60" height="20" id="verificationImg" src="http://admin.xueersi.com//verifications/show?EteKo04YRcVp"></a>
+				</span>
+			</div>
+			<div class="login">
+				<button onclick="checkLoginForm();" class="btn_login" type="button">登 录</button>
+				<p class="tips_error">请输入用户名</p>
+
+			</div>
+			</form>
+
+			
+		</div>
+	</div>
+	<!-- 内容 -->
+	<div id="footer" style="width:100%;border-top:1px solid #cbcbcb;padding:10px 0;">
+		<p class="xueersi">本网站隶属于北京学而思教育科技有限公司</p>
+		<p>Copyright &copy; 2009-2012 www.xueersi.com All Rights Reserved     京ICP备09032638号     京公网安备:1101082103</p>
+	</div>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.login.js"></script>
+</body>
+</html>

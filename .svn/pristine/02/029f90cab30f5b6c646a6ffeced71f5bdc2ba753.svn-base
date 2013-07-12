@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_list.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body class="skin skin-green">
+	<h1 class="ui_infor_title">
+		<span>直播列表</span>
+	</h1>
+	<div class="action_item">
+
+		<ul class="action">
+			<form action="" name="" id="listSerch">
+				<select name="" id="selectGrade" class="ui-select-list">
+					<option class="ui-select-button">--年级--</option>
+					<option value="1">一年级</option>
+					<option value="2">二年级</option>
+					<option value="3">三年级</option>
+					<option value="4">四年级</option>
+					<option value="5">五年级</option>
+					<option value="5">六年级</option>
+				</select>
+				<select name="" id="selectCourseType" class="ui-select-list">
+					<option class="ui-select-button">--直播状态--</option>
+					<option value="1">已上架</option>
+					<option value="2">未上架</option>
+					<option value="3">已审核</option>
+					<option value="4">未审核</option>
+				</select>
+				<input type="submit" value="筛选" class="s-btn">
+				<input type="hidden" class="search_key" title="存储头部搜索结果" />
+			</form>
+		</ul>
+
+		
+
+	</div>
+	<div class="createtime">
+		服务器时间：  <em id="serverTime">2013-02-04 14:42:44</em>
+	</div>
+	<div class="action_item">
+		<a id="menu_2_2_2" class="open_tabs btn createbtn" title="创建直播" href="live_edit.html" >创建直播</a>
+		<a id="live_submit" onclick="liveReview();" title="直播审核" href="###" >提交审核</a>
+		<!-- <a id="menu_2_2_2" class="btn btn_submit open_tabs" title="创建直播" href="live_edit.html">创建直播</a> -->
+		<ul class="item_pag ui_pages">
+			<li class="page_list ui-select-box">
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="grid_item_content">
+		<form action="" autocomplete="off">
+		<table class="grid_item" id="live_lists">
+			<thead>
+				<tr>
+					<th>选择</th>
+					<th>ID</th>
+					<th>直播名称</th>
+					<th>年级</th>
+					<th>直播时间</th>
+					<th>课程状态</th>
+					<th>直播类型</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="112" class="checkbox" /></td>
+					<td>12345</td>
+					<td>学数学小学数学小学数学1</td>
+					<td>一年级</td>
+					<td>2012/02/03 19:00-21:00</td>
+					<td>未上架</td>
+					<td>邀请</td>
+					<td>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_1" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学1" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(1)">取消</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="113" class="checkbox" /></td>
+					<td>12345</td>
+					<td>学数学小学数学小学数学2</td>
+					<td>一年级</td>
+					<td>2012/02/03 19:00-21:00</td>
+					<td>未上架</td>
+					<td>邀请</td>
+					<td>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_2" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学2" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(2)">取消</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="114" class="checkbox" /></td>
+					<td>12345</td>
+					<td>学数学小学数学小学数学3</td>
+					<td>一年级</td>
+					<td>2012/02/03 19:00-21:00</td>
+					<td>未上架</td>
+					<td>邀请</td>
+					<td>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_3" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学3" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(3)">取消</a>
+					</td>
+				</tr>
+				<tr>
+					<td><input autocomplete="off" type="checkbox" name="aaa" id="" value="115" class="checkbox" /></td>
+					<td>12345</td>
+					<td>学数学小学数学小学数学4</td>
+					<td>一年级</td>
+					<td>2012/02/03 19:00-21:00</td>
+					<td>未上架</td>
+					<td>邀请</td>
+					<td>
+						<!-- <a  href="edit.html">开始直播</a> -->
+						<a id="liveinfo_4" class="open_tabs" href="live_info.html" title="学数学小学数学小学数学4" text="查看直播">查看</a>
+						<a class="live_cancel" href="javascript:void(0);" onclick="liveCancel(4)">取消</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+	<div class="action_item">
+			
+			<ul class="item_pag ui_pages">
+				
+				<li class="page_btn">
+					<span class="page_prev">上一页</span>
+				</li>
+				<li class="page_btn">
+					<a href=""  class="page_next">下一页</a>
+				</li>
+			</ul>
+		</div>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.live.list.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			xes.form.tableCheckbox('live_lists','live_lists');	
+		});						
+
+		function liveReview(){
+			var liveIds = xes.form.getCheckboxValue('live_lists');
+			// console.log(liveIds);
+			if(liveIds){
+				alert(liveIds);
+				// $.cookie('live_lists', '');
+				// $.cookie('live_lists', null, {expires: 0, path: '/', secure: true});
+				// delCookie('live_lists');
+				// console.log('cookie: '+$.cookie('live_lists'));
+				var a = $('#live_lists input:checked');
+				$.cookie('live_lists', null);
+				
+				$('#live_lists input:checkbox').attr('checked',false);
+				window.location.href = 'live_list.html';
+				
+			}else{
+				alert('请选择要审核的直播');
+			}
+			
+		}
+	</script>
+</body>
+</html>

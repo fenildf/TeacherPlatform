@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>数据分析（学完率）---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_data.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>学员学完率报表</span>
+	</h1>
+	<ul class="labelCon">
+		<li>
+			<label for="">时间至</label>
+			<span>
+				<input id="endDate" size="" value="" type="text" class="input_text w_500" />
+			</span>
+			<span>
+				<select class="ui-select-list">
+					<option class="ui-select-button">全部年份</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+				</select>
+				<select class="ui-select-list">
+					<option class="ui-select-button">全部分类</option>
+					<option value="学期同步">学期同步</option>
+					<option value="专题课程">专题课程</option>
+					<option value="竞赛考级">竞赛考级</option>
+					<option value="教辅教材">教辅教材</option>
+					<option value="小升初真题">小升初真题</option>
+					<option value="中考真题">中考真题</option>
+					<option value="高考真题">高考真题</option>
+
+				</select>
+				<select class="ui-select-list">
+					<option class="ui-select-button">学期同步</option>
+					<option value="春">春</option>
+					<option value="暑">暑</option>
+					<option value="秋">秋</option>
+					<option value="寒">寒</option>
+					<option value="年卡">年卡</option>
+					<option value="下半年卡">下半年卡</option>
+					<option value="上班半年卡">上班半年卡</option>
+				</select>
+			</span>
+		</li>
+		<li>
+			<label for="">学完率</label>
+			<span>
+				<input size="" value="" type="text" class="input_text w_70" />
+				至
+				<input size="" value="" type="text" class="input_text w_70" />
+			</span>
+			<label for="">学完节数</label>
+			<span>
+				
+				<input size="" value="" type="text" class="input_text w_70" />
+				至
+				<input size="" value="" type="text" class="input_text w_70" />
+			</span>
+			<span><a href="#" class="btn_ancel btn_prev">查看结果</a></span>
+		</li>
+	</ul>
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+			<li class="page_list ui-select-box">
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="contentData">
+		<table>
+			<thead>
+
+				<tr>
+					<th>课程ID</th>
+					<th>课程名称</th>
+					<th>符合设定学完率用户数</th>
+					<th>有效用户总数</th>
+					<th>符合条件用户占比</th>
+					<th>视频总数</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+				</tr>
+				<tr class="even">
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>学数学小学数学小学数学</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.data.js"></script>
+</body>
+</html>

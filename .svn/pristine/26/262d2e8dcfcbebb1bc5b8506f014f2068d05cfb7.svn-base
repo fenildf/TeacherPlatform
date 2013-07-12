@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>数据分析---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/xes_data.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	
+	<!-- 学员列表-->
+	<h1 class="ui_infor_title">
+		<span>学员详情</span>
+	</h1>
+	<div class="contentData contentData1">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">基本信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						用户名
+						<span>nimei@sina.com</span>
+					</td>
+					<td>
+						姓名
+						<span>毛毛虫</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						学校
+						<span>人大附中</span>
+					</td>
+					<td>
+						年级
+						<span>三年级</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						通讯地址
+						<span>北京海淀区</span>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="action_item">
+		<span class="all_title">购买课程（2）</span>
+		<ul class="item_pag ui_pages">
+			<li class="page_list ui-select-box">
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+	</div>
+	<div class="contentData">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>课程名称</th>
+					<th>听课进度（节）</th>
+					<th>购买时间</th>
+					<th>购买时间</th>
+					<th>是否退课</th>
+					<th>退课备注</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>5641</td>
+					<td class="blue">
+						<a id="study_1" class="open_tabs" href="student_study.html">学数学小学数学小学数学</a>
+					</td>
+					<td>40/120</td>
+					<td>2012-1-1</td>
+					<td>2012-1-1</td>
+					<td>是</td>
+					<td>不好听不好听</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td class="blue">
+						<a id="study_2" class="open_tabs" href="student_study.html">学数学小学数学小学数学</a>
+					</td>
+					<td>44</td>
+					<td>52</td>
+					<td>32</td>
+					<td>4552</td>
+					<td>不好听不好听</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- 学员详情-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.student.info.js"></script>
+</body>
+</html>

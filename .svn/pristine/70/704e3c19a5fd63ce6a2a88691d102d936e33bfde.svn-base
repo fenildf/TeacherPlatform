@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* 
+ * xesui样式库索引文件
+ * 主要负责对需要合并的样式进行索引
+ * 上线前需要利用合并工具进行合并、压缩
+ *
+ **/
+@import url("base.css");
+@import url("iframe.css");
+@import url("list.css");
+@import url("layer.css");
+
+
+/* -=-=-=-=-=-=-=-=-=-=-= article.html =-=-=-=-=-=-=-=-=-=-=-=-=- */
+.ui_tipsAll {width:1030px;padding:10px;overflow: hidden;border: 1px solid #e7e6e6;background: #f6f6f6;color: #999;margin-top: 10px;font-size: 12px;}		
+
+.message_info {}
+.message_info li {line-height: 22px;margin: 5px 0; overflow: hidden;}
+.message_info li em {padding-left: 20px}
+.message_info li .message_img {float:left; width: 137px; height: 77px; overflow: hidden;margin:10px 10px 10px 0;background-color: #ccc;}
+.message_info li .message_img img {width: 137px}
+.message_info li .message_img_link {float: left;display: block;margin: 30px 0;}
+.message_content {border: 1px solid #eee;padding: 10px; background-color:#fff }
+
+/* article-content style Update by Bluebird 20130412*/
+.article_area{ width: 880px; margin:30px 30px 0 30px; padding: 20px 55px; }
+.article_area ul li{ float: left; display: inline; font-size: 12px; padding: 10px 0; }
+.article_area ul.newnotice3 li{ border-bottom:0 none; background: none;}
+.article_area ul li div{ width: 435px; float: left;}
+.article_area ul li h5{ font-weight:bold; color: #bc0000; line-height: 35px;}
+.article_area ul li a{ color: #333; display: inline-block; text-align: left; padding-right: 40px;}
+.article_area ul li a:hover{ color: #333;}
+
+/* article-content style Update by Bluebird 20130412*/
+.nobg{ background: none; border:0 none; padding: 0;}
+.article_area h3{ font-size: 14px;}
+.article_area p{ font-size:12px; line-height: 30px;}
+.article_area p strong{ color: #333;}
+.article_area img{ display: block; text-align: center; margin: 75px auto;}
+.ui_infor_tagline{ width: 99%; text-align: center; height: 30px; font-weight: bold; color: #333; line-height: 30px; background: #f0faef;}
+
+
+/* article-newteacher style Update by Bluebird 20130415*/
+.newteacher{ width: 96%; color: #666666;}
+.article_area h6{ font-size: 12px;  font-weight: bold;}
+.newteacher h5{ text-align: center; line-height: 30px; font-weight: bold;}
+.newtips{padding-left: 10px;}
+.newtips1{padding-left: 15px;}
+.newtips2{padding-left: 210px;}
+.newtips3{padding-left: 50px;}
+.newtips span,.newtips1{ padding-left: 30px;}
+.newteacher .newnotice{ overflow: hidden;}
+.newteacher .newnotice li,.tehlist ul li{ padding-left: 10px; border-bottom:0 none; background: url(http://img03.xesimg.com/iconred.png) left 18px no-repeat;}
+.newteacher strong{ font-size: 12px; line-height: 30px; display: block; margin: 20px 0 0 107px;}
+.newteacher table { margin: 0 auto; font-size: 12px;}
+.newteacher table thead th{ font-size: }
+.newteacher table tr td,.newteacher table tr th{ text-align:center; padding: 10px 5px; border:1px solid #ccc;}
+.tehlist{ margin: 20px 0 25px 100px;}
+.tehlist ul li{ list-style: none; float: none; display: block; border-bottom:0 none; padding: 5px 0 5px 15px;}
+.tehlist ul li a{ color: #0000cc;}
+.newteacher .rightpostion{ float: right;  margin: 0 15px;}
+.newteacher .rightpostion1{ float: left;  display: block; margin: 0 15px;}
+.newteacher .rightpostion2{ display: block; margin: 0;}
+.newteacher .rightpostion3{ display: block; margin: 20px auto;}
+.newteacher .rightpostion4{ display: block; margin: 10px 0 0 40px;}
+.newteacher ol{ font-size: 12px; line-height: 24px;}
+.article_area .newnotice1{ margin-left: 25px;}
+.article_area .newnotice2{ margin-left: 50px;}
+.article_area .newnotice1 li{ float: none; display: block;}
+.nomargin table{ margin: 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

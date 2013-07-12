@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>课程运营平台</title>
+		<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_list.css"/>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+	</head>
+
+	<body class="skin skin-green layer_900">
+		<div class="action_item">
+
+			<ul class="action">
+				<form action="/liveCourses/courseList/" name="" id="listSerch" method="post">
+					设置月考时间
+					<input type="text" class="input_text" value="" id="startDate" readonly="readonly">
+					至
+					<input type="text" class="input_text" value="" id="endDate" readonly="readonly">
+
+
+					<select name="gradeId" id="selectGrade" class="ui-select-box">
+						<option value="0">--试卷名称--</option>
+						<option value="2">试卷ID</option>
+					</select>
+					<input type="text" name="" placeholder="试卷名称关键字/试卷ID" class="input_keyword" />
+					<input type="hidden" id="currpage" name="curpage" value="1" />
+					<input type="submit" value="筛选" class="s-btn"> 
+
+				</form>
+			</ul>
+			<ul class="item_pag ui_pages">
+									<li class="page_list ui-select-box"><span>共352条 &nbsp;</span><select  name="pages" id="pages" class="ui-select"><option selected>1/36</option><option value='2'>2/36</option><option value='3'>3/36</option><option value='4'>4/36</option><option value='5'>5/36</option><option value='6'>6/36</option><option value='7'>7/36</option><option value='8'>8/36</option><option value='9'>9/36</option><option value='10'>10/36</option><option value='11'>11/36</option><option value='12'>12/36</option><option value='13'>13/36</option><option value='14'>14/36</option><option value='15'>15/36</option><option value='16'>16/36</option><option value='17'>17/36</option><option value='18'>18/36</option><option value='19'>19/36</option><option value='20'>20/36</option><option value='21'>21/36</option><option value='22'>22/36</option><option value='23'>23/36</option><option value='24'>24/36</option><option value='25'>25/36</option><option value='26'>26/36</option><option value='27'>27/36</option><option value='28'>28/36</option><option value='29'>29/36</option><option value='30'>30/36</option><option value='31'>31/36</option><option value='32'>32/36</option><option value='33'>33/36</option><option value='34'>34/36</option><option value='35'>35/36</option><option value='36'>36/36</option></select></li><li class='page_btn'><span class='page_prev' >上一页</span></li> <li class="page_btn"><a class="page_next" href="/liveCourses/courseList/curpage:2">下一页</a> </li>							</ul>
+
+		</div>
+		<div class="grid_item_content">
+			<table class="grid_item" id="course_lists">
+				<colgroup>
+					<col width="80" />
+					<col width="" />
+					<col width="120px" />
+					<col width="350px" />
+					<col width="120px" />
+					<col width="130px" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>试卷id</th>
+						<th>试卷名称</th>
+						<th>学科</th>
+						<th>年级</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="courseList">
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+					<tr>
+						<td>7576</td>
+						<td>wqe1</td>
+						<td>语文</td>
+						<td>四年级</td>
+						<td>未上架</td>
+						<td><a href="" title="">添加</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="action_item">
+
+			<ul class="item_pag ui_pages">
+									<li class='page_btn'><span class='page_prev' >上一页</span></li> <li class="page_btn"><a class="page_next" href="/liveCourses/courseList/curpage:2">下一页</a> </li>							</ul>
+		</div>
+		<script type="text/javascript" src="http://js03.xesimg.com/import/import.module.list.js"></script>
+		<script>
+		$("#currpage").val('1');
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("#startDate").calendar();
+				$("#endDate").calendar();
+				xes.form.checkSelect('selectGrade','0');
+				xes.form.checkSelect('selectCourseType','0');
+				xes.form.tableCheckbox('course_lists','course_lists');	
+			});			
+			function revalue(){
+				var val = setCheckboxValue();
+				
+				if(val.length >0){
+					window.returnValue = val;
+				}else{
+					window.returnValue = '';
+				}
+				$.cookie('course_lists',null);
+				window.close();
+			}			
+			function setCheckboxValue(){
+//				var box = $('.course_list_checkbox');
+//				var arr = [];
+//				box.each(function(){
+//					if(this.checked){
+//						arr.push(this.value);
+//					}
+//				});
+				var arr = $.cookie('course_lists');
+				arr = arr.replace(/^,/,'').replace(/,$/,'');
+				return arr;
+			}
+		</script>			
+	</body>
+</html>

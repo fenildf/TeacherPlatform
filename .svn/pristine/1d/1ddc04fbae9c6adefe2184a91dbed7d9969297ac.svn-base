@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>课程详情---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_data.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>课程详情</span>
+	</h1>
+
+	<div class="contentData contentData1">
+		<table>
+			<thead>
+				<tr>
+					<th>基本信息</th>
+					<th class="edit">
+					</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="title">直播主题</td>
+					<td class="text">小学奥数</td>
+
+				</tr>
+				<tr>
+					<td class="title">年级</td>
+					<td class="text">三年级</td>
+
+				</tr>
+				<tr>
+					<td class="title">学科</td>
+					<td class="text">数学</td>
+
+				</tr>
+				<tr>
+					<td class="title">课程类别</td>
+					<td class="text">学期同步 | 强化班 | 寒假班 | 北京 | 2011 | 人教版</td>
+
+				</tr>
+				<tr>
+					<td class="title">授课教师</td>
+					<td class="text">谷运增</td>
+
+				</tr>
+				<tr>
+					<td class="title">课程状态</td>
+					<td class="text">未上线</td>
+
+				</tr>
+
+			</tbody>
+			<thead>
+				<tr>
+					<th>销售信息</th>
+					<th class="edit">
+					</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="title">销售时间</td>
+					<td class="text">2012/02/02----2012-05/05</td>
+
+				</tr>
+				<tr>
+					<td class="title">销售价格</td>
+					<td class="text">￥35.00</td>
+
+				</tr>
+				<tr>
+					<td class="title">学科</td>
+					<td class="text">数学</td>
+
+				</tr>
+				<tr>
+					<td class="title">分成比例</td>
+					<td class="text">0.4</td>
+
+				</tr>
+			</tbody>
+			<thead>
+				<tr>
+					<th>大纲信息</th>
+					<th class="edit">
+					</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="2" style="padding:0;">
+						<table>
+							<colgroup>
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col width="250px" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>讲名称</th>
+									<th>教师</th>
+									<th>生产状态</th>
+									<th>讲测试</th>
+									<th>月考</th>
+									<th>讲状态</th>
+									<th class="center">操作</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>9874</td>
+									<td>小学数学精讲</td>
+									<td>王雨洁</td>
+									<td>未预约</td>
+									<td>201222</td>
+									<td>003412</td>
+									<td>正常</td>
+									<td class="title_more">
+										<a href="" title="">预约录播室</a>
+										<a href="" title="">解除预约</a>
+										<a href="" title="">修改讲测试</a>
+										<a href="#">预览</a>
+									</td>
+
+								</tr>
+								<tr>
+									<td>9874</td>
+									<td>小学数学精讲</td>
+									<td>王雨洁</td>
+									<td>未预约</td>
+									<td>201222</td>
+									<td>003412</td>
+									<td>正常</td>
+									<td class="title_more">
+										<a href="" title="">预约录播室</a>
+										<a href="" title="">解除预约</a>
+										<a href="" title="">修改讲测试</a>
+										<a href="#">预览</a>
+									</td>
+
+								</tr>
+								<tr>
+									<td>9874</td>
+									<td>小学数学精讲</td>
+									<td>王雨洁</td>
+									<td>未预约</td>
+									<td>201222</td>
+									<td>003412</td>
+									<td>正常</td>
+									<td class="title_more">
+										<a href="" title="">预约录播室</a>
+										<a href="" title="">解除预约</a>
+										<a href="" title="">修改讲测试</a>
+										<a href="#">预览</a>
+									</td>
+
+								</tr>
+								<tr>
+									<td colspan="8" class="tableShow"  style="padding:0;">
+										<table class="speak_table">
+											<colgroup>
+												<col />
+												<col />
+												<col />
+												<col />
+												<col width="100px" />
+											</colgroup>
+											<thead>
+												<tr>
+													<td>节ID</td>
+													<td>节名称</td>
+													<td>节测试ID</td>
+													<td>节测试</td>
+													<td class="title_more"> 
+														<a href="" title="">收起</a>
+													</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="title">9876</td>
+													<td class="text">
+														<a href="#">讲名称讲名称讲名称讲名称</a>
+													</td>
+													<td>1234567890</td>
+													<td>节测试卷001</td>
+													<td>修改测试卷</td>
+												</tr>
+												<tr>
+													<td class="title">9876</td>
+													<td class="text">
+														<a href="#">讲名称讲名称讲名称讲名称</a>
+													</td>
+													<td>1234567890</td>
+													<td>节测试卷001</td>
+													<td>修改测试卷</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>9874</td>
+									<td>小学数学精讲</td>
+									<td>王雨洁</td>
+									<td>未预约</td>
+									<td>201222</td>
+									<td>003412</td>
+									<td>正常</td>
+									<td class="title_more">
+										<a href="" title="">预约录播室</a>
+										<a href="" title="">解除预约</a>
+										<a href="" title="">修改讲测试</a>
+										<a href="#">预览</a>
+									</td>
+
+								</tr>
+							</tbody>
+
+						</table>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- 学员列表-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.project.info.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/* ==================== iframe.css ===================== */
+.ui_infor_title {width: 1050px;margin:20px 2px; ; height: 30px; line-height: 30px; border-bottom: 1px solid #1d9e2b; overflow: hidden;font-size: 14px;color: #333;font-weight: bold;}
+
+/*html, body {height: 100%}*/
+.red {color: #cc0000!important;}

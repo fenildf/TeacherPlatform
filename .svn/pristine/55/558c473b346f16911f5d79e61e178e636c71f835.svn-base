@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>文件列表---课程运营平台</title>
+		<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_article.css"/>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+		<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+	</head>
+
+	<body>
+		<h1 class="ui_infor_title">
+			<span>&lt;&lt;教师手册&gt;&gt;</span>
+		</h1>
+		<h2 class="ui_infor_tagline">教师录课流程</h2>
+		<div class="ui_tipsAll article_area nobg newteacher">
+			<img class="rightpostion3" src="http://img03.xesimg.com/classprocess.jpg"/>
+			<h6 id="first" name="first">1、课程立项</h6>
+			<p class="newtips">您想录制的课程，可与项目组商议具体细节，原则上，不违反网校知识体系和课程类型的课程，均可录制。</br>项目组各学部负责人联系方式如下，请存入手机，如有变动会及时通知。</br><span>小学：高常娇老师（15300162051）</br><span>初中：王露晓老师（13701051555）</span></br><span>高中：任  静老师（13426213457）</span></p>
+			<h6 id="second" name="second">2、课程详情页</h6>
+			<p class="newtips1">课程上线前三天，请您按详情页模板，自行上传课程详情页（登陆教师后台teacher.xueersi.com进行上传）。详情页需要在上线前3天完成，否则会按延期处理。如格式难调整，可以通过在PPT中截图完成。截图标准：图片大小0.9kb，宽690，高400左右。推落符号。</p>
+			<h6 id="third" name="third">3、拍摄教师宣传照</h6>
+			<p>课件组会提供给您固定的PPT模版，字号、字体都无需修改，直接套用模版即可。模板中可的固定内容，具体可与课件组负责人联系。原则上，在备课充分的情况下，一讲课件的制作时间小于10分钟，如需要时间大于10分钟，可以找课件组老师学习。新老师PPT需发给课件组进行审核和修改。</p>
+			<p class="newtips1">课件组负责人：郝京叶老师：13651265081</p>
+			<p class="newtips1">补充：录播室分为白板屋（电子屋，比较好看）和黑板屋（可以水笔写字）。教师可根据自己的情况选择。如板书较多、不喜欢用课件呈现的初高中老师，推荐使用黑板屋。一个课程不能既使用白板屋，又使用黑板屋。</p>
+			<h6 id="forth" name="forth">4、预约录播室</h6>
+			<p class="newtips1">预约录播室请联系周淑芳老师，每月月底您会收到本月的录课时数。涉及到老师工作量挂负统计及课时费，请您进行确认，如有问题，可及时与周老师沟通。</p>
+			<p class="newtips1">预约时间需整点预约，如：9:00-11:00可通过，9：40-11：50不通过。</p>
+			<p class="newtips1">周淑芳老师电话：15801269052</p>
+			<h6 class="newtips1">附4：预约录课规则</h6>
+			<p class="newtips1">为了合理利用录播室资源，节约工作人员成本，提高产能，并且对各位老师的录课表现做出公平的对待，特制定录播室预约录课规则，规则如下：</p>
+			<h6 class="newtips1">1）预约周期标准</h6>
+			<p class="newtips1">预约周期：以学期为单位，全职老师、录长期班的兼职可以一次性预约一学期（3个月）；录短期班的兼职老师一次性可预约2周，可以以项目优先级程度来预约。</p>
+			<p class="newtips1">预约顺序：先到先预约（S级别老师、录短期班的兼职老师除外）</p>
+			<h6 class="newtips1">2）出课率标准</h6>
+			<p class="newtips1">全职老师已转正的，录2课时预约3课时；全职老师未转正的，不作要求；</p>
+			<p class="newtips1">兼职老师录到15课时，录2课时预约3课时；兼职老师未录到15课时，录2课时预约4小时；</p>
+			<p class="newtips1">如果是录1课时，所有老师都可约2小时；</p>
+			<h6 class="newtips1">3）S级别老师录课优先</h6>
+			<p class="newtips1">S级老师享有优先预约权利，时间可自由选择。如在一学期里有违规记录3次，则在下学期里预约时，不享有优先预约权；</p>
+			<p class="newtips1">在一学期内无违规记录的非S级老师，在下个学期可享有S级别老师录课待遇。</p>
+			<h6 id="fifth" name="fifth">5、录课</h6>
+			<p class="newtips1">录课当天直接在视频组H屋旁边的排课表上找到给自己录课的视频组工作人员，他将协助您完成课程录制。如：</p>
+			<img class="rightpostion3" src="http://img03.xesimg.com/classprocess1.jpg"/>
+			<p class="newtips2">如有问题，可联系视频组主管：韩蕊老师：15801000326</p>
+			<h6 class="newtips2">附5： C、D录播室录制注意事项</h6>
+			<p class="newtips2">1、C、D录播室禁止推拉黑板。</p>
+			<p class="newtips2">2、录课过程中，请您随时看摄像机小窗口声音波形避免无音。</p>
+			<p class="newtips2">3、书写板书请在摄像机范围内。</p>
+			<p class="newtips2">4、录课过程中，禁止开启日光灯。</p>
+			<p class="newtips2">5、新灌注的笔，初次使用时，请将笔头垂直向下，抵住干净硬板面轻按十几秒，待墨水渗透笔头即可书写。</p>
+			<p class="newtips2">6、书写时，请保持与板面垂直的握笔方式，书写力度适中。</p>
+			<img class="rightpostion3" src="http://img03.xesimg.com/classprocess2.jpg"/>
+			<p class="newtips2">7、抹布必须清洗干净，拧至没有水为止，才能擦黑板。</p>
+			<p class="newtips2">8、擦完黑板后间隔10秒钟再继续写字。</p>
+			<p class="newtips2">9、如出现笔头不容易写字时，请更换另外一根笔写字。</p>
+			<h6 id="sixth" name="sixth">6、提供在线测试题</h6>
+			<p class="newtips1">项目单上标配有测试题的，需要在在视频上线前提供测试题给质检组进行上传。测试题需要和课程一同上线。</br>质检组朱凤玲老师：13691548399</p>
+			<h6 class="newtips1">附6：对测试题的具体要求</h6>
+			<p class="newtips1">1、测试题的题号格式按顺序统一，不可使用自动排序；</p>
+			<p class="newtips1">2、测试题图片：</p>
+			<p class="newtips3">1）测试题的图片需紧跟题目，在选项的上面，且处于题目下方的正中，如题目标明如右图，如左图，则按要求居右，居左；</br>如：</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item1.jpg"/>
+			<p class="newtips3">1）测试题的图片下方有序号的必须和题目序号一致，如第19题图，图片下方不能是第8题或“图8”</br>如：</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item2.jpg"/>
+			<p class="newtips3">测试题题干的图片必须与选项的图片分开，不能题干的图片和选项的图片为1张图；如：下图不符合要求，题干图和选项图在一张图片里。图中火炬在镜子中的像是（  ）</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item3.jpg"/>
+			<p class="newtips3">测试题解析中的图片必须在解析中，不然无法分辨是哪一部分的图片。如：下方图片不符合要求，解析图超出解析范围。</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item4.jpg"/>
+			<p class="newtips3">3、测试题如果有答案和知识点的，不能缺少。如：</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item5.jpg"/>
+			<p class="newtips3">4、设置测试题文档的显示比例为110%格式。</p>
+			<img class="rightpostion4" src="http://img03.xesimg.com/item6.jpg"/>
+			<p class="newtips3">5、尽量避免公式编辑器的使用。</p>
+			<p class="newtips3">6、测试题必须都是单选题，不能出现双选题。</p>
+			<p class="newtips3">7、如果一些特殊的题目不能做成选择题，一定要在题目后标明（此题为非选择题，请点击答案A看解题过程）</p>
+		</div>
+        <script src="http://js03.xesimg.com/import/import.article.js"></script>
+	</body>
+</html>

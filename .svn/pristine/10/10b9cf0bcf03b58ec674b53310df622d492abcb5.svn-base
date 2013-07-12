@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>消息记录---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_message.css"/>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>消息记录</span>
+	</h1>
+
+	<div class="action_item">
+		<ul class="action">
+			<li>
+			<form id="listSerch" name="" action="">
+				<table>
+					<tr>
+						<td align="left">
+							<input id="startDate" value=""  class="input_text" type="text" placeholder="选择其实日期" /> 至 <input id="endDate" value=""  class="input_text" type="text" placeholder="选择结束日期" />
+							
+							<select name="" >
+								<option value="">状态</option>
+								<option value=""></option>}
+								<option value=""></option>}
+								<option value=""></option>}
+							</select>
+							<input class="s-btn" type="submit" value="查询" ></td>
+					</tr>
+				</table>
+				<input type="hidden" value="1" name="currpage" class="currpage" id="currpage">
+			</form>
+			</li>
+			
+		</ul>
+		<ul class="item_pag ui_pages">
+			<li class="page_list ui-select-box">
+				<select name="pages" id="" class="ui-select">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5">5/5</option>
+				</select>
+			</li>
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+	</div>
+	<div class="contentData contentData1">
+		<table>
+			<col width="80px" />
+			<col width="" />
+			<col width="" />
+			<col width="80px" />
+			<col width="120px" />
+			<col width="120px" />
+			<col width="100px" />
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>主题</th>
+					<th>对象</th>
+					<th>状态</th>
+					<th>提交时间</th>
+					<th>发送时间</th>
+					<th class="center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>5641</td>
+					<td>三角函数</td>
+					<td>02201 00202</td>
+					<td>待审核</td>
+					<td>2013-03-12 16:00</td>
+					<td>2013-03-15 20:30</td>
+					<td class="center">
+						<a href="" title="">删除</a>
+						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩1">查看</a>
+					</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>三角函数</td>
+					<td>02201 00202</td>
+					<td>待审核</td>
+					<td>2013-03-12 16:00</td>
+					<td>2013-03-15 20:30</td>
+					<td class="center">
+						<a href="" title="">删除</a>
+						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩1">查看</a>
+					</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>三角函数</td>
+					<td>02201 00202</td>
+					<td>待审核</td>
+					<td>2013-03-12 16:00</td>
+					<td>2013-03-15 20:30</td>
+					<td class="center">
+						<a href="" title="">删除</a>
+						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩1">查看</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding:0;" class="tableShow" colspan="8">
+						<div class="content_child">
+							<p class="content_child_close">
+								<a href="">收起</a>
+							</p>
+							<ul class="message_info">
+								<li>
+									<p>对象<em>（条件或学员）</em></p>
+
+								</li>
+								<li>
+									<p>有效时间<em>2013-03-20</em></p>
+									
+								</li>
+								<li class="message_content">
+									<p>小同学你好！</p>
+									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+								</li>
+								<li>
+									<p class="message_img"></p>
+									<a href="" class="message_img_link">点击查看大图</a>
+								</li>
+								
+							</ul>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>5641</td>
+					<td>三角函数</td>
+					<td>02201 00202</td>
+					<td>待审核</td>
+					<td>2013-03-12 16:00</td>
+					<td>2013-03-15 20:30</td>
+					<td class="center">
+						<a href="" title="">删除</a>
+						<a id="student_1" class="open_tabs" title="1078987654@xueersi.com" href="student_info.html" text="徐倩1">查看</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="action_item">
+
+		<ul class="item_pag ui_pages">
+			<li class="page_btn">
+				<span class="page_prev">上一页</span>
+			</li>
+			<li class="page_btn">
+				<a href=""  class="page_next">下一页</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- 学员列表-->
+	<script type="text/javascript" src="http://js03.xesimg.com/import/import.message.list.js"></script>
+	
+</body>
+</html>

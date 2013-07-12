@@ -1,0 +1,8496 @@
+{
+	"1": {
+		"1.1": {
+			"id": "2",
+			"k_id": "1.1",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "有理数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.2": {
+			"id": "23",
+			"k_id": "1.2",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "整式的加减",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.3": {
+			"id": "37",
+			"k_id": "1.3",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "整式的乘除",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.4": {
+			"id": "55",
+			"k_id": "1.4",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "因式分解",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.5": {
+			"id": "72",
+			"k_id": "1.5",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "分式",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.6": {
+			"id": "95",
+			"k_id": "1.6",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "实数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.7": {
+			"id": "105",
+			"k_id": "1.7",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "二次根式",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"1.8": {
+			"id": "123",
+			"k_id": "1.8",
+			"parent_id": "1",
+			"k_level": "2",
+			"name": "整式综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"2": {
+		"2.1": {
+			"id": "127",
+			"k_id": "2.1",
+			"parent_id": "2",
+			"k_level": "2",
+			"name": "一元一次方程",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"2.2": {
+			"id": "152",
+			"k_id": "2.2",
+			"parent_id": "2",
+			"k_level": "2",
+			"name": "一元一次不等式及不等式组",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"2.3": {
+			"id": "168",
+			"k_id": "2.3",
+			"parent_id": "2",
+			"k_level": "2",
+			"name": "二元一次方程组",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"2.4": {
+			"id": "188",
+			"k_id": "2.4",
+			"parent_id": "2",
+			"k_level": "2",
+			"name": "一元二次方程",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"2.5": {
+			"id": "208",
+			"k_id": "2.5",
+			"parent_id": "2",
+			"k_level": "2",
+			"name": "方程与不等式综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"3": {
+		"3.1": {
+			"id": "212",
+			"k_id": "3.1",
+			"parent_id": "3",
+			"k_level": "2",
+			"name": "平面直角坐标系",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"3.2": {
+			"id": "223",
+			"k_id": "3.2",
+			"parent_id": "3",
+			"k_level": "2",
+			"name": "一次函数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"3.3": {
+			"id": "247",
+			"k_id": "3.3",
+			"parent_id": "3",
+			"k_level": "2",
+			"name": "反比例函数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"3.4": {
+			"id": "265",
+			"k_id": "3.4",
+			"parent_id": "3",
+			"k_level": "2",
+			"name": "二次函数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"3.5": {
+			"id": "291",
+			"k_id": "3.5",
+			"parent_id": "3",
+			"k_level": "2",
+			"name": "函数综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"4": {
+		"4.1": {
+			"id": "295",
+			"k_id": "4.1",
+			"parent_id": "4",
+			"k_level": "2",
+			"name": "图形认识初步",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"4.2": {
+			"id": "316",
+			"k_id": "4.2",
+			"parent_id": "4",
+			"k_level": "2",
+			"name": "相交线与平行线",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"4.3": {
+			"id": "329",
+			"k_id": "4.3",
+			"parent_id": "4",
+			"k_level": "2",
+			"name": "几何初步综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"5": {
+		"5.1": {
+			"id": "333",
+			"k_id": "5.1",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "三角形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"5.2": {
+			"id": "344",
+			"k_id": "5.2",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "三角形综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"5.3": {
+			"id": "355",
+			"k_id": "5.3",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "等腰三角形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"5.4": {
+			"id": "366",
+			"k_id": "5.4",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "勾股定理",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"5.5": {
+			"id": "377",
+			"k_id": "5.5",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "相似三角形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"5.6": {
+			"id": "397",
+			"k_id": "5.6",
+			"parent_id": "5",
+			"k_level": "2",
+			"name": "解直角三角形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"6": {
+		"6.1": {
+			"id": "408",
+			"k_id": "6.1",
+			"parent_id": "6",
+			"k_level": "2",
+			"name": "平行四边形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"6.2": {
+			"id": "421",
+			"k_id": "6.2",
+			"parent_id": "6",
+			"k_level": "2",
+			"name": "梯形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"6.3": {
+			"id": "432",
+			"k_id": "6.3",
+			"parent_id": "6",
+			"k_level": "2",
+			"name": "多边形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"6.4": {
+			"id": "440",
+			"k_id": "6.4",
+			"parent_id": "6",
+			"k_level": "2",
+			"name": "四边形综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"7": {
+		"7.1": {
+			"id": "444",
+			"k_id": "7.1",
+			"parent_id": "7",
+			"k_level": "2",
+			"name": "圆",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"8": {
+		"8.1": {
+			"id": "479",
+			"k_id": "8.1",
+			"parent_id": "8",
+			"k_level": "2",
+			"name": "图形变换与作图",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"8.2": {
+			"id": "492",
+			"k_id": "8.2",
+			"parent_id": "8",
+			"k_level": "2",
+			"name": "图形变换与证明",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"8.3": {
+			"id": "501",
+			"k_id": "8.3",
+			"parent_id": "8",
+			"k_level": "2",
+			"name": "图形变换综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"9": {
+		"9.1": {
+			"id": "505",
+			"k_id": "9.1",
+			"parent_id": "9",
+			"k_level": "2",
+			"name": "投影与视图",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"10": {
+		"10.1": {
+			"id": "519",
+			"k_id": "10.1",
+			"parent_id": "10",
+			"k_level": "2",
+			"name": "统计",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"10.2": {
+			"id": "535",
+			"k_id": "10.2",
+			"parent_id": "10",
+			"k_level": "2",
+			"name": "概率",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"10.3": {
+			"id": "542",
+			"k_id": "10.3",
+			"parent_id": "10",
+			"k_level": "2",
+			"name": "统计与概率综合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"11": {
+		"11.1": {
+			"id": "546",
+			"k_id": "11.1",
+			"parent_id": "11",
+			"k_level": "2",
+			"name": "物质的变化和性质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"11.2": {
+			"id": "549",
+			"k_id": "11.2",
+			"parent_id": "11",
+			"k_level": "2",
+			"name": "化学实验",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"11.3": {
+			"id": "552",
+			"k_id": "11.3",
+			"parent_id": "11",
+			"k_level": "2",
+			"name": "走进化学世界综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"12": {
+		"12.1": {
+			"id": "555",
+			"k_id": "12.1",
+			"parent_id": "12",
+			"k_level": "2",
+			"name": "空气",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"12.2": {
+			"id": "559",
+			"k_id": "12.2",
+			"parent_id": "12",
+			"k_level": "2",
+			"name": "氧气",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"12.3": {
+			"id": "562",
+			"k_id": "12.3",
+			"parent_id": "12",
+			"k_level": "2",
+			"name": "制取氧气",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"12.4": {
+			"id": "565",
+			"k_id": "12.4",
+			"parent_id": "12",
+			"k_level": "2",
+			"name": "我们周围的空气综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"13": {
+		"13.1": {
+			"id": "568",
+			"k_id": "13.1",
+			"parent_id": "13",
+			"k_level": "2",
+			"name": "水的性质及组成",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"13.2": {
+			"id": "571",
+			"k_id": "13.2",
+			"parent_id": "13",
+			"k_level": "2",
+			"name": "爱护水资源",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"13.3": {
+			"id": "574",
+			"k_id": "13.3",
+			"parent_id": "13",
+			"k_level": "2",
+			"name": "自然界的水综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"14": {
+		"14.1": {
+			"id": "577",
+			"k_id": "14.1",
+			"parent_id": "14",
+			"k_level": "2",
+			"name": "微观粒子",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"14.2": {
+			"id": "582",
+			"k_id": "14.2",
+			"parent_id": "14",
+			"k_level": "2",
+			"name": "元素与化合价",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"14.3": {
+			"id": "585",
+			"k_id": "14.3",
+			"parent_id": "14",
+			"k_level": "2",
+			"name": "物质构成的奥秘综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"15": {
+		"15.1": {
+			"id": "588",
+			"k_id": "15.1",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "质量守恒定律",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.2": {
+			"id": "591",
+			"k_id": "15.2",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "化学方程式",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.3": {
+			"id": "594",
+			"k_id": "15.3",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "化学方程式综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.4": {
+			"id": "596",
+			"k_id": "15.4",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "碳单质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.5": {
+			"id": "601",
+			"k_id": "15.5",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "碳的氧化物",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.6": {
+			"id": "606",
+			"k_id": "15.6",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "还原性物质还原金属氧化物",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"15.7": {
+			"id": "609",
+			"k_id": "15.7",
+			"parent_id": "15",
+			"k_level": "2",
+			"name": "化学方程式综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"16": {
+		"16.1": {
+			"id": "612",
+			"k_id": "16.1",
+			"parent_id": "16",
+			"k_level": "2",
+			"name": "燃烧",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"16.2": {
+			"id": "615",
+			"k_id": "16.2",
+			"parent_id": "16",
+			"k_level": "2",
+			"name": "环境保护",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"16.3": {
+			"id": "617",
+			"k_id": "16.3",
+			"parent_id": "16",
+			"k_level": "2",
+			"name": "燃料及其利用综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"17": {
+		"17.1": {
+			"id": "620",
+			"k_id": "17.1",
+			"parent_id": "17",
+			"k_level": "2",
+			"name": "金属材料",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"17.2": {
+			"id": "624",
+			"k_id": "17.2",
+			"parent_id": "17",
+			"k_level": "2",
+			"name": "金属的化学性质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"17.3": {
+			"id": "629",
+			"k_id": "17.3",
+			"parent_id": "17",
+			"k_level": "2",
+			"name": "金属和金属材料综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"18": {
+		"18.1": {
+			"id": "632",
+			"k_id": "18.1",
+			"parent_id": "18",
+			"k_level": "2",
+			"name": "溶液的形成",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"18.2": {
+			"id": "635",
+			"k_id": "18.2",
+			"parent_id": "18",
+			"k_level": "2",
+			"name": "溶解度",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"18.3": {
+			"id": "639",
+			"k_id": "18.3",
+			"parent_id": "18",
+			"k_level": "2",
+			"name": "溶液的质量分数",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"18.4": {
+			"id": "642",
+			"k_id": "18.4",
+			"parent_id": "18",
+			"k_level": "2",
+			"name": "溶液综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"19": {
+		"19.1": {
+			"id": "645",
+			"k_id": "19.1",
+			"parent_id": "19",
+			"k_level": "2",
+			"name": "常见的酸和碱",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"19.2": {
+			"id": "648",
+			"k_id": "19.2",
+			"parent_id": "19",
+			"k_level": "2",
+			"name": "中和反应",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"19.3": {
+			"id": "651",
+			"k_id": "19.3",
+			"parent_id": "19",
+			"k_level": "2",
+			"name": "酸和碱综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"20": {
+		"20.1": {
+			"id": "654",
+			"k_id": "20.1",
+			"parent_id": "20",
+			"k_level": "2",
+			"name": "常见的盐",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"20.2": {
+			"id": "659",
+			"k_id": "20.2",
+			"parent_id": "20",
+			"k_level": "2",
+			"name": "化学肥料",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"20.3": {
+			"id": "662",
+			"k_id": "20.3",
+			"parent_id": "20",
+			"k_level": "2",
+			"name": "盐与化肥综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"21": {
+		"21.1": {
+			"id": "665",
+			"k_id": "21.1",
+			"parent_id": "21",
+			"k_level": "2",
+			"name": "营养物质与人体健康",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"21.2": {
+			"id": "668",
+			"k_id": "21.2",
+			"parent_id": "21",
+			"k_level": "2",
+			"name": "有机合成材料",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"21.3": {
+			"id": "671",
+			"k_id": "21.3",
+			"parent_id": "21",
+			"k_level": "2",
+			"name": "化学与生活综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"22": {
+		"22.1": {
+			"id": "674",
+			"k_id": "22.1",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "字音辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.2": {
+			"id": "675",
+			"k_id": "22.2",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "字形辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.3": {
+			"id": "676",
+			"k_id": "22.3",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "选词填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.4": {
+			"id": "677",
+			"k_id": "22.4",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "选句填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.5": {
+			"id": "678",
+			"k_id": "22.5",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "成语辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.6": {
+			"id": "679",
+			"k_id": "22.6",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "修辞辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.7": {
+			"id": "680",
+			"k_id": "22.7",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "句式变换",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.8": {
+			"id": "681",
+			"k_id": "22.8",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "扩句缩句",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.9": {
+			"id": "682",
+			"k_id": "22.9",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "语病辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.10": {
+			"id": "683",
+			"k_id": "22.10",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "标点运用",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"22.11": {
+			"id": "684",
+			"k_id": "22.11",
+			"parent_id": "22",
+			"k_level": "2",
+			"name": "文学常识",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"23": {
+		"23.1": {
+			"id": "686",
+			"k_id": "23.1",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "一词多义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.2": {
+			"id": "687",
+			"k_id": "23.2",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "古今异义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.3": {
+			"id": "688",
+			"k_id": "23.3",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "词类活用知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.4": {
+			"id": "689",
+			"k_id": "23.4",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "通假字知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.5": {
+			"id": "690",
+			"k_id": "23.5",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用实词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.6": {
+			"id": "691",
+			"k_id": "23.6",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用虚词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.7": {
+			"id": "692",
+			"k_id": "23.7",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用句式知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.8": {
+			"id": "693",
+			"k_id": "23.8",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "整体阅读知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.9": {
+			"id": "694",
+			"k_id": "23.9",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "一词多义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.10": {
+			"id": "695",
+			"k_id": "23.10",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "古今异义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.11": {
+			"id": "696",
+			"k_id": "23.11",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "词类活用解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.12": {
+			"id": "697",
+			"k_id": "23.12",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "通假字解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.13": {
+			"id": "698",
+			"k_id": "23.13",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用实词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.14": {
+			"id": "699",
+			"k_id": "23.14",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用虚词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.15": {
+			"id": "700",
+			"k_id": "23.15",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "常用句式解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"23.16": {
+			"id": "701",
+			"k_id": "23.16",
+			"parent_id": "23",
+			"k_level": "2",
+			"name": "文意概括解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"24": {
+		"24.1": {
+			"id": "703",
+			"k_id": "24.1",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "文意概括",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.2": {
+			"id": "704",
+			"k_id": "24.2",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "文意理解",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.3": {
+			"id": "705",
+			"k_id": "24.3",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "文意推断",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.4": {
+			"id": "706",
+			"k_id": "24.4",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "撰写标题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.5": {
+			"id": "707",
+			"k_id": "24.5",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "主旨提炼",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.6": {
+			"id": "708",
+			"k_id": "24.6",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "撰写标题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.7": {
+			"id": "709",
+			"k_id": "24.7",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "文句赏析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.8": {
+			"id": "710",
+			"k_id": "24.8",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "语句作用",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.9": {
+			"id": "711",
+			"k_id": "24.9",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "感想体会",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.10": {
+			"id": "712",
+			"k_id": "24.10",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "写作手法辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.11": {
+			"id": "713",
+			"k_id": "24.11",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "主旨提炼",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.12": {
+			"id": "714",
+			"k_id": "24.12",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "文意分析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.13": {
+			"id": "715",
+			"k_id": "24.13",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "段落概括",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.14": {
+			"id": "716",
+			"k_id": "24.14",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "开放性问题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.15": {
+			"id": "717",
+			"k_id": "24.15",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "如何快速通读全文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.16": {
+			"id": "718",
+			"k_id": "24.16",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "如何抓住文章主干",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"24.17": {
+			"id": "719",
+			"k_id": "24.17",
+			"parent_id": "24",
+			"k_level": "2",
+			"name": "如何把握思想感情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"25": {
+		"25.1": {
+			"id": "721",
+			"k_id": "25.1",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "人物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.2": {
+			"id": "722",
+			"k_id": "25.2",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "事物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.3": {
+			"id": "723",
+			"k_id": "25.3",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "景物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.4": {
+			"id": "724",
+			"k_id": "25.4",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "全文主旨",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.5": {
+			"id": "725",
+			"k_id": "25.5",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "思想感情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.6": {
+			"id": "726",
+			"k_id": "25.6",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "字词辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.7": {
+			"id": "727",
+			"k_id": "25.7",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "意境分析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.8": {
+			"id": "728",
+			"k_id": "25.8",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "抒情手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.9": {
+			"id": "729",
+			"k_id": "25.9",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "描写手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.10": {
+			"id": "730",
+			"k_id": "25.10",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "修辞手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.11": {
+			"id": "731",
+			"k_id": "25.11",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "语言特色",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.12": {
+			"id": "732",
+			"k_id": "25.12",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "风格辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.13": {
+			"id": "733",
+			"k_id": "25.13",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "如何理解诗意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.14": {
+			"id": "734",
+			"k_id": "25.14",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "如何快速抓住要点",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.15": {
+			"id": "735",
+			"k_id": "25.15",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "浪漫主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.16": {
+			"id": "736",
+			"k_id": "25.16",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "现实主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.17": {
+			"id": "737",
+			"k_id": "25.17",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "田园派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.18": {
+			"id": "738",
+			"k_id": "25.18",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "边塞派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.19": {
+			"id": "739",
+			"k_id": "25.19",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "公安派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.20": {
+			"id": "740",
+			"k_id": "25.20",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "社会派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.21": {
+			"id": "741",
+			"k_id": "25.21",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "豪放派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.22": {
+			"id": "742",
+			"k_id": "25.22",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "婉约派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.23": {
+			"id": "743",
+			"k_id": "25.23",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "花间派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"25.24": {
+			"id": "744",
+			"k_id": "25.24",
+			"parent_id": "25",
+			"k_level": "2",
+			"name": "格律派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"26": {
+		"26.1": {
+			"id": "746",
+			"k_id": "26.1",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "中考高分作文点评",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.2": {
+			"id": "747",
+			"k_id": "26.2",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "常用句式",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.3": {
+			"id": "748",
+			"k_id": "26.3",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "常用修辞手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.4": {
+			"id": "749",
+			"k_id": "26.4",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "经典开头结尾",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.5": {
+			"id": "750",
+			"k_id": "26.5",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "如何叙事",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.6": {
+			"id": "751",
+			"k_id": "26.6",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "如何抒情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.7": {
+			"id": "752",
+			"k_id": "26.7",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "如何议论",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.8": {
+			"id": "753",
+			"k_id": "26.8",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "命题作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.9": {
+			"id": "754",
+			"k_id": "26.9",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "半命题作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"26.10": {
+			"id": "755",
+			"k_id": "26.10",
+			"parent_id": "26",
+			"k_level": "2",
+			"name": "开放性作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"27": {
+		"27.1": {
+			"id": "757",
+			"k_id": "27.1",
+			"parent_id": "27",
+			"k_level": "2",
+			"name": "词汇",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"28": {
+		"28.1": {
+			"id": "759",
+			"k_id": "28.1",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "实词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.2": {
+			"id": "760",
+			"k_id": "28.2",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "虚词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.3": {
+			"id": "761",
+			"k_id": "28.3",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "判断词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.4": {
+			"id": "762",
+			"k_id": "28.4",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "情态动词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.5": {
+			"id": "763",
+			"k_id": "28.5",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "感叹词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.6": {
+			"id": "764",
+			"k_id": "28.6",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "分词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.7": {
+			"id": "765",
+			"k_id": "28.7",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "动词不定式",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.8": {
+			"id": "766",
+			"k_id": "28.8",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "动名词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.9": {
+			"id": "767",
+			"k_id": "28.9",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "主语、谓语、宾语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.10": {
+			"id": "768",
+			"k_id": "28.10",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "定语、状语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.11": {
+			"id": "769",
+			"k_id": "28.11",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "一般现在时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.12": {
+			"id": "770",
+			"k_id": "28.12",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "一般过去时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.13": {
+			"id": "771",
+			"k_id": "28.13",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "一般将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.14": {
+			"id": "772",
+			"k_id": "28.14",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "一般过去将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.15": {
+			"id": "773",
+			"k_id": "28.15",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "现在进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.16": {
+			"id": "774",
+			"k_id": "28.16",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "过去进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.17": {
+			"id": "775",
+			"k_id": "28.17",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.18": {
+			"id": "776",
+			"k_id": "28.18",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "过去将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.19": {
+			"id": "777",
+			"k_id": "28.19",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "现在完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.20": {
+			"id": "778",
+			"k_id": "28.20",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "过去完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.21": {
+			"id": "779",
+			"k_id": "28.21",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.22": {
+			"id": "780",
+			"k_id": "28.22",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "过去将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.23": {
+			"id": "781",
+			"k_id": "28.23",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "现在完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.24": {
+			"id": "782",
+			"k_id": "28.24",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "过去完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.25": {
+			"id": "783",
+			"k_id": "28.25",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "将来完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.26": {
+			"id": "784",
+			"k_id": "28.26",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "虚拟语气",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.27": {
+			"id": "785",
+			"k_id": "28.27",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "简单句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.28": {
+			"id": "786",
+			"k_id": "28.28",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "并列句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.29": {
+			"id": "787",
+			"k_id": "28.29",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "主语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.30": {
+			"id": "788",
+			"k_id": "28.30",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "宾语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.31": {
+			"id": "789",
+			"k_id": "28.31",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "表语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.32": {
+			"id": "790",
+			"k_id": "28.32",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "同位语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.33": {
+			"id": "791",
+			"k_id": "28.33",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "名词性that从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.34": {
+			"id": "792",
+			"k_id": "28.34",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "名词性wh-从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.35": {
+			"id": "793",
+			"k_id": "28.35",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "if、whether引导的名词从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.36": {
+			"id": "794",
+			"k_id": "28.36",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "定语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.37": {
+			"id": "795",
+			"k_id": "28.37",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "状语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.38": {
+			"id": "796",
+			"k_id": "28.38",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "倒装句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.39": {
+			"id": "797",
+			"k_id": "28.39",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "主谓一致",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"28.40": {
+			"id": "798",
+			"k_id": "28.40",
+			"parent_id": "28",
+			"k_level": "2",
+			"name": "独立主格",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"29": {
+		"29.1": {
+			"id": "800",
+			"k_id": "29.1",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "记叙文阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.2": {
+			"id": "801",
+			"k_id": "29.2",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "科普知识类阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.3": {
+			"id": "802",
+			"k_id": "29.3",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "人物故事类阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.4": {
+			"id": "803",
+			"k_id": "29.4",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "社会文化类阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.5": {
+			"id": "804",
+			"k_id": "29.5",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "史地常识类阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.6": {
+			"id": "805",
+			"k_id": "29.6",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "记叙文阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.7": {
+			"id": "806",
+			"k_id": "29.7",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "记叙文阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.8": {
+			"id": "807",
+			"k_id": "29.8",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "记叙文阅读技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.9": {
+			"id": "808",
+			"k_id": "29.9",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何快速阅读全文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.10": {
+			"id": "809",
+			"k_id": "29.10",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何提炼文章主干",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.11": {
+			"id": "810",
+			"k_id": "29.11",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何根据上下文猜测生词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.12": {
+			"id": "811",
+			"k_id": "29.12",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何概括段落大意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.13": {
+			"id": "812",
+			"k_id": "29.13",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.14": {
+			"id": "813",
+			"k_id": "29.14",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "如何根据文意推断",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"29.15": {
+			"id": "814",
+			"k_id": "29.15",
+			"parent_id": "29",
+			"k_level": "2",
+			"name": "初中经典阅读理解题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"30": {
+		"30.1": {
+			"id": "816",
+			"k_id": "30.1",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "如何根据上下文选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"30.2": {
+			"id": "817",
+			"k_id": "30.2",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "完型填空常考搭配",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"30.3": {
+			"id": "818",
+			"k_id": "30.3",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "完型填空常考词组",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"30.4": {
+			"id": "819",
+			"k_id": "30.4",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "—如何根据生活常识选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"30.5": {
+			"id": "820",
+			"k_id": "30.5",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "如何把握文章主旨",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"30.6": {
+			"id": "821",
+			"k_id": "30.6",
+			"parent_id": "30",
+			"k_level": "2",
+			"name": "初中经典完型填空题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"31": {
+		"31.1": {
+			"id": "823",
+			"k_id": "31.1",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "中考高分作文赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.2": {
+			"id": "824",
+			"k_id": "31.2",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "常用句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.3": {
+			"id": "825",
+			"k_id": "31.3",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "经典开头",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.4": {
+			"id": "826",
+			"k_id": "31.4",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "经典结尾",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.5": {
+			"id": "827",
+			"k_id": "31.5",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "常见口语的书面表达",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.6": {
+			"id": "828",
+			"k_id": "31.6",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "看图作文审题立意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.7": {
+			"id": "829",
+			"k_id": "31.7",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "议论文审题立意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.8": {
+			"id": "830",
+			"k_id": "31.8",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "命题作文审题立意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"31.9": {
+			"id": "831",
+			"k_id": "31.9",
+			"parent_id": "31",
+			"k_level": "2",
+			"name": "应用文审题立意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"32": {
+		"32.1": {
+			"id": "833",
+			"k_id": "32.1",
+			"parent_id": "32",
+			"k_level": "2",
+			"name": "综合",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"33": {
+		"33.1": {
+			"id": "835",
+			"k_id": "33.1",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "质量和密度",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.2": {
+			"id": "854",
+			"k_id": "33.2",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "力",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.3": {
+			"id": "886",
+			"k_id": "33.3",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "运动和力",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.4": {
+			"id": "904",
+			"k_id": "33.4",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "压强",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.5": {
+			"id": "927",
+			"k_id": "33.5",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "浮力",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.6": {
+			"id": "941",
+			"k_id": "33.6",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "简单机械",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.7": {
+			"id": "955",
+			"k_id": "33.7",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "功和能",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.8": {
+			"id": "977",
+			"k_id": "33.8",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "声现象",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"33.9": {
+			"id": "993",
+			"k_id": "33.9",
+			"parent_id": "33",
+			"k_level": "2",
+			"name": "力（声现象）综合",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"34": {
+		"34.1": {
+			"id": "997",
+			"k_id": "34.1",
+			"parent_id": "34",
+			"k_level": "2",
+			"name": "光现象",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"34.2": {
+			"id": "1029",
+			"k_id": "34.2",
+			"parent_id": "34",
+			"k_level": "2",
+			"name": "透镜与凸透镜应用",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"34.3": {
+			"id": "1040",
+			"k_id": "34.3",
+			"parent_id": "34",
+			"k_level": "2",
+			"name": "光学综合",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"35": {
+		"35.1": {
+			"id": "1044",
+			"k_id": "35.1",
+			"parent_id": "35",
+			"k_level": "2",
+			"name": "物态变化",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"35.2": {
+			"id": "1082",
+			"k_id": "35.2",
+			"parent_id": "35",
+			"k_level": "2",
+			"name": "内能及其热量",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"36": {
+		"36.1": {
+			"id": "1109",
+			"k_id": "36.1",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "简单电现象",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"36.2": {
+			"id": "1121",
+			"k_id": "36.2",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "电流定律",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"36.3": {
+			"id": "1154",
+			"k_id": "36.3",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "电功和电功率",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"36.4": {
+			"id": "1175",
+			"k_id": "36.4",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "家庭电路",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"36.5": {
+			"id": "1187",
+			"k_id": "36.5",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "电磁现象",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"36.6": {
+			"id": "1210",
+			"k_id": "36.6",
+			"parent_id": "36",
+			"k_level": "2",
+			"name": "电学综合",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"37": {
+		"37.1": {
+			"id": "1214",
+			"k_id": "37.1",
+			"parent_id": "37",
+			"k_level": "2",
+			"name": "通信技术（选修）",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		},
+		"37.2": {
+			"id": "1223",
+			"k_id": "37.2",
+			"parent_id": "37",
+			"k_level": "2",
+			"name": "粒子和宇宙（选修）",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"38": {
+		"38.1": {
+			"id": "1237",
+			"k_id": "38.1",
+			"parent_id": "38",
+			"k_level": "2",
+			"name": "新材料及其应用",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "2",
+			"depaetment_name": "初中"
+		}
+	},
+	"39": {
+		"39.1": {
+			"id": "1245",
+			"k_id": "39.1",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "字音辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.2": {
+			"id": "1246",
+			"k_id": "39.2",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "字形辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.3": {
+			"id": "1247",
+			"k_id": "39.3",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "选词填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.4": {
+			"id": "1248",
+			"k_id": "39.4",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "选句填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.5": {
+			"id": "1249",
+			"k_id": "39.5",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "成语辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.6": {
+			"id": "1250",
+			"k_id": "39.6",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "修辞辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.7": {
+			"id": "1251",
+			"k_id": "39.7",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "句式变换",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.8": {
+			"id": "1252",
+			"k_id": "39.8",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "扩句缩句",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.9": {
+			"id": "1253",
+			"k_id": "39.9",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "语病辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.10": {
+			"id": "1254",
+			"k_id": "39.10",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "标点运用",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"39.11": {
+			"id": "1255",
+			"k_id": "39.11",
+			"parent_id": "39",
+			"k_level": "2",
+			"name": "文学常识",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"40": {
+		"40.1": {
+			"id": "1257",
+			"k_id": "40.1",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "一词多义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.2": {
+			"id": "1258",
+			"k_id": "40.2",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "古今异义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.3": {
+			"id": "1259",
+			"k_id": "40.3",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "词类活用知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.4": {
+			"id": "1260",
+			"k_id": "40.4",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "通假字知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.5": {
+			"id": "1261",
+			"k_id": "40.5",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用实词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.6": {
+			"id": "1262",
+			"k_id": "40.6",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用虚词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.7": {
+			"id": "1263",
+			"k_id": "40.7",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用句式知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.8": {
+			"id": "1264",
+			"k_id": "40.8",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "整体阅读知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.9": {
+			"id": "1265",
+			"k_id": "40.9",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "一词多义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.10": {
+			"id": "1266",
+			"k_id": "40.10",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "古今异义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.11": {
+			"id": "1267",
+			"k_id": "40.11",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "词类活用解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.12": {
+			"id": "1268",
+			"k_id": "40.12",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "通假字解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.13": {
+			"id": "1269",
+			"k_id": "40.13",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用实词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.14": {
+			"id": "1270",
+			"k_id": "40.14",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用虚词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.15": {
+			"id": "1271",
+			"k_id": "40.15",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "常用句式解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"40.16": {
+			"id": "1272",
+			"k_id": "40.16",
+			"parent_id": "40",
+			"k_level": "2",
+			"name": "文意概括解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"41": {
+		"41.1": {
+			"id": "1274",
+			"k_id": "41.1",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "文意概括技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.2": {
+			"id": "1275",
+			"k_id": "41.2",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "文意理解技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.3": {
+			"id": "1276",
+			"k_id": "41.3",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "文意推断技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.4": {
+			"id": "1277",
+			"k_id": "41.4",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "撰写标题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.5": {
+			"id": "1278",
+			"k_id": "41.5",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "主旨提炼技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.6": {
+			"id": "1279",
+			"k_id": "41.6",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "撰写标题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.7": {
+			"id": "1280",
+			"k_id": "41.7",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "文句赏析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.8": {
+			"id": "1281",
+			"k_id": "41.8",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "语句作用技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.9": {
+			"id": "1282",
+			"k_id": "41.9",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "感想体会技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.10": {
+			"id": "1283",
+			"k_id": "41.10",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "写作手法辨析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.11": {
+			"id": "1284",
+			"k_id": "41.11",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "主旨提炼技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.12": {
+			"id": "1285",
+			"k_id": "41.12",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "文意分析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.13": {
+			"id": "1286",
+			"k_id": "41.13",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "段落概括技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.14": {
+			"id": "1287",
+			"k_id": "41.14",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "开放性问题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.15": {
+			"id": "1288",
+			"k_id": "41.15",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "如何快速通读全文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.16": {
+			"id": "1289",
+			"k_id": "41.16",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "如何抓住文章主干",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"41.17": {
+			"id": "1290",
+			"k_id": "41.17",
+			"parent_id": "41",
+			"k_level": "2",
+			"name": "如何把握思想感情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"42": {
+		"42.1": {
+			"id": "1292",
+			"k_id": "42.1",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "人物形象技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.2": {
+			"id": "1293",
+			"k_id": "42.2",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "事物形象技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.3": {
+			"id": "1294",
+			"k_id": "42.3",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "景物形象技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.4": {
+			"id": "1295",
+			"k_id": "42.4",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "全文主旨技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.5": {
+			"id": "1296",
+			"k_id": "42.5",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "思想感情技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.6": {
+			"id": "1297",
+			"k_id": "42.6",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "字词辨析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.7": {
+			"id": "1298",
+			"k_id": "42.7",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "意境分析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.8": {
+			"id": "1299",
+			"k_id": "42.8",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "抒情手法技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.9": {
+			"id": "1300",
+			"k_id": "42.9",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "描写手法技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.10": {
+			"id": "1301",
+			"k_id": "42.10",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "修辞手法技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.11": {
+			"id": "1302",
+			"k_id": "42.11",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "语言特色技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.12": {
+			"id": "1303",
+			"k_id": "42.12",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "风格辨析技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.13": {
+			"id": "1304",
+			"k_id": "42.13",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "如何理解诗意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.14": {
+			"id": "1305",
+			"k_id": "42.14",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "如何快速抓住要点",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.15": {
+			"id": "1306",
+			"k_id": "42.15",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "浪漫主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.16": {
+			"id": "1307",
+			"k_id": "42.16",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "现实主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.17": {
+			"id": "1308",
+			"k_id": "42.17",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "田园派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.18": {
+			"id": "1309",
+			"k_id": "42.18",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "边塞派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.19": {
+			"id": "1310",
+			"k_id": "42.19",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "公安派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.20": {
+			"id": "1311",
+			"k_id": "42.20",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "社会派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.21": {
+			"id": "1312",
+			"k_id": "42.21",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "豪放派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.22": {
+			"id": "1313",
+			"k_id": "42.22",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "婉约派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.23": {
+			"id": "1314",
+			"k_id": "42.23",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "花间派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"42.24": {
+			"id": "1315",
+			"k_id": "42.24",
+			"parent_id": "42",
+			"k_level": "2",
+			"name": "格律派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"43": {
+		"43.1": {
+			"id": "1317",
+			"k_id": "43.1",
+			"parent_id": "43",
+			"k_level": "2",
+			"name": "高分作文点评",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"44": {
+		"44.1": {
+			"id": "1319",
+			"k_id": "44.1",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "常用句式",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.2": {
+			"id": "1320",
+			"k_id": "44.2",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "常用修辞手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.3": {
+			"id": "1321",
+			"k_id": "44.3",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "经典开头结尾",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.4": {
+			"id": "1322",
+			"k_id": "44.4",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "如何叙事",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.5": {
+			"id": "1323",
+			"k_id": "44.5",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "如何抒情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.6": {
+			"id": "1324",
+			"k_id": "44.6",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "如何议论",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.7": {
+			"id": "1325",
+			"k_id": "44.7",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "命题作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.8": {
+			"id": "1326",
+			"k_id": "44.8",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "半命题作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"44.9": {
+			"id": "1327",
+			"k_id": "44.9",
+			"parent_id": "44",
+			"k_level": "2",
+			"name": "开放性作文审题立意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"45": {
+		"45.1": {
+			"id": "1329",
+			"k_id": "45.1",
+			"parent_id": "45",
+			"k_level": "2",
+			"name": "集合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"45.2": {
+			"id": "1354",
+			"k_id": "45.2",
+			"parent_id": "45",
+			"k_level": "2",
+			"name": "函数（I）",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"45.3": {
+			"id": "1385",
+			"k_id": "45.3",
+			"parent_id": "45",
+			"k_level": "2",
+			"name": "基本初等函数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"45.4": {
+			"id": "1415",
+			"k_id": "45.4",
+			"parent_id": "45",
+			"k_level": "2",
+			"name": "函数（III）",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"46": {
+		"46.1": {
+			"id": "1429",
+			"k_id": "46.1",
+			"parent_id": "46",
+			"k_level": "2",
+			"name": "空间几何体",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"46.2": {
+			"id": "1462",
+			"k_id": "46.2",
+			"parent_id": "46",
+			"k_level": "2",
+			"name": "点、线、面的位置关系",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"46.3": {
+			"id": "1482",
+			"k_id": "46.3",
+			"parent_id": "46",
+			"k_level": "2",
+			"name": "直线的方程",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"46.4": {
+			"id": "1501",
+			"k_id": "46.4",
+			"parent_id": "46",
+			"k_level": "2",
+			"name": "圆的方程",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"47": {
+		"47.1": {
+			"id": "1514",
+			"k_id": "47.1",
+			"parent_id": "47",
+			"k_level": "2",
+			"name": "算法初步",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"47.2": {
+			"id": "1530",
+			"k_id": "47.2",
+			"parent_id": "47",
+			"k_level": "2",
+			"name": "统计",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"47.3": {
+			"id": "1548",
+			"k_id": "47.3",
+			"parent_id": "47",
+			"k_level": "2",
+			"name": "概率初步",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"48": {
+		"48.1": {
+			"id": "1562",
+			"k_id": "48.1",
+			"parent_id": "48",
+			"k_level": "2",
+			"name": "三角函数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"48.2": {
+			"id": "1589",
+			"k_id": "48.2",
+			"parent_id": "48",
+			"k_level": "2",
+			"name": "平面向量",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"48.3": {
+			"id": "1616",
+			"k_id": "48.3",
+			"parent_id": "48",
+			"k_level": "2",
+			"name": "三角恒等变换",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"49": {
+		"49.1": {
+			"id": "1629",
+			"k_id": "49.1",
+			"parent_id": "49",
+			"k_level": "2",
+			"name": "解三角形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"49.2": {
+			"id": "1639",
+			"k_id": "49.2",
+			"parent_id": "49",
+			"k_level": "2",
+			"name": "数列",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"49.3": {
+			"id": "1666",
+			"k_id": "49.3",
+			"parent_id": "49",
+			"k_level": "2",
+			"name": "不等式",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"50": {
+		"50.1": {
+			"id": "1684",
+			"k_id": "50.1",
+			"parent_id": "50",
+			"k_level": "2",
+			"name": "常用逻辑用语",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"50.2": {
+			"id": "1699",
+			"k_id": "50.2",
+			"parent_id": "50",
+			"k_level": "2",
+			"name": "圆锥曲线",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"50.3": {
+			"id": "1723",
+			"k_id": "50.3",
+			"parent_id": "50",
+			"k_level": "2",
+			"name": "导数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"51": {
+		"51.1": {
+			"id": "1739",
+			"k_id": "51.1",
+			"parent_id": "51",
+			"k_level": "2",
+			"name": "推理证明",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"51.2": {
+			"id": "1751",
+			"k_id": "51.2",
+			"parent_id": "51",
+			"k_level": "2",
+			"name": "数系的扩充与复数的引入",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"51.3": {
+			"id": "1764",
+			"k_id": "51.3",
+			"parent_id": "51",
+			"k_level": "2",
+			"name": "框图",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"52": {
+		"52.1": {
+			"id": "1772",
+			"k_id": "52.1",
+			"parent_id": "52",
+			"k_level": "2",
+			"name": "常用逻辑用语",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"52.2": {
+			"id": "1787",
+			"k_id": "52.2",
+			"parent_id": "52",
+			"k_level": "2",
+			"name": "圆锥曲线",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"52.3": {
+			"id": "1819",
+			"k_id": "52.3",
+			"parent_id": "52",
+			"k_level": "2",
+			"name": "空间向量与立体几何",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"53": {
+		"53.1": {
+			"id": "1839",
+			"k_id": "53.1",
+			"parent_id": "53",
+			"k_level": "2",
+			"name": "导数及其应用",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"53.2": {
+			"id": "1864",
+			"k_id": "53.2",
+			"parent_id": "53",
+			"k_level": "2",
+			"name": "推理与证明",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"53.3": {
+			"id": "1877",
+			"k_id": "53.3",
+			"parent_id": "53",
+			"k_level": "2",
+			"name": "数系的扩充与复数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"54": {
+		"54.1": {
+			"id": "1895",
+			"k_id": "54.1",
+			"parent_id": "54",
+			"k_level": "2",
+			"name": "排列组合、二项式定理",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"54.2": {
+			"id": "1916",
+			"k_id": "54.2",
+			"parent_id": "54",
+			"k_level": "2",
+			"name": "随机变量及其分布列",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"55": {
+		"55.1": {
+			"id": "1933",
+			"k_id": "55.1",
+			"parent_id": "55",
+			"k_level": "2",
+			"name": "相似三角形的判定及有关性质",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"55.2": {
+			"id": "1951",
+			"k_id": "55.2",
+			"parent_id": "55",
+			"k_level": "2",
+			"name": "直线与圆的位置关系",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"56": {
+		"56.1": {
+			"id": "1978",
+			"k_id": "56.1",
+			"parent_id": "56",
+			"k_level": "2",
+			"name": "坐标系",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"56.2": {
+			"id": "1993",
+			"k_id": "56.2",
+			"parent_id": "56",
+			"k_level": "2",
+			"name": "参数方程",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"57": {
+		"57.1": {
+			"id": "2010",
+			"k_id": "57.1",
+			"parent_id": "57",
+			"k_level": "2",
+			"name": "词汇",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"58": {
+		"58.1": {
+			"id": "2012",
+			"k_id": "58.1",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "实词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.2": {
+			"id": "2013",
+			"k_id": "58.2",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "虚词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.3": {
+			"id": "2014",
+			"k_id": "58.3",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "判断词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.4": {
+			"id": "2015",
+			"k_id": "58.4",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "情态动词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.5": {
+			"id": "2016",
+			"k_id": "58.5",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "感叹词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.6": {
+			"id": "2017",
+			"k_id": "58.6",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "分词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.7": {
+			"id": "2018",
+			"k_id": "58.7",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "动词不定式",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.8": {
+			"id": "2019",
+			"k_id": "58.8",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "动名词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.9": {
+			"id": "2020",
+			"k_id": "58.9",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "主语、谓语、宾语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.10": {
+			"id": "2021",
+			"k_id": "58.10",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "定语、状语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.11": {
+			"id": "2022",
+			"k_id": "58.11",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "一般现在时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.12": {
+			"id": "2023",
+			"k_id": "58.12",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "一般过去时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.13": {
+			"id": "2024",
+			"k_id": "58.13",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "一般将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.14": {
+			"id": "2025",
+			"k_id": "58.14",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "一般过去将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.15": {
+			"id": "2026",
+			"k_id": "58.15",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "现在进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.16": {
+			"id": "2027",
+			"k_id": "58.16",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "过去进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.17": {
+			"id": "2028",
+			"k_id": "58.17",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.18": {
+			"id": "2029",
+			"k_id": "58.18",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "过去将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.19": {
+			"id": "2030",
+			"k_id": "58.19",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "现在完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.20": {
+			"id": "2031",
+			"k_id": "58.20",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "过去完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.21": {
+			"id": "2032",
+			"k_id": "58.21",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.22": {
+			"id": "2033",
+			"k_id": "58.22",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "过去将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.23": {
+			"id": "2034",
+			"k_id": "58.23",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "现在完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.24": {
+			"id": "2035",
+			"k_id": "58.24",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "过去完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.25": {
+			"id": "2036",
+			"k_id": "58.25",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "将来完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.26": {
+			"id": "2037",
+			"k_id": "58.26",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "虚拟语气",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.27": {
+			"id": "2038",
+			"k_id": "58.27",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "简单句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.28": {
+			"id": "2039",
+			"k_id": "58.28",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "并列句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.29": {
+			"id": "2040",
+			"k_id": "58.29",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "主语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.30": {
+			"id": "2041",
+			"k_id": "58.30",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "宾语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.31": {
+			"id": "2042",
+			"k_id": "58.31",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "表语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.32": {
+			"id": "2043",
+			"k_id": "58.32",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "同位语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.33": {
+			"id": "2044",
+			"k_id": "58.33",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "名词性that从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.34": {
+			"id": "2045",
+			"k_id": "58.34",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "名词性wh-从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.35": {
+			"id": "2046",
+			"k_id": "58.35",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "if、whether引导的名词从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.36": {
+			"id": "2047",
+			"k_id": "58.36",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "定语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.37": {
+			"id": "2048",
+			"k_id": "58.37",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "状语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.38": {
+			"id": "2049",
+			"k_id": "58.38",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "倒装句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.39": {
+			"id": "2050",
+			"k_id": "58.39",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "主谓一致",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"58.40": {
+			"id": "2051",
+			"k_id": "58.40",
+			"parent_id": "58",
+			"k_level": "2",
+			"name": "独立主格",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"59": {
+		"59.1": {
+			"id": "2053",
+			"k_id": "59.1",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "记叙文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.2": {
+			"id": "2054",
+			"k_id": "59.2",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "科普知识类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.3": {
+			"id": "2055",
+			"k_id": "59.3",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "人物故事类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.4": {
+			"id": "2056",
+			"k_id": "59.4",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "社会文化类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.5": {
+			"id": "2057",
+			"k_id": "59.5",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "史地常识类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.6": {
+			"id": "2058",
+			"k_id": "59.6",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "记叙文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.7": {
+			"id": "2059",
+			"k_id": "59.7",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "记叙文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.8": {
+			"id": "2060",
+			"k_id": "59.8",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "记叙文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.9": {
+			"id": "2061",
+			"k_id": "59.9",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何快速",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.10": {
+			"id": "2062",
+			"k_id": "59.10",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何提炼文章主干",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.11": {
+			"id": "2063",
+			"k_id": "59.11",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何根据上下文猜测生词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.12": {
+			"id": "2064",
+			"k_id": "59.12",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何概括段落大意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.13": {
+			"id": "2065",
+			"k_id": "59.13",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.14": {
+			"id": "2066",
+			"k_id": "59.14",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "如何根据文意推断",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"59.15": {
+			"id": "2067",
+			"k_id": "59.15",
+			"parent_id": "59",
+			"k_level": "2",
+			"name": "高中经典阅读理解题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"60": {
+		"60.1": {
+			"id": "2069",
+			"k_id": "60.1",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "如何根据上下文选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"60.2": {
+			"id": "2070",
+			"k_id": "60.2",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "完型填空常考搭配",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"60.3": {
+			"id": "2071",
+			"k_id": "60.3",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "完型填空常考词组",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"60.4": {
+			"id": "2072",
+			"k_id": "60.4",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "如何根据生活常识选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"60.5": {
+			"id": "2073",
+			"k_id": "60.5",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "如何把握文章主旨",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"60.6": {
+			"id": "2074",
+			"k_id": "60.6",
+			"parent_id": "60",
+			"k_level": "2",
+			"name": "高中经典完型填空题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"61": {
+		"61.1": {
+			"id": "2076",
+			"k_id": "61.1",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "高考高分作文赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.2": {
+			"id": "2077",
+			"k_id": "61.2",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "常用句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.3": {
+			"id": "2078",
+			"k_id": "61.3",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "经典开头",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.4": {
+			"id": "2079",
+			"k_id": "61.4",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "经典结尾",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.5": {
+			"id": "2080",
+			"k_id": "61.5",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "常见口语的书面表达",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.6": {
+			"id": "2081",
+			"k_id": "61.6",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "看图作文审题立意技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.7": {
+			"id": "2082",
+			"k_id": "61.7",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "议论文审题立意技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.8": {
+			"id": "2083",
+			"k_id": "61.8",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "命题作文审题立意技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"61.9": {
+			"id": "2084",
+			"k_id": "61.9",
+			"parent_id": "61",
+			"k_level": "2",
+			"name": "应用文审题立意技巧",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"62": {
+		"62.1": {
+			"id": "2086",
+			"k_id": "62.1",
+			"parent_id": "62",
+			"k_level": "2",
+			"name": "综合",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"63": {
+		"63.1": {
+			"id": "2088",
+			"k_id": "63.1",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "运动的描述",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.2": {
+			"id": "2112",
+			"k_id": "63.2",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "直线运动",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.3": {
+			"id": "2128",
+			"k_id": "63.3",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "力和物体的平衡",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.4": {
+			"id": "2155",
+			"k_id": "63.4",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "曲线运动",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.5": {
+			"id": "2176",
+			"k_id": "63.5",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "万有引力和航天",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.6": {
+			"id": "2182",
+			"k_id": "63.6",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "机械能",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.7": {
+			"id": "2201",
+			"k_id": "63.7",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "动量",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"63.8": {
+			"id": "2218",
+			"k_id": "63.8",
+			"parent_id": "63",
+			"k_level": "2",
+			"name": "机械振动和机械波",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"64": {
+		"64.1": {
+			"id": "2231",
+			"k_id": "64.1",
+			"parent_id": "64",
+			"k_level": "2",
+			"name": "静电场",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"64.2": {
+			"id": "2251",
+			"k_id": "64.2",
+			"parent_id": "64",
+			"k_level": "2",
+			"name": "恒定电流",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"64.3": {
+			"id": "2272",
+			"k_id": "64.3",
+			"parent_id": "64",
+			"k_level": "2",
+			"name": "磁场",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"64.4": {
+			"id": "2286",
+			"k_id": "64.4",
+			"parent_id": "64",
+			"k_level": "2",
+			"name": "电磁感应",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"64.5": {
+			"id": "2300",
+			"k_id": "64.5",
+			"parent_id": "64",
+			"k_level": "2",
+			"name": "交变电流和电磁场电磁波、传感器",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"65": {
+		"65.1": {
+			"id": "2326",
+			"k_id": "65.1",
+			"parent_id": "65",
+			"k_level": "2",
+			"name": "分子动理论与热力学定律",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"65.2": {
+			"id": "2336",
+			"k_id": "65.2",
+			"parent_id": "65",
+			"k_level": "2",
+			"name": "气体、固体、液体与物态变化",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"65.3": {
+			"id": "2344",
+			"k_id": "65.3",
+			"parent_id": "65",
+			"k_level": "2",
+			"name": "热学综合",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"66": {
+		"66.1": {
+			"id": "2348",
+			"k_id": "66.1",
+			"parent_id": "66",
+			"k_level": "2",
+			"name": "光学",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"66.2": {
+			"id": "2375",
+			"k_id": "66.2",
+			"parent_id": "66",
+			"k_level": "2",
+			"name": "原子结构和原子核",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"67": {
+		"67.1": {
+			"id": "2390",
+			"k_id": "67.1",
+			"parent_id": "67",
+			"k_level": "2",
+			"name": "力学中的实验",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"67.2": {
+			"id": "2401",
+			"k_id": "67.2",
+			"parent_id": "67",
+			"k_level": "2",
+			"name": "电学、光学实验",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"67.3": {
+			"id": "2413",
+			"k_id": "67.3",
+			"parent_id": "67",
+			"k_level": "2",
+			"name": "实验综合",
+			"subject_id": "4",
+			"subject_name": "物理",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"68": {
+		"68.1": {
+			"id": "2417",
+			"k_id": "68.1",
+			"parent_id": "68",
+			"k_level": "2",
+			"name": "物质的量",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"68.2": {
+			"id": "2421",
+			"k_id": "68.2",
+			"parent_id": "68",
+			"k_level": "2",
+			"name": "气体摩尔体积",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"68.3": {
+			"id": "2424",
+			"k_id": "68.3",
+			"parent_id": "68",
+			"k_level": "2",
+			"name": "物质的量浓度",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"68.4": {
+			"id": "2427",
+			"k_id": "68.4",
+			"parent_id": "68",
+			"k_level": "2",
+			"name": "化学计量及实验综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"69": {
+		"69.1": {
+			"id": "2430",
+			"k_id": "69.1",
+			"parent_id": "69",
+			"k_level": "2",
+			"name": "物质的分类",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"69.2": {
+			"id": "2434",
+			"k_id": "69.2",
+			"parent_id": "69",
+			"k_level": "2",
+			"name": "氧化还原反应",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"69.3": {
+			"id": "2439",
+			"k_id": "69.3",
+			"parent_id": "69",
+			"k_level": "2",
+			"name": "离子反应",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"69.4": {
+			"id": "2444",
+			"k_id": "69.4",
+			"parent_id": "69",
+			"k_level": "2",
+			"name": "化学反应及其变化综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"70": {
+		"70.1": {
+			"id": "2447",
+			"k_id": "70.1",
+			"parent_id": "70",
+			"k_level": "2",
+			"name": "钠",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"70.2": {
+			"id": "2452",
+			"k_id": "70.2",
+			"parent_id": "70",
+			"k_level": "2",
+			"name": "铝",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"70.3": {
+			"id": "2456",
+			"k_id": "70.3",
+			"parent_id": "70",
+			"k_level": "2",
+			"name": "铁",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"70.4": {
+			"id": "2459",
+			"k_id": "70.4",
+			"parent_id": "70",
+			"k_level": "2",
+			"name": "金属及其化合物综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"71": {
+		"71.1": {
+			"id": "2462",
+			"k_id": "71.1",
+			"parent_id": "71",
+			"k_level": "2",
+			"name": "硅",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"71.2": {
+			"id": "2466",
+			"k_id": "71.2",
+			"parent_id": "71",
+			"k_level": "2",
+			"name": "氯",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"71.3": {
+			"id": "2470",
+			"k_id": "71.3",
+			"parent_id": "71",
+			"k_level": "2",
+			"name": "硫",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"71.4": {
+			"id": "2473",
+			"k_id": "71.4",
+			"parent_id": "71",
+			"k_level": "2",
+			"name": "氮",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"71.5": {
+			"id": "2478",
+			"k_id": "71.5",
+			"parent_id": "71",
+			"k_level": "2",
+			"name": "非金属及其化合物综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"72": {
+		"72.1": {
+			"id": "2481",
+			"k_id": "72.1",
+			"parent_id": "72",
+			"k_level": "2",
+			"name": "元素周期表",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"72.2": {
+			"id": "2485",
+			"k_id": "72.2",
+			"parent_id": "72",
+			"k_level": "2",
+			"name": "元素周期律",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"72.3": {
+			"id": "2488",
+			"k_id": "72.3",
+			"parent_id": "72",
+			"k_level": "2",
+			"name": "核素",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"72.4": {
+			"id": "2491",
+			"k_id": "72.4",
+			"parent_id": "72",
+			"k_level": "2",
+			"name": "化学键",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"72.5": {
+			"id": "2496",
+			"k_id": "72.5",
+			"parent_id": "72",
+			"k_level": "2",
+			"name": "物质结构综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"73": {
+		"73.1": {
+			"id": "2499",
+			"k_id": "73.1",
+			"parent_id": "73",
+			"k_level": "2",
+			"name": "化学能与热能",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"73.2": {
+			"id": "2502",
+			"k_id": "73.2",
+			"parent_id": "73",
+			"k_level": "2",
+			"name": "化学能与电能",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"73.3": {
+			"id": "2505",
+			"k_id": "73.3",
+			"parent_id": "73",
+			"k_level": "2",
+			"name": "化学反应速率及限度",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"73.4": {
+			"id": "2509",
+			"k_id": "73.4",
+			"parent_id": "73",
+			"k_level": "2",
+			"name": "化学反应与能量变化综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"74": {
+		"74.1": {
+			"id": "2512",
+			"k_id": "74.1",
+			"parent_id": "74",
+			"k_level": "2",
+			"name": "甲烷，烷烃",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"74.2": {
+			"id": "2517",
+			"k_id": "74.2",
+			"parent_id": "74",
+			"k_level": "2",
+			"name": "乙烯，苯",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"74.3": {
+			"id": "2522",
+			"k_id": "74.3",
+			"parent_id": "74",
+			"k_level": "2",
+			"name": "乙醇，乙酸",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"74.4": {
+			"id": "2527",
+			"k_id": "74.4",
+			"parent_id": "74",
+			"k_level": "2",
+			"name": "基本营养物质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"74.5": {
+			"id": "2530",
+			"k_id": "74.5",
+			"parent_id": "74",
+			"k_level": "2",
+			"name": "有机化学基础综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"75": {
+		"75.1": {
+			"id": "2533",
+			"k_id": "75.1",
+			"parent_id": "75",
+			"k_level": "2",
+			"name": "资源的开的开发利用",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"75.2": {
+			"id": "2536",
+			"k_id": "75.2",
+			"parent_id": "75",
+			"k_level": "2",
+			"name": "资源开发与利用",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"76": {
+		"76.1": {
+			"id": "2539",
+			"k_id": "76.1",
+			"parent_id": "76",
+			"k_level": "2",
+			"name": "反应热与焓变",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"76.2": {
+			"id": "2544",
+			"k_id": "76.2",
+			"parent_id": "76",
+			"k_level": "2",
+			"name": "特殊的反应热",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"76.3": {
+			"id": "2547",
+			"k_id": "76.3",
+			"parent_id": "76",
+			"k_level": "2",
+			"name": "化学反应与能量变综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"77": {
+		"77.1": {
+			"id": "2550",
+			"k_id": "77.1",
+			"parent_id": "77",
+			"k_level": "2",
+			"name": "化学反应速率",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"77.2": {
+			"id": "2553",
+			"k_id": "77.2",
+			"parent_id": "77",
+			"k_level": "2",
+			"name": "化学平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"77.3": {
+			"id": "2561",
+			"k_id": "77.3",
+			"parent_id": "77",
+			"k_level": "2",
+			"name": "化学反应速率与化学平衡综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"78": {
+		"78.1": {
+			"id": "2564",
+			"k_id": "78.1",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "弱电解质的电离平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"78.2": {
+			"id": "2568",
+			"k_id": "78.2",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "水的电离",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"78.3": {
+			"id": "2572",
+			"k_id": "78.3",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "酸碱中和滴定",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"78.4": {
+			"id": "2576",
+			"k_id": "78.4",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "盐类的水解",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"78.5": {
+			"id": "2582",
+			"k_id": "78.5",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "沉淀溶解平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"78.6": {
+			"id": "2586",
+			"k_id": "78.6",
+			"parent_id": "78",
+			"k_level": "2",
+			"name": "水溶液的离子平衡综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"79": {
+		"79.1": {
+			"id": "2589",
+			"k_id": "79.1",
+			"parent_id": "79",
+			"k_level": "2",
+			"name": "原电池",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"79.2": {
+			"id": "2593",
+			"k_id": "79.2",
+			"parent_id": "79",
+			"k_level": "2",
+			"name": "电解池",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"79.3": {
+			"id": "2597",
+			"k_id": "79.3",
+			"parent_id": "79",
+			"k_level": "2",
+			"name": "电化学应用",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"79.4": {
+			"id": "2603",
+			"k_id": "79.4",
+			"parent_id": "79",
+			"k_level": "2",
+			"name": "电化学基础综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"80": {
+		"80.1": {
+			"id": "2606",
+			"k_id": "80.1",
+			"parent_id": "80",
+			"k_level": "2",
+			"name": "有机化合物的组成及结构",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"80.2": {
+			"id": "2612",
+			"k_id": "80.2",
+			"parent_id": "80",
+			"k_level": "2",
+			"name": "有机化合物的性质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"80.3": {
+			"id": "2621",
+			"k_id": "80.3",
+			"parent_id": "80",
+			"k_level": "2",
+			"name": "有机化学基础综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"81": {
+		"81.1": {
+			"id": "2624",
+			"k_id": "81.1",
+			"parent_id": "81",
+			"k_level": "2",
+			"name": "关注营养平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"81.2": {
+			"id": "2629",
+			"k_id": "81.2",
+			"parent_id": "81",
+			"k_level": "2",
+			"name": "促进身心健康",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"81.3": {
+			"id": "2632",
+			"k_id": "81.3",
+			"parent_id": "81",
+			"k_level": "2",
+			"name": "探索生活材料",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"81.4": {
+			"id": "2637",
+			"k_id": "81.4",
+			"parent_id": "81",
+			"k_level": "2",
+			"name": "保护生存环境",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"81.5": {
+			"id": "2641",
+			"k_id": "81.5",
+			"parent_id": "81",
+			"k_level": "2",
+			"name": "化学与生活综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"82": {
+		"82.1": {
+			"id": "2644",
+			"k_id": "82.1",
+			"parent_id": "82",
+			"k_level": "2",
+			"name": "物质的量",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"82.2": {
+			"id": "2649",
+			"k_id": "82.2",
+			"parent_id": "82",
+			"k_level": "2",
+			"name": "气体摩尔体积",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"82.3": {
+			"id": "2651",
+			"k_id": "82.3",
+			"parent_id": "82",
+			"k_level": "2",
+			"name": "摩尔浓度",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"82.4": {
+			"id": "2654",
+			"k_id": "82.4",
+			"parent_id": "82",
+			"k_level": "2",
+			"name": "化学计量综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"83": {
+		"83.1": {
+			"id": "2657",
+			"k_id": "83.1",
+			"parent_id": "83",
+			"k_level": "2",
+			"name": "氧化还原反应",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"83.2": {
+			"id": "2662",
+			"k_id": "83.2",
+			"parent_id": "83",
+			"k_level": "2",
+			"name": "离子反应",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"83.3": {
+			"id": "2667",
+			"k_id": "83.3",
+			"parent_id": "83",
+			"k_level": "2",
+			"name": "化学反应与能量变化",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"83.4": {
+			"id": "2673",
+			"k_id": "83.4",
+			"parent_id": "83",
+			"k_level": "2",
+			"name": "化学反应及能量变化综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"84": {
+		"84.1": {
+			"id": "2676",
+			"k_id": "84.1",
+			"parent_id": "84",
+			"k_level": "2",
+			"name": "钠",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"84.2": {
+			"id": "2681",
+			"k_id": "84.2",
+			"parent_id": "84",
+			"k_level": "2",
+			"name": "铝",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"84.3": {
+			"id": "2685",
+			"k_id": "84.3",
+			"parent_id": "84",
+			"k_level": "2",
+			"name": "铁",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"84.4": {
+			"id": "2688",
+			"k_id": "84.4",
+			"parent_id": "84",
+			"k_level": "2",
+			"name": "其他常见金属",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"84.5": {
+			"id": "2691",
+			"k_id": "84.5",
+			"parent_id": "84",
+			"k_level": "2",
+			"name": "金属及化合物综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"85": {
+		"85.1": {
+			"id": "2694",
+			"k_id": "85.1",
+			"parent_id": "85",
+			"k_level": "2",
+			"name": "硅",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"85.2": {
+			"id": "2698",
+			"k_id": "85.2",
+			"parent_id": "85",
+			"k_level": "2",
+			"name": "氯",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"85.3": {
+			"id": "2703",
+			"k_id": "85.3",
+			"parent_id": "85",
+			"k_level": "2",
+			"name": "硫",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"85.4": {
+			"id": "2706",
+			"k_id": "85.4",
+			"parent_id": "85",
+			"k_level": "2",
+			"name": "氮",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"85.5": {
+			"id": "2711",
+			"k_id": "85.5",
+			"parent_id": "85",
+			"k_level": "2",
+			"name": "非金属及化合物综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"86": {
+		"86.1": {
+			"id": "2714",
+			"k_id": "86.1",
+			"parent_id": "86",
+			"k_level": "2",
+			"name": "原子结构与元素周期律",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"86.2": {
+			"id": "2719",
+			"k_id": "86.2",
+			"parent_id": "86",
+			"k_level": "2",
+			"name": "无机化学推断",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"86.3": {
+			"id": "2721",
+			"k_id": "86.3",
+			"parent_id": "86",
+			"k_level": "2",
+			"name": "化学键",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"86.4": {
+			"id": "2726",
+			"k_id": "86.4",
+			"parent_id": "86",
+			"k_level": "2",
+			"name": "物质结构综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"87": {
+		"87.1": {
+			"id": "2729",
+			"k_id": "87.1",
+			"parent_id": "87",
+			"k_level": "2",
+			"name": "化学反应速率",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"87.2": {
+			"id": "2732",
+			"k_id": "87.2",
+			"parent_id": "87",
+			"k_level": "2",
+			"name": "化学平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"87.3": {
+			"id": "2735",
+			"k_id": "87.3",
+			"parent_id": "87",
+			"k_level": "2",
+			"name": "化学反应速率和化学平衡综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"88": {
+		"88.1": {
+			"id": "2738",
+			"k_id": "88.1",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "弱电解质的电离平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.2": {
+			"id": "2742",
+			"k_id": "88.2",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "水的电离",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.3": {
+			"id": "2746",
+			"k_id": "88.3",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "酸碱中和滴定",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.4": {
+			"id": "2750",
+			"k_id": "88.4",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "盐类的水解",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.5": {
+			"id": "2755",
+			"k_id": "88.5",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "溶液中离子浓度",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.6": {
+			"id": "2757",
+			"k_id": "88.6",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "沉淀溶解平衡",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"88.7": {
+			"id": "2761",
+			"k_id": "88.7",
+			"parent_id": "88",
+			"k_level": "2",
+			"name": "电解质溶液综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"89": {
+		"89.1": {
+			"id": "2764",
+			"k_id": "89.1",
+			"parent_id": "89",
+			"k_level": "2",
+			"name": "化学电源",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"89.2": {
+			"id": "2768",
+			"k_id": "89.2",
+			"parent_id": "89",
+			"k_level": "2",
+			"name": "电解池",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"89.3": {
+			"id": "2772",
+			"k_id": "89.3",
+			"parent_id": "89",
+			"k_level": "2",
+			"name": "电化学应用",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"89.4": {
+			"id": "2778",
+			"k_id": "89.4",
+			"parent_id": "89",
+			"k_level": "2",
+			"name": "电化学基础综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"90": {
+		"90.1": {
+			"id": "2781",
+			"k_id": "90.1",
+			"parent_id": "90",
+			"k_level": "2",
+			"name": "有机化合物的组成及结构",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"90.2": {
+			"id": "2787",
+			"k_id": "90.2",
+			"parent_id": "90",
+			"k_level": "2",
+			"name": "有机化合物的性质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"90.3": {
+			"id": "2796",
+			"k_id": "90.3",
+			"parent_id": "90",
+			"k_level": "2",
+			"name": "有机物结构与性质综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"91": {
+		"91.1": {
+			"id": "2799",
+			"k_id": "91.1",
+			"parent_id": "91",
+			"k_level": "2",
+			"name": "有机推断",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"91.2": {
+			"id": "2801",
+			"k_id": "91.2",
+			"parent_id": "91",
+			"k_level": "2",
+			"name": "有机合成",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"91.3": {
+			"id": "2803",
+			"k_id": "91.3",
+			"parent_id": "91",
+			"k_level": "2",
+			"name": "有机推断与无机推断综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"92": {
+		"92.1": {
+			"id": "2806",
+			"k_id": "92.1",
+			"parent_id": "92",
+			"k_level": "2",
+			"name": "无机实验",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"92.2": {
+			"id": "2811",
+			"k_id": "92.2",
+			"parent_id": "92",
+			"k_level": "2",
+			"name": "有机实验",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"92.3": {
+			"id": "2814",
+			"k_id": "92.3",
+			"parent_id": "92",
+			"k_level": "2",
+			"name": "化学实验综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"93": {
+		"93.1": {
+			"id": "2817",
+			"k_id": "93.1",
+			"parent_id": "93",
+			"k_level": "2",
+			"name": "基本营养物质",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"93.2": {
+			"id": "2823",
+			"k_id": "93.2",
+			"parent_id": "93",
+			"k_level": "2",
+			"name": "化学工业及工艺流程",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"93.3": {
+			"id": "2829",
+			"k_id": "93.3",
+			"parent_id": "93",
+			"k_level": "2",
+			"name": "化学与生活、生产综合",
+			"subject_id": "5",
+			"subject_name": "化学",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"94": {
+		"94.1": {
+			"id": "2832",
+			"k_id": "94.1",
+			"parent_id": "94",
+			"k_level": "2",
+			"name": "组成生物体的化学成分",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"94.2": {
+			"id": "2842",
+			"k_id": "94.2",
+			"parent_id": "94",
+			"k_level": "2",
+			"name": "细胞的结构与功能",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"94.3": {
+			"id": "2850",
+			"k_id": "94.3",
+			"parent_id": "94",
+			"k_level": "2",
+			"name": "细胞代谢",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"94.4": {
+			"id": "2859",
+			"k_id": "94.4",
+			"parent_id": "94",
+			"k_level": "2",
+			"name": "细胞的生命历程",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"94.5": {
+			"id": "2869",
+			"k_id": "94.5",
+			"parent_id": "94",
+			"k_level": "2",
+			"name": "分子与细胞综合",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"95": {
+		"95.1": {
+			"id": "2872",
+			"k_id": "95.1",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "遗传的基本规律",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"95.2": {
+			"id": "2877",
+			"k_id": "95.2",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "遗传的细胞基础",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"95.3": {
+			"id": "2881",
+			"k_id": "95.3",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "遗传的分子基础",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"95.4": {
+			"id": "2888",
+			"k_id": "95.4",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "遗传变异",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"95.5": {
+			"id": "2895",
+			"k_id": "95.5",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "生物进化",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"95.6": {
+			"id": "2900",
+			"k_id": "95.6",
+			"parent_id": "95",
+			"k_level": "2",
+			"name": "遗传与进化综合",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"96": {
+		"96.1": {
+			"id": "2903",
+			"k_id": "96.1",
+			"parent_id": "96",
+			"k_level": "2",
+			"name": "植物激素",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"96.2": {
+			"id": "2909",
+			"k_id": "96.2",
+			"parent_id": "96",
+			"k_level": "2",
+			"name": "动物生命活动的调节",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"96.3": {
+			"id": "2919",
+			"k_id": "96.3",
+			"parent_id": "96",
+			"k_level": "2",
+			"name": "种群、群落、生态系统",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"96.4": {
+			"id": "2933",
+			"k_id": "96.4",
+			"parent_id": "96",
+			"k_level": "2",
+			"name": "稳态与环境综合",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"97": {
+		"97.1": {
+			"id": "2936",
+			"k_id": "97.1",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "光学显微镜操作技术",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"97.2": {
+			"id": "2940",
+			"k_id": "97.2",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "生物体内物质的分离、鉴定技术",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"97.3": {
+			"id": "2947",
+			"k_id": "97.3",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "调查",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"97.4": {
+			"id": "2950",
+			"k_id": "97.4",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "生物学研究中的科学思想和一般方法",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"97.5": {
+			"id": "2953",
+			"k_id": "97.5",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "微生物培养与利用",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"97.6": {
+			"id": "2961",
+			"k_id": "97.6",
+			"parent_id": "97",
+			"k_level": "2",
+			"name": "生物技术与实践综合",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"98": {
+		"98.1": {
+			"id": "2964",
+			"k_id": "98.1",
+			"parent_id": "98",
+			"k_level": "2",
+			"name": "基因工程",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"98.2": {
+			"id": "2971",
+			"k_id": "98.2",
+			"parent_id": "98",
+			"k_level": "2",
+			"name": "细胞工程",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"98.3": {
+			"id": "2979",
+			"k_id": "98.3",
+			"parent_id": "98",
+			"k_level": "2",
+			"name": "生态工程",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		},
+		"98.4": {
+			"id": "2983",
+			"k_id": "98.4",
+			"parent_id": "98",
+			"k_level": "2",
+			"name": "现代生物科技专题综合",
+			"subject_id": "6",
+			"subject_name": "生物",
+			"department_id": "3",
+			"depaetment_name": "高中"
+		}
+	},
+	"99": {
+		"99.1": {
+			"id": "2986",
+			"k_id": "99.1",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "字音辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.2": {
+			"id": "2987",
+			"k_id": "99.2",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "字形辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.3": {
+			"id": "2988",
+			"k_id": "99.3",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "选词填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.4": {
+			"id": "2989",
+			"k_id": "99.4",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "选句填空",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.5": {
+			"id": "2990",
+			"k_id": "99.5",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "成语辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.6": {
+			"id": "2991",
+			"k_id": "99.6",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "修辞辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.7": {
+			"id": "2992",
+			"k_id": "99.7",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "句式变换",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.8": {
+			"id": "2993",
+			"k_id": "99.8",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "扩句缩句",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.9": {
+			"id": "2994",
+			"k_id": "99.9",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "语病辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.10": {
+			"id": "2995",
+			"k_id": "99.10",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "标点运用",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"99.11": {
+			"id": "2996",
+			"k_id": "99.11",
+			"parent_id": "99",
+			"k_level": "2",
+			"name": "文学常识",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"100": {
+		"100.1": {
+			"id": "2998",
+			"k_id": "100.1",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "一词多义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.2": {
+			"id": "2999",
+			"k_id": "100.2",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "古今异义知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.3": {
+			"id": "3000",
+			"k_id": "100.3",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "词类活用知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.4": {
+			"id": "3001",
+			"k_id": "100.4",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "通假字知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.5": {
+			"id": "3002",
+			"k_id": "100.5",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用实词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.6": {
+			"id": "3003",
+			"k_id": "100.6",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用虚词知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.7": {
+			"id": "3004",
+			"k_id": "100.7",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用句式知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.8": {
+			"id": "3005",
+			"k_id": "100.8",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "整体阅读知识精讲",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.9": {
+			"id": "3006",
+			"k_id": "100.9",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "一词多义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.10": {
+			"id": "3007",
+			"k_id": "100.10",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "古今异义解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.11": {
+			"id": "3008",
+			"k_id": "100.11",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "词类活用解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.12": {
+			"id": "3009",
+			"k_id": "100.12",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "——通假字解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.13": {
+			"id": "3010",
+			"k_id": "100.13",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用实词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.14": {
+			"id": "3011",
+			"k_id": "100.14",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用虚词解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.15": {
+			"id": "3012",
+			"k_id": "100.15",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "常用句式解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"100.16": {
+			"id": "3013",
+			"k_id": "100.16",
+			"parent_id": "100",
+			"k_level": "2",
+			"name": "文意概括解题技巧",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"101": {
+		"101.1": {
+			"id": "3015",
+			"k_id": "101.1",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "文意概括",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.2": {
+			"id": "3016",
+			"k_id": "101.2",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "文意理解",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.3": {
+			"id": "3017",
+			"k_id": "101.3",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "文意推断",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.4": {
+			"id": "3018",
+			"k_id": "101.4",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "撰写标题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.5": {
+			"id": "3019",
+			"k_id": "101.5",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "主旨提炼",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.6": {
+			"id": "3020",
+			"k_id": "101.6",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "撰写标题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.7": {
+			"id": "3021",
+			"k_id": "101.7",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "文句赏析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.8": {
+			"id": "3022",
+			"k_id": "101.8",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "语句作用",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.9": {
+			"id": "3023",
+			"k_id": "101.9",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "感想体会",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.10": {
+			"id": "3024",
+			"k_id": "101.10",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "写作手法辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.11": {
+			"id": "3025",
+			"k_id": "101.11",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "主旨提炼",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.12": {
+			"id": "3026",
+			"k_id": "101.12",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "文意分析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.13": {
+			"id": "3027",
+			"k_id": "101.13",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "段落概括",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.14": {
+			"id": "3028",
+			"k_id": "101.14",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "开放性问题",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.15": {
+			"id": "3029",
+			"k_id": "101.15",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "如何快速通读全文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.16": {
+			"id": "3030",
+			"k_id": "101.16",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "如何抓住文章主干",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"101.17": {
+			"id": "3031",
+			"k_id": "101.17",
+			"parent_id": "101",
+			"k_level": "2",
+			"name": "如何把握思想感情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"102": {
+		"102.1": {
+			"id": "3033",
+			"k_id": "102.1",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "人物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.2": {
+			"id": "3034",
+			"k_id": "102.2",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "事物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.3": {
+			"id": "3035",
+			"k_id": "102.3",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "景物形象",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.4": {
+			"id": "3036",
+			"k_id": "102.4",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "全文主旨",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.5": {
+			"id": "3037",
+			"k_id": "102.5",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "思想感情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.6": {
+			"id": "3038",
+			"k_id": "102.6",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "字词辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.7": {
+			"id": "3039",
+			"k_id": "102.7",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "意境分析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.8": {
+			"id": "3040",
+			"k_id": "102.8",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "抒情手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.9": {
+			"id": "3041",
+			"k_id": "102.9",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "描写手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.10": {
+			"id": "3042",
+			"k_id": "102.10",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "修辞手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.11": {
+			"id": "3043",
+			"k_id": "102.11",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "语言特色",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.12": {
+			"id": "3044",
+			"k_id": "102.12",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "风格辨析",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.13": {
+			"id": "3045",
+			"k_id": "102.13",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "如何理解诗意",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.14": {
+			"id": "3046",
+			"k_id": "102.14",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "如何快速抓住要点",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.15": {
+			"id": "3047",
+			"k_id": "102.15",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "浪漫主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.16": {
+			"id": "3048",
+			"k_id": "102.16",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "现实主义及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.17": {
+			"id": "3049",
+			"k_id": "102.17",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "田园派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.18": {
+			"id": "3050",
+			"k_id": "102.18",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "边塞派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.19": {
+			"id": "3051",
+			"k_id": "102.19",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "公安派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.20": {
+			"id": "3052",
+			"k_id": "102.20",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "社会派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.21": {
+			"id": "3053",
+			"k_id": "102.21",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "豪放派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.22": {
+			"id": "3054",
+			"k_id": "102.22",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "婉约派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.23": {
+			"id": "3055",
+			"k_id": "102.23",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "花间派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"102.24": {
+			"id": "3056",
+			"k_id": "102.24",
+			"parent_id": "102",
+			"k_level": "2",
+			"name": "格律派及代表作家",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"103": {
+		"103.1": {
+			"id": "3058",
+			"k_id": "103.1",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "高分作文点评",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.2": {
+			"id": "3059",
+			"k_id": "103.2",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "常用句式",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.3": {
+			"id": "3060",
+			"k_id": "103.3",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "常用修辞手法",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.4": {
+			"id": "3061",
+			"k_id": "103.4",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "经典开头结尾",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.5": {
+			"id": "3062",
+			"k_id": "103.5",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "如何叙事",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.6": {
+			"id": "3063",
+			"k_id": "103.6",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "如何抒情",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.7": {
+			"id": "3064",
+			"k_id": "103.7",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "如何议论",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.8": {
+			"id": "3065",
+			"k_id": "103.8",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "命题作文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.9": {
+			"id": "3066",
+			"k_id": "103.9",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "半命题作文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"103.10": {
+			"id": "3067",
+			"k_id": "103.10",
+			"parent_id": "103",
+			"k_level": "2",
+			"name": "开放性作文",
+			"subject_id": "1",
+			"subject_name": "语文",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"104": {
+		"104.1": {
+			"id": "3069",
+			"k_id": "104.1",
+			"parent_id": "104",
+			"k_level": "2",
+			"name": "词汇",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"105": {
+		"105.1": {
+			"id": "3071",
+			"k_id": "105.1",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "实词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.2": {
+			"id": "3072",
+			"k_id": "105.2",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "虚词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.3": {
+			"id": "3073",
+			"k_id": "105.3",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "判断词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.4": {
+			"id": "3074",
+			"k_id": "105.4",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "情态动词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.5": {
+			"id": "3075",
+			"k_id": "105.5",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "感叹词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.6": {
+			"id": "3076",
+			"k_id": "105.6",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "分词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.7": {
+			"id": "3077",
+			"k_id": "105.7",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "动词不定式",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.8": {
+			"id": "3078",
+			"k_id": "105.8",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "动名词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.9": {
+			"id": "3079",
+			"k_id": "105.9",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "主语、谓语、宾语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.10": {
+			"id": "3080",
+			"k_id": "105.10",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "定语、状语",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.11": {
+			"id": "3081",
+			"k_id": "105.11",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "一般现在时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.12": {
+			"id": "3082",
+			"k_id": "105.12",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "—一般过去时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.13": {
+			"id": "3083",
+			"k_id": "105.13",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "一般将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.14": {
+			"id": "3084",
+			"k_id": "105.14",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "一般过去将来时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.15": {
+			"id": "3085",
+			"k_id": "105.15",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "现在进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.16": {
+			"id": "3086",
+			"k_id": "105.16",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "过去进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.17": {
+			"id": "3087",
+			"k_id": "105.17",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.18": {
+			"id": "3088",
+			"k_id": "105.18",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "过去将来进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.19": {
+			"id": "3089",
+			"k_id": "105.19",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "现在完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.20": {
+			"id": "3090",
+			"k_id": "105.20",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "过去完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.21": {
+			"id": "3091",
+			"k_id": "105.21",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.22": {
+			"id": "3092",
+			"k_id": "105.22",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "过去将来完成时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.23": {
+			"id": "3093",
+			"k_id": "105.23",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "现在完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.24": {
+			"id": "3094",
+			"k_id": "105.24",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "过去完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.25": {
+			"id": "3095",
+			"k_id": "105.25",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "将来完成进行时",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.26": {
+			"id": "3096",
+			"k_id": "105.26",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "虚拟语气",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.27": {
+			"id": "3097",
+			"k_id": "105.27",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "简单句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.28": {
+			"id": "3098",
+			"k_id": "105.28",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "并列句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.29": {
+			"id": "3099",
+			"k_id": "105.29",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "主语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.30": {
+			"id": "3100",
+			"k_id": "105.30",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "宾语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.31": {
+			"id": "3101",
+			"k_id": "105.31",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "表语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.32": {
+			"id": "3102",
+			"k_id": "105.32",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "同位语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.33": {
+			"id": "3103",
+			"k_id": "105.33",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "名词性that从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.34": {
+			"id": "3104",
+			"k_id": "105.34",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "名词性wh-从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.35": {
+			"id": "3105",
+			"k_id": "105.35",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "if、whether引导的名词从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.36": {
+			"id": "3106",
+			"k_id": "105.36",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "定语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.37": {
+			"id": "3107",
+			"k_id": "105.37",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "状语从句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.38": {
+			"id": "3108",
+			"k_id": "105.38",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "倒装句",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.39": {
+			"id": "3109",
+			"k_id": "105.39",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "主谓一致",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"105.40": {
+			"id": "3110",
+			"k_id": "105.40",
+			"parent_id": "105",
+			"k_level": "2",
+			"name": "独立主格",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"106": {
+		"106.1": {
+			"id": "3112",
+			"k_id": "106.1",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "记叙文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.2": {
+			"id": "3113",
+			"k_id": "106.2",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "科普知识类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.3": {
+			"id": "3114",
+			"k_id": "106.3",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "人物故事类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.4": {
+			"id": "3115",
+			"k_id": "106.4",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "社会文化类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.5": {
+			"id": "3116",
+			"k_id": "106.5",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "史地常识类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.6": {
+			"id": "3117",
+			"k_id": "106.6",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何快速阅读全文",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.7": {
+			"id": "3118",
+			"k_id": "106.7",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何提炼文章主干",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.8": {
+			"id": "3119",
+			"k_id": "106.8",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何根据上下文猜测生词",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.9": {
+			"id": "3120",
+			"k_id": "106.9",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何概括段落大意",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.10": {
+			"id": "3121",
+			"k_id": "106.10",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.11": {
+			"id": "3122",
+			"k_id": "106.11",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "如何根据文意推断",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"106.12": {
+			"id": "3123",
+			"k_id": "106.12",
+			"parent_id": "106",
+			"k_level": "2",
+			"name": "小学经典阅读理解题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"107": {
+		"107.1": {
+			"id": "3125",
+			"k_id": "107.1",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "如何根据上下文选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"107.2": {
+			"id": "3126",
+			"k_id": "107.2",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "完型填空常考搭配",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"107.3": {
+			"id": "3127",
+			"k_id": "107.3",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "完型填空常考词组",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"107.4": {
+			"id": "3128",
+			"k_id": "107.4",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "如何根据生活常识选词填空",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"107.5": {
+			"id": "3129",
+			"k_id": "107.5",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "如何把握文章主旨",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"107.6": {
+			"id": "3130",
+			"k_id": "107.6",
+			"parent_id": "107",
+			"k_level": "2",
+			"name": "小学经典完型填空题赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"108": {
+		"108.1": {
+			"id": "3132",
+			"k_id": "108.1",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "小升初高分作文赏析",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.2": {
+			"id": "3133",
+			"k_id": "108.2",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "常用句型",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.3": {
+			"id": "3134",
+			"k_id": "108.3",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "经典开头",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.4": {
+			"id": "3135",
+			"k_id": "108.4",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "经典结尾",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.5": {
+			"id": "3136",
+			"k_id": "108.5",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "常见口语的书面表达",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.6": {
+			"id": "3137",
+			"k_id": "108.6",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "看图作文审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.7": {
+			"id": "3138",
+			"k_id": "108.7",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "议论文审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.8": {
+			"id": "3139",
+			"k_id": "108.8",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "命题作文审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"108.9": {
+			"id": "3140",
+			"k_id": "108.9",
+			"parent_id": "108",
+			"k_level": "2",
+			"name": "应用文审题",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"109": {
+		"109.1": {
+			"id": "3142",
+			"k_id": "109.1",
+			"parent_id": "109",
+			"k_level": "2",
+			"name": "综合类",
+			"subject_id": "3",
+			"subject_name": "英语",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"110": {
+		"110.1": {
+			"id": "3669",
+			"k_id": "110.1",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "计算",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.2": {
+			"id": "3710",
+			"k_id": "110.2",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "数字迷",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.3": {
+			"id": "3723",
+			"k_id": "110.3",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "数列与数表",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.4": {
+			"id": "3735",
+			"k_id": "110.4",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "组合",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.5": {
+			"id": "3776",
+			"k_id": "110.5",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "代数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.6": {
+			"id": "3796",
+			"k_id": "110.6",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "应用题",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.7": {
+			"id": "3858",
+			"k_id": "110.7",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "几何",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.8": {
+			"id": "3923",
+			"k_id": "110.8",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "数论",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.9": {
+			"id": "3962",
+			"k_id": "110.9",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "趣味数学",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.10": {
+			"id": "4002",
+			"k_id": "110.10",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "数学思想",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.11": {
+			"id": "4013",
+			"k_id": "110.11",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "行程问题",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"110.12": {
+			"id": "4048",
+			"k_id": "110.12",
+			"parent_id": "110",
+			"k_level": "2",
+			"name": "杂题",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	},
+	"111": {
+		"111.1": {
+			"id": "4058",
+			"k_id": "111.1",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "计算",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"111.2": {
+			"id": "4108",
+			"k_id": "111.2",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "代数",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"111.3": {
+			"id": "4120",
+			"k_id": "111.3",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "空间与图形",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"111.4": {
+			"id": "4154",
+			"k_id": "111.4",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "统计与概率",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"111.5": {
+			"id": "4162",
+			"k_id": "111.5",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "应用类",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		},
+		"111.6": {
+			"id": "4176",
+			"k_id": "111.6",
+			"parent_id": "111",
+			"k_level": "2",
+			"name": "数学广角",
+			"subject_id": "2",
+			"subject_name": "数学",
+			"department_id": "1",
+			"depaetment_name": "小学"
+		}
+	}
+}

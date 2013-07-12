@@ -1,0 +1,40 @@
+/* ==================== view.css ===================== */
+.videos_content {overflow: hidden;width: auto;}
+.videos_pic {float: left;display: inline;width: 660px;overflow: hidden;margin-left:30px;_margin-left:20px;}
+.videos_content h1 {font-size: 14px;height: 50px;line-height: 180%;margin: 35px 0 0 30px;}
+.videos_content h1 em {font-size: 12px;font-weight: normal;}
+
+.course_list_content {float: right; display: inline; width: 280px;height: 460px; margin:0px 12px 0 0; background: #f6f6f6;border: 1px solid #e8e7e7; overflow-y: scroll;}
+.ui_course_list {border-top: 1px solid #fff;border-bottom: 1px solid #e8e7e7;padding:10px 0 ;}
+.ui_course_list dt {width:210px;margin:0 auto;height:40px;line-height: 40px;overflow: hidden;}
+.ui_course_list dd {width:210px;margin:0 auto;overflow: hidden;}
+.ui_course_list dd a.btn_say {float:left; display:inline; width: 44px;height: 24px;line-height: 24px; background-position: 0 -451px; text-align: center;margin:0 6px 10px 0;color: #333;}
+.ui_course_list dd a.current {width: 46px;background-position: 0 -407px;font-weight: bold; }
+
+#VideoPlay {width: 726px;height:408px;background: url(http://img03.xesimg.com/tem_videos_pic.png) no-repeat left 0;}
+
+/*2013-03-20 add*/
+.insert_video {width:980px;height:auto;margin:auto;overflow:hidden;padding-top: 15px; clear: both;}
+.insert_video span {float: left;margin-right: 10px;}
+.input_text {border: 1px solid #D3D3D3;line-height: 27px;color:#999;padding:0 10px;}
+.grid_item_content {width: 1000px;margin: auto;}
+
+.course_kcpic {width:1000px;margin:20px auto;overflow:hidden;clear:both;background: #f5f5f5;border: 1px solid #cdcdcd;}
+.kcpic_list {overflow: hidden;width: 205px;float: left;display:inline;margin:10px 22px;}
+.kcpic_list .pic {overflow: hidden;}
+.kcpic_list .pic img {width: 202px;height:106px;border: 1px solid #d0d0d0;padding: 1px;}
+.kcpic_list .btns {margin:10px 0;overflow: hidden;}
+.kcpic_list .btns a.save  {float:left;line-height: 20px;}
+.kcpic_list .btns a.bt_nkc_pic{float:left;display:block;width:95px;line-height: 20px;height: 20px; text-align: center;background: url(http://img03.xesimg.com/btn_95-20.jpg) no-repeat;color: #fff;margin:0 10px 0 50px;}
+/*2013-03-20 add end*/
+
+
+.insert_video h3 {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+}
+.insert_video h3 em {
+	color: #c00;
+	font-weight: 700;
+}

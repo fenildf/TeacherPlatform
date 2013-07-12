@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>创建项目---课程运营平台</title>
+	<link rel="stylesheet" type="text/css" href="http://css03.xesimg.com/page_test_edit.css" />
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.base.js"></script>
+	<script type="text/javascript" src="http://js03.xesimg.com/xes.js"></script>
+
+</head>
+
+<body>
+	<h1 class="ui_infor_title">
+		<span>添加试卷</span>
+	</h1>
+
+	<ul class="labelCon">
+		<li>
+			<label for="">试题名称</label>
+			<span>
+				<input size="" value="" type="text" class="input_text" />
+			</span>
+		</li>
+		<li>
+			<label for="">试题类型</label>
+			<span>
+				<select id="paper_type" class="ui-select-list">
+					<option class="ui-select-button" value="1">测试卷</option>
+					<option value="2">考卷</option>
+
+				</select>
+			</span>
+			<div class="paper_type_box">
+				<label for="">答题时间</label>
+				<span>
+					<input size="" value="单位为分钟" type="text" class="input_text" />
+				</span>
+				<label for="">试卷分值</label>
+				<span>
+					<input type="radio" value="1" name="subjectIds[]">
+					100
+					<input type="radio" value="1" name="subjectIds[]">
+					120
+					<input type="radio" value="1" name="subjectIds[]">
+					150
+					<input type="radio" value="1" name="subjectIds[]">
+					300
+				</span>
+			</div>
+		</li>
+		<li>
+			
+		</li>
+		<li>
+			<label for="">选择学部</label>
+			<span>
+				<select class="ui-select-list">
+					<option class="ui-select-button">年级</option>
+					<option value="小学">小学</option>
+					<option value="初中">初中</option>
+					<option value="高中">高中</option>
+
+				</select>
+			</span>
+		</li>
+
+		<li>
+			<label for="">所属学科</label>
+			<span>
+				<input type="radio" value="1" name="subjectIds[1]">
+				语文
+				<input type="radio" value="2" name="subjectIds[1]">
+				数学
+				<input type="radio" value="3" name="subjectIds[1]">
+				英语
+				<input type="radio" value="4" name="subjectIds[1]">
+				物理
+				<input type="radio" value="5" name="subjectIds[1]">
+				化学
+				<input type="radio" value="6" name="subjectIds[1]">
+				生物
+				<input type="radio" value="12" name="subjectIds[1]">
+				综合
+				<input type="radio" value="14" name="subjectIds[1]">
+				理综
+				<input type="radio" value="18" name="subjectIds[1]">
+				全科
+				<input type="radio" value="19" name="subjectIds[1]">讲座</span>
+		</li>
+		<li class="infor">
+			<label for="">试卷描述</label>
+			<span>
+				<textarea class="paper_text">试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述试卷描述
+				</textarea>
+			</span>
+
+		</li>
+		<li class="choose">
+			<div class="choose_list">
+				<span>1.</span>
+				<table>
+					<colgroup>		
+						<col width="20%">		
+						<col width="30%">		
+						<col width="50%">
+					</colgroup>
+				<tr>
+					<td>ID:10546</td>
+					<td>名称：小学语文讲座</td>
+					<td>http://www.xueersi.com/kc/1111.html</td>
+				</tr>
+
+			</table>
+			<span>
+				<a href="##">追加</a>
+				<a href="##">删除</a>
+			</span>
+			<span>
+				分值：
+				<input size="" value="" type="text" class="input_text"/>		
+			</span>
+		</div>
+		<div class="choose_list">
+			<span>2.</span>
+			<table>
+				<colgroup>		
+					<col width="20%">		
+					<col width="30%">		
+					<col width="50%">
+				</colgroup>
+			<tr>
+				<td>ID:10546</td>
+				<td>名称：小学语文讲座</td>
+				<td>http://www.xueersi.com/kc/1111.html</td>
+			</tr>
+
+		</table>
+		<span>
+			<a href="##">追加</a>
+			<a href="##">删除</a>
+		</span>
+		<span>
+			分值：
+			<input size="" value="" type="text" class="input_text"/>		
+		</span>
+		</div>
+		<div class="choose_list">
+			<span>3.</span>
+			<table>
+				<colgroup>		
+					<col width="20%">		
+					<col width="30%">		
+					<col width="50%">
+				</colgroup>
+			<tr>
+				<td>ID:10546</td>
+				<td>名称：小学语文讲座</td>
+				<td>http://www.xueersi.com/kc/1111.html</td>
+			</tr>
+
+		</table>
+		<span>
+			<a href="##">追加</a>
+			<a href="##">删除</a>
+		</span>
+		<span>
+			分值：
+			<input size="" value="" type="text" class="input_text"/>		
+		</span>
+		</div>
+		<div class="choose_list">
+			<span>4.</span>
+			<table>
+				<colgroup>		
+					<col width="20%">		
+					<col width="30%">		
+					<col width="50%">
+				</colgroup>
+			<tr>
+				<td>ID:10546</td>
+				<td>名称：小学语文讲座</td>
+				<td>http://www.xueersi.com/kc/1111.html</td>
+			</tr>
+
+		</table>
+		<span>
+			<a href="##">追加</a>
+			<a href="##">删除</a>
+		</span>
+		<span>
+			分值：
+			<input size="" value="" type="text" class="input_text"/>		
+		</span>
+		</div>
+		</li>
+
+		<li>
+			<label for="">&nbsp;</label>
+			<span>
+				<a href="test_questions.html" class="btn btn_submit">选择试题</a>
+			</span>
+			<span>
+				<a href="test_paper.html" class="btn btn_submit">保存</a>
+			</span>
+		</li>
+</ul>
+<script type="text/javascript" src="http://js03.xesimg.com/import/import.test.edit.js"></script>
+
+</body>
+
+</html>
