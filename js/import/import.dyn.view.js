@@ -3,8 +3,8 @@
  * Copyright 2012 xueersi.com All rights reserved.
  */
 
-/*
- * import.course.js
+/* 直播列表
+ * live.list.js
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
@@ -173,80 +173,6 @@ function goAnchor(name){
 	}
 }
 
-/* -------------------- widget/jquery.cookie.js --------------------- */
-
-/*
- * jQuery.cooke
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- * @example:
-    example $.cookie(’the_cookie’, ‘the_value’);
-    设置cookie的值
-    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
-    新建一个cookie 包括有效期 路径 域名等
-    example $.cookie(’the_cookie’, ‘the_value’);
-    新建cookie
-    example $.cookie(’the_cookie’, null);
-    删除一个cookie
- */
-
-jQuery.cookie = function(name, value, options) {  
-    if (typeof value != 'undefined') { // name and value given, set cookie  
-        options = options || {};  
-        if (value === null) {  
-            value = '';  
-            options.expires = -1;  
-        }  
-        var expires = '';  
-        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {  
-            var date;  
-            if (typeof options.expires == 'number') {  
-                date = new Date();  
-                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));  
-            } else {  
-                date = options.expires;  
-            }  
-            expires = '; expires=' + date.toUTCString();  
-        }  
-        var path = options.path ? '; path=' + (options.path) : '';  
-        var domain = options.domain ? '; domain=' + (options.domain) : '';  
-        var secure = options.secure ? '; secure' : '';  
-        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');  
-    } else {  
-        var cookieValue = null;  
-        if (document.cookie && document.cookie != '') {  
-            var cookies = document.cookie.split(';');  
-            for (var i = 0; i < cookies.length; i++) {  
-                var cookie = jQuery.trim(cookies[i]);  
-                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
-                    break;  
-                }  
-            }  
-        }  
-        return cookieValue;  
-    }  
-}; 
-
-function getCookie(objName) { //获取指定名称的cookie的值
-    var arrStr = document.cookie.split("; ");
-    for(var i = 0; i < arrStr.length; i++) {
-        var temp = arrStr[i].split("=");
-        if(temp[0] == objName) return unescape(temp[1]);
-    }
-}
-function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
-    var date = new Date();
-    date.setTime(date.getTime() - 10000);
-    document.cookie = name + "=a; expires=" + date.toGMTString()+"; path=/";
-    var c = getCookie(name);
-    alert(c);
-}
-
-
-
-
 /* -------------------- ui/xes.ui.tips.js --------------------- */
 /*
  * tips
@@ -320,82 +246,6 @@ var tips = tips || {};
 
 
 /* //import:ui/xes.ui.select.js// */
-
-/* -------------------- xes.ajax.js --------------------- */
-
-/*
- * xes.ajax.js
- * @update : 2012-10-05
- * @author : Marco <Marco.Pai@msn.com>
- * @version: v1.0.0
- */
-
-var xes = xes || {};
-
-xes.ajax = xes.ajax || {};
-
-(function(){
-	var a = xes.ajax;
-	a._load = $('.laodding');
-	a._bg = $('.loadding_bg');
-	a._ajax = function(url,data,sucess,error){
-		$.ajax({
-			async: true,
-			type: 'POST',
-			url : url,
-			data: data,
-			dataType: 'json',
-			jsonp : 'callback',
-			timeout: 70000,
-			complete:function(){},
-			success:function(d){
-				sucess(d);
-			},
-			error:function(){}
-		});
-	};
-	a.start = function(dom, fn){
-		$(dom).ajaxStart(function(handle){
-			if(fn){
-				fn(handle);
-			}else{
-				a._loadding('show');
-			}
-		});
-	};
-	a.stop = function(dom, fn){
-		$(dom).ajaxStop(function(handle){
-			if(fn){
-				fn(handle);
-			}else{
-				a._loadding('hide');
-			}
-		});
-	};
-	a._loadding = function(tp){
-		if(tp == 'show'){
-			a._load.show();
-			a._bg.show();
-		}else{
-			a._load.hide();
-			a._bg.hide();
-		}
-	};
-	a.sync = function(){};
-	a.get = function(){};
-	a.set = function(){};
-	a.post = function(url, data, sucess, error){
-		a._ajax(url, data, sucess, error);
-	};
-	a.getJSON = function(){};
-	a.callback = function(){};
-	a.status = function(){};
-
-})();
-
-
-xes.post = xes.ajax.post;
-
 
 /* -------------------- xes.form.js --------------------- */
 /*
@@ -768,6 +618,7 @@ var xform = xform || {};
 		 * 
 		 */
 		f.setCheckedValue =	function (cookiename,box){
+			console.log(cookiename);
 
  			// 获取已有的cookie值
  			var _cookieval = $.cookie(cookiename);
@@ -989,100 +840,90 @@ $(".ui_pages a").click(function(){
 
 
 
-/* -------------------- ui/xes.ui.dialog.js --------------------- */
+/* -------------------- widget/jquery.cookie.js --------------------- */
 
 /*
- * 弹窗	
+ * jQuery.cooke
  * @update : 2012-10-05
  * @author : Marco <Marco.Pai@msn.com>
  * @version: v1.0.0
+ * @example:
+    example $.cookie(’the_cookie’, ‘the_value’);
+    设置cookie的值
+    example $.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});
+    新建一个cookie 包括有效期 路径 域名等
+    example $.cookie(’the_cookie’, ‘the_value’);
+    新建cookie
+    example $.cookie(’the_cookie’, null);
+    删除一个cookie
  */
 
-var dialog = dialog || {};
+jQuery.cookie = function(name, value, options) {  
+    if (typeof value != 'undefined') { // name and value given, set cookie  
+        options = options || {};  
+        if (value === null) {  
+            value = '';  
+            options.expires = -1;  
+        }  
+        var expires = '';  
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {  
+            var date;  
+            if (typeof options.expires == 'number') {  
+                date = new Date();  
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));  
+            } else {  
+                date = options.expires;  
+            }  
+            expires = '; expires=' + date.toUTCString();  
+        }  
+        var path = options.path ? '; path=' + (options.path) : '';  
+        var domain = options.domain ? '; domain=' + (options.domain) : '';  
+        var secure = options.secure ? '; secure' : '';  
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');  
+    } else {  
+        var cookieValue = null;  
+        if (document.cookie && document.cookie != '') {  
+            var cookies = document.cookie.split(';');  
+            for (var i = 0; i < cookies.length; i++) {  
+                var cookie = jQuery.trim(cookies[i]);  
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
+                    break;  
+                }  
+            }  
+        }  
+        return cookieValue;  
+    }  
+}; 
 
-(function(){
-	var d = dialog;
+function getCookie(objName) { //获取指定名称的cookie的值
+    var arrStr = document.cookie.split("; ");
+    for(var i = 0; i < arrStr.length; i++) {
+        var temp = arrStr[i].split("=");
+        if(temp[0] == objName) return unescape(temp[1]);
+    }
+}
+function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+    var date = new Date();
+    date.setTime(date.getTime() - 10000);
+    document.cookie = name + "=a; expires=" + date.toGMTString()+"; path=/";
+    var c = getCookie(name);
+    alert(c);
+}
 
-	d.init = function(obj){
-		d.o.box = obj.box;
-		d.o.width = obj.width;
-		d.o.height = obj.height;
-		d.o.close = d.o.box.find('close');
-		d.id = obj.id;
-		d.close();
-		d.o.box.attr('id','xWin_'+obj.id);
-	};
-	d.position = function(ID){
-		if(ID){
-			d.box = $('#'+ID);
-		}
-		var w = d.box.width()/2;
-		var h = d.box.height()/2;
-		var winH = d.box.parents(window).height()/2;
 
-		d.box.css({
-			top: 100,
-			left: 525 - w
-		});
-	};
-	d.show = function(ID){
-		if(ID){
-			d.box = $('#'+ID);
-		}
-		// var _win = $('.xes_win:visible');
-		// if(_win.length > 0){
-		// 	_win.hide();
-		// }
-		d.hide();
-		d.box.show();
-		d.bg('show');
-		d.position();
-		d.close();
-	};
-	d.hide = function(ID){
-		if(ID){
-			// d.box = $('#'+ID);
-			$('#'+ID).hide();
-		}else{
-			// d.box = $('.xes_win:visible');
-			$('.xes_win:visible').hide();
-		}
-		// d.box.hide();
-		d.bg('hide');
-	};
-	d.close = function(){
-		d.box.find('.close').click(function(){
-			d.hide();	
-		});
-		
-	};
-	d.bg = function(tp){
-		var box = $('.xes_win_bg');
-		if(tp == 'show'){
-			var w = $(window);
-			var html = '<div class="xes_win_bg">&nbsp;</div>';
-			if(box.length == 0){
-				$('body').append(html);
-			}
-			$('.xes_win_bg').show().css({
-				width: w.width(),
-				height: w.height()
-			});
-		}else{
-			$('.xes_win_bg').hide();
-		}
-	};
-})();
 
-xes.dialog = dialog;
 
-/* =-=-=-=-=-=-=-=-=-=-=-= chapter_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=-=-=-= dyn_list.html =-=-=-=-=-=-=-=-=-=-=-=-= */
+
+// function liveCancel(liveId){
+// 	alert('已取消');
+// }
 
 $(function(){
+	
 	$('.grid_item tbody tr').hover(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
-	if($('input:text').length > 0){
-		xes.form.defaultValue();
-	}
+
 });
