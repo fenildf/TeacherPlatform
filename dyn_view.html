@@ -18,9 +18,24 @@
 		<p>新鲜事图片：<span><img src="img/newpic.jpg" alt="" /></span></p>
 		<p>新鲜事类型：<span>教育咨询</span></p>
 	</div>
-	<div class="action_item">
+	<style>
+		
+	</style>
+	<div class="action_item" id="new_comments">
 		<h4>评论管理</h4>
-		<a id="menu_2_2_2" class="open_tabs btn" title="创建直播" href="live_edit.html" >我要评论</a>
+		<a id="menu_2_2_2" class="open_tabs btn" title="创建直播" href="javascript:void(0)" >我要评论</a>
+		<div class="new_comments">
+			<h1>我要评论</h1>
+			<form action="" >
+				<p class="area_input">
+					<textarea id="shareContext" name="shareContext"></textarea>
+				</p>
+				<p class="sharebutton">
+					你可以输入100字以内
+					<a href="#" class="btnshare" id="btnshare">保存</a>
+				</p>
+			</form>
+		</div>
 	</div>
 	<div class="action_item">
 		
@@ -140,19 +155,6 @@
 				</li>
 			</ul>
 	</div>
-	<div class="new_comments">
-			<h1>我要评论</h1>
-			<form action="" >
-				<p class="area_input">
-					<textarea id="shareContext" name="shareContext"></textarea>
-				</p>
-				<p class="sharebutton">
-					你可以输入100字以内
-					<a href="#" class="btnshare" id="btnshare">保存</a>
-				</p>
-			</form>
-		</div>
-
 		<div class="new_comments">
 			<h1>提示</h1>
 			<form action="" >
@@ -167,6 +169,5 @@
 
 
 	<script type="text/javascript" src="http://js03.xesimg.com/import/import.dyn.view.js"></script>
-
 </body>
 </html>

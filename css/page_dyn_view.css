@@ -18,3 +18,11 @@
 @import url("dialog.css");
 @import url("form.css");
 @import url("teacher_new.css");
+
+.action_item{
+	overflow: hidden;
+	height: auto;
+	}
+.action_item .new_comments{
+	display: none;
+}

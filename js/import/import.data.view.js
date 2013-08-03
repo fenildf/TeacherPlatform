@@ -845,3 +845,13 @@ $(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
 });
+
+/* =-=-=-=-=-=-=-=-=-=-=-= 评论框弹出=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+$(function(){
+			var oNewComment = $("#new_comments .new_comments");
+			var oBtn = $("#new_comments .btn");
+			oBtn.click(function(){
+				oNewComment.show();
+			})
+		});
