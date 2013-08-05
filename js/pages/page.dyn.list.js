@@ -40,6 +40,13 @@ $(function(){
 	$('.grid_item tbody tr').hover(function(){
 		$(this).addClass('hover').siblings('tr').removeClass('hover');
 	});
-
+/* =-=-=-=-=-=-=-=-=-=-=-= 评论框弹出=-=-=-=-=-=-=-=-=-=-=-=-= */
 	xes.date.clock.start($('#serverTime'));
+	var oNewComment = $("#new_comments .new_comments");
+	var oBtn = $("#new_comments .btn");
+	oBtn.click(function(){
+		oNewComment.show();
+	});
 });
+
+

@@ -617,7 +617,6 @@ var xform = xform || {};
 		 * 
 		 */
 		f.setCheckedValue =	function (cookiename,box){
-			console.log(cookiename);
 
  			// 获取已有的cookie值
  			var _cookieval = $.cookie(cookiename);
