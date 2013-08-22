@@ -18,9 +18,16 @@
 		<p>新鲜事图片：<span><img src="img/newpic.jpg" alt="" /></span></p>
 		<p>新鲜事类型：<span>教育咨询</span></p>
 	</div>
-	<style>
-		
-	</style>
+	<script>
+		window.onload=function(){
+			var oBtn = $("#new_comments .btn");
+			var oNewComment=$(".action_item .new_comments");
+			//var oHigh=$("#new_comments .btn").offsetHeight;
+			oBtn.click(function(){
+				oNewComment.show().css({"position":"fixed","left":"120px"})
+			});
+		}
+	</script>
 	<div class="action_item" id="new_comments">
 		<h4>评论管理</h4>
 		<a id="menu_2_2_2" class="open_tabs btn" title="创建直播" href="javascript:void(0)" >我要评论</a>
