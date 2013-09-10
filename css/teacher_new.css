@@ -1,16 +1,18 @@
 .new_publisher{ margin-left: 15px; overflow: hidden;}
-.announcement{ width: 780px; line-height: 30px; font-size: 10px; color: #999;}
+.announcement{ width: 780px; line-height: 30px; font-size: 12px; color: #999;}
 .announcement span{ float: right;}
 .new_publisher textarea{ width: 700px; height: 100px; margin-bottom: 25px; text-align: left; padding: 10px 40px; color:#969696;  background: #f6f6f6; overflow-y: auto;
 overflow-x: hidden; }
 .new_publisher .btn{ float: none; display: inline-block; margin:0 0 15px 10px;}
-.new_publisher .btn_prev{ margin-top:90px; }
+.new_publisher .btn_prev{ margin-top:20px; }
+.new_publisher p{ line-height: 30px;}
 .new_content{ line-height: 30px; overflow: hidden; padding-bottom: 10px; border-bottom: 1px dotted #999;}
-.skin-green h4{ font-weight: bold; margin-bottom: 10px; padding-left: 10px; background: url(../img/icon_new.jpg) no-repeat left center;}
+.skin-green h4{ font-weight: bold; margin-bottom: 10px; padding-left: 10px; background: url(http://img03.xesimg.com/icon_new.jpg) no-repeat left center;}
 .new_content p{ padding-left: 10px; font-weight: bold; color: #666666;}
 .new_content p span{ font-weight: normal;}
+.new_content p span.new_con_img{ display: inline-block; *zoom:1; *display: inline; width: 960px;overflow: auto; margin-left: 72px;}
 .new_content p span img{ vertical-align: top; margin-top: 10px;}
-.action_item .btn:visited,.action_item .btn:active{ color: #999;}
+.action_item .btn:visited,.action_item .btn:active{ color: #666;}
 .new_comments{ width: 335px; overflow: hidden; font-size: 12px; color: #999; padding-bottom: 10px; border: 1px solid #dad4d4;}
 .new_comments .area_input{ margin:10px 15px; text-align: center;  }
 .new_comments .area_input textarea{ width: 305px; height: 75px; overflow-y: auto;}

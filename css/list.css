@@ -56,7 +56,7 @@
 .createbtn {display: block;overflow: hidden;float:left;color:#FFF;width:70px;height:20px;line-height:20px;background: url(http://img03.xesimg.com/create_btn.png) no-repeat; text-align: center;color: #fff;}
 
 .btn {font-weight: 500}
-.btn:visited, .btn:active {color:#FFF;font-weight: 500}
+.btn:visited, .btn:active {color:#333;font-weight: 500}
 
 .btn.btn_submit {font-weight: 700}
 .left_box {float: left;}
